@@ -1,2 +1,4 @@
 # ProyectoControlFichajes
-Proyecto 1 Movicoders
+Movicoders
+Proyecto 1: fichajes huella dactilar.
+Grupo: Mihai, Daniel, Elena, Anna
