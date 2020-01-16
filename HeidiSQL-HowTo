@@ -1,0 +1,8 @@
+Buscar en google "heidiSQL"
+en la web "https://www.heidisql.com/download.php" descargar el "Installer, 32/64 bit combined"
+Abrir el ejecutable, aceptar el acuerdo de licencia
+Seleccionar la carpeta de destino (dentro de "C:\Users\VuestroNombreUsuario", porque fuera de esa carpeta no tenéis permisos para instalar)
+Elegir si se quiere una carpeta en el menú de inicio de windows
+Seleccionar las tareas adicionales que se quieren (yo solo he puesto el control de updates y el tema oscuro)
+Finalizar la instalación y lanzar
+
