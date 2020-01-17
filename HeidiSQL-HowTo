@@ -7,10 +7,15 @@
 -Finalizar la instalación y lanzar.
 -En Xampp, iniciar el modulo Apache y MySql (click en el botón start)
 -En la página de administrador de sesiones de HeidiSQL (la que se abre cuando se lanza el programa) 
- hacer clic abajo a la izquierda en "nueva" para crear una nueva conexión, y en los campos de la derecha completar de la siguiente manera:
+ hacer clic abajo a la izquierda en "nueva" para crear una nueva conexión, darle un nombre que queréis(yo he puesto LocalHost),
+ darle al enter para que se guarde y luego en los campos de la derecha completar de la siguiente manera:
  tipo de red: MariaDB or MySQL (TCP/IP)
  Library: libmariadb.dll
  Nombre del host/IP: 127.0.0.1
  Pedir credenciales: dejar tal cual, sin poner nada
  Usuario: root
+ Contraseña: dejar vacío
+ Puerto: 3306
+ No tocar nada más y darle al abrir. 
+ 
 
