@@ -1,0 +1,21 @@
+-From the website "https://www.heidisql.com/download.php" download the "Installer, 32/64 bit combined".
+-Open the .exe file, accept the license agreement.
+-Choose the folder to install the program into(it must be inside "C:\Users\YourUserName",
+ because installation is not permitted outside of that folder).
+-Choose whether you want a folder in the start menu or not.
+-Select the additional setups you may want (I only chose the updates check and the dark theme).
+-Finish the installation process and start the program.
+-Open Xampp, start the Apache and MySql module.
+-In the sessions admin page("administrador de sesiones") that opens up when you start HeidiSQL click the bottom left button "new" to 
+ create a new connection, and give it a name you like (I put "localhost"), press enter on your pc so it gets saved and then fill in 
+ the fields on the right with this info:
+ Network type: MariaDB or MySQL (TCP/IP)
+ Library: libmariadb.dll
+ host name/IP: 127.0.0.1
+ Ask for credentials: do not select anything
+ User: root
+ Password: leave blank
+ Port: 3306
+Do not add/select anything else and click on open. 
+ 
+
