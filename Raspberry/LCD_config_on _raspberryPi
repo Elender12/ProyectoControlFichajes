@@ -1,0 +1,20 @@
+---Configure RaspberryPi for LCD display usage---
+
+-Configure I2C and Install Smbus-
+
+Enable I2C:
+Sudo raspi-config
+Select number 5: Interfacing Options and Enable it. Use Finish to complete the configuration.
+Reboot the raspberry.
+
+Type a command to check whether the I2C module is started:
+lsmod | grep i2c
+
+Install I2C-Tools:
+sudo apt-get install i2c-tools
+
+I2C device address detection:
+i2cdetect -y 1
+
+-Install Smbus Module-
+sudo apt-get install python-smbus
