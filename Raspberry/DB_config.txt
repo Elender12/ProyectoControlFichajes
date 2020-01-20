@@ -1,0 +1,50 @@
+Installation of a server and test the connection from the RaspbrerryPi
+
+(This description may change on real scenarios)
+
+For install the client:
+sudo apt-get install mariadb-client-10.0
+
+Install the server (for test purposes):
+sudo apt-get install mariadb-server
+
+Install MySQL-Connector (the driver):
+Download the Platform Independent From:
+https://dev.mysql.com/downloads/connector/python/
+
+Unzip the file, go to the new directory and type:
+sudo -H python3 setup.py install
+pip3 install mysql-connector (pip3 command mandatory using python 3.x)
+
+sudo mysql_secure_installation
+In the process change the password of root user and allow it to connect from outside.
+Choose NO for the other options except the last one (some kind of restart)
+
+##################################################################################
+### Python code for testing the connection with the server in local ###
+import mysql.connector
+
+dbconfig = {'host': "192.168.2.114",
+            'user': "root", 
+            'password': "root", 
+            'database': 'workers', #Name of the database created
+            'port': '3306', 
+            'unix_socket': '/run/mysqld/mysqld.sock'
+            }
+conn = mysql.connector.connect(**dbconfig)
+cursor = conn.cursor()
+_SQL = """select * from fingers;"""  #Select all elements from the fingers table.
+cursor.execute(_SQL)
+
+###################################################################################
+
+Bibliography:
+
+Head First Python - Chapter 7
+https://www.raspberrypi.org/forums/viewtopic.php?t=171256
+https://dev.mysql.com/downloads/connector/python/
+https://downloads.mariadb.org/mariadb/repositories/#distro=Debian&distro_release=buster--buster&mirror=ovh&version=10.4
+https://howtoraspberrypi.com/mariadb-raspbian-raspberry-pi/
+
+Solve ERROR 1698 (28000):
+https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost
