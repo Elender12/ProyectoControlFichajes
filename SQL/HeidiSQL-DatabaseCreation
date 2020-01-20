@@ -1,0 +1,96 @@
+-Start the Apache and MySQL modules on XAMPP
+-Launch HeidiSQL and open the saved connection (the one created in the installation process, that I called "localhost")
+-Once you are in, you find the list of databases on the left, and on top of it you find the name of your connection.
+-Right click on that and select "create a new.." "...database", set a name for it and accept.
+-Now the new database should appear in the list on the left.
+
+ **********************************
+ 
+TABLE1:
+-Right click on the name of the database from the menu on the left and select "create new" "table" and set a name for it ("users")
+-Below the title and comments fields you can find the columns options: click on the green button "add" and create the following columns:
+
+ 1, name: dni, data type: VARCHAR, lenght: 50, without sign(do not check), allow NULL(do not check), fill with zeros(do not check),
+   predetermined: AUTO-INCREMENT
+   Once this column it's created, right click on the number of name of it and select "create new index" and select "PRIMARY", so that
+   the dni gets set as the primary key of this table.
+  
+ 2, name: name, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check), 
+   fill with zeros(do not check), predetermined: no predetermined value
+ 
+ 3, name: password, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
+   fill with zeros(do not check), predetermined: no predetermined value
+ 
+ 4, name: contract, data type: ENUM, length: "partial","full-time", without sign(do not check), allow NULL(do not check),
+   fill with zeros(do not check), predetermined: no predetermined value
+ 
+ 5, name: fingerprint, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
+   fill with zeros(do not check), predetermined: no predetermined value
+   
+ 6, name: bossEmail, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
+   fill with zeros(do not check), predetermined: no predetermined value
+   
+ Finally, click on save.
+ 
+ **********************************
+ 
+TABLE2:
+-Right click on the name of the database from the menu on the left and select "create new" "table" and 
+  set a name for it ("clockingInRegisters")
+-Below the title and comments fields you can find the columns options: click on the green button "add" and create the following columns:
+
+ 1, name: auto-increment, data type: INT, length: 50, without sign(do not check), allow NULL(do not check), fill with zeros(do not check),
+   predetermined: AUTO-INCREMENT
+   once this column it's created, right click on the number of name of it and select "create new index" and select "PRIMARY", so that
+   this auto-increment column gets set as the primary key of this table.
+   
+ 2, name: dniUser, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
+   fill with zeros(do not check), predetermined: no predetermined value
+   Once this column it's created, select "foreign keys" from the top menu and add:
+   key name: dniUser, columns: select "dniUser", Reference table: select "users", Foreign columns: select "dni"
+   Click enter to save.
+   
+ 3, name: date, data type: DATE, length: (leave blank), without sign(do not check), allow NULL(do not check),
+    fill with zeros(do not check), predetermined: no predetermined value
+   
+ 4, name: time, data type: TIME, length: (leave blank), without sign(do not check), allow NULL(do not check),
+    fill with zeros(do not check), predetermined: no predetermined value   
+    
+ 5, name: contract, data type: ENUM, length: "entrance","exit", without sign(do not check), allow NULL(do not check),
+   fill with zeros(do not check), predetermined: no predetermined value
+   
+ Finally, click on save.
+    
+     **********************************
+ 
+TABLE3:
+-Right click on the name of the database from the menu on the left and select "create new" "table" and 
+  set a name for it ("logInfo")    
+-Below the title and comments fields you can find the columns options: click on the green button "add" and create the following columns:
+
+ 1, name: auto-increment, data type: INT, length: 50, without sign(do not check), allow NULL(do not check), fill with zeros(do not check),
+   predetermined: AUTO-INCREMENT
+   once this column it's created, right click on the number of name of it and select "create new index" and select "PRIMARY", so that
+   this auto-increment column gets set as the primary key of this table.
+   
+ 2, name: datetime, data type: DATETIME, length: (leave blank), without sign(do not check), allow NULL(do not check),
+    fill with zeros(do not check), predetermined: no predetermined value
+    
+ 3, name: who, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
+    fill with zeros(do not check), predetermined: no predetermined value
+ ******DOUBT******Should we set this as a foreign key? If so, linked to which table?
+    
+ 4, name: action, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
+    fill with zeros(do not check), predetermined: no predetermined value
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
