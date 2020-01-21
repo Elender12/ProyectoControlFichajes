@@ -11,7 +11,7 @@ TABLE1:
 -Below the title and comments fields you can find the columns options: click on the green button "add" and create the following columns:
 
  1, name: dni, data type: VARCHAR, lenght: 50, without sign(do not check), allow NULL(do not check), fill with zeros(do not check),
-   predetermined: AUTO-INCREMENT
+   predetermined: no predetermined value
    Once this column it's created, right click on the number of name of it and select "create new index" and select "PRIMARY", so that
    the dni gets set as the primary key of this table.
   
