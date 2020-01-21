@@ -1,0 +1,70 @@
+body{
+    background: url(../img/wallPaperMovicoders.jpg) no-repeat center center fixed;
+    background-size: cover;
+
+}
+
+
+
+.main-section{
+    margin: 0 auto;
+    margin-top: 85% ;
+    padding: 0%;
+    box-shadow:0px 0px 3px #848484  ;
+
+}
+
+.user-img{ 
+
+    margin-top: 20px ;
+    margin-bottom: 20px;
+
+}
+.modal-content{ /* Al panel login definimos colores y opacidad*/
+    background-color: azure;
+    opacity: .85;
+    padding: 0 20px;
+}
+
+
+.user-img img{  /* Añado sombra a la imagen y estoy redondeando los bordes box-shadow: es la sombra ;*/
+                /* Tambien decimo las dimensiones del icono que importamos desde nuestros archivos*/
+
+    width: 100px;
+    height: 100px;
+    box-shadow:0px 0px 3px #848484  ;
+    border-radius: 50%;
+
+}
+
+
+.form-group input{   /*En el panel a la hora login nos sirve para ensanchar los paneles de user y pass ademas de redondear los bordes*/
+    height: 42px;
+    font-size: 18px;
+    border:0;
+    padding-left: 54px;
+    border-radius: 5px;
+    box-shadow:0px 0px 3px #848484 
+}
+
+.form-group::before{ 
+    font-family: "Font Awesome\ 5 Free";
+    position: absolute;
+    left: 28px;
+    font-size: 22px;
+    padding-top:4px;
+}
+
+.form-group#user-group::before{ /* Se esta llamando a los imports que se hicieron en la idex con el numoer que tenemos hi f007 sirve para poner el icono en este caso en user */
+                                /*Se importa de fontawesome se puede importar de varios sitios diferentes*/
+    content: "\f2bd";
+}
+
+.form-group#contrasena-group::before{
+    content: "\f023";
+}
+
+button{
+    width: 60%;
+    margin: 5px 0 25px;
+}
