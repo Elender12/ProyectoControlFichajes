@@ -1,0 +1,149 @@
+-Start the Apache and MySQL modules on XAMPP
+-Launch HeidiSQL and open the saved connection (the one created in the installation process, that I called "localhost")
+-Once you are in, you find the list of databases on the left, and "fingerprintassistancecontrol" should appear.
+
+CALENDAR TABLE:
+Created modifying part of the code found here: https://www.brianshowalter.com/blog/calendar_tables
+
+I' ve decided to only put dates from 01/01/2020 to 31/12/2030, we can modify that later on.
+
+
+1-Click once on the name of the database "fingerprintassistancecontrol", then go to the tab "Consulta" on the right and paste this:
+
+  SELECT datediff('2030-12-31','2020-01-01');
+  
+  Run the consultation(click on the blue triangle in the menu above) and you get 4017, that is the number 
+  of days we' ll insert in the table.
+
+2-Then delete that sentence and paste this:
+
+  CREATE TABLE calendar_table (
+    dt DATE NOT NULL PRIMARY KEY,
+    y SMALLINT NULL,
+    m tinyint NULL,
+    d tinyint NULL,
+    monthName VARCHAR(9) NULL,
+    dayName VARCHAR(9) NULL,
+    w tinyint NULL,
+    isWeekday BINARY(1) NULL,
+    isHoliday BINARY(1) NULL,
+    holidayDescr VARCHAR(32) NULL,
+  );
+
+  Run the consultation.
+  
+  This way we are creating a table with these fields:
+  dt= date
+  y= year
+  m= month
+  d= day
+  monthName
+  dayName
+  w= week
+  isWeekday= when it's a working day
+  isHoliday
+  holidayDescr= a brief description of which holiday it is
+
+  After that's done, we need to populate that new table with one record for each date 
+  in the desired range (2030-12-31','2020-01-01'= 4017 days). 
+
+3-Delete the previous sentences and paste this:
+
+  CREATE TABLE ints ( i tinyint );
+
+  INSERT INTO ints VALUES (0),(1),(2),(3),(4),(5),(6),(7),(8),(9);
+
+  INSERT INTO calendar_table (dt)
+  SELECT DATE('2020-01-01') + INTERVAL a.i*10000 + b.i*1000 + c.i*100 + d.i*10 + e.i DAY
+  FROM ints a JOIN ints b JOIN ints c JOIN ints d JOIN ints e
+  WHERE (a.i*10000 + b.i*1000 + c.i*100 + d.i*10 + e.i) <= 4017
+  ORDER BY 1;
+  
+   Run the consultation.
+
+  ******I honestly don' t understand very well why it's creating another table (the "ints" one) to help fill in the calendar one...
+  ******Also, should we keep this "ints" table after the calendar one has been created or can we delete it??
+  
+  Now that the table is populated with dates, we're ready to set the other fields to appropriate values.
+  The following SQL sentence will mark which dates are weekends as well as fill in the year, month, day,
+   month name, day name and week number fields.
+   
+4-Delete the previous sentences and paste this:
+
+  UPDATE calendar_table
+  SET isWeekday = CASE WHEN dayofweek(dt) IN (1,7) THEN 0 ELSE 1 END,
+    isHoliday = 0,
+    y = YEAR(dt),
+    m = MONTH(dt),
+    d = dayofmonth(dt),
+    monthname = monthname(dt),
+    dayname = dayname(dt),
+    w = week(dt),
+    holidayDescr = '';
+    
+    Run the consultation.
+ 
+ 5-Now we have to add the spanish holidays that fall on the same date every year: 
+   01/01, 06/01, 01/05, 15/08, 01/11, 06/12, 08/12, 25/12.
+   And the Aragón-only holidays: 23/04
+   And also the Zaragoza-only holidays: 29/01 and 05/03
+   
+   Delete the previous sentences and paste this, changing the X parts with the info regarding each specific holiday:
+   
+   UPDATE calendar_table SET isHoliday = 1, holidayDescr = 'XXXXX' WHERE m = X AND d = X;
+   
+   So, for example, to add christmas day:
+   UPDATE calendar_table SET isHoliday = 1, holidayDescr = 'christmas' WHERE m = 12 AND d = 25;
+   
+   You can prepare all the sentences one below the other and then execute all of them altogether just once.
+   
+   ******PENDING: inserting Huesca-only holidays and adding a field to the user table to specify whether they belong to
+   ***************the Zaragoza or Huesca office, if it's feasible...
+   
+   
+   Now the "fun" part: since I didn't understand how the guy on the webpage I was consulting was coding the situations 
+   where a holiday falls on a weekend, and also easter, that falls on a different date each year, I hardcoded them all
+   for each year from 2020 to 2030...
+   Nothing major, I just made a list of update sentences with different info depending on the year.
+   
+   For example I wrote "moved holiday" for those situations where you get the monday free because the holiday falls on a sunday:
+   
+   UPDATE calendar_table SET isHoliday = 1, holidayDescr = 'moved holiday' WHERE y = 2020 AND m = 11 AND d = 2;
+   UPDATE calendar_table SET isHoliday = 1, holidayDescr = 'moved holiday' WHERE y = 2020 AND m = 12 AND d = 7;
+   UPDATE calendar_table SET isHoliday = 1, holidayDescr = 'moved holiday' WHERE y = 2021 AND m = 8 AND d = 16;
+  
+   For easter days I did the same:
+   UPDATE calendar_table SET isHoliday = 1, holidayDescr = 'jueves santo' WHERE y = 2020 AND m = 4 AND d = 9;
+   UPDATE calendar_table SET isHoliday = 1, holidayDescr = 'viernes santo' WHERE y = 2020 AND m = 4 AND d = 10;
+   UPDATE calendar_table SET isHoliday = 1, holidayDescr = 'easter' WHERE y = 2020 AND m = 4 AND d = 12;
+   
+   
+    ----> Always remember to run the consultation/execute it so that the changes are made!
+    
+    To finally see the result of all your work right click on the name of the database("fingerprintassistancecontrol")
+    from the menu on the left and select refresh(recargar), or press F5.
+    The same procedure is valid if you only want to refresh a single table, just right click on the name 
+    of the table instead of the name of the database.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
