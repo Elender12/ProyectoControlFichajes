@@ -29,8 +29,13 @@ TABLE1:
    
  6, name: bossEmail, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
    fill with zeros(do not check), predetermined: no predetermined value
-   
+ 
+ 7, name: admin, data type: BINARY, lenght: 1, without sign(do not check), allow NULL(do not check),
+   fill with zeros(do not check), predetermined: '0'
+ 
  Finally, click on save.
+ 
+ (Table hardcoded with some values, to be able to test it)
  
  **********************************
  
@@ -56,12 +61,14 @@ TABLE2:
  4, name: time, data type: TIME, length: (leave blank), without sign(do not check), allow NULL(do not check),
     fill with zeros(do not check), predetermined: no predetermined value   
     
- 5, name: contract, data type: ENUM, length: "entrance","exit", without sign(do not check), allow NULL(do not check),
+ 5, name: type, data type: ENUM, length: "entrance","exit", without sign(do not check), allow NULL(do not check),
    fill with zeros(do not check), predetermined: no predetermined value
    
  Finally, click on save.
     
-     **********************************
+ (Table hardcoded with some values, to be able to test it)
+ 
+ **********************************
  
 TABLE3:
 -Right click on the name of the database from the menu on the left and select "create new" "table" and 
@@ -74,7 +81,7 @@ TABLE3:
    this auto-increment column gets set as the primary key of this table.
    
  2, name: datetime, data type: DATETIME, length: (leave blank), without sign(do not check), allow NULL(do not check),
-    fill with zeros(do not check), predetermined: no predetermined value
+    fill with zeros(do not check), predetermined: current_timestamp()
     
  3, name: who, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
     fill with zeros(do not check), predetermined: no predetermined value
@@ -83,7 +90,7 @@ TABLE3:
  4, name: action, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
     fill with zeros(do not check), predetermined: no predetermined value
    
-   
+ Finally, click on save.
    
    
    
