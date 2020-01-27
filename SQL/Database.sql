@@ -4121,7 +4121,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `contract` enum('partial','full-time') NOT NULL,
   `fingerprint` varchar(50) NOT NULL,
   `bossEmail` varchar(50) NOT NULL,
-  `admin` enum('Admin','Worker') NOT NULL DEFAULT 'Worker',
+  `admin` enum('admin','worker') NOT NULL DEFAULT 'worker',
   PRIMARY KEY (`dni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -4131,7 +4131,7 @@ REPLACE INTO `users` (`dni`, `name`, `password`, `contract`, `fingerprint`, `bos
 	('K8463538L', 'Dani', '5678movi', 'full-time', '', 'boss@email.com', ''),
 	('X345678I', 'Elena', 'movi4321', 'partial', '', 'boss@email.com', ''),
 	('Y3423283H', 'Mihai', '45798mov', 'full-time', '', 'boss@email.com', ''),
-	('Y4588344X', 'Boss', 'superboss', 'full-time', '', 'boss@email.com', 'Admin'),
+	('Y4588344X', 'Boss', 'superboss', 'full-time', '', 'boss@email.com', 'admin'),
 	('Y5277211J', 'Anna', 'movi1234', 'partial', '', 'boss@email.com', '');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
