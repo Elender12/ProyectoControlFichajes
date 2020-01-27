@@ -4106,7 +4106,9 @@ CREATE TABLE IF NOT EXISTS `loginfo` (
   `datetime` datetime NOT NULL DEFAULT current_timestamp(),
   `who` varchar(50) NOT NULL,
   `action` varchar(50) NOT NULL,
-  PRIMARY KEY (`auto-increment`)
+  PRIMARY KEY (`auto-increment`),
+  KEY `who` (`who`),
+  CONSTRAINT `who` FOREIGN KEY (`who`) REFERENCES `users` (`dni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Volcando datos para la tabla fingerprintassistancecontrol.loginfo: ~0 rows (aproximadamente)
