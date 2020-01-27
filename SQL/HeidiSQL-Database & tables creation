@@ -85,7 +85,9 @@ TABLE3: logInfo
     
  3, name: who, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
     fill with zeros(do not check), predetermined: no predetermined value
- ******DOUBT******Should we set this as a foreign key? If so, linked to which table?
+    Once this column it's created, select "foreign keys" from the top menu and add:
+    key name: who, columns: select "who", Reference table: select "users", Foreign columns: select "dni"
+    Click enter to save.
     
  4, name: action, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
     fill with zeros(do not check), predetermined: no predetermined value
