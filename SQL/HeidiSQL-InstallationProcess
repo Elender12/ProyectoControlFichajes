@@ -14,7 +14,7 @@
  host name/IP: 127.0.0.1
  Ask for credentials: do not select anything
  User: root
- Password: leave blank
+ Password: insert your phpMyAdmin password, if you have it.
  Port: 3306
 Do not add/select anything else and click on open. 
  
