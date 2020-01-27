@@ -4121,18 +4121,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   `contract` enum('partial','full-time') NOT NULL,
   `fingerprint` varchar(50) NOT NULL,
   `bossEmail` varchar(50) NOT NULL,
-  `admin` binary(1) NOT NULL DEFAULT '0',
+  `admin` enum('Admin','Worker') NOT NULL DEFAULT 'Worker',
   PRIMARY KEY (`dni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla fingerprintassistancecontrol.users: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla fingerprintassistancecontrol.users: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 REPLACE INTO `users` (`dni`, `name`, `password`, `contract`, `fingerprint`, `bossEmail`, `admin`) VALUES
-	('K8463538L', 'Dani', '5678movi', 'full-time', '', 'boss@email.com', _binary 0x30),
-	('X345678I', 'Elena', 'movi4321', 'partial', '', 'boss@email.com', _binary 0x30),
-	('Y3423283H', 'Mihai', '45798mov', 'full-time', '', 'boss@email.com', _binary 0x30),
-	('Y4588344X', 'Boss', 'superboss', 'full-time', '', 'boss@email.com', _binary 0x31),
-	('Y5277211J', 'Anna', 'movi1234', 'partial', '', 'boss@email.com', _binary 0x30);
+	('K8463538L', 'Dani', '5678movi', 'full-time', '', 'boss@email.com', ''),
+	('X345678I', 'Elena', 'movi4321', 'partial', '', 'boss@email.com', ''),
+	('Y3423283H', 'Mihai', '45798mov', 'full-time', '', 'boss@email.com', ''),
+	('Y4588344X', 'Boss', 'superboss', 'full-time', '', 'boss@email.com', 'Admin'),
+	('Y5277211J', 'Anna', 'movi1234', 'partial', '', 'boss@email.com', '');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Volcando estructura para tabla fingerprintassistancecontrol.usersholidays
