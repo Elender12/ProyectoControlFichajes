@@ -4056,7 +4056,7 @@ REPLACE INTO `calendar_table` (`dt`, `y`, `m`, `d`, `monthname`, `dayname`, `w`,
 
 -- Volcando estructura para tabla fingerprintassistancecontrol.clokinginregisters
 CREATE TABLE IF NOT EXISTS `clokinginregisters` (
-  `auto-increment` int(11) NOT NULL DEFAULT 0,
+  `auto-increment` int(11) NOT NULL AUTO_INCREMENT,
   `dniUser` varchar(50) NOT NULL,
   `date` date NOT NULL DEFAULT curdate(),
   `time` time NOT NULL DEFAULT curtime(),
@@ -4064,7 +4064,7 @@ CREATE TABLE IF NOT EXISTS `clokinginregisters` (
   PRIMARY KEY (`auto-increment`),
   KEY `dniUser` (`dniUser`),
   CONSTRAINT `dniUser` FOREIGN KEY (`dniUser`) REFERENCES `users` (`dni`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 -- Volcando datos para la tabla fingerprintassistancecontrol.clokinginregisters: ~9 rows (aproximadamente)
 /*!40000 ALTER TABLE `clokinginregisters` DISABLE KEYS */;
@@ -4102,7 +4102,7 @@ REPLACE INTO `ints` (`i`) VALUES
 
 -- Volcando estructura para tabla fingerprintassistancecontrol.loginfo
 CREATE TABLE IF NOT EXISTS `loginfo` (
-  `auto-increment` int(11) NOT NULL DEFAULT 0,
+  `auto-increment` int(11) NOT NULL AUTO_INCREMENT,
   `datetime` datetime NOT NULL DEFAULT current_timestamp(),
   `who` varchar(50) NOT NULL,
   `action` varchar(50) NOT NULL,
@@ -4137,7 +4137,7 @@ REPLACE INTO `users` (`dni`, `name`, `password`, `contract`, `fingerprint`, `bos
 
 -- Volcando estructura para tabla fingerprintassistancecontrol.usersholidays
 CREATE TABLE IF NOT EXISTS `usersholidays` (
-  `auto-increment` int(11) NOT NULL DEFAULT 0,
+  `auto-increment` int(11) NOT NULL AUTO_INCREMENT,
   `userDni` varchar(50) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`auto-increment`),
@@ -4145,12 +4145,12 @@ CREATE TABLE IF NOT EXISTS `usersholidays` (
   KEY `userDni` (`userDni`),
   CONSTRAINT `date` FOREIGN KEY (`date`) REFERENCES `calendar_table` (`dt`),
   CONSTRAINT `userDni` FOREIGN KEY (`userDni`) REFERENCES `users` (`dni`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla fingerprintassistancecontrol.usersholidays: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla fingerprintassistancecontrol.usersholidays: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `usersholidays` DISABLE KEYS */;
 REPLACE INTO `usersholidays` (`auto-increment`, `userDni`, `date`) VALUES
-	(0, 'Y5277211J', '2020-01-30');
+	(3, 'Y5277211J', '2020-01-30');
 /*!40000 ALTER TABLE `usersholidays` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
