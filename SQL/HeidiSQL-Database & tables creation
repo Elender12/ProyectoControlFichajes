@@ -6,7 +6,7 @@
 
  **********************************
  
-TABLE1:
+TABLE1: users
 -Right click on the name of the database from the menu on the left and select "create new" "table" and set a name for it ("users")
 -Below the title and comments fields you can find the columns options: click on the green button "add" and create the following columns:
 
@@ -30,8 +30,8 @@ TABLE1:
  6, name: bossEmail, data type: VARCHAR, length: 50, without sign(do not check), allow NULL(do not check),
    fill with zeros(do not check), predetermined: no predetermined value
  
- 7, name: admin, data type: BINARY, lenght: 1, without sign(do not check), allow NULL(do not check),
-   fill with zeros(do not check), predetermined: '0'
+ 7, name: admin, data type: ENUM, lenght: 'Admin','Worker', without sign(do not check), allow NULL(do not check),
+   fill with zeros(do not check), predetermined: 'Worker'
  
  Finally, click on save.
  
@@ -39,7 +39,7 @@ TABLE1:
  
  **********************************
  
-TABLE2:
+TABLE2: clockingInRegisters
 -Right click on the name of the database from the menu on the left and select "create new" "table" and 
   set a name for it ("clockingInRegisters")
 -Below the title and comments fields you can find the columns options: click on the green button "add" and create the following columns:
@@ -70,7 +70,7 @@ TABLE2:
  
  **********************************
  
-TABLE3:
+TABLE3: logInfo
 -Right click on the name of the database from the menu on the left and select "create new" "table" and 
   set a name for it ("logInfo")    
 -Below the title and comments fields you can find the columns options: click on the green button "add" and create the following columns:
