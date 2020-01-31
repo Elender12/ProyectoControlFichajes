@@ -1,6 +1,7 @@
 import tkinter as tk
 import model.employee as emp
 import threading
+import re
 
 from . import finger_view as fv
 from . import error_popup as ep
@@ -46,6 +47,27 @@ class GUI_controller():
                 and table[int(dni)%23] == dig_control
         return False
 
+    def validateEmail(self, email):
+
+        '''Regular Expresion explanation:
+        ^ = Start string
+        \w = word and number characters
+        \. = any character
+        +, ?, * = repetition qualifiers
+
+        For more details:
+        https://docs.python.org/3/library/re.html
+
+        '''
+        regex = r'^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
+        
+        if(re.search(regex,email)):
+            return True 
+          
+        else:  
+            return False
+
+
     def create_employee(self, user_form):
 
         dni = user_form.dni_TF.get()
@@ -61,8 +83,8 @@ class GUI_controller():
         elif not self.validateDNI(dni):
             self.create_error_frame('Invalid DNI')
 
-        #elif incorrect dni, incorrect mail, incorrect name....
-            #ERROR
+        elif not self.validateDNI(dni):
+            self.create_error_frame('Invalid Email')
 
         #elif user_form.dni_TF.get() == dni on DB:
             #ERROR
