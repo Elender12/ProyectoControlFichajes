@@ -6,6 +6,7 @@ import time
 
 from . import finger_view as fv
 from . import error_popup as ep
+from . import info_popup as ip
 from . import initial_view as iv
 
 import fingerprint_module.enroll_worker as ew
@@ -19,6 +20,7 @@ class GUI_controller():
         self.parent = None
         self.view = None
         self.init_view = None
+        self.delete_view = None
         self.template_number = -1
 
     def finger_print_thread(self):
@@ -36,6 +38,14 @@ class GUI_controller():
         error = ep.Error(error_window, text)
         error.pack()
         error_window.mainloop()
+
+    def create_info_frame(self, text):
+        info_window = tk.Tk()
+        info_window.title("STATUS")
+        info_window.geometry('400x250+400+300')
+        info = ip.Info(info_window, text)
+        info.pack()
+        info_window.mainloop()
 
     def validateDNI(self, dni):
         table = "TRWAGMYFPDXBNJZSQVHLCKE"
@@ -134,6 +144,7 @@ class GUI_controller():
 
 
     def delete_employee(self, delete_view):
+        self.delete_view = delete_view
         dni = delete_view.dni_TF.get()
         #if dni == dni on DB: check for template number
         self.template_number = 0 ##Change for the real number
@@ -144,13 +155,7 @@ class GUI_controller():
     def remove_from_DB(self, template_number):
         #remove the user from DB using the template number
 
-        time.sleep(2)
         self.init_view = iv.InitialFrame(self.parent)
-        self.view.destroy()
+        self.delete_view.destroy()
         self.init_view.pack()
-
-        
-
-
-    
         

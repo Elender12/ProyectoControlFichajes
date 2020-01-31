@@ -23,10 +23,10 @@ class DeleteUser(tk.Frame):
         self.dni_TF = ttk.Entry(self, font=("Courier", 14))
         self.dni_TF.grid(row=1, column = 1, padx = 20, pady = 10)
 
-        self.statusText = StringVar()
+        '''self.statusText = StringVar()
         self.statusText.set("Status: OK")
         self.status_lbl = ttk.Label(self, textvariable=self.statusText, width=40, font=("Courier", 12))
-        self.status_lbl.grid(row=2, column = 0, padx = 10, pady = 12)
+        self.status_lbl.grid(row=2, column = 0, padx = 10, pady = 12)'''
 
         self.submit_button = tk.Button(self, text="Delete", width = 10, font=("Courier", 14), command = lambda: controller.delete_employee(self))
         self.submit_button.grid(row=8, column=3, sticky = 'W', padx = 20, pady = 10)

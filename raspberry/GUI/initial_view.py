@@ -23,7 +23,7 @@ class InitialFrame(tk.Frame):
         ##Add Buttons:
         add_worker_button = tk.Button(self, text="New Employee", height= 2, width = 15, command = self.action_performed_button_new)  # add --> command = to call a method for the next step
         add_worker_button.grid(row=1, column=0, sticky = 'W', pady = 2)
-        delete_worker_button = tk.Button(self, text="Detele Employee", height= 2, width = 15)  # add --> command = to call a method for the next step
+        delete_worker_button = tk.Button(self, text="Detele Employee", height= 2, width = 15, command = self.action_performed_button_del)  # add --> command = to call a method for the next step
         delete_worker_button.grid(row=1,column=0, sticky = 'E', pady = 2)
 
         ##Load image:

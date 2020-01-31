@@ -30,9 +30,11 @@ class FPModuleDelete():
         ## Tries to delete the template of the finger
         try:
             positionNumber = int(self.controller.template_number)
-            self.controller.remove_from_DB(positionNumber)
+            
 
             if ( f.deleteTemplate(positionNumber) == True ):
+                self.controller.create_info_frame('Fingerprint Deleted')
+                self.controller.remove_from_DB(positionNumber)
                 print('Template deleted!')
 
         except Exception as e:
