@@ -9,6 +9,7 @@ from . import error_popup as ep
 from . import initial_view as iv
 
 import fingerprint_module.enroll_worker as ew
+import fingerprint_module.delete_worker as dw
 
 class GUI_controller():
 
@@ -18,10 +19,15 @@ class GUI_controller():
         self.parent = None
         self.view = None
         self.init_view = None
+        self.template_number = -1
 
     def finger_print_thread(self):
         self.enroll = ew.FPModule(self)
         self.enroll.enroll_worker()
+
+    def finger_print_delete_thread(self):
+        self.delete = dw.FPModuleDelete(self)
+        self.delete.delete_worker()
 
     def create_error_frame(self, text):
         error_window = tk.Tk()
@@ -91,13 +97,15 @@ class GUI_controller():
         elif not self.validateEmail(bossmail):
             self.create_error_frame('Invalid Email')
 
-        #elif user_form.dni_TF.get() == dni on DB:
+        #elif dni == dni on DB:
             #ERROR
 
         else:
 
             self.employee = emp.Employee(name, dni, paswsd, contract, bossmail, rol)
+
             self.parent = user_form.parent
+
             self.view = fv.FPView(self.parent)
             user_form.destroy()
             self.view.pack()
@@ -114,7 +122,7 @@ class GUI_controller():
                 
             #if DB doesnt work: delete template from device and ERROR
             #else: #new Employee on DB and return main window
-            
+
             time.sleep(2)
             self.init_view = iv.InitialFrame(self.parent)
             self.view.destroy()
@@ -124,6 +132,25 @@ class GUI_controller():
         else:
             self.create_error_frame("Can't create Employee")
 
-    
+
+    def delete_employee(self, delete_view):
+        dni = delete_view.dni_TF.get()
+        #if dni == dni on DB: check for template number
+        self.template_number = 0 ##Change for the real number
+
+        FPDeletethread = threading.Thread(target=self.finger_print_delete_thread)
+        FPDeletethread.start()
+
+    def remove_from_DB(self, template_number):
+        #remove the user from DB using the template number
+
+        time.sleep(2)
+        self.init_view = iv.InitialFrame(self.parent)
+        self.view.destroy()
+        self.init_view.pack()
+
+        
+
+
     
         
