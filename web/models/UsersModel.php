@@ -36,7 +36,7 @@ class UsersModel extends Model{
                         //executes  the query
                         $statement = $db->query($query);
                         $data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
-                        echo $data;
+                        //echo $data;
                         require "views/user/index.php";
                     }else {
                         //it's an admin and calls the view
