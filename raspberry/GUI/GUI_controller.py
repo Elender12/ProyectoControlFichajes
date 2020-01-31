@@ -2,9 +2,12 @@ import tkinter as tk
 import model.employee as emp
 import threading
 import re
+import time
 
 from . import finger_view as fv
 from . import error_popup as ep
+from . import initial_view as iv
+
 import fingerprint_module.enroll_worker as ew
 
 class GUI_controller():
@@ -12,6 +15,9 @@ class GUI_controller():
     def __init__(self):
         self.finger_position = -1
         self.employee = None
+        self.parent = None
+        self.view = None
+        self.init_view = None
 
     def finger_print_thread(self):
         self.enroll = ew.FPModule(self)
@@ -49,16 +55,15 @@ class GUI_controller():
 
     def validateEmail(self, email):
 
-        '''Regular Expresion explanation:
-        ^ = Start string
-        \w = word and number characters
-        \. = any character
-        +, ?, * = repetition qualifiers
+        ### Regular Expresion explanation: ###
+        ## ^ = Start string
+        ## \w = word and number characters
+        ## \. = any character
+        ## +, ?, * = repetition qualifiers
 
-        For more details:
-        https://docs.python.org/3/library/re.html
+        ## For more details:
+        ## https://docs.python.org/3/library/re.html
 
-        '''
         regex = r'^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
         
         if(re.search(regex,email)):
@@ -83,31 +88,41 @@ class GUI_controller():
         elif not self.validateDNI(dni):
             self.create_error_frame('Invalid DNI')
 
-        elif not self.validateDNI(dni):
+        elif not self.validateEmail(bossmail):
             self.create_error_frame('Invalid Email')
 
         #elif user_form.dni_TF.get() == dni on DB:
             #ERROR
 
         else:
+
             self.employee = emp.Employee(name, dni, paswsd, contract, bossmail, rol)
-            
-            self.view = fv.FPView(user_form.parent)
+            self.parent = user_form.parent
+            self.view = fv.FPView(self.parent)
             user_form.destroy()
             self.view.pack()
 
             FPthread = threading.Thread(target=self.finger_print_thread)
             FPthread.start()
 
-            if self.finger_position != -1:
-                self.employee.fingerprint = self.finger_position
-                
-                
-                #if DB doesnt work: delete template from device and ERROR
-                #else: #new Employee on DB
+            
+    def employee_to_DB(self):
 
-            else:
-                self.create_error_frame("Can't create Employee")
+        if self.finger_position != -1:
+            self.employee.fingerprint = self.finger_position
+                
+                
+            #if DB doesnt work: delete template from device and ERROR
+            #else: #new Employee on DB and return main window
+            
+            time.sleep(2)
+            self.init_view = iv.InitialFrame(self.parent)
+            self.view.destroy()
+            self.init_view.pack()
+
+
+        else:
+            self.create_error_frame("Can't create Employee")
 
     
     
