@@ -1,0 +1,266 @@
+
+
+@import "https://fonts.googleapis.com/css?family=Poppins:700";  /*Pongo la fuente 700 de poppins me gusta mas como se ve las palabras etc*/
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+#navbarSupportedContent{
+    /*PENDIENTE DE EDIT*/
+}
+
+
+#cnt-fichaje{
+ 
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#btn-modal-user{
+ /*PENDIENTE DE EDIT */
+}
+
+#PanelModal{
+    width: 100%;
+    margin: 1px 0 25px;
+}
+
+.navbar { /*Estilo de la Barra Superior donde se encuentra el menu y los emoticonos*/
+    padding: 15px 10px;
+    bottom: 35px;
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px #0f407a;
+
+
+}
+#sidebarCollapse{ /*BOTON MENU CON DISEÑO*/
+    padding: 10px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px #0f407a;
+}
+#datos-centrados{
+   text-align: center;
+}
+#nombre-centrados {
+text-align: center;
+font-family: 'Poppins', sans-serif;
+font-size: 2em;
+font-weight: 700;
+line-height: 1.7em;
+color:#0f407a;
+
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+#example-date-input{ /*FILTRO 1 CON SU EDICION*/
+    right:  25px;
+    position: relative;
+    top: 0.5em;
+    height: 40px;
+    font-size: 12px;
+    border:0;
+    padding-left: 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #33FFAF;
+}
+#example-date-input1{/*FILTRO 2 CON SU EDICION*/
+    right:  25px;
+    position: relative;
+    top: 0.5em;
+    height: 40px;
+    font-size: 12px;
+    border:0;
+    padding-left: 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #33FFAF;
+}
+#btn-outline-light{ /*BOTON CON SU EDICION*/
+    left:  40px;
+    position:relative;
+    width: 60%;
+    margin: 5px 0 25px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #33FFAF;
+
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* 
+   EL STILO DEL SIDEBAR
+ */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #0f407a;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0f407a;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(113, 129, 194);;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a { /* SEPARACION ENTRE LAS PARTES*/
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover { /*COLOR CUANDO PONEMOS EL RATON ENCIMA*/
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #0f407a;
+}
+
+a[data-toggle="collapse"] {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a { /* BOTONES DESPEGABLES COMO SE MUESTRAN Y EL COLOR */
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #0f407a;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+#content {
+    width: calc(100% - 250px);
+    padding: 40px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+#content.active {
+    width: 100%;
+}
+
+.pane--table2 {
+    width: 400px;
+    overflow-x: scroll;
+  }
+  .pane--table2 th, .pane--table2 td {
+    width: auto;
+    min-width: 160px;
+  }
+  .pane--table2 tbody {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: block;
+    height: 200px;
+  }
+  .pane--table2 thead {
+      display: table-row;
+  }
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+        
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - 250px);
+    }
+    #sidebarCollapse span {
+        display: none;
+        
+    }
+}
