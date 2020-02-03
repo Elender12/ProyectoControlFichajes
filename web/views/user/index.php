@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -36,13 +37,15 @@
 
 </head>
 <body>
-
+  <!-- php sessions -->
+  <?php $_SESSION["worker"] = $_POST["worker"]; ?> 
     <div class="wrapper">
         <!-- Sidebar Con todas sus partes  -->
         <nav id="sidebar">
             <div class="sidebar-header">
                
                 <h3>Movicoders</h3>
+              
             </div>
 
             <ul class="list-unstyled components">
@@ -183,14 +186,16 @@
                                 </thead>
                                 <tbody>
                                   <tr>
+                               
                                     <th scope="row">1</th>
                                     <td>Mark</td>
                                     <td>Otto</td>
                                     <td>@mdo</td>
                                   </tr>
+                                 
                                   <tr>
                                     <th scope="row">2</th>
-                                    <td>Jacob</td>
+                                    <td >Jacob</td>
                                     <td>Thornton</td>
                                     <td>@fat</td>
                                   </tr>
@@ -219,6 +224,7 @@
                  
                   </tr>
                 </thead>
+
                 <tbody>
                   <tr>
                       <!--BOTON MODAL -->
@@ -227,22 +233,25 @@
                       id="btn-modal-user" class="btn btn-outline-dark">
                       <i class ="far fa-address-card"></i> </i></button></th>
                     </th>
-                      <td>dafgsg</td>
-                      <td>dsfsfsfsdfsdfsf</td>
-                      <td>fsfsdf34321424</td>
-                    </tr>
-                  
-                       
+
                    
+                      <td>dato0</td>
+                      <td>dato1</td>
+                      <td>dato2</td>
+               
+                    </tr>
+               
                     <td></td>
                     <td></td>
                     <td></td>
                   </tr>
                   <tr>
+                
                     <th scope="row">2</th>
                     <td></td>
                     <td></td>
                     <td></td>
+                
                   </tr>
                   <tr>
                     <th scope="row">3</th>
@@ -250,6 +259,15 @@
                     <td></td>
                     <td></td>
                   </tr>
+              
+                  
+               <?php for ($i=0; $i< count($data); $i++) {
+                echo "<tr><td>".$data[$i]->date."</td><td>".$data[$i]->time."</td><td><br></tr>";
+              
+             
+            }?>
+            
+
                 </tbody>
               </table>
             <h2></h2>

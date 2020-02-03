@@ -21,10 +21,8 @@ class LoginController extends Controller{
         echo $result;
     }
     function showData(){
-        echo"<p>Gelou from showData</p>";
+  
         $worker=$_SESSION["worker"];
-        echo "el valor de worker de la sesion es $worker";
-
         $conexion = new UsersModel();
         $result = $conexion->showMonthRegister($worker);
         echo $result;

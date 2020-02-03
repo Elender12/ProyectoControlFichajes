@@ -3,10 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-
-    
     <title>Login</title>
-
     <!--Hay que usar JQUERY para usar bien BOOTSTRAP  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
@@ -24,6 +21,7 @@
     
     </head>
     <body>
+
     <div class="modal-dialog text-center">
             <div class = "col-sm-8 main-section">
 
@@ -35,7 +33,9 @@
                     <form class="col-12" action="<?php echo constant('URL'); ?>/LoginController/login" method="POST">
 
                         <div class="form-group" id="user-group">
+                            <!-- IMPORTANT: Do not change the variable's name -->
                             <input type="text" class="from-control" placeholder="Usuario" name = "worker"  autofocus required />
+                          
                         </div>
 
                         <div class="form-group" id="contrasena-group">
