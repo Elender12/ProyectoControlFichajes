@@ -4051,19 +4051,19 @@ REPLACE INTO `calendar_table` (`dt`, `monthname`, `dayname`, `isHoliday`, `holid
 
 -- Volcando estructura para tabla fingerprintassistancecontrol.clokinginregisters
 CREATE TABLE IF NOT EXISTS `clokinginregisters` (
-  `auto-increment` int(11) NOT NULL AUTO_INCREMENT,
+  `index` int(11) NOT NULL AUTO_INCREMENT,
   `dniUser` varchar(50) NOT NULL,
   `date` date NOT NULL DEFAULT curdate(),
   `time` time NOT NULL DEFAULT curtime(),
   `type` enum('entrance','exit') NOT NULL,
-  PRIMARY KEY (`auto-increment`),
+  PRIMARY KEY (`index`),
   KEY `dniUser` (`dniUser`),
   CONSTRAINT `dniUser` FOREIGN KEY (`dniUser`) REFERENCES `users` (`dni`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 -- Volcando datos para la tabla fingerprintassistancecontrol.clokinginregisters: ~9 rows (aproximadamente)
 /*!40000 ALTER TABLE `clokinginregisters` DISABLE KEYS */;
-REPLACE INTO `clokinginregisters` (`auto-increment`, `dniUser`, `date`, `time`, `type`) VALUES
+REPLACE INTO `clokinginregisters` (`index`, `dniUser`, `date`, `time`, `type`) VALUES
 	(1, 'Y5277211J', '2020-01-21', '09:49:26', 'entrance'),
 	(2, 'K8463538L', '2020-01-21', '08:49:52', 'entrance'),
 	(3, 'X345678I', '2020-01-22', '09:35:14', 'entrance'),
@@ -4077,11 +4077,11 @@ REPLACE INTO `clokinginregisters` (`auto-increment`, `dniUser`, `date`, `time`, 
 
 -- Volcando estructura para tabla fingerprintassistancecontrol.loginfo
 CREATE TABLE IF NOT EXISTS `loginfo` (
-  `auto-increment` int(11) NOT NULL AUTO_INCREMENT,
+  `index` int(11) NOT NULL AUTO_INCREMENT,
   `datetime` datetime NOT NULL DEFAULT current_timestamp(),
   `who` varchar(50) NOT NULL,
   `action` varchar(50) NOT NULL,
-  PRIMARY KEY (`auto-increment`),
+  PRIMARY KEY (`index`),
   KEY `who` (`who`),
   CONSTRAINT `who` FOREIGN KEY (`who`) REFERENCES `users` (`dni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -4114,19 +4114,19 @@ REPLACE INTO `users` (`dni`, `name`, `password`, `contract`, `fingerprint`, `bos
 
 -- Volcando estructura para tabla fingerprintassistancecontrol.usersholidays
 CREATE TABLE IF NOT EXISTS `usersholidays` (
-  `auto-increment` int(11) NOT NULL AUTO_INCREMENT,
+  `index` int(11) NOT NULL AUTO_INCREMENT,
   `userDni` varchar(50) NOT NULL,
   `date` date NOT NULL,
-  PRIMARY KEY (`auto-increment`),
+  PRIMARY KEY (`index`),
   KEY `date` (`date`),
   KEY `userDni` (`userDni`),
   CONSTRAINT `date` FOREIGN KEY (`date`) REFERENCES `calendar_table` (`dt`),
   CONSTRAINT `userDni` FOREIGN KEY (`userDni`) REFERENCES `users` (`dni`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla fingerprintassistancecontrol.usersholidays: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla fingerprintassistancecontrol.usersholidays: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `usersholidays` DISABLE KEYS */;
-REPLACE INTO `usersholidays` (`auto-increment`, `userDni`, `date`) VALUES
+REPLACE INTO `usersholidays` (`index`, `userDni`, `date`) VALUES
 	(3, 'Y5277211J', '2020-01-30');
 /*!40000 ALTER TABLE `usersholidays` ENABLE KEYS */;
 
