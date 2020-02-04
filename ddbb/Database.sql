@@ -4099,17 +4099,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `fingerprint` int(1) NOT NULL DEFAULT -1,
   `bossEmail` varchar(50) NOT NULL DEFAULT 'boss@movicoders.com',
   `admin` int(1) NOT NULL DEFAULT 0,
+  `contractStartDate` date NOT NULL,
+  `contractEndDate` date NOT NULL,
   PRIMARY KEY (`dni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Volcando datos para la tabla fingerprintassistancecontrol.users: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-REPLACE INTO `users` (`dni`, `name`, `password`, `contract`, `fingerprint`, `bossEmail`, `admin`) VALUES
-	('K8463538L', 'Dani', '5678movi', 'partial', 0, 'boss@movicoders.com', 0),
-	('X345678I', 'Elena', 'movi4321', 'partial', 0, 'boss@movicoders.com', 0),
-	('Y3423283H', 'Mihai', '45798mov', 'partial', 0, 'boss@movicoders.com', 0),
-	('Y4588344X', 'Boss', 'superboss', 'full-time', 0, 'boss@movicoders.com', 1),
-	('Y5277211J', 'Anna', 'movi1234', 'partial', 0, 'boss@movicoders.com', 0);
+REPLACE INTO `users` (`dni`, `name`, `password`, `contract`, `fingerprint`, `bossEmail`, `admin`, `contractStartDate`, `contractEndDate`) VALUES
+	('K8463538L', 'Dani', '5678movi', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00'),
+	('X345678I', 'Elena', 'movi4321', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00'),
+	('Y3423283H', 'Mihai', '45798mov', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00'),
+	('Y4588344X', 'Boss', 'superboss', 'full-time', 0, 'boss@movicoders.com', 1, '0000-00-00', '0000-00-00'),
+	('Y5277211J', 'Anna', 'movi1234', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Volcando estructura para tabla fingerprintassistancecontrol.usersholidays
