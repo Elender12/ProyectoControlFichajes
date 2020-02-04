@@ -9,8 +9,8 @@
     <title>User</title>
     
     <!-- JavaScript funcion para el movimiento lateral   -->
-    <script defer src="./views/static/JavaScript/user.js"></script>
-    <script defer src="./views/static/JavaScript/filtro.js"></script>
+    <script defer src="../views/static/JavaScript/user.js"></script>
+    <script defer src="../views/static/JavaScript/filtro.js"></script>
     <script src=""></script>
 
     <!-- Bootstrap CSS  -->
@@ -122,7 +122,7 @@
                         <span>Menu</span>
                     </button>                      
                     </button>
-                    <h5 class="modal-title" id="cnt-fichaje"> Control de Fichajes </h5>
+                  <!--  <h5 class="modal-title" id="cnt-fichaje"> Control de Fichajes </h5>-->
                     
                     <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantall -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -261,13 +261,13 @@
                   </tr>
               
                   
-               <?php for ($i=0; $i< count($data); $i++) {
+            <!--  <//?php  for ($i=0; $i< count($data); $i++) {
                  //pintar datos correctamente en la tabla principal fichaje mes
                 echo "<tr><td>".$data[$i]->date."</td><td>".$data[$i]->time."</td><td><br></tr>";
               
              
             }?>
-            
+            --> 
 
                 </tbody>
               </table>
