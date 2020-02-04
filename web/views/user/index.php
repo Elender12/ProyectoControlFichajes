@@ -262,6 +262,7 @@
               
                   
                <?php for ($i=0; $i< count($data); $i++) {
+                 //pintar datos correctamente en la tabla principal fichaje mes
                 echo "<tr><td>".$data[$i]->date."</td><td>".$data[$i]->time."</td><td><br></tr>";
               
              
