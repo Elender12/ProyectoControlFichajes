@@ -1,0 +1,26 @@
+To embed a chart in a webpage I followed some parts of this tutorial: https://www.youtube.com/watch?v=-DQP4fpmJpc
+
+I went to https://developers.google.com/chart and clicked on "guides" from the top menu,
+ the selected "line chart" from the left-side menu.
+
+I copied the code from below the "Curving the lines" paragraph and adapted it.
+
+To keep html and css code separate, create 2 separate files, one with html extension,
+ and the other with css extension, and save them in their respective "HTML" ad "CSS" folders in your project's folder.
+
+To link the css file with the html one, write this in the <head> tag of the html file:
+
+<link rel="stylesheet" href="./style.css">
+
+The href part is where the program will look for your css file.
+ If it was in the same folder as the html file you would only need to write "filename.css",
+ while to "go up in the folders" you put "./" before the css filename, one "." if you go up one folder level, ".." if you go up 2,
+ and if you go up one or more folders from the folder where the HTML file is saved, and you need to go into another folder,
+ you have to specify the name of that folder after the points, for example:
+
+ Into projectFolder you have subfolder1, subfolder2-HTML and subfolder3-CSS.
+
+ To link the css file that is in the subfolder3-css folder from the html file that is in the subfolder2-html folder, you write:
+
+ <link rel="stylesheet" href="../subfolder3-CSS/filename.css">
+
