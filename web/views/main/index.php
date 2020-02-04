@@ -30,8 +30,8 @@
                         <img src="./views/static/img/user-avatar-pngrepo-com.png"> 
                     </div>
                     <!-- <form action="" method="post" > -->
-                    <form class="col-12" action="<?php echo constant('URL'); ?>/LoginController/login" method="POST">
-
+                    <form  action="<?php echo constant('URL'); ?>/LoginController/login" method="POST">
+						<form class="col-12">
                         <div class="form-group" id="user-group">
                             <!-- IMPORTANT: Do not change the variable's name -->
                             <input type="text" class="from-control" placeholder="Usuario" name = "worker"  autofocus required />
@@ -41,9 +41,8 @@
                         <div class="form-group" id="contrasena-group">
                           <input type="password" class="from-control" placeholder="Contraseña" name = "pass"  autofocus required/>
                       </div>
-
-
-                        <button type="submit" class="btn btn-dark"><i class ="fas fa-sign-in-alt "></i>  Entrar </button>
+						<button type="submit" class="btn btn-dark"><i class ="fas fa-sign-in-alt "></i>  Entrar </button>
+							</form>
                     </form>  
                 </div>
             </div>
