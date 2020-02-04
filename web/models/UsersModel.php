@@ -34,7 +34,7 @@ class UsersModel extends Model
 
                 if (strcmp($userType, "admin") !== 0) {
                     //it's a user and calls the view
-                    $query = "SELECT date, time, type FROM clokinginregisters WHERE dniUser like'" . $worker . "'";
+                    $query = "SELECT , date, time, type FROM clokinginregisters WHERE dniUser like'" . $worker . "'";
                     //executes  the query
                     $statement = $db->query($query);
                     $data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
@@ -50,7 +50,7 @@ class UsersModel extends Model
         } catch (Exception $e) {
             echo "<p>There was en error with the login</p>";
         }
-        return $userType;
+        //return $userType;
     }
 
     public function showMonthRegister($worker)

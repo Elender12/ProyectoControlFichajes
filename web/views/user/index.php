@@ -261,13 +261,13 @@
                   </tr>
               
                   
-            <!--  <//?php  for ($i=0; $i< count($data); $i++) {
+             <?php  for ($i=0; $i< count($data); $i++) {
                  //pintar datos correctamente en la tabla principal fichaje mes
-                echo "<tr><td>".$data[$i]->date."</td><td>".$data[$i]->time."</td><td><br></tr>";
+                echo "<td>".$data[$i]->index." ".$data[$i]->date."</td><td>".$data[$i]->time.$data[$i]->type."</td><td><br>";
               
              
             }?>
-            --> 
+            
 
                 </tbody>
               </table>
