@@ -93,6 +93,7 @@ class FPModule():
             print('Finger enrolled successfully!')
             print('New template position #' + str(positionNumber))
             self.controller.finger_position = positionNumber
+            self.controller.employee_to_DB()
 
         except Exception as e:
             print('Operation failed!')

@@ -1,20 +1,35 @@
 import tkinter as tk
 import model.employee as emp
 import threading
+import re
+import time
 
 from . import finger_view as fv
 from . import error_popup as ep
+from . import info_popup as ip
+from . import initial_view as iv
+
 import fingerprint_module.enroll_worker as ew
+import fingerprint_module.delete_worker as dw
 
 class GUI_controller():
 
     def __init__(self):
         self.finger_position = -1
         self.employee = None
+        self.parent = None
+        self.view = None
+        self.init_view = None
+        self.delete_view = None
+        self.template_number = -1
 
     def finger_print_thread(self):
         self.enroll = ew.FPModule(self)
         self.enroll.enroll_worker()
+
+    def finger_print_delete_thread(self):
+        self.delete = dw.FPModuleDelete(self)
+        self.delete.delete_worker()
 
     def create_error_frame(self, text):
         error_window = tk.Tk()
@@ -23,6 +38,14 @@ class GUI_controller():
         error = ep.Error(error_window, text)
         error.pack()
         error_window.mainloop()
+
+    def create_info_frame(self, text):
+        info_window = tk.Tk()
+        info_window.title("STATUS")
+        info_window.geometry('400x250+400+300')
+        info = ip.Info(info_window, text)
+        info.pack()
+        info_window.mainloop()
 
     def validateDNI(self, dni):
         table = "TRWAGMYFPDXBNJZSQVHLCKE"
@@ -46,6 +69,26 @@ class GUI_controller():
                 and table[int(dni)%23] == dig_control
         return False
 
+    def validateEmail(self, email):
+
+        ### Regular Expresion explanation: ###
+        ## ^ = Start string
+        ## \w = word and number characters
+        ## \. = any character
+        ## +, ?, * = repetition qualifiers
+
+        ## For more details:
+        ## https://docs.python.org/3/library/re.html
+
+        regex = r'^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
+        
+        if(re.search(regex,email)):
+            return True 
+          
+        else:  
+            return False
+
+
     def create_employee(self, user_form):
 
         dni = user_form.dni_TF.get()
@@ -61,32 +104,58 @@ class GUI_controller():
         elif not self.validateDNI(dni):
             self.create_error_frame('Invalid DNI')
 
-        #elif incorrect dni, incorrect mail, incorrect name....
-            #ERROR
+        elif not self.validateEmail(bossmail):
+            self.create_error_frame('Invalid Email')
 
-        #elif user_form.dni_TF.get() == dni on DB:
+        #elif dni == dni on DB:
             #ERROR
 
         else:
+
             self.employee = emp.Employee(name, dni, paswsd, contract, bossmail, rol)
-            
-            self.view = fv.FPView(user_form.parent)
+
+            self.parent = user_form.parent
+
+            self.view = fv.FPView(self.parent)
             user_form.destroy()
             self.view.pack()
 
             FPthread = threading.Thread(target=self.finger_print_thread)
             FPthread.start()
 
-            if self.finger_position != -1:
-                self.employee.fingerprint = self.finger_position
+            
+    def employee_to_DB(self):
+
+        if self.finger_position != -1:
+            self.employee.fingerprint = self.finger_position
                 
                 
-                #if DB doesnt work: delete template from device and ERROR
-                #else: #new Employee on DB
+            #if DB doesnt work: delete template from device and ERROR
+            #else: #new Employee on DB and return main window
 
-            else:
-                self.create_error_frame("Can't create Employee")
+            time.sleep(2)
+            self.init_view = iv.InitialFrame(self.parent)
+            self.view.destroy()
+            self.init_view.pack()
 
-    
-    
+
+        else:
+            self.create_error_frame("Can't create Employee")
+
+
+    def delete_employee(self, delete_view):
+        self.delete_view = delete_view
+        dni = delete_view.dni_TF.get()
+        #if dni == dni on DB: check for template number
+        self.template_number = 0 ##Change for the real number
+
+        FPDeletethread = threading.Thread(target=self.finger_print_delete_thread)
+        FPDeletethread.start()
+
+    def remove_from_DB(self, template_number):
+        #remove the user from DB using the template number
+
+        self.init_view = iv.InitialFrame(self.parent)
+        self.delete_view.destroy()
+        self.init_view.pack()
         

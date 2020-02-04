@@ -3,7 +3,7 @@ from tkinter import ttk
 
 from . import GUI_controller
 
-### This clas extends tk.Frame and will crete a frame for creating an employee. 
+### This class extends tk.Frame and will crete a frame for creating an employee. 
 ### The employee is not upload to the database until the fingerprint is set in the next frame.
 
 class NewUserForm(tk.Frame):
