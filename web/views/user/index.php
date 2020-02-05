@@ -8,11 +8,7 @@
 
     <title>User</title>
     
-    <!-- JavaScript funcion para el movimiento lateral   -->
-    <script defer src="../views/static/JavaScript/user.js"></script>
-    <script defer src="../views/static/JavaScript/filtro.js"></script>
-    <script src=""></script>
-
+   
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- MI CSS -->
@@ -77,7 +73,7 @@
                   </div>
               </li>
                 <li class="nav-item"><!--Salida-->
-                  <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="../Html/index.html"><i class="fas fa-sign-out-alt"></i> Exit</a>
+                  <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="../Html/index."><i class="fas fa-sign-out-alt"></i> Exit</a>
                   
               </li>
                   
@@ -152,7 +148,7 @@
                             </li>
 
                             <li class="nav-item"><!--Salida-->
-                                <a class="nav-link" href="../Html/index.html"><i class="fas fa-sign-out-alt"></i> </a>
+                                <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt"></i> </a>
                                 
                             </li>
                         </ul>
@@ -263,7 +259,7 @@
                   
              <?php  for ($i=0; $i< count($data); $i++) {
                  //pintar datos correctamente en la tabla principal fichaje mes
-                echo "<td>".$data[$i]->index." ".$data[$i]->date."</td><td>".$data[$i]->time.$data[$i]->type."</td><td><br>";
+                echo "<td>"."num orden".$data[$i]->orderN." fecha".$data[$i]->date."</td><td>".$data[$i]->time.$data[$i]->type."</td><td><br>";
               
              
             }?>
@@ -299,6 +295,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+ 
+ 	<!-- JavaScript funcion para el movimiento lateral   -->
+ 	<script defer src="../views/static/JavaScript/user.js"></script>
+    <script defer src="../views/static/JavaScript/filtro.js"></script>
+    <script src=""></script>
 
    
 </body>

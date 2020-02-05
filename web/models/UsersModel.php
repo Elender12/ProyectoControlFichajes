@@ -34,7 +34,7 @@ class UsersModel extends Model
 
                 if (strcmp($userType, "admin") !== 0) {
                     //it's a user and calls the view
-                    $query = "SELECT , date, time, type FROM clokinginregisters WHERE dniUser like'" . $worker . "'";
+                    $query = "SELECT orderN, date, time, type FROM clokinginregisters WHERE dniUser like'" . $worker . "'";
                     //executes  the query
                     $statement = $db->query($query);
                     $data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
@@ -74,5 +74,9 @@ class UsersModel extends Model
         } catch (Exception $e) {
             echo "<p>There was en error with the query</p>";
         }
-    }
+	}
+	
+	public function exitBack(){
+		require "views/main/index.php";
+	}
 }

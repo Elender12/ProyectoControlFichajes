@@ -28,7 +28,11 @@ class LoginController extends Controller{
         echo $result;
 
     }
- 
+	function exit(){
+		$conexion = new UsersModel();
+		$result =$conexion->exitBack();
+		echo $result;
+	}
 
 }
 

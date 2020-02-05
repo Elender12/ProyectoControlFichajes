@@ -18,17 +18,18 @@
 
     <!-- Es de donde se importa el  css-->
     <link rel="stylesheet" type="text/css" href="./views/static/css/index.css" th:href="@{/css/index.css}">
-    
+    <link rel="stylesheet" type="text/css" href="../views/static/css/index.css" th:href="@{/css/index.css}">
     </head>
     <body>
 
     <div class="modal-dialog text-center">
             <div class = "col-sm-8 main-section">
-
+				
                 <div class = "modal-content">
                     <div class = "col-sm-12 user-img">
-                        <img src="./views/static/img/user-avatar-pngrepo-com.png"> 
-                    </div>
+						<img id="imgModel" src="./views/static/img/user-avatar-pngrepo-com.png"> 
+					</div>
+					
                     <!-- <form action="" method="post" > -->
                     <form  action="<?php echo constant('URL'); ?>/LoginController/login" method="POST">
 						<form class="col-12">
@@ -37,15 +38,15 @@
                             <input type="text" class="from-control" placeholder="Usuario" name = "worker"  autofocus required />
                           
                         </div>
-
                         <div class="form-group" id="contrasena-group">
                           <input type="password" class="from-control" placeholder="Contraseña" name = "pass"  autofocus required/>
-                      </div>
-						<button type="submit" class="btn btn-dark"><i class ="fas fa-sign-in-alt "></i>  Entrar </button>
+					  </div>
+					  
+						<button type="submit" class="btn btn-outline-primary"><i class ="fas fa-sign-in-alt "></i>  Entrar </button>
 							</form>
                     </form>  
                 </div>
             </div>
-      </div>
+	  </div>
     </body>
 </html>
