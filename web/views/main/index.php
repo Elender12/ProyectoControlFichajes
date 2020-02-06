@@ -11,42 +11,52 @@
     <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina tambien es importado-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
-    <!-- Los iconos tipo Solid de Fontawesome los importo y los utilizo mas adelante-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-
+ 
     <!-- Es de donde se importa el  css-->
     <link rel="stylesheet" type="text/css" href="./views/static/css/index.css" th:href="@{/css/index.css}">
     <link rel="stylesheet" type="text/css" href="../views/static/css/index.css" th:href="@{/css/index.css}">
-    </head>
+	</head>
+	
     <body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+			<form  action="<?php echo constant('URL'); ?>/LoginController/login" method="POST">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-26">
+					Welcome
+					</span>
+					<span class="login100-form-title p-b-48">
+						<i class="zmdi zmdi-font"></i>
+					</span>
 
-    <div class="modal-dialog text-center">
-            <div class = "col-sm-8 main-section">
-				
-                <div class = "modal-content">
-                    <div class = "col-sm-12 user-img">
-						<img id="imgModel" src="./views/static/img/user-avatar-pngrepo-com.png"> 
+					<div class="wrap-input100 validate-input" data-validate = "User:">
+						<input class="input100" type="text" placeholder="Usuario" name = "worker"  autofocus required />
+						<span class="focus-input100"></span>
 					</div>
-					
-                    <!-- <form action="" method="post" > -->
-                    <form  action="<?php echo constant('URL'); ?>/LoginController/login" method="POST">
-						<form class="col-12">
-                        <div class="form-group" id="user-group">
-                            <!-- IMPORTANT: Do not change the variable's name -->
-                            <input type="text" class="from-control" placeholder="Usuario" name = "worker"  autofocus required />
-                          
-                        </div>
-                        <div class="form-group" id="contrasena-group">
-                          <input type="password" class="from-control" placeholder="Contraseña" name = "pass"  autofocus required/>
-					  </div>
-					  
-						<button type="submit" class="btn btn-outline-primary"><i class ="fas fa-sign-in-alt "></i>  Entrar </button>
-							</form>
-                    </form>  
-                </div>
-            </div>
-	  </div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" placeholder="Contraseña" name = "pass"  autofocus required/>
+						<span class="focus-input100"></span>
+					</div>
+					<div class="col text-center">
+					<button type="submit" class="btn btn-outline-primary"><i class ="fas fa-sign-in-alt "></i>  Entrar </button>
+					</div>		
+					</form>
+				</form>
+				<div class="text-center p-t-115">
+						<span class="txt1">
+							Don’t have an account?
+						</span>
+						<a class="txt2" href="#">
+							Sign Up
+			</div>
+		</div>
+	</div>
     </body>
 </html>
+	
+ 
