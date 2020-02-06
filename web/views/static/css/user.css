@@ -19,7 +19,11 @@ p {
 
 
 #cnt-fichaje{
- 
+    padding: 15px 10px;
+}
+
+#charts{
+    padding: 15px 10px;
 }
 
 a,
