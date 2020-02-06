@@ -4102,7 +4102,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `bossEmail` varchar(50) NOT NULL DEFAULT 'boss@movicoders.com',
   `isAdmin` int(1) NOT NULL DEFAULT 0,
   `contractStartDate` date NOT NULL,
-  `contractEndDate` date NOT NULL,
+  `contractEndDate` date DEFAULT NULL,
   PRIMARY KEY (`employeeDni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
