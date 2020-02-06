@@ -43,7 +43,7 @@
 						<span class="focus-input100"></span>
 					</div>
 					<div class="col text-center">
-					<button type="submit" class="btn btn-outline-primary"><i class ="fas fa-sign-in-alt "></i>  Entrar </button>
+					<button type="submit" class="btn btn-outline-primary"><i class ="fas fa-sign-in-alt "></i> Entrar </button>
 					</div>		
 					</form>
 				</form>
