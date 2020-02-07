@@ -47,12 +47,10 @@
 					</div>		
 					</form>
 				</form>
-				<div class="text-center p-t-115">
-						<span class="txt1">
-							Don’t have an account?
-						</span>
+				<div class="text-center p-t-115" >
+						
 						<a class="txt2" href="#">
-							Sign Up
+							Forgot password?
 			</div>
 		</div>
 	</div>

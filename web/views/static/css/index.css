@@ -80,15 +80,7 @@ button {
 	  outline: none !important;
   }
   
-  a:hover {
-	  text-decoration: none;
-	color: #6a7dfe;
-	color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-	color: -o-linear-gradient(left, #21d4fd, #b721ff);
-	color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-	color: linear-gradient(left, #21d4fd, #b721ff);
-  }
-  
+
   /*---------------------------------------------*/
   h1,h2,h3,h4,h5,h6 {
 	  margin: 0px;
@@ -142,25 +134,8 @@ button {
   textarea:-moz-placeholder { color: #adadad;}
   textarea::-moz-placeholder { color: #adadad;}
   textarea:-ms-input-placeholder { color: #adadad;}
-  
-  /*---------------------------------------------*/
-  button {
-	  outline: none !important;
-	  border: none;
-	  background: transparent;
-  }
-  
-  button:hover {
-	  cursor: pointer;
-  }
-  
-  iframe {
-	  border: none !important;
-  }
-  
-  
-  /*//////////////////////////////////////////////////////////////////
-  [ Utility ]*/
+ 
+ /* [ Utility ]*/
   .txt1 {
 	font-family: Poppins-Regular;
 	font-size: 13px;
@@ -175,8 +150,7 @@ button {
 	line-height: 1.5;
   }
   
-  /*//////////////////////////////////////////////////////////////////
-  [ login ]*/
+  /*[ login ]*/
   
   .limiter {
 	width: 100%;
@@ -207,15 +181,11 @@ button {
 	border-radius: 10px;
 	overflow: hidden;
 	padding: 77px 55px 33px 55px;
-  
 	box-shadow: 5px 5px 10px#0f407a;
 	
   }
   
-  
-  /*------------------------------------------------------------------
-  [ Form ]*/
-  
+  /*[ Form ]*/
   .login100-form {
 	width: 100%;
   }
@@ -233,9 +203,7 @@ button {
 	font-size: 60px;
   }
   
-  /*------------------------------------------------------------------
-  [ Input ]*/
-  
+  /*[ Input ]*/
   .wrap-input100 {
 	width: 100%;
 	position: relative;
@@ -256,7 +224,7 @@ button {
 	padding: 0 5px;
   }
   
-  /*---------------------------------------------*/ 
+ 
   .focus-input100 {
 	position: absolute;
 	display: block;
@@ -282,10 +250,10 @@ button {
 	transition: all 0.4s;
   
 	background: #6a7dfe;
-	background: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-	background: -o-linear-gradient(left, #21d4fd, #b721ff);
-	background: -moz-linear-gradient(left, #21d4fd, #b721ff);
-	background: linear-gradient(left, #21d4fd, #b721ff);
+	background: -webkit-linear-gradient(left, #21d4fd, #0f407a);
+	background: -o-linear-gradient(left, #21d4fd, #0f407a);
+	background: -moz-linear-gradient(left, #21d4fd, #0f407a);
+	background: linear-gradient(left, #21d4fd, #0f407a);
   }
   
   .focus-input100::after {
@@ -307,7 +275,7 @@ button {
 	-moz-transition: all 0.4s;
 	transition: all 0.4s;
   }
-  
+  /*Es donde se genera el movimiento de la barra de color*/
   .input100:focus + .focus-input100::after {
 	top: -15px;
   }
@@ -324,52 +292,7 @@ button {
 	width: 100%;
   }
   
-  /*---------------------------------------------*/
-  .btn-show-pass {
-	font-size: 15px;
-	color: #999999;
-  
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: flex;
-	align-items: center;
-	position: absolute;
-	height: 100%;
-	top: 0;
-	right: 0;
-	padding-right: 5px;
-	cursor: pointer;
-	-webkit-transition: all 0.4s;
-	-o-transition: all 0.4s;
-	-moz-transition: all 0.4s;
-	transition: all 0.4s;
-  }
-  
-  .btn-show-pass:hover {
-	color: #6a7dfe;
-	color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-	color: -o-linear-gradient(left, #21d4fd, #b721ff);
-	color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-	color: linear-gradient(left, #21d4fd, #b721ff);
-  }
-  
-  .btn-show-pass.active {
-	color: #6a7dfe;
-	color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-	color: -o-linear-gradient(left, #21d4fd, #b721ff);
-	color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-	color: linear-gradient(left, #21d4fd, #b721ff);
-  }
-  
-  
-  
-  /*------------------------------------------------------------------
-  
-  
-  /*------------------------------------------------------------------
-  [ Responsive ]*/
+  /*[ Responsive ]*/
   
   @media (max-width: 576px) {
 	.wrap-login100 {
@@ -377,10 +300,7 @@ button {
 	}
   }
   
-  
-  
-  /*------------------------------------------------------------------
-  [ Alert validate ]*/
+  /*[ Alert validate ]*/
   
   .validate-input {
 	position: relative;
