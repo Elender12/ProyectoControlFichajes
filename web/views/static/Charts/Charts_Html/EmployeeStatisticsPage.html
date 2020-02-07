@@ -9,14 +9,14 @@
     <title>User statistics</title>
     
     <!-- JavaScript funcion para el movimiento lateral   -->
-    <script defer src="../JavaScript/user.js"></script>
-    <script src="../JavaScript/filtro.js"></script>
+    <script defer src="../../JavaScript/user.js"></script>
+    <script src="../../JavaScript/filtro.js"></script>
     <script src=""></script>
 
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- MI CSS -->
-    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="../../css/user.css">
     <!-- La Scrollbar con CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -74,19 +74,20 @@
                   </div>
               </li>
                 <li class="nav-item"><!--Salida-->
-                  <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="../Html/index.html"><i class="fas fa-sign-out-alt"></i> Exit</a>
+                  <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="../../html/index.html"><i class="fas fa-sign-out-alt"></i> Exit</a>
                   
               </li>
                   
                 </ul>
             </li>
                 <li class="active">
+                  <!--AQUÍ HAY QUE PONER LOS FILTROS PARA LOS GRÁFICOS-->
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i class="fas fa-filter"></i> Filter statistics</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                       <div class="form-group row">
                         <label for="example-date-input" class="col-2 col-form-label"></label>
                         <div class="col-10">
-                          <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"> <!-- hay que pasar los datos del calenario a  parametro de bd-->
+                          <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input">
                         </div>
                       </div>
                   
@@ -134,14 +135,15 @@
                             </li>
 
                             <li class="nav-item"><!--Salida-->
-                                <a class="nav-link" href="../Html/index.html"><i class="fas fa-sign-out-alt"></i> </a>
+                                <a class="nav-link" href="../../html/index.html"><i class="fas fa-sign-out-alt"></i> </a>
                                 
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <iframe width= "1200" height="800" seamless frameborder="0" scrolling="no" src="EChart123.html"></iframe>
+            <!--AQUÍ ES DONDE SE CREA EL FRAME QUE CONTIENE EL GRÁFICO-->
+            <iframe width= "1200" height="800" seamless frameborder="0" scrolling="no" src="EmployeeChart.html"></iframe>
            
                 
 
