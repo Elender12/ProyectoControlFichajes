@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-WaitingForFinger Team
-
-"""
 
 import time
 from pyfingerprint.pyfingerprint import PyFingerprint

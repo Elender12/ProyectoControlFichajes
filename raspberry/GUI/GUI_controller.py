@@ -23,11 +23,11 @@ class GUI_controller():
         self.delete_view = None
         self.template_number = -1
 
-    def finger_print_thread(self):
+    def finger_print_init(self):
         self.enroll = ew.FPModule(self)
         self.enroll.enroll_worker()
 
-    def finger_print_delete_thread(self):
+    def finger_print_delete_init(self):
         self.delete = dw.FPModuleDelete(self)
         self.delete.delete_worker()
 
@@ -120,7 +120,7 @@ class GUI_controller():
             user_form.destroy()
             self.view.pack()
 
-            FPthread = threading.Thread(target=self.finger_print_thread)
+            FPthread = threading.Thread(target=self.finger_print_init)
             FPthread.start()
 
             
@@ -149,7 +149,7 @@ class GUI_controller():
         #if dni == dni on DB: check for template number
         self.template_number = 0 ##Change for the real number
 
-        FPDeletethread = threading.Thread(target=self.finger_print_delete_thread)
+        FPDeletethread = threading.Thread(target=self.finger_print_delete_init)
         FPDeletethread.start()
 
     def remove_from_DB(self, template_number):
