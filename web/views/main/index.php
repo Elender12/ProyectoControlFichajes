@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="./views/static/css/index.css" th:href="@{/css/index.css}">
     <link rel="stylesheet" type="text/css" href="../views/static/css/index.css" th:href="@{/css/index.css}">
 	</head>
-	
+	 <!---->
     <body>
 	<div class="limiter">
 		<div class="container-login100">
@@ -47,12 +47,10 @@
 					</div>		
 					</form>
 				</form>
-				<div class="text-center p-t-115">
-						<span class="txt1">
-							Don’t have an account?
-						</span>
+				<div class="text-center p-t-115" >
+						
 						<a class="txt2" href="#">
-							Sign Up
+							Forgot password?
 			</div>
 		</div>
 	</div>
