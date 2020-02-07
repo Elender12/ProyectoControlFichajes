@@ -34,6 +34,7 @@
 <body>
   <!-- php sessions START-->
   <?php $_SESSION["worker"] = $_POST["worker"]; ?> 
+
   <!-- php sessions END -->
     <div class="wrapper">
         <!-- Sidebar Con todas sus partes  -->
@@ -84,17 +85,25 @@
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                       <div class="form-group row">
                         <label for="example-date-input" class="col-2 col-form-label"></label>
+       
                         <div class="col-10">
-                          <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"> <!-- hay que pasar los datos del calenario a  parametro de base de datos-->
+                          <!-- start FORM for the filter -->
+                          <!-- IMPORTANT-> TODO implements form action -->
+                        <form action="" method="get" id="form1">
+                          <!-- INPUT startDate -->
+                          <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input" name="startDate"> <!-- hay que pasar los datos del calenario a  parametro de base de datos-->
                         </div>
                       </div>
                   <div class="form-group row">
                     <label for="example-date-input1" class="col-2 col-form-label"></label>
                       <div class="col-10">
-                        <input class="form-control" type="date" value=" End" id="example-date-input1">
+                         <!-- INPUT startDate -->
+                        <input class="form-control" type="date" value=" End" id="example-date-input1" name="endDate">
                           </div>
                         </div>
-                      <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i> Enviar</button> <!--BOTON ENVIER GRAFICOS-->
+                        <!-- end FORM -->
+                </form>   
+                      <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"  type="submit" form="form1" value="Enviar"></i> Enviar</button> <!--BOTON ENVIER GRAFICOS-->
                     </ul> 
                     </li>
                 <li>

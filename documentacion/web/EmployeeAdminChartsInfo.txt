@@ -9,10 +9,11 @@ Types of charts the employee can visualize:
 
 Types of charts the admin can visualize:
 
-1-filtering by type of contract
-2-selecting one or more or all employees with that same contract
-3-current month
-4-date range they select
-5-by month
-6-by year
-7-since contract start date
+-filtering employees by type of contract
+
+1-selecting one or more or all employees (with same contract type)
+2-current month
+3-date range they select
+4-by month
+5-by year
+6-since contract start date
