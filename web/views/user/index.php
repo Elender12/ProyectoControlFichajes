@@ -110,16 +110,17 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" ><i class="fas fa-chart-pie"></i> Graficos</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                     </ul>
+				</li>
+				<li>
+                       <a href="#"><i class="far fa-window-restore"></i> Incompletos </a>
+                </li>
+				<li>
+                       <a href="#"><i class="fas fa-user-clock"></i> Ausencia </a>
                 </li>
                      <li>
                        <a href="https://movicoders.com/contact/"><i class="fas fa-inbox"></i> Contact </a>
                 </li>
-				<li>
-                       <a href="#"><i class="fas fa-inbox"></i> Incompletos </a>
-                </li>
-				<li>
-                       <a href="#"><i class="fas fa-inbox"></i> Ausencia </a>
-                </li>
+				
             </ul>
           
             
