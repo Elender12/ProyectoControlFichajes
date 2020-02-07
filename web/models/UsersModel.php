@@ -34,7 +34,7 @@ class UsersModel extends Model
 
                 if (strcmp($userType, "admin") !== 0) {
                     //it's a user and calls the view
-                    $query = "SELECT , date, time, type FROM clokinginregisters WHERE dniUser like'" . $worker . "'";
+                    $query = "SELECT orderN, date, time, type FROM clokinginregisters WHERE dniUser like'" . $worker . "'";
                     //executes  the query
                     $statement = $db->query($query);
                     $data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
@@ -75,4 +75,35 @@ class UsersModel extends Model
             echo "<p>There was en error with the query</p>";
         }
     }
+    public function editDataClockIn($worker, $startDate, $endDate){
+        try {
+
+            $db = DataBase::db();
+            //prepares the query --REVISE
+            $query = " SELECT date, type, time FROM clokinginregisters where dniUser like '". $worker ."';
+            and date >= CAST('". $startDate ."' AS DATE) AND date <= CAST('" . $endDate . "' AS DATE) order by date ";
+             //executes  the query
+            $statement = $db->query($query);
+            $data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+            //returns the results of the query
+            return $data;
+            
+        } catch (Exception $e) {
+            echo "<p>There was en error with the query</p>";
+        }
+
+    }
+
+
+    public function checkIncompleteDays(){
+        //TODO --lleva procedimiento
+    }
+    public function checkNoClockedInDays(){
+        //TODO -- simple query
+    }
+
+	
+	public function exitBack(){
+		require "views/main/index.php";
+	}
 }

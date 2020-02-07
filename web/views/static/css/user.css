@@ -19,7 +19,11 @@ p {
 
 
 #cnt-fichaje{
- 
+    padding: 15px 10px;
+}
+
+#charts{
+    padding: 15px 10px;
 }
 
 a,
@@ -37,7 +41,8 @@ a:focus {
 #PanelModal{
     width: 100%;
     margin: 1px 0 25px;
-}
+} 
+/*S*/
 
 .navbar { /*Estilo de la Barra Superior donde se encuentra el menu y los emoticonos*/
     padding: 15px 10px;

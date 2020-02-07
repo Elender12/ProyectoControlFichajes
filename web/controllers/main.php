@@ -8,9 +8,7 @@ class Main extends Controller{
         $this->view->render("main/index");
        
     }
-    function login(){
-        echo "<p> este metodo debería verificar el login </p>";
-    }
+
 
 }
 

@@ -42,12 +42,14 @@ class LoginController extends Controller{
     function showNoClockedInDays(){
         //TODO
     }
-
-
-    function newLogin(){
+    public function exit(){
         $conexion = new UsersModel();
-        echo $conexion->newLogin();
+        $result = $conexion->exitBack();
+        echo $result;
+        
     }
+
+ 
 
 }
 

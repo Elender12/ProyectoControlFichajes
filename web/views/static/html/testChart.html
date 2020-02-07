@@ -1,18 +1,22 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>User</title>
+    <title>User statistics</title>
     
-   
+    <!-- JavaScript funcion para el movimiento lateral   -->
+    <script defer src="../JavaScript/user.js"></script>
+    <script src="../JavaScript/filtro.js"></script>
+    <script src=""></script>
+
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- MI CSS -->
-    <link rel="stylesheet" href="../views/static/css/user.css">
+    <link rel="stylesheet" href="../css/user.css">
     <!-- La Scrollbar con CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -32,16 +36,13 @@
 
 </head>
 <body>
-  <!-- php sessions START-->
-  <?php $_SESSION["worker"] = $_POST["worker"]; ?> 
-  <!-- php sessions END -->
+
     <div class="wrapper">
         <!-- Sidebar Con todas sus partes  -->
         <nav id="sidebar">
             <div class="sidebar-header">
                
                 <h3>Movicoders</h3>
-              
             </div>
 
             <ul class="list-unstyled components">
@@ -73,37 +74,22 @@
                   </div>
               </li>
                 <li class="nav-item"><!--Salida-->
-                  <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="../Html/index."><i class="fas fa-sign-out-alt"></i> Exit</a>
+                  <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="../Html/index.html"><i class="fas fa-sign-out-alt"></i> Exit</a>
                   
               </li>
                   
                 </ul>
             </li>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i class="fas fa-filter"></i> Filtro</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i class="fas fa-filter"></i> Filter statistics</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                       <div class="form-group row">
                         <label for="example-date-input" class="col-2 col-form-label"></label>
                         <div class="col-10">
-                          <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"> <!-- hay que pasar los datos del calenario a  parametro de base de datos-->
+                          <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"> <!-- hay que pasar los datos del calenario a  parametro de bd-->
                         </div>
                       </div>
-                  <div class="form-group row">
-                    <label for="example-date-input1" class="col-2 col-form-label"></label>
-                      <div class="col-10">
-                        <input class="form-control" type="date" value=" End" id="example-date-input1">
-                          </div>
-                        </div>
-                      <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i> Enviar</button> <!--BOTON ENVIER GRAFICOS-->
-                    </ul> 
-                    </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" ><i class="fas fa-chart-pie"></i> Graficos</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                    </ul>
-                </li>
-                     <li>
-                       <a href="https://movicoders.com/contact/"><i class="fas fa-inbox"></i> Contact </a>
+                  
                 </li>
             </ul>
           
@@ -115,12 +101,12 @@
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
                       <i class="fas fa-bars"></i>
-                        <span>Menu</span>
+                        <span>  Menu  </span>
                     </button>                      
-                    </button>
-                  <!--  <h5 class="modal-title" id="cnt-fichaje"> Control de Fichajes </h5>-->
                     
-                    <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantall -->
+                    <h5 class="modal-title" id="charts"> Statistics </h5>
+                    
+                    <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantalla -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto  ">
 
@@ -148,146 +134,21 @@
                             </li>
 
                             <li class="nav-item"><!--Salida-->
-                                <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt"></i> </a>
+                                <a class="nav-link" href="../Html/index.html"><i class="fas fa-sign-out-alt"></i> </a>
                                 
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <div>
-                <div class="modal fade bd-example-modal-lg" id="PanelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel"> Fichaje Personal </h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          
-                          <!--Tabla dentro de la modal -->
-                            <table class="table ">
-                              
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Dni</th>
-                                    <th scope="col">Entrada</th>
-                                    <th scope="col">Salida</th>
-                                    <th scope="col">ASDAD</th>
-                                    <th scope="col">ASDAD</th>
-                                    <th scope="col">ASDAD</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                               
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                 
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td >Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  
-                                </tbody>
-                              </table>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-            
-            <p class="h1"id="nombre-centrados">Entradas Semanales </p>
-            <table class="table table-striped "id="datos-centrados">
-              
-                <thead>
-                  <tr>
-                    <th scope="col"><i class="fas fa-user"></i> User</th>
-                    <th scope="col"><i class="far fa-calendar-alt"></i> Fecha </th>
-                    <th scope="col"><i class="fas fa-door-open"></i> Entrada</th>
-                    <th scope="col"><i class="fas fa-door-closed"></i> Salida</th>
-                 
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                      <!--BOTON MODAL -->
-                      <th scope="row">
-                      <button type="submit"  data-toggle="modal" data-target="#PanelModal" 
-                      id="btn-modal-user" class="btn btn-outline-dark">
-                      <i class ="far fa-address-card"></i> </i></button></th>
-                    </th>
-
-                   
-                      <td>dato0</td>
-                      <td>dato1</td>
-                      <td>dato2</td>
-               
-                    </tr>
-               
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-              
-                  
-             <?php  for ($i=0; $i< count($data); $i++) {
-                 //pintar datos correctamente en la tabla principal fichaje mes
-                echo "<td>"."num orden".$data[$i]->orderN." fecha".$data[$i]->date."</td><td>".$data[$i]->time.$data[$i]->type."</td><td><br>";
-              
-             
-            }?>
-            
-
-                </tbody>
-              </table>
-            <h2></h2>
-            <p> </p>
-
-            <div class="line"></div>
-
-            <h2></h2>
+            <iframe width= "1200" height="800" seamless frameborder="0" scrolling="no" src="EChart123.html"></iframe>
            
-            <p> </p>
-
-            <div class="line"></div>
-
-            <h3></h3>
-            <p></p>
-            
-        </div>
-    </div>
+                
 
     
   <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
 
-    <!-- jQuery CDN -  AJAX -->
+    <!-- jQuery CDN -  AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
@@ -295,11 +156,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
- 
- 	<!-- JavaScript funcion para el movimiento lateral   -->
- 	<script defer src="../views/static/JavaScript/user.js"></script>
-    <script defer src="../views/static/JavaScript/filtro.js"></script>
-    <script src=""></script>
 
    
 </body>
