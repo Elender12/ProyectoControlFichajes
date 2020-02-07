@@ -28,7 +28,26 @@ class LoginController extends Controller{
         echo $result;
 
     }
- 
+    function editData(){
+        $startDate =$_POST["startDate"];
+        $endDate=$_POST["endDate"];
+        $worker=$_SESSION["worker"];
+        $conexion = new UsersModel();
+        $result = $conexion-> editDataClockIn($worker,$startDate,$endDate);
+        var_dump($result);
+    }
+    function showIncompleteDays(){
+        //TODO
+    }
+    function showNoClockedInDays(){
+        //TODO
+    }
+
+
+    function newLogin(){
+        $conexion = new UsersModel();
+        echo $conexion->newLogin();
+    }
 
 }
 
