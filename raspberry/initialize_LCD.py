@@ -1,8 +1,13 @@
 
+import LCD.LCD_controller as lcdcon
 
 if __name__ == '__main__':
+
+    controller = lcdcon.LCD_controller()
+
     print ('Program is starting ... ')
     try:
-        loop()
+        controller.initialize_loop()
     except KeyboardInterrupt:
-        destroy()
+        controller.stop_loop()
+        controller.check.run = False

@@ -13,20 +13,16 @@ class LCDDisplay():
 
         # Create PCF8574 GPIO adapter.
         try:
-            mcp = PCF8574_GPIO(PCF8574_address)
+            self.mcp = PCF8574_GPIO(self.PCF8574_address)
         except:
             try:
-                mcp = PCF8574_GPIO(PCF8574A_address)
+                self.mcp = PCF8574_GPIO(self.PCF8574A_address)
             except:
                 print ('I2C Address Error !')
                 exit(1)
 
         # Create LCD, passing in MCP GPIO adapter.
-        self.lcd = Adafruit_CharLCD(pin_rs=0, pin_e=2, pins_db=[4,5,6,7], GPIO=mcp)
-
-    '''def get_finger_status(self): #Get finger status
-        #sensor method
-        return 'String'''
+        self.lcd = Adafruit_CharLCD(pin_rs=0, pin_e=2, pins_db=[4,5,6,7], GPIO=self.mcp)
 
     def get_time_now(self): # get system time
         return datetime.now().strftime(' %H:%M:%S')
@@ -38,19 +34,8 @@ class LCDDisplay():
             #lcd.clear()
             self.lcd.setCursor(0,0) # set cursor position
             self.lcd.message(self.get_time_now()+'\n') # display the time
-            self.lcd.message('CPU: ' + self.controller.get_finger_status())# display sensor info
+            self.lcd.message(self.controller.get_finer_status())# display sensor info
             sleep(1)
     
     def destroy(self):
         self.lcd.clear()
-
-    
-
-
-
-'''if __name__ == '__main__':
-print ('Program is starting ... ')
-try:
-loop()
-except KeyboardInterrupt:
-destroy()'''
