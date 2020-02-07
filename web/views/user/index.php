@@ -105,6 +105,12 @@
                      <li>
                        <a href="https://movicoders.com/contact/"><i class="fas fa-inbox"></i> Contact </a>
                 </li>
+				<li>
+                       <a href="#"><i class="fas fa-inbox"></i> Incompletos </a>
+                </li>
+				<li>
+                       <a href="#"><i class="fas fa-inbox"></i> Ausencia </a>
+                </li>
             </ul>
           
             
