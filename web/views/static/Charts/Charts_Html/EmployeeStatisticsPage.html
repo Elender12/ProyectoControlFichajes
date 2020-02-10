@@ -2,164 +2,247 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>User statistics</title>
-    
-    <!-- JavaScript funcion para el movimiento lateral   -->
-    <script defer src="../../JavaScript/user.js"></script>
-    <script src="../../JavaScript/filtro.js"></script>
-    <script src=""></script>
+  <title>User statistics</title>
 
-    <!-- Bootstrap CSS  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- MI CSS -->
-    <link rel="stylesheet" href="../../css/user.css">
-    <!-- La Scrollbar con CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+  <!-- JavaScript funcion para el movimiento lateral   -->
+  <script defer src="../../JavaScript/user.js"></script>
+  <script src="../../JavaScript/filtro.js"></script>
+  <script src=""></script>
 
-    <!-- LA Fuente Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-    
-    
-       <!-- Los iconos tipo Solid de Fontawesome los importo y los utilizo mas adelante-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+  <!-- Bootstrap CSS  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <!-- MI CSS -->
+  <link rel="stylesheet" href="../../css/user.css">
+  <!-- La Scrollbar con CSS -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+  <!-- LA Fuente Awesome JS -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+    integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+    integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+    crossorigin="anonymous"></script>
+
+
+  <!-- Los iconos tipo Solid de Fontawesome los importo y los utilizo mas adelante-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
 </head>
+
 <body>
 
-    <div class="wrapper">
-        <!-- Sidebar Con todas sus partes  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-               
-                <h3>Movicoders</h3>
+  <div class="wrapper">
+    <!-- Sidebar Con todas sus partes  -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+
+        <h3>Movicoders</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <!-- <p><i class="fas fa-chevron-circle-down"></i>  Menu</p>-->
+        <li>
+          <a class="d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" a href="#pageSubmenu"
+            data-toggle="collapse" aria-expanded="false">
+            <i class="fas fa-mobile-alt"></i> Phone</i></a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+
+            <li class="nav-item active">
+              <!--User-->
+              <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="#"><i
+                  class="fas fa-user"></i> User</a>
+            </li>
+
+            <li class="nav-item">
+              <!--Home-->
+              <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"
+                href="https://movicoders.com/"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="nav-item">
+              <!--CONFIG -->
+              <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" data-toggle="modal"
+                id="btn-config" data-target=".bd-example-modal-lg">
+                <i class="fas fa-user-cog "></i> Config</a>
+
+              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    ..............
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <!--Salida-->
+              <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"
+                href="../../html/index.html"><i class="fas fa-sign-out-alt"></i> Exit</a>
+
+            </li>
+
+          </ul>
+        </li>
+        <li class="active">
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i
+              class="fas fa-filter"></i> Filter statistics</a>
+              <!-- START  -->
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Collapsible Group Item #1
+                </button>
+              </h5>
             </div>
+        
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Collapsible Group Item #2
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Collapsible Group Item #3
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- FIN  -->
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <div class="form-group row">
+              <label for="example-date-input" class="col-2 col-form-label"></label>
+              <div class="col-10">
+                <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input">
+                <!-- hay que pasar los datos del calenario a  parametro de bd-->
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-date-input1" class="col-2 col-form-label"></label>
+              <div class="col-10">
+                <input class="form-control" type="date" value=" End" id="example-date-input1">
+              </div>
+            </div>
+            <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
+              Filter</button>
+            <!--BOTON ENVIAR GRAFICOS-->
+          </ul>
+        </li>
 
-            <ul class="list-unstyled components">
-               <!-- <p><i class="fas fa-chevron-circle-down"></i>  Menu</p>-->
-               <li>
-                <a class="d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" >
-                <i class="fas fa-mobile-alt"></i> Phone</i></a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
 
-                  <li class="nav-item active"> <!--User-->
-                    <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="#"><i class="fas fa-user"></i> User</a>
-                </li>
-                
-                <li class="nav-item"> <!--Home-->
-                  <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="https://movicoders.com/"><i class="fas fa-home"></i> Home</a>
+    </nav>
+    <!-- El coment de la pagina  -->
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
+            <i class="fas fa-bars"></i>
+            <span> Menu </span>
+          </button>
+
+          <h5 class="modal-title" id="charts"> Statistics </h5>
+
+          <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantalla -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto  ">
+
+              <li class="nav-item active">
+                <!--User-->
+                <a class="nav-link" href="#"><i class="fas fa-user"></i></i></a>
               </li>
-                <li class="nav-item"  > <!--CONFIG -->
-                  <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"data-toggle="modal" 
-                                        id="btn-config" 
-                                        data-target=".bd-example-modal-lg">
-                                        <i class="fas fa-user-cog "></i> Config</a> 
 
-                  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                      <div class="modal-content">
-                        ..............
-                      </div>
+              <li class="nav-item">
+                <!--Home-->
+                <a class="nav-link" href="https://movicoders.com/"><i class="fas fa-home"></i> </a>
+              </li>
+
+              <li class="nav-item">
+                <!--CONFIG -->
+                <a class="nav-link" data-toggle="modal" id="btn-config" data-target=".bd-example-modal-lg">
+                  <i class="fas fa-user-cog "></i> </a>
+
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                  aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      ..............
                     </div>
                   </div>
-              </li>
-                <li class="nav-item"><!--Salida-->
-                  <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="../../html/index.html"><i class="fas fa-sign-out-alt"></i> Exit</a>
-                  
-              </li>
-                  
-                </ul>
-            </li>
-                <li class="active">
-                  <!--AQUÍ HAY QUE PONER LOS FILTROS PARA LOS GRÁFICOS-->
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i class="fas fa-filter"></i> Filter statistics</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                      <div class="form-group row">
-                        <label for="example-date-input" class="col-2 col-form-label"></label>
-                        <div class="col-10">
-                          <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input">
-                        </div>
-                      </div>
-                  
-                </li>
-            </ul>
-          
-            
-        </nav>
-        <!-- El coment de la pagina  -->
-        <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
-                      <i class="fas fa-bars"></i>
-                        <span>  Menu  </span>
-                    </button>                      
-                    
-                    <h5 class="modal-title" id="charts"> Statistics </h5>
-                    
-                    <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantalla -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto  ">
-
-                            <li class="nav-item active"> <!--User-->
-                                <a class="nav-link" href="#"><i class="fas fa-user"></i></i></a>
-                            </li>
-
-                            <li class="nav-item"> <!--Home-->
-                                <a class="nav-link" href="https://movicoders.com/"><i class="fas fa-home"></i> </a>
-                            </li>
-
-                            <li class="nav-item"  > <!--CONFIG -->
-                                <a class="nav-link"data-toggle="modal" 
-                                                      id="btn-config" 
-                                                      data-target=".bd-example-modal-lg">
-                                                      <i class="fas fa-user-cog "></i> </a> 
-
-                                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                      ..............
-                                    </div>
-                                  </div>
-                                </div>
-                            </li>
-
-                            <li class="nav-item"><!--Salida-->
-                                <a class="nav-link" href="../../html/index.html"><i class="fas fa-sign-out-alt"></i> </a>
-                                
-                            </li>
-                        </ul>
-                    </div>
                 </div>
-            </nav>
-            <!--AQUÍ ES DONDE SE CREA EL FRAME QUE CONTIENE EL GRÁFICO-->
-            <iframe width= "1200" height="800" seamless frameborder="0" scrolling="no" src="EmployeeChart.html"></iframe>
-           
-                
+              </li>
 
-    
-  <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
+              <li class="nav-item">
+                <!--Salida-->
+                <a class="nav-link" href="../../html/index.html"><i class="fas fa-sign-out-alt"></i> </a>
 
-    <!-- jQuery CDN -  AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!--AQUÍ ES DONDE SE CREA EL FRAME QUE CONTIENE EL GRÁFICO-->
+      <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="EmployeeChart.html"></iframe>
 
-   
+
+
+
+      <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
+
+      <!-- jQuery CDN -  AJAX) -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+      <!-- Popper.JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+      <!-- Bootstrap JS -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+      <!-- jQuery Custom Scroller CDN -->
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
 </body>
 
 </html>
