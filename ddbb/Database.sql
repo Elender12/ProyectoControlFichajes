@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `calendar_table` (
 
 -- Dumping data for table fingerprintassistancecontrol.calendar_table: ~4,018 rows (approximately)
 /*!40000 ALTER TABLE `calendar_table` DISABLE KEYS */;
-INSERT INTO `calendar_table` (`calendarDate`, `monthName`, `dayName`, `isHoliday`, `holidayDescr`) VALUES
+REPLACE INTO `calendar_table` (`calendarDate`, `monthName`, `dayName`, `isHoliday`, `holidayDescr`) VALUES
 	('2020-01-01', 'January', 'Wednesday', 1, 'New Year\'s Day'),
 	('2020-01-02', 'January', 'Thursday', 0, ''),
 	('2020-01-03', 'January', 'Friday', 0, ''),
@@ -4065,7 +4065,7 @@ CREATE TABLE IF NOT EXISTS `clokinginregisters` (
 
 -- Dumping data for table fingerprintassistancecontrol.clokinginregisters: ~9 rows (approximately)
 /*!40000 ALTER TABLE `clokinginregisters` DISABLE KEYS */;
-INSERT INTO `clokinginregisters` (`orderN`, `dniUser`, `clockingDate`, `clockingTime`, `clockingType`) VALUES
+REPLACE INTO `clokinginregisters` (`orderN`, `dniUser`, `clockingDate`, `clockingTime`, `clockingType`) VALUES
 	(1, 'Y5277211J', '2020-01-21', '09:49:26', 'entrance'),
 	(2, 'K8463538L', '2020-01-21', '08:49:52', 'entrance'),
 	(3, 'X345678I', '2020-01-22', '09:35:14', 'entrance'),
@@ -4152,7 +4152,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 -- Dumping data for table fingerprintassistancecontrol.users: ~5 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`employeeDni`, `employeeName`, `employeePsw`, `contractType`, `fingerprint`, `bossEmail`, `isAdmin`, `contractStartDate`, `contractEndDate`) VALUES
+REPLACE INTO `users` (`employeeDni`, `employeeName`, `employeePsw`, `contractType`, `fingerprint`, `bossEmail`, `isAdmin`, `contractStartDate`, `contractEndDate`) VALUES
 	('K8463538L', 'Dani', '5678movi', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00'),
 	('X345678I', 'Elena', 'movi4321', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00'),
 	('Y3423283H', 'Mihai', '45798mov', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00'),
@@ -4174,7 +4174,7 @@ CREATE TABLE IF NOT EXISTS `usersholidays` (
 
 -- Dumping data for table fingerprintassistancecontrol.usersholidays: ~0 rows (approximately)
 /*!40000 ALTER TABLE `usersholidays` DISABLE KEYS */;
-INSERT INTO `usersholidays` (`orderN`, `userDni`, `holidayDate`) VALUES
+REPLACE INTO `usersholidays` (`orderN`, `userDni`, `holidayDate`) VALUES
 	(3, 'Y5277211J', '2020-01-30');
 /*!40000 ALTER TABLE `usersholidays` ENABLE KEYS */;
 
