@@ -15,12 +15,17 @@ class UsersModel extends Model
     {
         try {
             $db = DataBase::db();
-            //prepares the query
-            $query = "SELECT dni, password, admin FROM users WHERE dni like'" . $worker . "' and password like'" . $pass . "'";
-            //executes  the query
-            $statement = $db->query($query);
-            $data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
-
+           
+            //declare the query            
+            $query = "SELECT dni, password, admin FROM users WHERE dni like :worker and password like :pass ";
+           //prepares the query
+            $query = $db->prepare($query);
+            //introduces data in order to avoid injections
+            $query->bindParam(':worker',$worker);
+            $query->bindParam(':pass',$pass);
+            //executes the query
+            $query->execute();
+            $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
             // checks if the query returns valid data
             if ($data == null) {
                 //calls the error view
@@ -29,9 +34,7 @@ class UsersModel extends Model
             } else {
                 //stores the type of user
                 $userType = $data[0]->admin;
-
                 //checks if it's an admin or worker
-
                 if (strcmp($userType, "admin") !== 0) {
                     //it's a user and calls the view
                     $query = "SELECT orderN, date, time, type FROM clokinginregisters WHERE dniUser like'" . $worker . "'";
@@ -63,47 +66,60 @@ class UsersModel extends Model
             //executes  the query
             $statement = $db->query($query);
             $data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
-            for ($i=0; $i< count($data); $i++) {
-               // echo $data[$i]->type."<br>";
-               // echo $data[$i]->time."<br>";
-               // echo $data[$i]->date."<br>";
+            for ($i = 0; $i < count($data); $i++) {
+                // echo $data[$i]->type."<br>";
+                // echo $data[$i]->time."<br>";
+                // echo $data[$i]->date."<br>";
             }
-            
+
             return $data;
             //require "views/user/index.php";
         } catch (Exception $e) {
             echo "<p>There was en error with the query</p>";
         }
     }
-    public function editDataClockIn($worker, $startDate, $endDate){
+    public function editDataClockIn($worker, $startDate, $endDate)
+    {
         try {
 
             $db = DataBase::db();
+
             //prepares the query --REVISE
-            $query = " SELECT date, type, time FROM clokinginregisters where dniUser like '". $worker ."';
-            and date >= CAST('". $startDate ."' AS DATE) AND date <= CAST('" . $endDate . "' AS DATE) order by date ";
-             //executes  the query
-            $statement = $db->query($query);
-            $data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+            /* $query = " SELECT date, type, time FROM clokinginregisters where dniUser like '". $worker ."';
+            and date >= CAST('". $startDate ."' AS DATE) AND date <= CAST('" . $endDate . "' AS DATE) order by date "; */
+            $query = " SELECT date, type, time FROM clokinginregisters where dniUser like :worker
+            and date >= CAST(:fecha1 AS DATE) AND date <= CAST(:fecha2 AS DATE) order by date ";
+        
+            //data is separated from the query*/
+            $query2 = $db->prepare($query);
+            $query2->bindParam(':worker',$worker);
+            $query2->bindParam(':fecha1',$startDate);
+            $query2->bindParam(':fecha2',$endDate);
+            $query2->execute();
+            //executes  the query
+            //$statement = $db->query($query);
+            //$data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+            $data = $query2->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
             //returns the results of the query
             return $data;
-            
         } catch (Exception $e) {
             echo "<p>There was en error with the query</p>";
         }
-
     }
 
 
-    public function checkIncompleteDays(){
+    public function checkIncompleteDays()
+    {
         //TODO --lleva procedimiento
     }
-    public function checkNoClockedInDays(){
+    public function checkNoClockedInDays()
+    {
         //TODO -- simple query
     }
 
-	
-	public function exitBack(){
-		require "views/main/index.php";
-	}
+
+    public function exitBack()
+    {
+        require "views/main/index.php";
+    }
 }
