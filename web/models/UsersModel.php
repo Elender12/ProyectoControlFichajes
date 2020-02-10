@@ -17,7 +17,7 @@ class UsersModel extends Model
             $db = DataBase::db();
            
             //declare the query            
-            $query = "SELECT dni, password, admin FROM users WHERE dni like :worker and password like :pass ";
+            $query = "SELECT employeeDni, employeePsw, isAdmin, contractStartDate FROM users WHERE employeeDni like :worker and employeePsw like :pass ";
            //prepares the query
             $query = $db->prepare($query);
             //introduces data in order to avoid injections
@@ -33,16 +33,18 @@ class UsersModel extends Model
                 return;
             } else {
                 //stores the type of user
-                $userType = $data[0]->admin;
+                $userType = $data[0]->isAdmin;
+                var_dump($userType);
                 //checks if it's an admin or worker
-                if (strcmp($userType, "admin") !== 0) {
+                if (strcmp($userType, "0") == 0) {
                     //it's a user and calls the view
-                    $query = "SELECT orderN, date, time, type FROM clokinginregisters WHERE dniUser like'" . $worker . "'";
+                    $query = "SELECT orderN, clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker ";
+                    $query->bindParam(':worker',$worker);
                     //executes  the query
-                    $statement = $db->query($query);
-                    $data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+                    $query->execute();
+                    $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
                     //echo $data;
-                    $registers = $this->showMonthRegister($worker);
+                    //$registers = $this->showMonthRegister($worker);
                     //var_dump($registers);
                     require "views/user/index.php";
                 } else {
@@ -55,23 +57,19 @@ class UsersModel extends Model
         }
         //return $userType;
     }
-
+    //revise this method
     public function showMonthRegister($worker)
     {
         try {
 
             $db = DataBase::db();
             //prepares the query
-            $query = "SELECT date, time, type FROM clokinginregisters WHERE dniUser like'" . $worker . "'";
+            $query = "SELECT date, time, type FROM clokinginregisters WHERE dniUser like :worker ";
+            $query->bindParam(':worker',$worker);
             //executes  the query
-            $statement = $db->query($query);
-            $data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
-            for ($i = 0; $i < count($data); $i++) {
-                // echo $data[$i]->type."<br>";
-                // echo $data[$i]->time."<br>";
-                // echo $data[$i]->date."<br>";
-            }
-
+            $query->execute();
+            //executes  the query
+            $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
             return $data;
             //require "views/user/index.php";
         } catch (Exception $e) {
@@ -85,9 +83,7 @@ class UsersModel extends Model
             $db = DataBase::db();
 
             //prepares the query --REVISE
-            /* $query = " SELECT date, type, time FROM clokinginregisters where dniUser like '". $worker ."';
-            and date >= CAST('". $startDate ."' AS DATE) AND date <= CAST('" . $endDate . "' AS DATE) order by date "; */
-            $query = " SELECT date, type, time FROM clokinginregisters where dniUser like :worker
+            $query = " SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters where dniUser like :worker
             and date >= CAST(:fecha1 AS DATE) AND date <= CAST(:fecha2 AS DATE) order by date ";
         
             //data is separated from the query*/
@@ -108,9 +104,23 @@ class UsersModel extends Model
     }
 
 
-    public function checkIncompleteDays()
+    public function checkIncompleteDays($worker, $hiredDate)
     {
         //TODO --lleva procedimiento
+        try {
+            $db = DataBase::db();
+            // execute the stored procedure
+            $sql = 'CALL GetCustomers(:worker,$hiredDate)';
+            // call the stored procedure
+            $sql->bindParam(':worker',$worker);
+            $q = $sql->execute();
+            //$q = $db->query($sql);
+            $q->setFetchMode(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Error occurred:" . $e->getMessage());
+        }
+    
+
     }
     public function checkNoClockedInDays()
     {
