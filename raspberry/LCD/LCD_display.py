@@ -32,10 +32,10 @@ class LCDDisplay():
         self.lcd.begin(16,2) # set number of LCD lines and columns
         while(True):
             #lcd.clear()
+            print('Entra en el loop del LCD')
             self.lcd.setCursor(0,0) # set cursor position
             self.lcd.message(self.get_time_now()+'\n') # display the time
-            self.lcd.message(self.controller.get_finer_status())# display sensor info
-            sleep(1)
+            sleep(0.5)
     
     def destroy(self):
         self.lcd.clear()
