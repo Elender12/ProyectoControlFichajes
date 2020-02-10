@@ -256,13 +256,11 @@
                       <td>dato2</td>
                
                     </tr>
-               
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+			
+					  
                   <tr>
-                
+					
+					
                     <th scope="row">2</th>
                     <td></td>
                     <td></td>
@@ -278,14 +276,16 @@
               
                   
            	   <?php 
-		 //	echo "<tr>"; 
-		   //for ($i=0; $i< count($data); $i++) {
-             //    //pintar datos correctamente en la tabla principal fichaje mes
-				//echo "<th>"."num   	".$data[$i]->orderN.
-				//" fecha  ".$data[$i]->date."</th><td>"
-				//.$data[$i]->time.$data[$i]->type."</td>"; 
-		//	}
-		//	echo "</tr>";  
+		 	echo "<td>"; 
+		   for ($i=0; $i< count($data); $i++) {
+			   
+                 //pintar datos correctamente en la tabla principal fichaje mes
+				echo "<td>"."num   	".$data[$i]->orderN.
+
+				" fecha  ".$data[$i]->date."</th><td>"
+				.$data[$i]->time.$data[$i]->type."</td>"; 
+			}
+			echo "</td>";  
 			?>
             
 
