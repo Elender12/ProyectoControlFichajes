@@ -109,15 +109,25 @@ class UsersModel extends Model
         //TODO --lleva procedimiento
         try {
             $db = DataBase::db();
-            // execute the stored procedure
-            $sql = 'CALL GetCustomers(:worker,$hiredDate)';
-            // call the stored procedure
-            $sql->bindParam(':worker',$worker);
+            //stores the call to the procedure
+            $query = 'CALL find_incomplete_days(? , ?)';
+           //prepares the query
+            $sql = $db->prepare($query);
+            //call the stored procedure
+            $sql->bindValue(1,$worker, PDO::PARAM_STR);
+            $sql->bindValue(2,$hiredDate, PDO::PARAM_STR);
             $q = $sql->execute();
             //$q = $db->query($sql);
             $q->setFetchMode(PDO::FETCH_ASSOC);
+
+
+//$stmt->bindParam(1, $second_name, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 32);
+//$stmt->bindParam(2, $weight, PDO::PARAM_INT, 10);
+
+
+
         } catch (PDOException $e) {
-            die("Error occurred:" . $e->getMessage());
+            die("Error occurred with the incomlete days query:" . $e->getMessage());
         }
     
 
