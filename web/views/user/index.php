@@ -39,8 +39,9 @@
     <div class="wrapper">
         <!-- Sidebar Con todas sus partes  -->
         <nav id="sidebar">
-            <div class="sidebar-header">
-               
+			
+            <div class="sidebar-header ">
+                
                 <h3>Movicoders</h3>
               
             </div>
@@ -103,21 +104,23 @@
                         </div>
                         <!-- end FORM -->
                 </form>   
-                      <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"  type="submit" form="form1" value="Enviar"></i> Enviar</button> <!--BOTON ENVIER GRAFICOS-->
+					 <!--BOTON ENVIER GRAFICOS-->
+					  <input  class="btn btn-light"  id="btn-outline-light" type="button" value="SEND"><i class="fas fa-share"  type="submit" form="form1" ></i></button>
                     </ul> 
                     </li>
                 <li>
+				<li class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" ><i class="fas fa-chart-pie"></i> Graficos</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                     </ul>
 				</li>
-				<li>
+				<li class="active">
                        <a href="#"><i class="far fa-window-restore"></i> Incompletos </a>
                 </li>
-				<li>
+				<li class="active">
                        <a href="#"><i class="fas fa-user-clock"></i> Ausencia </a>
                 </li>
-                     <li>
+				<li class="active">
                        <a href="https://movicoders.com/contact/"><i class="fas fa-inbox"></i> Contact </a>
                 </li>
 				
@@ -127,7 +130,7 @@
         </nav>
         <!-- El coment de la pagina  -->
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
                       <i class="fas fa-bars"></i>
@@ -141,7 +144,8 @@
                         <ul class="nav navbar-nav ml-auto  ">
 
                             <li class="nav-item active"> <!--User-->
-                                <a class="nav-link" href="#"><i class="fas fa-user"></i></i></a>
+								<a class="nav-link" href="#"><i class="fas fa-user"></i></i></a>
+								
                             </li>
 
                             <li class="nav-item"> <!--Home-->
@@ -273,12 +277,16 @@
                   </tr>
               
                   
-             <?php  for ($i=0; $i< count($data); $i++) {
-                 //pintar datos correctamente en la tabla principal fichaje mes
-                echo "<td>"."num orden".$data[$i]->orderN." fecha".$data[$i]->date."</td><td>".$data[$i]->time.$data[$i]->type."</td><td><br>";
-              
-             
-            }?>
+           	   <?php 
+		 //	echo "<tr>"; 
+		   //for ($i=0; $i< count($data); $i++) {
+             //    //pintar datos correctamente en la tabla principal fichaje mes
+				//echo "<th>"."num   	".$data[$i]->orderN.
+				//" fecha  ".$data[$i]->date."</th><td>"
+				//.$data[$i]->time.$data[$i]->type."</td>"; 
+		//	}
+		//	echo "</tr>";  
+			?>
             
 
                 </tbody>
