@@ -35,8 +35,12 @@
 
 <body>
   <!-- php sessions START-->
+<<<<<<< HEAD
   <?php $_SESSION["worker"] = $_POST["worker"]; ?>
 
+=======
+  <?php $_SESSION["worker"] = $_POST["worker"]; ?> 
+>>>>>>> 3af3c96883dbaf0f832816e7f6a9919801c03d94
   <!-- php sessions END -->
   <div class="wrapper">
     <!-- Sidebar Con todas sus partes  -->
@@ -174,6 +178,35 @@
                 <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt"></i> </a>
 
               </li>
+                  
+                </ul>
+            </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i class="fas fa-filter"></i> Filtro</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                      <div class="form-group row">
+                        <label for="example-date-input" class="col-2 col-form-label"></label>
+                        <div class="col-10">
+                          <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"> <!-- hay que pasar los datos del calenario a  parametro de base de datos-->
+                        </div>
+                      </div>
+                  <div class="form-group row">
+                    <label for="example-date-input1" class="col-2 col-form-label"></label>
+                      <div class="col-10">
+                        <input class="form-control" type="date" value=" End" id="example-date-input1">
+                          </div>
+                        </div>
+                      <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i> Enviar</button> <!--BOTON ENVIER GRAFICOS-->
+                    </ul> 
+                    </li>
+                <li>
+                <a href="../static/Charts/Charts_Html/AdminStatisticsPage.html"><i class="fas fa-chart-pie"></i> Statistics</a>
+                    <!--<ul class="collapse list-unstyled" id="pageSubmenu">
+                    </ul>-->
+                </li>
+                     <li>
+                       <a href="https://movicoders.com/contact/"><i class="fas fa-inbox"></i> Contact </a>
+                </li>
             </ul>
           </div>
         </div>

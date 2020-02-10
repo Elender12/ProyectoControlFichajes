@@ -1,15 +1,4 @@
-<!doctype html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-
-    <link rel="stylesheet" href="../css/chartsStyle.css">
-
-    <!--<title>EMPLOYEE CHART1 - CURRENT MONTH</title>-->
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
         google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
 
@@ -46,19 +35,7 @@
                 responsive: true
             };
 
-            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+            var chart = new google.visualization.AreaChart(document.getElementById('employeeChart_div'));
 
             chart.draw(data, options);
         }
-    </script>
-
-
-</head>
-
-<body>
-    <div id="chart_div" class="chart"></div>
-
-</body>
-
-
-</html>
