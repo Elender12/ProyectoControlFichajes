@@ -42,6 +42,16 @@
   <?php $_SESSION["worker"] = $_POST["worker"]; ?> 
 >>>>>>> 3af3c96883dbaf0f832816e7f6a9919801c03d94
   <!-- php sessions END -->
+<<<<<<< HEAD
+    <div class="wrapper">
+        <!-- Sidebar Con todas sus partes  -->
+        <nav id="sidebar">
+			
+            <div class="sidebar-header ">
+                
+                <h3>Movicoders</h3>
+              
+=======
   <div class="wrapper">
     <!-- Sidebar Con todas sus partes  -->
     <nav id="sidebar">
@@ -108,6 +118,7 @@
                 <!-- INPUT startDate -->
                 <input class="form-control" type="date" value=" End" id="example-date-input1" name="endDate">
               </div>
+>>>>>>> c1667c1afec7406bfdcaa2592ddf1b9508e1eb58
             </div>
             <!-- end FORM -->
             </form>
@@ -196,6 +207,25 @@
                         <input class="form-control" type="date" value=" End" id="example-date-input1">
                           </div>
                         </div>
+<<<<<<< HEAD
+                        <!-- end FORM -->
+                </form>   
+					 <!--BOTON ENVIER GRAFICOS-->
+					  <input  class="btn btn-light"  id="btn-outline-light" type="button" value="SEND"><i class="fas fa-share"  type="submit" form="form1" ></i></button>
+                    </ul> 
+                    </li>
+                <li>
+				<li class="active">
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" ><i class="fas fa-chart-pie"></i> Graficos</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                    </ul>
+				</li>
+				<li class="active">
+                       <a href="#"><i class="far fa-window-restore"></i> Incompletos </a>
+                </li>
+				<li class="active">
+                       <a href="#"><i class="fas fa-user-clock"></i> Ausencia </a>
+=======
                       <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i> Enviar</button> <!--BOTON ENVIER GRAFICOS-->
                     </ul> 
                     </li>
@@ -203,11 +233,194 @@
                 <a href="../static/Charts/Charts_Html/AdminStatisticsPage.html"><i class="fas fa-chart-pie"></i> Statistics</a>
                     <!--<ul class="collapse list-unstyled" id="pageSubmenu">
                     </ul>-->
+>>>>>>> c1667c1afec7406bfdcaa2592ddf1b9508e1eb58
                 </li>
-                     <li>
+				<li class="active">
                        <a href="https://movicoders.com/contact/"><i class="fas fa-inbox"></i> Contact </a>
                 </li>
             </ul>
+<<<<<<< HEAD
+          
+            
+        </nav>
+        <!-- El coment de la pagina  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
+                      <i class="fas fa-bars"></i>
+                        <span>Menu</span>
+                    </button>                      
+                    </button>
+                  <!--  <h5 class="modal-title" id="cnt-fichaje"> Control de Fichajes </h5>-->
+                    
+                    <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantall -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto  ">
+
+                            <li class="nav-item active"> <!--User-->
+								<a class="nav-link" href="#"><i class="fas fa-user"></i></i></a>
+								
+                            </li>
+
+                            <li class="nav-item"> <!--Home-->
+                                <a class="nav-link" href="https://movicoders.com/"><i class="fas fa-home"></i> </a>
+                            </li>
+
+                            <li class="nav-item"  > <!--CONFIG -->
+                                <a class="nav-link"data-toggle="modal" 
+                                                      id="btn-config" 
+                                                      data-target=".bd-example-modal-lg">
+                                                      <i class="fas fa-user-cog "></i> </a> 
+
+                                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                      ..............
+                                    </div>
+                                  </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item"><!--Salida-->
+                                <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt"></i> </a>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div>
+                <div class="modal fade bd-example-modal-lg" id="PanelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel"> Fichaje Personal </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          
+                          <!--Tabla dentro de la modal -->
+                            <table class="table ">
+                              
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Dni</th>
+                                    <th scope="col">Entrada</th>
+                                    <th scope="col">Salida</th>
+                                    <th scope="col">ASDAD</th>
+                                    <th scope="col">ASDAD</th>
+                                    <th scope="col">ASDAD</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                               
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                 
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td >Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            
+            <p class="h1"id="nombre-centrados">Entradas Semanales </p>
+            <table class="table table-striped "id="datos-centrados">
+              
+                <thead>
+                  <tr>
+                    <th scope="col"><i class="fas fa-user"></i> User</th>
+                    <th scope="col"><i class="far fa-calendar-alt"></i> Fecha </th>
+                    <th scope="col"><i class="fas fa-door-open"></i> Entrada</th>
+                    <th scope="col"><i class="fas fa-door-closed"></i> Salida</th>
+                 
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                      <!--BOTON MODAL -->
+                      <th scope="row">
+                      <button type="submit"  data-toggle="modal" data-target="#PanelModal" 
+                      id="btn-modal-user" class="btn btn-outline-dark">
+                      <i class ="far fa-address-card"></i> </i></button></th>
+                    </th>
+
+                   
+                      <td>dato0</td>
+                      <td>dato1</td>
+                      <td>dato2</td>
+               
+                    </tr>
+			
+					  
+                  <tr>
+					
+					
+                    <th scope="row">2</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+              
+                  
+           	   <?php 
+		 	echo "<td>"; 
+		   for ($i=0; $i< count($data); $i++) {
+			   
+                 //pintar datos correctamente en la tabla principal fichaje mes
+				echo "<td>"."num   	".$data[$i]->orderN.
+
+				" fecha  ".$data[$i]->date."</th><td>"
+				.$data[$i]->time.$data[$i]->type."</td>"; 
+			}
+			echo "</td>";  
+			?>
+            
+
+                </tbody>
+              </table>
+            <h2></h2>
+            <p> </p>
+
+            <div class="line"></div>
+
+            <h2></h2>
+           
+            <p> </p>
+
+            <div class="line"></div>
+
+            <h3></h3>
+            <p></p>
+            
+=======
           </div>
         </div>
       </nav>
@@ -261,6 +474,7 @@
               </div>
             </div>
           </div>
+>>>>>>> c1667c1afec7406bfdcaa2592ddf1b9508e1eb58
         </div>
       </div>
 

@@ -24,7 +24,7 @@
 			<form  action="<?php echo constant('URL'); ?>/LoginController/login" method="POST">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
-					Welcome
+					MOVICODERS
 					</span>
 					<span class="login100-form-title p-b-48">
 						<i class="zmdi zmdi-font"></i>
