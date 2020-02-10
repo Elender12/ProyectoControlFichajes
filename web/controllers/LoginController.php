@@ -14,7 +14,9 @@ class LoginController extends Controller{
         //gets the data from the index
          $worker=$_POST["worker"];
          $pass = $_POST["pass"];
-        //makes an object
+
+   
+ 
         $conexion = new UsersModel();
         //calls the method that has the query prepared
         $result = $conexion->checkLogin($worker,$pass);
@@ -29,9 +31,13 @@ class LoginController extends Controller{
 
     }
     function editData(){
-        $startDate =$_POST["startDate"];
-        $endDate=$_POST["endDate"];
-        $worker=$_SESSION["worker"];
+        // $startDate =$_POST["startDate"];
+        // $endDate=$_POST["endDate"];
+        // $worker=$_SESSION["worker"];
+        //test data
+        $startDate =$_POST["2020-01-01"];
+        $endDate=$_POST["2020-04-01"];
+        $worker=$_SESSION["Y3423283H"];
         $conexion = new UsersModel();
         $result = $conexion-> editDataClockIn($worker,$startDate,$endDate);
         var_dump($result);
