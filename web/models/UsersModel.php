@@ -34,11 +34,12 @@ class UsersModel extends Model
             } else {
                 //stores the type of user
                 $userType = $data[0]->isAdmin;
-                var_dump($userType);
+                //var_dump($userType);
                 //checks if it's an admin or worker
                 if (strcmp($userType, "0") == 0) {
                     //it's a user and calls the view
                     $query = "SELECT orderN, clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker ";
+                    $query = $db->prepare($query);
                     $query->bindParam(':worker',$worker);
                     //executes  the query
                     $query->execute();
@@ -65,6 +66,7 @@ class UsersModel extends Model
             $db = DataBase::db();
             //prepares the query
             $query = "SELECT date, time, type FROM clokinginregisters WHERE dniUser like :worker ";
+            $query = $db->prepare($query);
             $query->bindParam(':worker',$worker);
             //executes  the query
             $query->execute();
