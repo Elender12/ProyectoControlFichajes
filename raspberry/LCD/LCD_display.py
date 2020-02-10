@@ -10,6 +10,7 @@ class LCDDisplay():
         self.PCF8574A_address = 0x3F # I2C address of the PCF8574A chip.
         self.mcp = None
         self.controller = controller
+        self.run = True
 
         # Create PCF8574 GPIO adapter.
         try:
@@ -30,12 +31,19 @@ class LCDDisplay():
     def loop(self):
         self.mcp.output(3,1) # turn on LCD backlight
         self.lcd.begin(16,2) # set number of LCD lines and columns
-        while(True):
-            #lcd.clear()
-            print('Entra en el loop del LCD')
+        
+        while(self.run):
+            
             self.lcd.setCursor(0,0) # set cursor position
-            self.lcd.message(self.get_time_now()+'\n') # display the time
-            sleep(0.5)
+            self.lcd.message(self.get_time_now()) # display the time
+            self.lcd.setCursor(0,1) # set cursor position
+            self.lcd.message(self.controller.get_finger_status())
+
+            sleep(0.2)
+        
+        if self.run == True:
+            self.lcd.clear()
     
     def destroy(self):
+        self.run = False
         self.lcd.clear()

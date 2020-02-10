@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from pyfingerprint.pyfingerprint import PyFingerprint
+import time
 
 class FPModule_check():
 
@@ -36,7 +37,8 @@ class FPModule_check():
                 print('Waiting for finger...')
 
                 ## Wait that finger is read
-                while ( f.readImage() == False ):
+
+                while (f.readImage() == False ):
                     pass
 
                 ## Converts read image to characteristics and stores it in charbuffer 1
@@ -51,14 +53,17 @@ class FPModule_check():
                 if ( positionNumber == -1 ):
                     self.controller.set_finger_status('USER NOT FOUND')
                     print('No match found!')
-                    exit(0)
+                    #exit(0)
                 else:
                     self.controller.set_finger_status(self.controller.check_finger_on_DB(positionNumber))
                     print('Found template at position #' + str(positionNumber))
                     print('The accuracy score is: ' + str(accuracyScore))
 
+                time.sleep(2.5)
+
             except Exception as e:
                 self.controller.set_finger_status('ERROR #')
                 print('Operation failed!')
                 print('Exception message: ' + str(e))
-                exit(1)
+                #exit(1)
+                time.sleep(2.5)
