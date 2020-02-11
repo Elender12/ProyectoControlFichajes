@@ -17,7 +17,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   <!-- MI CSS -->
-  <link rel="stylesheet" href="../../css/user.css">
+  <!-- <link rel="stylesheet" href="../../css/user.css"> -->
+  <link rel="stylesheet" href="../views/static/css/user.css">
   <!-- La Scrollbar con CSS -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
@@ -259,7 +260,7 @@
         </div>
       </nav>
       <!--AQUÍ ES DONDE SE CREA EL FRAME QUE CONTIENE EL GRÁFICO-->
-      <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="EmployeeChart.html"></iframe>
+      <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="../views/static/Charts/Charts_Html/EmployeeChart.php"></iframe>
 
 
 

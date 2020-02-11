@@ -100,7 +100,8 @@
           			</ul>
                     </li>
 				<li>
-				<a href="../static/Charts/Charts_Html/EmployeeStatisticsPage.html"><i class="fas fa-chart-pie"></i> Statistics</a>
+        <!-- AQUÍ LLAMA AL METODO chartsTest -->
+				<a href="chartsTest"><i class="fas fa-chart-pie"></i> Statistics</a>
 				</li>
 					<li>
          		 <a href="#"><i class="far fa-window-restore"></i> Incompletos </a>
