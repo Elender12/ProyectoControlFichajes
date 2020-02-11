@@ -13,6 +13,12 @@
   <script src="../../JavaScript/filtro.js"></script>
   <script src=""></script>
 
+<!-- jQuery Monthpicker -->
+  <script src="jquery-1.11.1.js"></script>
+<script src="jquery.monthpicker.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.monthpicker.css">
+<script type="text/javascript" src="../views/static/Charts/Charts_Js/monthpicker.js"></script>
+
   <!-- Bootstrap CSS  -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -160,8 +166,10 @@
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                   <div class="card-body">
                   <!--START: meses para elegir-->
-                  
-                
+                  <div id="monthpicker">
+                  <a href="#monthpicker" id="monthpicker"></a>
+                  <input type="text" id="selectedMonth"/>
+                  </div>
                   <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
                     Filter</button>
                   <!--END: meses para elegir-->
