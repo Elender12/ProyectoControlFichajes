@@ -13,9 +13,7 @@ p {
     line-height: 1.7em;
     color: #999;
 }
-#navbarSupportedContent{
-    /*PENDIENTE DE EDIT*/
-}
+
 
 
 #cnt-fichaje{
@@ -48,19 +46,21 @@ a:focus {
     padding: 15px 10px;
     bottom: 35px;
     background: #fff;
-    border: none;
+	border: none;
+	
     border-radius: 10px;
     margin-bottom: 40px;
-    box-shadow: 1px 1px 3px #0f407a;
-
+    box-shadow:2px 3px 5px #0f407a;
 
 }
+
 #sidebarCollapse{ /*BOTON MENU CON DISEÑO*/
     padding: 10px 10px;
     background: #ffffff;
-    border: none;
+	border: none;
+	color:black;
     border-radius: 10px;
-    box-shadow: 1px 1px 3px #0f407a;
+    box-shadow: 2px 2px 5px #0f407a;
 }
 #datos-centrados{
    text-align: center;
@@ -137,7 +137,7 @@ color:#0f407a;
     height: 100vh;
     z-index: 999;
     background: #0f407a;
-    color: #adadad;
+    color: floralwhite;
     transition: all 0.3s;
 }
 
@@ -149,6 +149,21 @@ color:#0f407a;
 	padding: 20px;
 	color: #fff;
     background: #0f407a;
+}
+#userid { /*color icono user */
+	color:black;
+}
+#homeid{
+	color: black;
+}
+#btn-config{
+	color: black;
+}
+#exitid{
+	color: black;
+}
+#menucolor{
+	color:black;
 }
 
 #sidebar ul.components {
@@ -270,3 +285,29 @@ a.article:hover {
         
     }
 }
+
+
+  /* Centered section inside the top navigation */
+  .topnav-centered a {
+	float: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: black;
+	font-size: x-large;
+	transform: translate(-50%, -50%);
+  }
+ 
+  @media screen and (max-width: 600px) {
+	.topnav a, .topnav-right {
+	  float: none;
+	  display: block;
+	}
+  
+	.topnav-centered a {
+	  position: relative;
+	  top: 0;
+	  left: 0;
+	  transform: none;
+	}
+  }
