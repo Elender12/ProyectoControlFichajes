@@ -35,7 +35,7 @@ class UsersModel extends Model
                 $userType = $data[0]->isAdmin;
                 $hiredDate = $data[0]->contractStartDate;
                 //¿funcionará?
-                $GLOBALS[$hiredDate];
+                //$GLOBALS[$hiredDate];
                 //var_dump($userType);
                 //checks if it's an admin or worker
                 if (strcmp($userType, "0") == 0) {
@@ -114,13 +114,18 @@ class UsersModel extends Model
         try {
             //$hireDate1= $GLOBALS[$hiredDate];
             $db = DataBase::db();
+     
+            $queryHireDate= "SELECT contractStartDate FROM users WHERE employeeDni like :worker";
+            $sql1= $db->prepare($queryHireDate);
+            $sql1->bindValue(1,$worker, PDO::PARAM_STR);
+            $hiredDate = $sql1->execute();
             //stores the call to the procedure
             $query = 'CALL find_incomplete_days(? , ?)';
            //prepares the query
             $sql = $db->prepare($query);
             //call the stored procedure
             $sql->bindValue(1,$worker, PDO::PARAM_STR);
-            //$sql->bindValue(2,$hireDate1, PDO::PARAM_STR);
+            $sql->bindValue(2,$hiredDate, PDO::PARAM_STR);
             $data = $sql->execute();
             $data->setFetchMode(PDO::FETCH_ASSOC);
             return $data;
@@ -152,8 +157,6 @@ class UsersModel extends Model
             die("Error occurred with the incomlete days query:" . $e->getMessage());
         }
     }
-
-
     public function exitBack()
     {
         require "views/main/index.php";
