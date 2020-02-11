@@ -82,11 +82,11 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i class="fas fa-filter"></i> Filtro</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                       <div class="form-group row">
-                        <label for="example-date-input" class="col-2 col-form-label"></label>
+						<label for="example-date-input" class="col-2 col-form-label"></label>
+						
                         <div class="col-10">
                           <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"name="startDate"> <!-- hay que pasar los datos del calenario a  parametro de base de datos-->
                         </div>
-
                       </div>
                   	<div class="form-group row">
                     <label for="example-date-input1" class="col-2 col-form-label"></label>
@@ -100,7 +100,7 @@
           			</ul>
                     </li>
 				<li>
-				<a href="../static/Charts/Charts_Html/AdminStatisticsPage.html"><i class="fas fa-chart-pie"></i> Statistics</a>
+				<a href="../static/Charts/Charts_Html/EmployeeStatisticsPage.html"><i class="fas fa-chart-pie"></i> Statistics</a>
 				</li>
 					<li>
          		 <a href="#"><i class="far fa-window-restore"></i> Incompletos </a>
@@ -145,15 +145,11 @@
                             </li>
 
                             <li class="nav-item"  > <!--CONFIG -->
-                                <a class="nav-link"data-toggle="modal" 
-                                                      id="btn-config" 
-                                                      data-target=".bd-example-modal-lg">
-                                                      <i class="fas fa-user-cog "></i> </a> 
-
-                                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <a class="nav-link" data-toggle="modal" id="btn-config"data-target=".bd-example-modal-lg"><i class="fas fa-user-cog "></i> </a> 
+								<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
-                                      ..............
+                                      hola
                                     </div>
                                   </div>
                                 </div>
@@ -168,7 +164,6 @@
                 </div>
             </nav>
             <div>
-			
                 <div class="modal fade bd-example-modal-lg" id="PanelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
@@ -213,7 +208,7 @@
                               </table>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</
                           <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                       </div>
@@ -221,8 +216,8 @@
                   </div>
             </div>
             
-            <p class="h1"id="nombre-centrados">Entradas Semanales </p>
-            <table class="table table-striped "id="datos-centrados">
+            <p class="h1"id="nombre-centrados ">Entradas Semanales </p>
+            <table class="table table-striped  "id="datos-centrados">
               
                 <thead>
                   <tr>
