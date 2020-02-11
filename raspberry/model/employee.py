@@ -10,3 +10,4 @@ class Employee():
         self.contract = contract
         self.admin = ''
         self.bossmail = bossmail
+        self.rol = rol

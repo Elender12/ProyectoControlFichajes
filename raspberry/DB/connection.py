@@ -1,26 +1,42 @@
 import mysql.connector
 
+
 class SQLConnect():
     def __init__(self):
 
         #self.controller = controller
         self.dbconfig = {'host': "192.168.2.75",
-                    'user': "root2",
-                    'password': "root2",
-                    'database': "fingerprintassistancecontrol",
-                    'port': '3306',
-                    }
+                         'user': "root2",
+                         'password': "root2",
+                         'database': "fingerprintassistancecontrol",
+                         'port': '3306',
+                         }
         self.conn = mysql.connector.connect(**self.dbconfig)
         self.cursor = self.conn.cursor()
         #_SQL = """SHOW tables"""
-        #self.cursor.execute(_SQL)
+        # self.cursor.execute(_SQL)
         #res = self.cursor.fetchall()
-        #print(res)
+        # print(res)
 
+    def new_user(self, employee):
+        _SQL = """INSERT INTO users (employeeDni, employeeName, employeePsw, contractType, fingerprint, bossEmail, isAdmin, contractStartDate) VALUES (%s, %s, %s, %s, %s, %s, %s, CURDATE())"""
+        self.cursor.execute(_SQL, (employee.dni, employee.name, employee.password,
+                                   employee.contract, employee.fingerprint, employee.bossmail, employee.rol))
+        #self.close_connection()
 
-    def find_user_by_FP(self):
-        _SQL = "SHOW tables"
-        return self.cursor.execute(_SQL)
-        
+    def user_exist(self, employee):
+        _SQL = """SELECT employeeDni from users WHERE employeeDni LIKE %s """
+        self.cursor.execute(_SQL, (employee.dni, ))
+        if self.cursor.fetchone() != None:
+            #self.close_connection()
+            return True
+        else:
+            #self.close_connection()
+            return False
 
-conecc = SQLConnect()
+    def close_connection(self):
+        self.conn.commit()
+        self.cursor.close()
+        self.conn.close()
+
+#conecc = SQLConnect()

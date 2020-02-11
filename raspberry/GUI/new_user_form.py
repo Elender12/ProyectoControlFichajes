@@ -43,8 +43,8 @@ class NewUserForm(tk.Frame):
         contract_lbl = ttk.Label(self, text = "Contract", font=("Courier", 14))
         contract_lbl.grid(row=6, column = 0, padx = 20, pady = 10)
         self.contract_combo = ttk.Combobox(self, font=("Courier", 14))
-        self.contract_combo["values"] = ["Partial", "Full-time"]
-        self.contract_combo.set("Full-time")
+        self.contract_combo["values"] = ["partial", "full-time"]
+        self.contract_combo.set("full-time")
         self.contract_combo.grid(row=6, column = 1, padx = 20, pady = 10)
 
         contract_lbl = ttk.Label(self, text = "Type", font=("Courier", 14))
