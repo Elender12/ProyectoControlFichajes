@@ -9,13 +9,12 @@ class UsersModel extends Model
     {
         parent::__construct();
     }
-
+    
     //checks who is logs in
     public function checkLogin($worker, $pass)
     {
         try {
             $db = DataBase::db();
-           
             //declare the query            
             $query = "SELECT employeeDni, employeePsw, isAdmin, contractStartDate FROM users WHERE employeeDni like :worker and employeePsw like :pass ";
            //prepares the query
@@ -34,6 +33,9 @@ class UsersModel extends Model
             } else {
                 //stores the type of user
                 $userType = $data[0]->isAdmin;
+                $hiredDate = $data[0]->contractStartDate;
+                //¿funcionará?
+                $GLOBALS[$hiredDate];
                 //var_dump($userType);
                 //checks if it's an admin or worker
                 if (strcmp($userType, "0") == 0) {
@@ -106,10 +108,11 @@ class UsersModel extends Model
     }
 
 
-    public function checkIncompleteDays($worker, $hiredDate)
+    public function checkIncompleteDays($worker)
     {
-        //TODO --lleva procedimiento
+        //TODO --lleva procedimiento -- ¿funcionará?
         try {
+            //$hireDate1= $GLOBALS[$hiredDate];
             $db = DataBase::db();
             //stores the call to the procedure
             $query = 'CALL find_incomplete_days(? , ?)';
@@ -117,26 +120,37 @@ class UsersModel extends Model
             $sql = $db->prepare($query);
             //call the stored procedure
             $sql->bindValue(1,$worker, PDO::PARAM_STR);
-            $sql->bindValue(2,$hiredDate, PDO::PARAM_STR);
-            $q = $sql->execute();
-            //$q = $db->query($sql);
-            $q->setFetchMode(PDO::FETCH_ASSOC);
-
-
-//$stmt->bindParam(1, $second_name, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 32);
-//$stmt->bindParam(2, $weight, PDO::PARAM_INT, 10);
-
-
-
+            //$sql->bindValue(2,$hireDate1, PDO::PARAM_STR);
+            $data = $sql->execute();
+            $data->setFetchMode(PDO::FETCH_ASSOC);
+            return $data;
+            //$stmt->bindParam(1, $second_name, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 32);
+            //$stmt->bindParam(2, $weight, PDO::PARAM_INT, 10);
         } catch (PDOException $e) {
             die("Error occurred with the incomlete days query:" . $e->getMessage());
         }
-    
-
     }
-    public function checkNoClockedInDays()
+    public function checkNoClockedInDays($worker)
     {
         //TODO -- simple query
+        /* */
+        try {
+            $db = DataBase::db();
+            $query = "SELECT calendarDate FROM calendar_table WHERE calendarDate NOT IN
+            (SELECT clockingDate FROM clokinginregisters WHERE dniUser LIKE :worker)
+            AND calendarDate <= CURDATE() 
+            AND isHoliday = 0 
+            AND dayName NOT LIKE 'saturday' 
+            AND dayName NOT LIKE 'sunday'
+            AND calendarDate NOT IN (SELECT holidayDate FROM usersholidays WHERE userDni LIKE :worker )";
+            $sql = $db->prepare($query);
+            $sql->bindParam(':worker',$worker);
+            $data = $sql->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+            //returns the results of the query
+            return $data;
+        } catch (PDOException $e) {
+            die("Error occurred with the incomlete days query:" . $e->getMessage());
+        }
     }
 
 

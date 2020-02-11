@@ -31,22 +31,27 @@ class LoginController extends Controller{
 
     }
     function editData(){
-        // $startDate =$_POST["startDate"];
-        // $endDate=$_POST["endDate"];
-        // $worker=$_SESSION["worker"];
-        //test data
-        $startDate =$_POST["2020-01-01"];
-        $endDate=$_POST["2020-04-01"];
-        $worker=$_SESSION["Y3423283H"];
+        $startDate =$_POST["startDate"];
+        $endDate=$_POST["endDate"];
+        $worker=$_SESSION["worker"];
+        
         $conexion = new UsersModel();
         $result = $conexion-> editDataClockIn($worker,$startDate,$endDate);
-        var_dump($result);
+        echo $result;
     }
     function showIncompleteDays(){
         //TODO
+        $worker=$_SESSION["worker"];
+        $conexion = new UsersModel();
+        $result = $conexion->checkIncompleteDays($worker);
+      
     }
     function showNoClockedInDays(){
         //TODO
+        $worker=$_SESSION["worker"];
+        $conexion = new UsersModel();
+        $result= $conexion->checkNoClockedInDays($worker);
+        echo $result;
     }
     public function exit(){
         $conexion = new UsersModel();
