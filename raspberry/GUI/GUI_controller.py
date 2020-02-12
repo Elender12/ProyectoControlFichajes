@@ -135,11 +135,12 @@ class GUI_controller():
 
         if self.template_number != -1:
             self.employee.fingerprint = self.template_number
+            self.DBconnection.new_user(self.employee)
 
-            if self.DBconnection.user_exist(self.employee):
+            '''if self.DBconnection.user_exist(self.employee):
                 self.q_delete.quick_delete_worker()
             else:
-                self.DBconnection.new_user(self.employee)
+                self.DBconnection.new_user(self.employee)'''
 
             time.sleep(2)
             self.init_view = iv.InitialFrame(self.parent)

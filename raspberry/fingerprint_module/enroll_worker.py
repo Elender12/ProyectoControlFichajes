@@ -89,7 +89,6 @@ class FPModule():
             print('Finger enrolled successfully!')
             print('New template position #' + str(positionNumber))
             self.controller.template_number = positionNumber
-            print(self.controller.template_number)
             self.controller.employee_to_DB()
 
         except Exception as e:
