@@ -25,8 +25,8 @@ class GUI_controller():
         self.init_view = None
         self.delete_view = None
         self.template_number = -1
-        self.DBconnection = connection.SQLConnect()
         self.q_delete = qdw.FPModuleDeleteQuick(self)
+        self.former_employee = False
 
     def finger_print_init(self):
         self.enroll = ew.FPModule(self)
@@ -97,12 +97,14 @@ class GUI_controller():
 
         dni = user_form.dni_TF.get()
         name = user_form.name_TF.get()
-        paswsd = user_form.passwd_TF.get()
+        passwd = user_form.passwd_TF.get()
         bossmail = user_form.bossmail_TF.get()
         contract = user_form.contract_combo.get()
         rol = user_form.rol_combo.get()
 
-        if dni == '' or name == '' or paswsd == '' or bossmail == '':
+        # try/except
+
+        if dni == '' or name == '' or passwd == '' or bossmail == '':
             self.create_error_frame('Empty field')
 
         elif not self.validateDNI(dni):
@@ -111,16 +113,37 @@ class GUI_controller():
         elif not self.validateEmail(bossmail):
             self.create_error_frame('Invalid Email')
 
-        # elif dni == dni on DB:
-            # ERROR
-
         else:
-            rol_num = 0
-            if rol == "Admin":
-                rol_num = 1
+            DBconnection = connection.SQLConnect()
+            check_result = DBconnection.user_exist(dni)
+            if check_result == 1:
+                self.create_error_frame('User already exists')
+            elif check_result == 0:
 
-            self.employee = emp.Employee(
-                name, dni, paswsd, contract, bossmail, rol_num)
+                self.former_employee = True
+
+                DBconnection = connection.SQLConnect()
+                self.employee = DBconnection.get_employee(dni)
+
+                self.employee.password = passwd
+                self.employee.bossmail = bossmail
+                self.employee.contract = contract
+
+                rol_num = 0
+                if rol == "Admin":
+                    rol_num = 1
+                self.employee.rol = rol_num
+
+                DBconnection = connection.SQLConnect()
+                DBconnection.update_user(self.employee)
+
+            elif check_result == -1:
+                rol_num = 0
+                if rol == "Admin":
+                    rol_num = 1
+
+                self.employee = emp.Employee(
+                    name, dni, passwd, contract, bossmail, rol_num)
 
             self.parent = user_form.parent
 
@@ -134,18 +157,25 @@ class GUI_controller():
     def employee_to_DB(self):
 
         if self.template_number != -1:
-            self.employee.fingerprint = self.template_number
-            self.DBconnection.new_user(self.employee)
+            try:
+                if self.former_employee:
+                    DBconnection = connection.SQLConnect()
+                    self.employee.fingerprint = self.template_number
+                    DBconnection.update_user(self.employee)
 
-            '''if self.DBconnection.user_exist(self.employee):
-                self.q_delete.quick_delete_worker()
-            else:
-                self.DBconnection.new_user(self.employee)'''
+                else:
+                    DBconnection = connection.SQLConnect()
+                    self.employee.fingerprint = self.template_number
+                    DBconnection.new_user(self.employee)
 
-            time.sleep(2)
-            self.init_view = iv.InitialFrame(self.parent)
-            self.view.destroy()
-            self.init_view.pack()
+            except Exception as e:
+                self.create_error_frame('Database Error/n' + str(e))
+
+            finally:
+                time.sleep(2)
+                self.init_view = iv.InitialFrame(self.parent)
+                self.view.destroy()
+                self.init_view.pack()
 
         else:
             self.create_error_frame("Can't create Employee")
@@ -153,14 +183,24 @@ class GUI_controller():
     def delete_employee(self, delete_view):
         self.delete_view = delete_view
         dni = delete_view.dni_TF.get()
-        # if dni == dni on DB: check for template number
-        self.template_number = 0  # Change for the real number
+        # try/except
+        DBconnection = connection.SQLConnect()
+        template = DBconnection.template_from_dni(dni)
+        if template == -1:
+            self.create_error_frame("The employee doesn't exist")
+        else:
+            self.template_number = template
 
         FPDeletethread = threading.Thread(target=self.finger_print_delete_init)
         FPDeletethread.start()
 
-    def remove_from_DB(self, template_number):
-        # remove the user from DB using the template number
+    def remove_from_DB(self):
+        # try/except
+        DBconnection = connection.SQLConnect()
+        DBconnection.delete_user(self.template_number)
+
+        DBconnection = connection.SQLConnect()
+        DBconnection.log_entry_fire_employee(self.employee.dni)
 
         self.init_view = iv.InitialFrame(self.parent)
         self.delete_view.destroy()
