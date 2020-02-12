@@ -28,7 +28,7 @@ class UsersModel extends Model
             // checks if the query returns valid data
             if ($data == null) {
                 //calls the error view
-                $result = new Errors("Login error");
+                $result = new Errors("Login error:data is null from the database");
                 return;
             } else {
                 //stores the type of user
@@ -80,7 +80,7 @@ class UsersModel extends Model
             echo "<p>There was en error with the query</p>";
         }
     }
-    public function editDataClockIn($worker, $startDate, $endDate)
+    public function checkFilteredDataClockIn($worker, $startDate, $endDate)
     {
         try {
 

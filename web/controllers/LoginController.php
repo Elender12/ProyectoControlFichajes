@@ -14,9 +14,6 @@ class LoginController extends Controller{
         //gets the data from the index
          $worker=$_POST["worker"];
          $pass = $_POST["pass"];
-
-   
- 
         $conexion = new UsersModel();
         //calls the method that has the query prepared
         $result = $conexion->checkLogin($worker,$pass);
@@ -30,13 +27,13 @@ class LoginController extends Controller{
         echo $result;
 
     }
-    function editData(){
+    function checkFilteredData(){
         $startDate =$_POST["startDate"];
         $endDate=$_POST["endDate"];
         $worker=$_SESSION["worker"];
         
         $conexion = new UsersModel();
-        $result = $conexion-> editDataClockIn($worker,$startDate,$endDate);
+        $result = $conexion-> checkFilteredDataClockIn($worker,$startDate,$endDate);
         echo $result;
     }
     function showIncompleteDays(){

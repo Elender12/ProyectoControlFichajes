@@ -75,7 +75,6 @@
                 <li class="nav-item"><!--Salida-->
                   <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="../Html/index."><i class="fas fa-sign-out-alt"></i> Exit</a>
               </li>
-                  
                 </ul>
             </li>
                 <li class="active">
@@ -84,7 +83,9 @@
                       <div class="form-group row">
                         <label for="example-date-input" class="col-2 col-form-label"></label>
                         <div class="col-10">
-                          <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"name="startDate"> <!-- hay que pasar los datos del calenario a  parametro de base de datos-->
+                          <!-- test form -->
+                        <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData"  method="POST" id="form1">
+                        <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"name="startDate"> <!-- hay que pasar los datos del calenario a  parametro de base de datos-->
                         </div>
 
                       </div>
@@ -94,9 +95,10 @@
                         <input class="form-control" type="date" value=" End" 	id="example-date-input1" name="endDate">
                           </div>
                         </div>
-						</form>
-          			  <input class="btn btn-light" id="btn-outline-light" type="button" name="filterBoton" value="CHECK" type="submit" form="form1"><i class="fas fa-share"></i> </button>
-
+                        </form>
+                  <input class="btn btn-light" id="btn-outline-light" type="button" name="filterBoton" value="CHECK" type="submit" form="form1"><i class="fas fa-share"></i> 
+                <!-- </button> -->
+                  
           			</ul>
                     </li>
 				<li>
