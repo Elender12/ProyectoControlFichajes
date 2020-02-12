@@ -161,4 +161,8 @@ class UsersModel extends Model
     {
         require "views/main/index.php";
     }
+
+    public function testCharts(){
+        require "views/static/Charts/Charts_Html/EmployeeStatisticsPage.php";
+    }
 }

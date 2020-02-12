@@ -55,12 +55,12 @@ a:focus {
 }
 
 #sidebarCollapse{ /*BOTON MENU CON DISEÑO*/
-    padding: 10px 10px;
+    padding: 8px 8px;
     background: #ffffff;
 	border: none;
 	color:black;
     border-radius: 10px;
-    box-shadow: 2px 2px 5px #0f407a;
+    box-shadow: 3px 3px 10px #0f407a ;
 }
 #datos-centrados{
    text-align: center;

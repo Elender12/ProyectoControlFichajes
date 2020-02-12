@@ -56,6 +56,11 @@ class LoginController extends Controller{
         echo $result;
         
     }
+    function chartsTest(){
+        $conexion = new UsersModel();
+        $result = $conexion->testCharts();
+        echo $result;
+    }
 
  
 
