@@ -144,7 +144,7 @@ class UsersModel extends Model
     {
         require "views/main/index.php";
     }
-
+//Prueba
     public function testCharts(){
         require "views\charts\EmployeeStatisticsPage.php";
     }
