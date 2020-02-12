@@ -10,7 +10,7 @@
   <title>User statistics</title>
 
   <!-- JavaScript funcion para el movimiento lateral   -->
-  <script defer src="views/static/JavaScript/user.js"></script>
+  <script defer src="../views/static/JavaScript/user.js"></script>
 
   <!-- Bootstrap CSS  -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"

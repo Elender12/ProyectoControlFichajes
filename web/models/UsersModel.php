@@ -163,8 +163,8 @@ class UsersModel extends Model
     {
         require "views/main/index.php";
     }
-
+//Prueba 2v
     public function testCharts(){
-        require "views/static/Charts/Charts_Html/EmployeeStatisticsPage.php";
+        require "views\charts\EmployeeStatisticsPage.php";
     }
 }
