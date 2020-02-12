@@ -4,7 +4,7 @@ class LoginController extends Controller{
     function __construct()  {
         //llamo al contructor del Controller
         parent::__construct();
-        //call the object and the methodf
+        //call the object and the method
        // $this->view->render("login/index");
         //$this->view->render("main/index");
        
