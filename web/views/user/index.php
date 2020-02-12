@@ -85,7 +85,7 @@
 						
                         <div class="col-10">
                           <!-- test form -->
-                        <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData"  method="POST" id="form1">
+                        <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData"  method="post" id="form1">
                         <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"name="startDate"> <!-- hay que pasar los datos del calenario a  parametro de base de datos-->
                         </div>
                       </div>
@@ -96,8 +96,11 @@
                           </div>
                         </div>
                         </form>
-                  <input class="btn btn-light" id="btn-outline-light" type="button" name="filterBoton" value="CHECK" type="submit" form="form1"><i class="fas fa-share"></i> 
-                <!-- </button> -->
+                      
+                  <!-- <input class="btn btn-light" id="btn-outline-light" type="button" name="filterBoton" value="CHECK" type="submit" form="form1"><i class="fas fa-share"></i>  -->
+                 <!-- boton provisional test formulario -->
+                  <button  type="submit" form="form1"></button>
+                <!-- </input> -->
                   
           			</ul>
                     </li>
@@ -140,7 +143,7 @@
 						<li class="nav-item active"> <!--User-->
                        
                             <li class="nav-item active"> <!--User-->
-                                <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
+                                <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></button></a>
                             </li>
 
                             <li class="nav-item"> <!--Home-->

@@ -28,12 +28,29 @@ class LoginController extends Controller{
 
     }
     function checkFilteredData(){
-        $startDate =$_POST["startDate"];
-        $endDate=$_POST["endDate"];
-        $worker=$_SESSION["worker"];
+        //probando datos
+        if(isset($_POST["startDate"])){
+            $startDate =$_POST["startDate"];
+            echo $startDate;
+        }
         
+        if(isset($_POST["endDate"])){
+           
+            $endDate=$_POST["endDate"];
+           
+            echo $endDate;
+        }
+        if(isset($_SESSION["worker"])){
+            
+         $worker= $_SESSION["worker"];
+        echo  $worker;
+
+        }
+       
+
         $conexion = new UsersModel();
         $result = $conexion-> checkFilteredDataClockIn($worker,$startDate,$endDate);
+
         echo $result;
     }
     function showIncompleteDays(){
