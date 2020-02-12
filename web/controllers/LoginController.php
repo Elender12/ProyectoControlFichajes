@@ -31,27 +31,24 @@ class LoginController extends Controller{
         //probando datos
         if(isset($_POST["startDate"])){
             $startDate =$_POST["startDate"];
-            echo $startDate;
         }
-        
         if(isset($_POST["endDate"])){
-           
             $endDate=$_POST["endDate"];
-           
-            echo $endDate;
         }
-        if(isset($_SESSION["worker"])){
-            
-         $worker= $_SESSION["worker"];
-        echo  $worker;
 
+        if(isset($_SESSION["worker"]) != NULL){
+            echo "te has salvado del null";
         }
+         $worker= "Y3423283H";
+
+
+    
        
 
         $conexion = new UsersModel();
         $result = $conexion-> checkFilteredDataClockIn($worker,$startDate,$endDate);
-
-        echo $result;
+        //prints the data
+        print_r( $result);
     }
     function showIncompleteDays(){
         //TODO

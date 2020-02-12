@@ -88,7 +88,7 @@ class UsersModel extends Model
 
             //prepares the query --REVISE
             $query = " SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters where dniUser like :worker
-            and date >= CAST(:fecha1 AS DATE) AND date <= CAST(:fecha2 AS DATE) order by date ";
+            and clockingDate >= CAST(:fecha1 AS DATE) AND clockingDate <= CAST(:fecha2 AS DATE) order by clockingDate ";
         
             //data is separated from the query*/
             $query2 = $db->prepare($query);
@@ -100,6 +100,8 @@ class UsersModel extends Model
             //$statement = $db->query($query);
             //$data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
             $data = $query2->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+            //ignora el require 
+            //require "views/user/index.php";
             //returns the results of the query
             return $data;
         } catch (Exception $e) {
