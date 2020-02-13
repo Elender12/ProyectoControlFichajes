@@ -186,7 +186,7 @@
                             </li>
 
                             <li class="nav-item"> <!--Home-->
-                                <a class="nav-link" href="https://movicoders.com/"><i class="fas fa-home" id="homeid"></i> </a>
+                                <a class="nav-link" href="https://movicoders.com/"  target="_blank"><i class="fas fa-home" id="homeid"></i> </a>
                             </li>
 
                             <li class="nav-item"  > <!--CONFIG -->
