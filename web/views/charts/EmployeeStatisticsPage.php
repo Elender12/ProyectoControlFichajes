@@ -256,7 +256,7 @@
         </div>
       </nav>
       <!--AQUÍ ES DONDE SE CREA EL FRAME QUE CONTIENE EL GRÁFICO-->
-      <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="../views/static/Charts/Charts_Html/EmployeeChart.php"></iframe>
+      <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="../charts/EmployeeChart.php"></iframe>
 
 
 <!--Prueba V4--->

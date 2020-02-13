@@ -165,7 +165,7 @@ class UsersModel extends Model
     }
 //Prueba 2v
     public function testCharts(){
-        require "views\charts\EmployeeStatisticsPage.php";
+        require "views/charts/EmployeeStatisticsPage.php";
 	}
 	//Prueba v4	
 	public function goHome(){
