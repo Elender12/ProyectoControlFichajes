@@ -75,19 +75,19 @@
                 <li class="nav-item"><!--Salida-->
                   <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="../Html/index."><i class="fas fa-sign-out-alt"></i> Exit</a>
               </li>
+                  
                 </ul>
             </li>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i class="fas fa-filter"></i> Filtro</a>
+
+                <!-- <li class="active"> 
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i class="fas fa-filter"></i> Filter clockin-ins</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                       <div class="form-group row">
 						<label for="example-date-input" class="col-2 col-form-label"></label>
 						
                         <div class="col-10">
-                          <!-- test form -->
-                        <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData"  method="post" id="form1">
-                        <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"name="startDate"> <!-- hay que pasar los datos del calenario a  parametro de base de datos-->
-                        </div>
+                          <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"name="startDate">--> <!-- hay que pasar los datos del calenario a  parametro de base de datos-->
+                        <!-- </div>
                       </div>
                   	<div class="form-group row">
                     <label for="example-date-input1" class="col-2 col-form-label"></label>
@@ -95,18 +95,14 @@
                         <input class="form-control" type="date" value=" End" 	id="example-date-input1" name="endDate">
                           </div>
                         </div>
-                        </form>
-                      
-                  <!-- <input class="btn btn-light" id="btn-outline-light" type="button" name="filterBoton" value="CHECK" type="submit" form="form1"><i class="fas fa-share"></i>  -->
-                 <!-- boton provisional test formulario -->
-                  <button  type="submit" form="form1"></button>
-                <!-- </input> -->
-                  
+						</form>
+          			  <input class="btn btn-light" id="btn-outline-light" type="button" name="filterBoton" value="CHECK" type="submit" form="form1"><i class="fas fa-share"></i> </button>
+
           			</ul>
-                    </li>
-				<li>
-        <!-- AQUÍ LLAMA AL METODO chartsTest -->
-				<a href="chartsTest"><i class="fas fa-chart-pie"></i> Statistics</a>
+                    </li> 
+				<li> -->
+         <!-- AQUÍ LLAMA AL METODO chartsTest  -->
+				<!-- <a href="chartsTest"><i class="fas fa-chart-pie"></i> Statistics</a>
 				</li>
 					<li>
          		 <a href="#"><i class="far fa-window-restore"></i> Incompletos </a>
@@ -117,8 +113,87 @@
                      <li>
                        <a href="https://movicoders.com/contact/"><i class="fas fa-inbox"></i> Contact </a>
                 </li>
-            </ul>
+            </ul> -->
           
+            <li class="active">
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i
+              class="fas fa-filter"></i> Filter registers</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
+                      aria-controls="collapseOne">
+                      Select date range
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                    <!--START: fechas para elegir-->
+              <div class="form-group row">
+                <label for="example-date-input" class="col-2 col-form-label"></label>
+                <div class="col-10">
+                    <!-- test form -->
+                    <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData"  method="post" id="form1">
+                  <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input" name="startDate">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-date-input1" class="col-2 col-form-label"></label>
+                <div class="col-10">
+                  <input class="form-control" type="date" value=" End" id="example-date-input1" name="endDate">
+                </div>
+              </div>
+              </form>
+              <!-- <input class="btn btn-light" id="btn-outline-light" type="button" name="filterBoton" value="CHECK" type="submit" form="form1"><i class="fas fa-share"></i>  -->
+                 <!-- boton provisional test formulario -->
+                 <button  type="submit" form="form1"></button>
+                <!-- </input> -->
+              <!--VIEJO BOTÓN DE FILTRAR<button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
+                Filter</button>-->
+          <!--END: fechas para elegir-->
+          </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                      aria-expanded="false" aria-controls="collapseTwo">
+                      See incomplete days
+                    </button>
+                  </h5>
+                </div>
+                
+                 
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                      aria-expanded="false" aria-controls="collapseThree">
+                      See missed workdays
+                    </button>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </ul>
+          </li>
+          
+        <li>
+         <!-- AQUÍ LLAMA AL METODO chartsTest  -->
+				<a href="chartsTest"><i class="fas fa-chart-pie"></i> Statistics</a>
+        </li>
+        <li>
+        <a href="https://movicoders.com/contact/"><i class="fas fa-inbox"></i> Contact </a>
+        </li>
+        </ul>    
+              
+
+    </nav>
             
         </nav>
         <!-- El coment de la pagina  -->
@@ -143,7 +218,7 @@
 						<li class="nav-item active"> <!--User-->
                        
                             <li class="nav-item active"> <!--User-->
-                                <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></button></a>
+                                <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
                             </li>
 
                             <li class="nav-item"> <!--Home-->
