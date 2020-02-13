@@ -65,7 +65,7 @@ class LoginController extends Controller{
         $result = $conexion->goHome();
         echo $result;
     }
-
+//Prueba v4
 	
 
 }

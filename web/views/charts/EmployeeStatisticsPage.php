@@ -259,7 +259,7 @@
       <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="../views/static/Charts/Charts_Html/EmployeeChart.php"></iframe>
 
 
-
+<!--Prueba V4--->
 
       <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
 
