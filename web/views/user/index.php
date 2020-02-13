@@ -87,9 +87,10 @@
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-                      aria-controls="collapseOne">
-                      Select date range
-                    </button>
+                      aria-controls="collapseOne" id="colorBtn"><i class="fas fa-calendar-alt"></i>
+                       Select date range
+					</button>
+					
                   </h5>
                 </div>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
@@ -120,24 +121,25 @@
           </div>
                 </div>
               </div>
-              <div class="card">
+              <div class="card2">
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                      aria-expanded="false" aria-controls="collapseTwo">
-                      See incomplete days
+					  aria-expanded="false" aria-controls="collapseTwo"
+					  id="colorBtn2"> <i class="fas fa-calendar-minus"></i>
+                        Incomplete 
                     </button>
                   </h5>
                 </div>
                 
                  
               </div>
-              <div class="card">
+              <div class="card3">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                      aria-expanded="false" aria-controls="collapseThree">
-                      See missed workdays
+                      aria-expanded="false" aria-controls="collapseThree"id="colorBtn3"><i class="fas fa-calendar-times"></i>
+                     Missed 
                     </button>
                   </h5>
                 </div>
