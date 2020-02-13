@@ -78,42 +78,6 @@
                   
                 </ul>
             </li>
-
-                <!-- <li class="active"> 
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i class="fas fa-filter"></i> Filter clockin-ins</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                      <div class="form-group row">
-						<label for="example-date-input" class="col-2 col-form-label"></label>
-						
-                        <div class="col-10">
-                          <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input"name="startDate">--> <!-- hay que pasar los datos del calenario a  parametro de base de datos-->
-                        <!-- </div>
-                      </div>
-                  	<div class="form-group row">
-                    <label for="example-date-input1" class="col-2 col-form-label"></label>
-                      <div class="col-10">
-                        <input class="form-control" type="date" value=" End" 	id="example-date-input1" name="endDate">
-                          </div>
-                        </div>
-						</form>
-          			  <input class="btn btn-light" id="btn-outline-light" type="button" name="filterBoton" value="CHECK" type="submit" form="form1"><i class="fas fa-share"></i> </button>
-
-          			</ul>
-                    </li> 
-				<li> -->
-         <!-- AQUÍ LLAMA AL METODO chartsTest  -->
-				<!-- <a href="chartsTest"><i class="fas fa-chart-pie"></i> Statistics</a>
-				</li>
-					<li>
-         		 <a href="#"><i class="far fa-window-restore"></i> Incompletos </a>
-        			</li>
-        			<li>
-          			<a href="#"><i class="fas fa-user-clock"></i> Ausencia </a>
-        			</li>
-                     <li>
-                       <a href="https://movicoders.com/contact/"><i class="fas fa-inbox"></i> Contact </a>
-                </li>
-            </ul> -->
           
             <li class="active">
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i
