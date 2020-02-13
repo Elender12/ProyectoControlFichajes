@@ -27,6 +27,7 @@ class GUI_controller():
         self.template_number = -1
         self.q_delete = qdw.FPModuleDeleteQuick(self)
         self.former_employee = False
+        self.dni = ''
 
     def finger_print_init(self):
         self.enroll = ew.FPModule(self)
@@ -125,13 +126,14 @@ class GUI_controller():
                 DBconnection = connection.SQLConnect()
                 self.employee = DBconnection.get_employee(dni)
 
-                self.employee.password = passwd
-                self.employee.bossmail = bossmail
-                self.employee.contract = contract
-
                 rol_num = 0
                 if rol == "Admin":
                     rol_num = 1
+
+                self.employee.name = name
+                self.employee.password = passwd
+                self.employee.bossmail = bossmail
+                self.employee.contract = contract
                 self.employee.rol = rol_num
 
                 DBconnection = connection.SQLConnect()
@@ -182,10 +184,10 @@ class GUI_controller():
 
     def delete_employee(self, delete_view):
         self.delete_view = delete_view
-        dni = delete_view.dni_TF.get()
+        self.dni = delete_view.dni_TF.get()
         # try/except
         DBconnection = connection.SQLConnect()
-        template = DBconnection.template_from_dni(dni)
+        template = DBconnection.template_from_dni(self.dni)
         if template == -1:
             self.create_error_frame("The employee doesn't exist")
         else:
@@ -200,8 +202,13 @@ class GUI_controller():
         DBconnection.delete_user(self.template_number)
 
         DBconnection = connection.SQLConnect()
-        DBconnection.log_entry_fire_employee(self.employee.dni)
+        DBconnection.log_entry_fire_employee(self.dni)
 
+        #self.init_view = iv.InitialFrame(self.parent)
+        # self.delete_view.destroy()
+        # self.init_view.pack()
+
+    def restore_initial_frame_from_delete(self):
         self.init_view = iv.InitialFrame(self.parent)
         self.delete_view.destroy()
         self.init_view.pack()

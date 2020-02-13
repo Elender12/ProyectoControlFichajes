@@ -55,9 +55,15 @@ class FPModule_check():
                     print('No match found!')
                     #exit(0)
                 else:
-                    self.controller.set_finger_status(self.controller.check_finger_on_DB(positionNumber))
-                    print('Found template at position #' + str(positionNumber))
-                    print('The accuracy score is: ' + str(accuracyScore))
+                    dni = self.controller.check_finger_in_DB(positionNumber)
+                    if dni ==-1:
+                        pass #error
+                        self.controller.set_finger_status('NO DB RECORD')
+                    else:
+                        self.controller.set_finger_status(dni)
+                        print('Found template at position #' + str(positionNumber))
+                        print('The accuracy score is: ' + str(accuracyScore))
+                        self.controller.inser_time_in_DB(dni)
 
                 time.sleep(2.5)
 

@@ -1,6 +1,7 @@
 import threading
 import fingerprint_module.check_finger as cf
 from . import LCD_display as lcdd
+from DB import connection
 
 class LCD_controller():
 
@@ -38,10 +39,13 @@ class LCD_controller():
             text = text + ' '  
         return text
 
-    def check_finger_on_DB(self, template_position):
-        template_position = template_position
-        #DB query
-        return '18172786A'
+    def check_finger_in_DB(self, template_position):
+        DBConnection = connection.SQLConnect()
+        return DBConnection.dni_from_template(template_position)
+
+    def inser_time_in_DB(self, dni):
+        DBConnection = connection.SQLConnect()
+        DBConnection.new_clocking_reg(dni)
     
 
     
