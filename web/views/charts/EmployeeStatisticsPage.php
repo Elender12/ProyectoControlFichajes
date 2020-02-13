@@ -47,7 +47,7 @@
 <body>
 
 	<!-- php sessions START-->
-	<?php$_SESSION["worker"]; ?>
+	<?php $_SESSION["worker"]; ?>
 	<!-- php sessions END -->
 	
 	
@@ -76,7 +76,7 @@
             <li class="nav-item">
               <!--Home-->
               <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"
-                href="https://movicoders.com/"><i class="fas fa-home" id="homeid"></i> Home</a>
+                href="https://movicoders.com/"><i class="fas fa-home" ></i> Home</a>
             </li>
             <li class="nav-item">
               <!--CONFIG -->
@@ -228,7 +228,7 @@
 
               <li class="nav-item">
                 <!--Home-->
-                <a class="nav-link" href="../../../user/index.php"><i class="fas fa-home"></i> </a>
+                <a class="nav-link" href="goIndex"><i class="fas fa-home" id="homeid"></i> </a>
               </li>
 
               <li class="nav-item">
@@ -248,7 +248,7 @@
 
               <li class="nav-item">
                 <!--Salida-->
-                <a class="nav-link" href="../../html/index.html"><i class="fas fa-sign-out-alt"></i> </a>
+                <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt" id="exitid"></i> </a>
 
               </li>
             </ul>
@@ -259,7 +259,7 @@
       <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="../views/static/Charts/Charts_Html/EmployeeChart.php"></iframe>
 
 
-
+<!--Prueba V4--->
 
       <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
 
