@@ -58,9 +58,15 @@ class LoginController extends Controller{
         $conexion = new UsersModel();
         $result = $conexion->testCharts();
         echo $result;
+	}
+	
+    function goIndex(){
+        $conexion = new UsersModel();
+        $result = $conexion->goHome();
+        echo $result;
     }
 
- 
+	
 
 }
 
