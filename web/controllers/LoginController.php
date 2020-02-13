@@ -5,7 +5,7 @@ class LoginController extends Controller{
         //llamo al contructor del Controller
         parent::__construct();
         //call the object and the method
-       // $this->view->render("login/index");
+        //$this->view->render("login/index");
         //$this->view->render("main/index");
        
     }
@@ -20,13 +20,12 @@ class LoginController extends Controller{
         echo $result;
     }
     function showData(){
-  
         $worker=$_SESSION["worker"];
         $conexion = new UsersModel();
         $result = $conexion->showMonthRegister($worker);
         echo $result;
-
     }
+    
     function checkFilteredData(){
         //probando datos
         if(isset($_POST["startDate"])){
@@ -35,20 +34,12 @@ class LoginController extends Controller{
         if(isset($_POST["endDate"])){
             $endDate=$_POST["endDate"];
         }
-
-        if(isset($_SESSION["worker"]) != NULL){
-            echo "te has salvado del null";
-        }
-         $worker= "Y3423283H";
-
-
-    
-       
-
-        $conexion = new UsersModel();
+       $worker = $_SESSION["worker"];
+       //$worker= "Y3423283H"; 
+       $conexion = new UsersModel();
         $result = $conexion-> checkFilteredDataClockIn($worker,$startDate,$endDate);
         //prints the data
-        print_r( $result);
+        echo $result;
     }
     function showIncompleteDays(){
         //TODO
@@ -75,9 +66,6 @@ class LoginController extends Controller{
         $result = $conexion->testCharts();
         echo $result;
     }
-
- 
-
 }
 
 
