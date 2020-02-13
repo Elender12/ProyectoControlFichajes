@@ -56,11 +56,10 @@
                 </li>
                 
                 <li class="nav-item"> <!--Home-->
-                  <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="https://movicoders.com/"><i class="fas fa-home"></i> Home</a>
+                  <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="https://movicoders.com/"  target="_blank" ><i class="fas fa-home"></i> Home</a>
               </li>
                 <li class="nav-item"  > <!--CONFIG -->
-                  <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"data-toggle="modal" 
-                                        id="btn-config" 
+                  <a class="nav-link  d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"data-toggle="modal" 
                                         data-target=".bd-example-modal-lg">
                                         <i class="fas fa-user-cog "></i> Config</a> 
 
@@ -80,7 +79,7 @@
             </li>
           
             <li class="active">
-          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i
+          <a href="#homeSubmenu"  data-toggle="collapse" aria-expanded="false" class=" -toggle"><i
               class="fas fa-filter"></i> Filter registers</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
             <div id="accordion">
@@ -149,10 +148,11 @@
           
         <li>
          <!-- AQUÍ LLAMA AL METODO chartsTest  -->
-				<a href="chartsTest"><i class="fas fa-chart-pie"></i> Statistics</a>
+				<a href="chartsTest"  target="_blank"><i class="fas fa-chart-pie"></i> Statistics</a>
         </li>
         <li>
-        <a href="https://movicoders.com/contact/"><i class="fas fa-inbox"></i> Contact </a>
+		<a href="https://movicoders.com/contact/" target="_blank"> <i class="fas fa-inbox"></i> Contact </a>
+
         </li>
         </ul>    
               

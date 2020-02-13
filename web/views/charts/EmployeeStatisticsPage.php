@@ -76,7 +76,7 @@
             <li class="nav-item">
               <!--Home-->
               <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"
-                href="https://movicoders.com/"><i class="fas fa-home" ></i> Home</a>
+                href="https://movicoders.com/"  target="_blank"><i class="fas fa-home" ></i> Home</a>
             </li>
             <li class="nav-item">
               <!--CONFIG -->
@@ -228,7 +228,7 @@
 
               <li class="nav-item">
                 <!--Home-->
-                <a class="nav-link" href="goIndex"><i class="fas fa-home" id="homeid"></i> </a>
+                <a class="nav-link" href="goIndex" ><i class="fas fa-home" id="homeid"></i> </a>
               </li>
 
               <li class="nav-item">
