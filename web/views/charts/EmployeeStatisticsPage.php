@@ -16,7 +16,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   <!-- MI CSS -->
-  <!-- <link rel="stylesheet" href=".HOKLA MUNDO./../css/user.css"> -->
   <link rel="stylesheet" href="../views/static/css/user.css">
   <!-- La Scrollbar con CSS -->
   <link rel="stylesheet"
@@ -29,11 +28,14 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
     integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
     crossorigin="anonymous"></script>
+    
 
 
   <!-- Los iconos tipo Solid de Fontawesome los importo y los utilizo mas adelante-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
   <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <!-- Iconos filtros gráficos -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
@@ -51,6 +53,16 @@
 
     <!--el script que crea el gráfico está aquí:-->
     <script type="text/javascript" src="../views/static/JavaScript/EmployeeChartScript.js"></script>
+
+    <!--YEARPICKER: https://www.itsolutionstuff.com/post/bootstrap-year-picker-example-using-datepicker-jsexample.html -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+    <link rel="stylesheet" href="css/jquery.monthpicker.css">
+
+
 </head>
 
 <body>
@@ -113,7 +125,7 @@
 
 
 
-        <!--FILTRO GRAFICOS-->
+        <!--START FILTROS GRAFICOS-->
         <li class="active">
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i
               class="fas fa-filter"></i> Filter statistics</a>
@@ -135,7 +147,7 @@
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                      aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="fas fa-calendar-alt"></i>
+                      aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="material-icons">event</i>
                       Select date range
                     </button>
                   </h5>
@@ -165,7 +177,7 @@
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                      aria-expanded="false" aria-controls="collapseThree" id="colorBtn3">
+                      aria-expanded="false" aria-controls="collapseThree" id="colorBtn3"><i class="material-icons">date_range</i>
                       Select month
                     </button>
                   </h5>
@@ -173,8 +185,16 @@
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                   <div class="card-body">
                   <!--START: meses para elegir-->
-                  
-                
+                  <div class="container text-center">
+                  <input class="date-own form-control" style="width: 200px;" type="text" value="Select month">
+                <script type="text/javascript">
+                  $('.date-own').datepicker({
+                    format: "MM yyyy",
+                    viewMode: "years", 
+                    minViewMode: "months"
+                  });
+              </script>
+              </div>
                   <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
                     Filter</button>
                   <!--END: meses para elegir-->
@@ -185,7 +205,7 @@
                 <div class="card-header" id="headingFour">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
-                      aria-expanded="false" aria-controls="collapseFour" id="colorBtn4">
+                      aria-expanded="false" aria-controls="collapseFour" id="colorBtn4"><i class="fas fa-calendar-alt"></i>
                       Select year
                     </button>
                   </h5>
@@ -193,7 +213,15 @@
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                   <div class="card-body">
                    <!--START: años para elegir-->
-                   
+                   <div class="container text-center">
+                  <input class="date-own form-control" style="width: 200px;" type="text" value="Select year">
+                <script type="text/javascript">
+                  $('.date-own').datepicker({
+                    minViewMode: 2,
+                    format: 'yyyy'
+                  });
+              </script>
+              </div>
                   <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
                     Filter</button>
                   <!--END: años para elegir-->
@@ -204,8 +232,8 @@
                 <div class="card-header" id="headingFive">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
-                      aria-expanded="false" aria-controls="collapseFive" id="colorBtn5">
-                      Since contract start date
+                      aria-expanded="false" aria-controls="collapseFive" id="colorBtn5"><i class="material-icons">assignment_return</i>
+                      All time
                     </button>
                   </h5>
                 </div>
@@ -213,6 +241,10 @@
             </div>
 
     </nav>
+            <!--END FILTROS GRAFICOS-->
+
+
+
     <!-- El content de la pagina  -->
     <div id="content">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -264,8 +296,7 @@
           </div>
         </div>
       </nav>
-      <!--AQUÍ ES DONDE SE CREA EL FRAME QUE CONTIENE EL GRÁFICO-->
-      <!-- <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="../charts/EmployeeChart.php"></iframe> -->
+      <!--AQUÍ ES DONDE SE LLAMA AL GRÁFICO-->
       <div id="employeeChart_div"></div>
 
 <!--Prueba V4--->
