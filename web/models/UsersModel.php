@@ -33,23 +33,12 @@ class UsersModel extends Model
             } else {
                 //stores the type of user
                 $userType = $data[0]->isAdmin;
-                $hiredDate = $data[0]->contractStartDate;
-                //¿funcionará?
-                //$GLOBALS[$hiredDate];
-                //var_dump($userType);
                 //checks if it's an admin or worker
-                if (strcmp($userType, "0") == 0) {
-                    //it's a user and calls the view
-                    $query = "SELECT orderN, clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker ";
-                    $query = $db->prepare($query);
-                    $query->bindParam(':worker',$worker);
-                    //executes  the query
-                    $query->execute();
-                    $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
-                    //echo $data;
-                    //$registers = $this->showMonthRegister($worker);
-                    //var_dump($registers);
-                    require "views/user/index.php";
+                if (strcmp($userType, "0") == 0) {  
+                    //method showMonthRegister 
+                   require "views/user/index.php";
+                   //header("Location: views/user/index.php");
+                    
                 } else {
                     //it's an admin and calls the view
                     require "views/admin/index.php";
@@ -67,12 +56,11 @@ class UsersModel extends Model
 
             $db = DataBase::db();
             //prepares the query
-            $query = "SELECT date, time, type FROM clokinginregisters WHERE dniUser like :worker ";
+            $query = "SELECT orderN, clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker ";
             $query = $db->prepare($query);
             $query->bindParam(':worker',$worker);
             //executes  the query
             $query->execute();
-            //executes  the query
             $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
             return $data;
             //require "views/user/index.php";
@@ -112,9 +100,9 @@ class UsersModel extends Model
 
     public function checkIncompleteDays($worker)
     {
-        //TODO --lleva procedimiento -- ¿funcionará?
+        //TODO --lleva procedimiento --
         try {
-            //$hireDate1= $GLOBALS[$hiredDate];
+        
             $db = DataBase::db();
      
             $queryHireDate= "SELECT contractStartDate FROM users WHERE employeeDni like :worker";
@@ -131,8 +119,6 @@ class UsersModel extends Model
             $data = $sql->execute();
             $data->setFetchMode(PDO::FETCH_ASSOC);
             return $data;
-            //$stmt->bindParam(1, $second_name, PDO::PARAM_STR|PDO::PARAM_INPUT_OUTPUT, 32);
-            //$stmt->bindParam(2, $weight, PDO::PARAM_INT, 10);
         } catch (PDOException $e) {
             die("Error occurred with the incomlete days query:" . $e->getMessage());
         }
@@ -140,7 +126,6 @@ class UsersModel extends Model
     public function checkNoClockedInDays($worker)
     {
         //TODO -- simple query
-        /* */
         try {
             $db = DataBase::db();
             $query = "SELECT calendarDate FROM calendar_table WHERE calendarDate NOT IN
