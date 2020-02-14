@@ -42,6 +42,15 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
+    <link rel="stylesheet" href="../views/static/css/chartsStyle.css">
+    <link rel="stylesheet2" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!--el script que crea el gráfico está aquí:-->
+    <script type="text/javascript" src="../views/static/JavaScript/EmployeeChartScript.js"></script>
 </head>
 
 <body>
@@ -156,7 +165,7 @@
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                      aria-expanded="false" aria-controls="collapseThree" id="colorBtn3"><img src="../static/img/calendar.png" alt="calendar icon">
+                      aria-expanded="false" aria-controls="collapseThree" id="colorBtn3">
                       Select month
                     </button>
                   </h5>
@@ -204,7 +213,7 @@
             </div>
 
     </nav>
-    <!-- El coment de la pagina  -->
+    <!-- El content de la pagina  -->
     <div id="content">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -256,14 +265,14 @@
         </div>
       </nav>
       <!--AQUÍ ES DONDE SE CREA EL FRAME QUE CONTIENE EL GRÁFICO-->
-      <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="../charts/EmployeeChart.php"></iframe>
-
+      <!-- <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="../charts/EmployeeChart.php"></iframe> -->
+      <div id="employeeChart_div"></div>
 
 <!--Prueba V4--->
 
       <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
 
-      <!-- jQuery CDN -  AJAX) -->
+      <!-- jQuery CDN -  AJAX -->
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
