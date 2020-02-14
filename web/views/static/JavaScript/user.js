@@ -13,7 +13,7 @@
     });
     
     $(document).ready(function () {
-        $('#dtVerticalScrollExample').DataTable({
+        $('#dtVerticalScrollExample').DataTable({  //AQUÍ PETA Y NO CARGA LA TABLA
         "scrollY": "200px",
         "scrollCollapse": true,
         });

@@ -76,7 +76,7 @@
             <li class="nav-item">
               <!--Home-->
               <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"
-                href="https://movicoders.com/"><i class="fas fa-home" ></i> Home</a>
+                href="https://movicoders.com/"  target="_blank"><i class="fas fa-home" ></i> Home</a>
             </li>
             <li class="nav-item">
               <!--CONFIG -->
@@ -114,7 +114,7 @@
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-                      aria-controls="collapseOne">
+                      aria-controls="collapseOne" id="colorBtn"><i class="far fa-calendar"></i>
                       See current month
                     </button>
                   </h5>
@@ -126,7 +126,7 @@
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                      aria-expanded="false" aria-controls="collapseTwo">
+                      aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="fas fa-calendar-alt"></i>
                       Select date range
                     </button>
                   </h5>
@@ -156,7 +156,7 @@
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                      aria-expanded="false" aria-controls="collapseThree">
+                      aria-expanded="false" aria-controls="collapseThree" id="colorBtn3"><img src="../static/img/calendar.png" alt="calendar icon">
                       Select month
                     </button>
                   </h5>
@@ -176,7 +176,7 @@
                 <div class="card-header" id="headingFour">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
-                      aria-expanded="false" aria-controls="collapseFour">
+                      aria-expanded="false" aria-controls="collapseFour" id="colorBtn4">
                       Select year
                     </button>
                   </h5>
@@ -195,7 +195,7 @@
                 <div class="card-header" id="headingFive">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
-                      aria-expanded="false" aria-controls="collapseFive">
+                      aria-expanded="false" aria-controls="collapseFive" id="colorBtn5">
                       Since contract start date
                     </button>
                   </h5>
@@ -228,7 +228,7 @@
 
               <li class="nav-item">
                 <!--Home-->
-                <a class="nav-link" href="goIndex"><i class="fas fa-home" id="homeid"></i> </a>
+                <a class="nav-link" href="goIndex" ><i class="fas fa-home" id="homeid"></i> </a>
               </li>
 
               <li class="nav-item">
@@ -256,7 +256,7 @@
         </div>
       </nav>
       <!--AQUÍ ES DONDE SE CREA EL FRAME QUE CONTIENE EL GRÁFICO-->
-      <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="../views/static/Charts/Charts_Html/EmployeeChart.php"></iframe>
+      <iframe width="1200" height="800" seamless frameborder="0" scrolling="no" src="../charts/EmployeeChart.php"></iframe>
 
 
 <!--Prueba V4--->

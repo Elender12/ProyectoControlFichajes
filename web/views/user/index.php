@@ -56,11 +56,10 @@
                 </li>
                 
                 <li class="nav-item"> <!--Home-->
-                  <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="https://movicoders.com/"><i class="fas fa-home"></i> Home</a>
+                  <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="https://movicoders.com/"  target="_blank" ><i class="fas fa-home"></i> Home</a>
               </li>
                 <li class="nav-item"  > <!--CONFIG -->
-                  <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"data-toggle="modal" 
-                                        id="btn-config" 
+                  <a class="nav-link  d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"data-toggle="modal" 
                                         data-target=".bd-example-modal-lg">
                                         <i class="fas fa-user-cog "></i> Config</a> 
 
@@ -80,7 +79,7 @@
             </li>
           
             <li class="active">
-          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i
+          <a href="#homeSubmenu"  data-toggle="collapse" aria-expanded="false" class=" -toggle"><i
               class="fas fa-filter"></i> Filter registers</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
             <div id="accordion">
@@ -88,9 +87,10 @@
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-                      aria-controls="collapseOne">
-                      Select date range
-                    </button>
+                      aria-controls="collapseOne" id="colorBtn"><i class="fas fa-calendar-alt"></i>
+                       Select date range
+					</button>
+					
                   </h5>
                 </div>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
@@ -121,24 +121,25 @@
           </div>
                 </div>
               </div>
-              <div class="card">
+              <div class="card2">
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                      aria-expanded="false" aria-controls="collapseTwo">
-                      See incomplete days
+					  aria-expanded="false" aria-controls="collapseTwo"
+					  id="colorBtn2"> <i class="fas fa-calendar-minus"></i>
+                        Incomplete 
                     </button>
                   </h5>
                 </div>
                 
                  
               </div>
-              <div class="card">
+              <div class="card3">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                      aria-expanded="false" aria-controls="collapseThree">
-                      See missed workdays
+                      aria-expanded="false" aria-controls="collapseThree"id="colorBtn3"><i class="fas fa-calendar-times"></i>
+                     Missed 
                     </button>
                   </h5>
                 </div>
@@ -149,10 +150,11 @@
           
         <li>
          <!-- AQUÍ LLAMA AL METODO chartsTest  -->
-				<a href="chartsTest"><i class="fas fa-chart-pie"></i> Statistics</a>
+				<a href="chartsTest"  target="_blank"><i class="fas fa-chart-pie"></i> Statistics</a>
         </li>
         <li>
-        <a href="https://movicoders.com/contact/"><i class="fas fa-inbox"></i> Contact </a>
+		<a href="https://movicoders.com/contact/" target="_blank"> <i class="fas fa-inbox"></i> Contact </a>
+
         </li>
         </ul>    
               
@@ -186,7 +188,7 @@
                             </li>
 
                             <li class="nav-item"> <!--Home-->
-                                <a class="nav-link" href="https://movicoders.com/"><i class="fas fa-home" id="homeid"></i> </a>
+                                <a class="nav-link" href="https://movicoders.com/"  target="_blank"><i class="fas fa-home" id="homeid"></i> </a>
                             </li>
 
                             <li class="nav-item"  > <!--CONFIG -->
