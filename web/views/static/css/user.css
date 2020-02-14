@@ -106,7 +106,7 @@ a:focus {
     border-radius: 10px;
     box-shadow: 3px 3px 10px #0f407a ;
 }
-#datos-centrados{
+.h1{
    text-align: center;
 }
 #nombre-centrados {
@@ -118,7 +118,15 @@ line-height: 1.7em;
 color:#0f407a;
 
 }
-
+.h1 {
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	font-size: 2em;
+	font-weight: 700;
+	line-height: 1.7em;
+	color:#0f407a;
+	
+	}
 .navbar-btn {
     box-shadow: none;
     outline: none !important;
@@ -338,11 +346,20 @@ a.article:hover {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	color: black;
-	font-size: x-large;
+	color: #0f407a;
+	font-size: xx-large;
 	transform: translate(-50%, -50%);
   }
- 
+.topnav-centered2{
+	float: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: #0f407a;
+	font-size: xx-large;
+	transform: translate(-50%, -50%);
+
+}
   @media screen and (max-width: 600px) {
 	.topnav a, .topnav-right {
 	  float: none;

@@ -12,12 +12,3 @@
         });
     });
     
-    $(document).ready(function () {
-        $('#dtVerticalScrollExample').DataTable({  //AQUÍ PETA Y NO CARGA LA TABLA
-        "scrollY": "200px",
-        "scrollCollapse": true,
-        });
-        $('.dataTables_length').addClass('bs-select');
-        });
-
- 
