@@ -17,9 +17,11 @@ p {
 
 #headingOne{
 	background-color: #0f407a;
+	
 }
 #colorBtn{
 	color: #fafafa;
+	
 }
 .card{
 	background-color: #0f407a;
@@ -67,6 +69,7 @@ p {
 #charts{
     padding: 15px 10px;
 }
+
 
 a,
 a:hover,
@@ -192,6 +195,7 @@ color:#0f407a;
     color: floralwhite;
     transition: all 0.3s;
 }
+
 
 #sidebar.active {
     margin-left: -250px;
@@ -373,3 +377,4 @@ a.article:hover {
 	  transform: none;
 	}
   }
+  
