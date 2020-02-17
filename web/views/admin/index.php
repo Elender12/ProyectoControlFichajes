@@ -34,7 +34,7 @@
 
 </head>
 <body>
-  <!-- php sessions START-->
+  <!-- php sessions START -->
   <?php $_SESSION["worker"] = $_POST["worker"]; ?> 
   <!-- php sessions END -->
     <div class="wrapper">
