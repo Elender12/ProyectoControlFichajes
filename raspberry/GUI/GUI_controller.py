@@ -103,8 +103,6 @@ class GUI_controller():
         contract = user_form.contract_combo.get()
         rol = user_form.rol_combo.get()
 
-        # try/except
-
         if dni == '' or name == '' or passwd == '' or bossmail == '':
             self.create_error_frame('Empty field')
 
@@ -115,46 +113,54 @@ class GUI_controller():
             self.create_error_frame('Invalid Email')
 
         else:
-            DBconnection = connection.SQLConnect()
-            check_result = DBconnection.user_exist(dni)
-            if check_result == 1:
-                self.create_error_frame('User already exists')
-            elif check_result == 0:
-
-                self.former_employee = True
-
+            try:
                 DBconnection = connection.SQLConnect()
-                self.employee = DBconnection.get_employee(dni)
+                check_result = DBconnection.user_exist(dni)
+                if check_result == 1:
+                    self.create_error_frame('User already exists')
+                elif check_result == 0:
 
-                rol_num = 0
-                if rol == "Admin":
-                    rol_num = 1
+                    self.former_employee = True
 
-                self.employee.name = name
-                self.employee.password = passwd
-                self.employee.bossmail = bossmail
-                self.employee.contract = contract
-                self.employee.rol = rol_num
+                    DBconnection = connection.SQLConnect()
+                    self.employee = DBconnection.get_employee(dni)
 
-                DBconnection = connection.SQLConnect()
-                DBconnection.update_user(self.employee)
+                    rol_num = 0
+                    if rol == "Admin":
+                        rol_num = 1
 
-            elif check_result == -1:
-                rol_num = 0
-                if rol == "Admin":
-                    rol_num = 1
+                    self.employee.name = name
+                    self.employee.password = passwd
+                    self.employee.bossmail = bossmail
+                    self.employee.contract = contract
+                    self.employee.rol = rol_num
 
-                self.employee = emp.Employee(
-                    name, dni, passwd, contract, bossmail, rol_num)
+                    DBconnection = connection.SQLConnect()
+                    DBconnection.update_user(self.employee)
 
-            self.parent = user_form.parent
+            
 
-            self.view = fv.FPView(self.parent)
-            user_form.destroy()
-            self.view.pack()
+                elif check_result == -1:
+                    rol_num = 0
+                    if rol == "Admin":
+                        rol_num = 1
 
-            FPthread = threading.Thread(target=self.finger_print_init)
-            FPthread.start()
+                    self.employee = emp.Employee(
+                        name, dni, passwd, contract, bossmail, rol_num)
+
+                
+                self.parent = user_form.parent
+
+                self.view = fv.FPView(self.parent)
+                user_form.destroy()
+                self.view.pack()
+
+                FPthread = threading.Thread(target=self.finger_print_init)
+                FPthread.start()
+
+            except:
+                self.create_error_frame("Database Error")
+
 
     def employee_to_DB(self):
 
