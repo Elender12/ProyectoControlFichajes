@@ -32,7 +32,7 @@
                 title: 'Worked hours',
                 hAxis: { title: 'Working days'},
                 vAxis: { title: 'Worked hours' , minValue: 0},
-                legend: { position: 'top right' },
+                legend: { position: 'bottom' },
                 responsive: true
             };
 

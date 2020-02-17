@@ -144,7 +144,7 @@
                   <div class="card-body">
                     <!--START: fechas para elegir-->
                     <div class="container text-center">
-                  <input class="date-own form-control" style="width: 200px;" type="text" value="Select date">
+                  <input class="date-own form-control" style="width: 200px;" type="text" value="            Select date">
                   <script type="text/javascript">
                   $('.date-own').datepicker({
                     format: "yyyy MM dd",
@@ -154,7 +154,7 @@
               </script>
               </div>
               <div class="container text-center">
-                  <input class="date-own form-control" style="width: 200px;" type="text" value="Select date">
+                  <input class="date-own form-control" style="width: 200px;" type="text" value="            Select date">
                   <script type="text/javascript">
                   $('.date-own').datepicker({
                     format: "yyyy MM dd",
@@ -195,7 +195,7 @@
                   <div class="card-body">
                   <!--START: meses para elegir-->
                   <div class="container text-center">
-                  <input class="date-own form-control" style="width: 200px;" type="text" value="Select month">
+                  <input class="date-own form-control" style="width: 200px;" type="text" value="         Select month">
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     format: "MM yyyy",
@@ -223,7 +223,7 @@
                   <div class="card-body">
                    <!--START: años para elegir-->
                    <div class="container text-center">
-                  <input class="date-own form-control" style="width: 200px;" type="text" value="Select year">
+                  <input class="date-own form-control" style="width: 200px;" type="text" value="            Select year">
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     minViewMode: 2,
