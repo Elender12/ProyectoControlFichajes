@@ -12,7 +12,9 @@
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- MI CSS -->
-    <link rel="stylesheet" href="../views/static/css/user.css">
+	<link rel="stylesheet" href="../views/static/css/user.css">
+	
+
     <!-- La Scrollbar con CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -32,7 +34,7 @@
 
 </head>
 <body>
-  <!-- php sessions START-->
+  <!-- php sessions START -->
   <?php $_SESSION["worker"] = $_POST["worker"]; ?> 
   <!-- php sessions END -->
     <div class="wrapper">
@@ -263,7 +265,7 @@
                   </div>
             </div>
             
-            <p class="h1">Usuarios  </p>
+            <p class="h1">Usuarios </p>
             <table class="table table-striped  "id="datos-centrados">
               
                 <thead>
@@ -353,8 +355,9 @@
  
  	<!-- JavaScript funcion para el movimiento lateral   -->
  	<script defer src="../views/static/JavaScript/user.js"></script>
-    <script defer src="../views/static/JavaScript/filtro.js"></script>
-    <script src=""></script>
+	<script defer src="../views/static/JavaScript/filtro.js"></script>
+	<!--PENDIENTE DE HACER-->
+    <script defersrc="../views/static/JavaScript/"></script>
 
    
 </body>
