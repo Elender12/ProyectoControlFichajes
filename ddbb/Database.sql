@@ -16,6 +16,54 @@
 CREATE DATABASE IF NOT EXISTS `fingerprintassistancecontrol` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `fingerprintassistancecontrol`;
 
+-- Dumping structure for procedure fingerprintassistancecontrol.calculate_hours_in_day
+DELIMITER //
+CREATE PROCEDURE `calculate_hours_in_day`(
+	IN `date_find` DATE,
+	IN `dni` VARCHAR(50)
+)
+BEGIN
+
+	DECLARE entries INT DEFAULT 0;
+	DECLARE counter INT DEFAULT 0;
+	DECLARE hours TIME DEFAULT 0;
+	DECLARE time_1 TIME;
+	DECLARE time_2 TIME;
+	
+	
+	SELECT COUNT(*) INTO entries FROM clokinginregisters WHERE clockingDate = date_find AND dniUser = dni;
+	
+	#DROP TEMPORARY TABLE times;
+	CREATE TEMPORARY TABLE IF NOT EXISTS times (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, time_en TIME);
+	
+	INSERT INTO times(time_en) (SELECT clockingTime FROM clokinginregisters WHERE clockingDate = date_find AND dniUser = dni);
+	
+	
+	substract_loop:  LOOP
+	
+   IF  counter > entries THEN
+		LEAVE substract_loop;
+	END IF;
+	
+	IF counter%2 = 0 AND counter != 0 THEN
+		SELECT time_en INTO time_2 FROM times WHERE id = counter;
+		SELECT time_en INTO time_1 FROM times WHERE id = counter-1;
+		SELECT time_1, time_2;
+		SELECT SUBTIME(time_2, time_1);
+		SELECT ADDTIME(hours, SUBTIME(time_2, time_1)) INTO hours; #last Change
+		SET counter = counter + 1;
+	END IF;
+	
+	SET counter = counter + 1;	
+	
+	END LOOP;
+	
+	SELECT hours;
+
+	
+END//
+DELIMITER ;
+
 -- Dumping structure for table fingerprintassistancecontrol.calendar_table
 CREATE TABLE IF NOT EXISTS `calendar_table` (
   `calendarDate` date NOT NULL,
@@ -4061,7 +4109,7 @@ CREATE TABLE IF NOT EXISTS `clokinginregisters` (
   KEY `FKdate` (`clockingDate`),
   CONSTRAINT `FKdate` FOREIGN KEY (`clockingDate`) REFERENCES `calendar_table` (`calendarDate`),
   CONSTRAINT `FKdniUser` FOREIGN KEY (`dniUser`) REFERENCES `users` (`employeeDni`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table fingerprintassistancecontrol.clokinginregisters: ~9 rows (approximately)
 /*!40000 ALTER TABLE `clokinginregisters` DISABLE KEYS */;
@@ -4074,7 +4122,10 @@ REPLACE INTO `clokinginregisters` (`orderN`, `dniUser`, `clockingDate`, `clockin
 	(6, 'X345678I', '2020-01-22', '12:24:34', 'exit'),
 	(7, 'Y3423283H', '2020-01-23', '10:24:59', 'exit'),
 	(8, 'Y3423283H', '2020-01-23', '11:25:17', 'entrance'),
-	(9, 'Y3423283H', '2020-01-23', '13:25:54', 'exit');
+	(9, 'Y3423283H', '2020-01-23', '13:25:54', 'exit'),
+	(10, 'Y3423283H', '2020-04-01', '09:30:52', 'entrance'),
+	(11, 'Y3423283H', '2020-04-01', '12:31:22', 'exit'),
+	(12, 'Y3423283H', '2020-04-01', '14:31:46', 'entrance');
 /*!40000 ALTER TABLE `clokinginregisters` ENABLE KEYS */;
 
 -- Dumping structure for procedure fingerprintassistancecontrol.find_incomplete_days
@@ -4126,7 +4177,7 @@ CREATE TABLE IF NOT EXISTS `loginfo` (
   `orderN` int(11) NOT NULL AUTO_INCREMENT,
   `logWhen` datetime NOT NULL DEFAULT current_timestamp(),
   `logWho` varchar(50) NOT NULL,
-  `logAction` varchar(50) NOT NULL,
+  `logAction` text NOT NULL DEFAULT '',
   PRIMARY KEY (`orderN`),
   KEY `FKwho` (`logWho`),
   CONSTRAINT `FKwho` FOREIGN KEY (`logWho`) REFERENCES `users` (`employeeDni`)
