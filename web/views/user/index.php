@@ -30,6 +30,12 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
+    <!-- Filtros fechas -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
 </head>
 <body>
   <!-- php sessions START-->
@@ -97,23 +103,38 @@
                   <div class="card-body">
                     <!--START: fechas para elegir-->
               <div class="form-group row">
-                <label for="example-date-input" class="col-2 col-form-label"></label>
+                <label for="registersDateFilter1" class="col-2 col-form-label"></label>
                 <div class="col-10">
                     <!-- test form -->
                     <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData"  method="post" id="form1">
-                  <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input" name="startDate">
+                  <input class="date-own form-control" type="text" value="Select date" id="registersDateFilter1" name="startDate">
+                  <script type="text/javascript">
+                  $('.date-own').datepicker({
+                    format: "yyyy MM dd",
+                    viewMode: "months", 
+                    minViewMode: "days"
+                  });
+              </script>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="example-date-input1" class="col-2 col-form-label"></label>
+                <label for="registersDateFilter2" class="col-2 col-form-label"></label>
                 <div class="col-10">
-                  <input class="form-control" type="date" value=" End" id="example-date-input1" name="endDate">
+                  <input class="date-own form-control" type="text" value="Select date" id="registersDateFilter2" name="endDate">
+                  <script type="text/javascript">
+                  $('.date-own').datepicker({
+                    format: "yyyy MM dd",
+                    viewMode: "months", 
+                    minViewMode: "days"
+                  });
+              </script>
                 </div>
               </div>
               </form>
               <!-- <input class="btn btn-light" id="btn-outline-light" type="button" name="filterBoton" value="CHECK" type="submit" form="form1"><i class="fas fa-share"></i>  -->
                  <!-- boton provisional test formulario -->
-                 <button  type="submit" form="form1"></button>
+                 <button  type="submit" form="form1" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
+                Filter</button>
                 <!-- </input> -->
               <!--VIEJO BOTÓN DE FILTRAR<button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
                 Filter</button>-->

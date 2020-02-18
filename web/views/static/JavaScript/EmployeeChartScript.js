@@ -36,6 +36,7 @@
                 responsive: true,
                 width: $(employeeChart_div).width(),
                 height: $(employeeChart_div).height()*0.75
+                
             };  
             
 
