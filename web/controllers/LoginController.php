@@ -17,6 +17,7 @@ class LoginController extends Controller{
         $conexion = new UsersModel();
         //calls the method that has the query prepared
         $result = $conexion->checkLogin($worker,$pass);
+        //$result = $conexion->showMonthRegister($worker);
         echo $result;
     }
     function showData(){
@@ -71,6 +72,25 @@ class LoginController extends Controller{
         $conexion = new UsersModel();
         $result = $conexion->goHome();
         echo $result;
+    }
+    function sendData(){
+        	/* Database connection settings */
+	$host = 'localhost';
+	$user = 'root';
+	$pass = 'root';
+	$db = 'fingerprintassistancecontrol';
+	$mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
+
+	//query to get data from the table
+	$sql = "SELECT * FROM `charts` ";
+    $result = mysqli_query($mysqli, $sql);
+
+	//loop through the returned data
+    while ($data = mysqli_fetch_assoc($result)) {
+        $userData[] = $data;
+	}
+    echo json_encode($userData);
+
     }
 }
 

@@ -36,6 +36,13 @@ class UsersModel extends Model
                 //checks if it's an admin or worker
                 if (strcmp($userType, "0") == 0) {  
                     //method showMonthRegister 
+                    $db = DataBase::db();
+                    $query = "SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker AND clockingDate between  DATE_FORMAT(NOW(),'%Y-%m-01') AND CURDATE() ORDER BY clockingDate asc, clockingTime asc";
+                    $query = $db->prepare($query);
+                    $query->bindParam(':worker',$worker);
+                    //executes  the query
+                    $query->execute();
+                    $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
                    require "views/user/index.php";
                    //header("Location: views/user/index.php");
                     
@@ -45,6 +52,7 @@ class UsersModel extends Model
                 }
             }
         } catch (Exception $e) {
+            echo $e;
             echo "<p>There was en error with the login</p>";
         }
         //return $userType;
@@ -56,14 +64,14 @@ class UsersModel extends Model
 
             $db = DataBase::db();
             //prepares the query
-            $query = "SELECT orderN, clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker ";
-            $query = $db->prepare($query);
-            $query->bindParam(':worker',$worker);
+            $query1 = "SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters 
+            WHERE dniUser like :worker AND clockingDate between  DATE_FORMAT(NOW() ,'%Y-%m-01') AND CURDATE())";
+            $query1 = $db->prepare($query1);
+            $query1->bindParam(':worker',$worker);
             //executes  the query
-            $query->execute();
-            $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+            $query1->execute();
+            $data = $query1->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
             return $data;
-            //require "views/user/index.php";
         } catch (Exception $e) {
             echo "<p>There was en error with the query</p>";
         }

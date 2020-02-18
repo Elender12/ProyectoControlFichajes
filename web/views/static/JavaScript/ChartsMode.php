@@ -11,8 +11,8 @@
     $result = mysqli_query($mysqli, $sql);
 
 	//loop through the returned data
-	while ($data = mysqli_fetch_array($result)) {
-        $userData[] = $data;
+    while ($data = mysqli_fetch_assoc($result)) {
+        $userData['allData'][] = $data;
 	}
     print json_encode($userData);
 ?>
