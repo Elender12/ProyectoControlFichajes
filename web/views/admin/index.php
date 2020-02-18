@@ -166,7 +166,7 @@
         </nav>
         <!-- El coment de la pagina  -->
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+            <nav class=" bg-white navbar navbar-expand-lg navbar-light bg-light" >
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
                       <i class="fas fa-bars"></i>
@@ -181,11 +181,12 @@
                     
                     <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantall -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+						
                         <ul class="nav navbar-nav ml-auto  "> 
 							
 						<li class="nav-item active"> <!--User-->
                        
-                            <li class="nav-item active"> <!--User-->
+                            <li class=" nav-item active"> <!--User-->
                                 <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
                             </li>
 
@@ -213,7 +214,7 @@
                 </div>
             </nav>
             <div>
-                <div class="modal fade bd-example-modal-lg" id="PanelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class=" bg-white modal fade bd-example-modal-lg" id="PanelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -332,8 +333,21 @@
             <h2></h2>
            
             <p> </p>
-
+<!--EL TEMA DE CAMBIAR DE COLOR ES ALGO QUE SOLO ESTOY PROBANDO AUN NO ESTA LISTO Y
+CREO QUE NO SE LLEGARA A IMPLEMENTAR EN LA PARTE FINAL 
             <div class="line"></div>
+			<body class="bg-white text-center d-flex h-100">
+  		<div class="container d-flex p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <h3 class="float-left">Dark Mode Switch</h3>
+      <nav class="nav justify-content-center float-right">
+      
+        <div class="nav-link">
+
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="darkSwitch">
+            <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+          </div>
 
             <h3></h3>
             <p></p>
@@ -341,7 +355,7 @@
         </div>
     </div>
 
-    
+    --->
   <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
 
     <!-- jQuery CDN -  AJAX -->
@@ -357,7 +371,7 @@
  	<script defer src="../views/static/JavaScript/user.js"></script>
 	<script defer src="../views/static/JavaScript/filtro.js"></script>
 	<!--PENDIENTE DE HACER-->
-    <script defersrc="../views/static/JavaScript/"></script>
+   <!-- <script defer src="../views/static/JavaScript/dark-mode-switch.js"></script> -->
 
    
 </body>

@@ -32,9 +32,12 @@
                 title: 'Worked hours',
                 hAxis: { title: 'Working days'},
                 vAxis: { title: 'Worked hours' , minValue: 0},
-                legend: { position: 'top right' },
-                responsive: true
-            };
+                legend: { position: 'bottom' },
+                responsive: true,
+                width: $(employeeChart_div).width(),
+                height: $(employeeChart_div).height()*0.75
+            };  
+            
 
             var chart = new google.visualization.AreaChart(document.getElementById('employeeChart_div'));
 

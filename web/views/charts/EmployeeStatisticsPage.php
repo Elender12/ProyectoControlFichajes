@@ -51,9 +51,6 @@
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <!--el script que crea el gráfico está aquí:-->
-    <script type="text/javascript" src="../views/static/JavaScript/EmployeeChartScript.js"></script>
-
     <!--YEARPICKER: https://www.itsolutionstuff.com/post/bootstrap-year-picker-example-using-datepicker-jsexample.html -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
@@ -61,6 +58,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
     <link rel="stylesheet" href="css/jquery.monthpicker.css">
+    
+    <!--el script que crea el gráfico está aquí:-->
+    <script type="text/javascript" src="../views/static/JavaScript/EmployeeChartScript.js"></script>
 
 
 </head>
@@ -134,28 +134,37 @@
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-                      aria-controls="collapseOne" id="colorBtn"><i class="far fa-calendar"></i>
-                      See current month
-                    </button>
-                  </h5>
-                </div>
-
-                
-              </div>
-              <div class="card">
-                <div class="card-header" id="headingTwo">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                      aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="material-icons">event</i>
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
+                      aria-expanded="false" aria-controls="collapseOne" id="colorBtn"> <i class="material-icons">event</i>
                       Select date range
                     </button>
                   </h5>
                 </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="card-body">
                     <!--START: fechas para elegir-->
-              <div class="form-group row">
+                    <div class="container text-center">
+                  <input class="date-own form-control" style="width: 200px;" type="text" value="            Select date">
+                  <script type="text/javascript">
+                  $('.date-own').datepicker({
+                    format: "yyyy MM dd",
+                    viewMode: "months", 
+                    minViewMode: "days"
+                  });
+              </script>
+              </div>
+              <div class="container text-center">
+                  <input class="date-own form-control" style="width: 200px;" type="text" value="            Select date">
+                  <script type="text/javascript">
+                  $('.date-own').datepicker({
+                    format: "yyyy MM dd",
+                    viewMode: "months", 
+                    minViewMode: "days"
+                  });
+              </script>
+              </div>
+                  
+              <!-- <div class="form-group row">
                 <label for="example-date-input" class="col-2 col-form-label"></label>
                 <div class="col-10">
                   <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input">
@@ -166,7 +175,7 @@
                 <div class="col-10">
                   <input class="form-control" type="date" value=" End" id="example-date-input1">
                 </div>
-              </div>
+              </div> -->
               <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
                 Filter</button>
           <!--END: fechas para elegir-->
@@ -174,19 +183,19 @@
                 </div>
               </div>
               <div class="card">
-                <div class="card-header" id="headingThree">
+                <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                      aria-expanded="false" aria-controls="collapseThree" id="colorBtn3"><i class="material-icons">date_range</i>
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                      aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"><i class="material-icons">date_range</i>
                       Select month
                     </button>
                   </h5>
                 </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                   <div class="card-body">
                   <!--START: meses para elegir-->
                   <div class="container text-center">
-                  <input class="date-own form-control" style="width: 200px;" type="text" value="Select month">
+                  <input class="date-own form-control" style="width: 200px;" type="text" value="         Select month">
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     format: "MM yyyy",
@@ -202,19 +211,19 @@
                 </div>
               </div>
               <div class="card">
-                <div class="card-header" id="headingFour">
+                <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
-                      aria-expanded="false" aria-controls="collapseFour" id="colorBtn4"><i class="fas fa-calendar-alt"></i>
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                      aria-expanded="false" aria-controls="collapseThree" id="colorBtn3"><i class="fas fa-calendar-alt"></i>
                       Select year
                     </button>
                   </h5>
                 </div>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                   <div class="card-body">
                    <!--START: años para elegir-->
                    <div class="container text-center">
-                  <input class="date-own form-control" style="width: 200px;" type="text" value="Select year">
+                  <input class="date-own form-control" style="width: 200px;" type="text" value="            Select year">
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     minViewMode: 2,
@@ -229,10 +238,10 @@
                 </div>
               </div>
               <div class="card">
-                <div class="card-header" id="headingFive">
+                <div class="card-header" id="headingFour">
                   <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
-                      aria-expanded="false" aria-controls="collapseFive" id="colorBtn5"><i class="material-icons">assignment_return</i>
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                      aria-expanded="false" aria-controls="collapseFour" id="colorBtn4"><i class="material-icons">assignment_return</i>
                       All time
                     </button>
                   </h5>
