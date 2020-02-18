@@ -289,10 +289,10 @@
               
                 <thead>
                   <tr>
-                    <th scope="col"><i class="fas fa-user"></i> User</th>
-                    <th scope="col"><i class="far fa-calendar-alt"></i> Fecha </th>
-                    <th scope="col"><i class="fas fa-door-open"></i> Entrada</th>
-                    <th scope="col"><i class="fas fa-door-closed"></i> Salida</th>
+                    <th scope="col"><i class="fas fa-user"></i> Fecha</th>
+                    <th scope="col"><i class="far fa-calendar-alt"></i> Hora </th>
+                    <th scope="col"><i class="fas fa-door-open"></i> Tipo</th>
+                    <!-- <th scope="col"><i class="fas fa-door-closed"></i> Salida</th> -->
                  
                   </tr>
                 </thead>
@@ -306,37 +306,39 @@
                       <i class ="far fa-address-card"></i> </i></button></th>
                     </th>
 
-                   
-                      <td>dato0</td>
-                      <td>dato1</td>
-                      <td>dato2</td>
-               
-                    </tr>
-               
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-              
+          
                   
-             <?php  for ($i=0; $i< count($data); $i++) {
-                 //pintar datos correctamente en la tabla principal fichaje mes
-           //     echo "<td>"."num orden".$data[$i]->orderN." fecha".$data[$i]->date."</td><td>".$data[$i]->time.$data[$i]->type."</td><td><br>";
+             <?php  
+        //var_dump($data);
+             //recorre el numero de entradas que hay
+             $curDate= 0;
+             for ($i=0; $i< count($data); $i++) {
+               if($data[$i]->clockingDate == $curDate){
+
+                echo "<td>".$data[$i]->clockingTime."</td>";
+                echo "<td>".$data[$i]->clockingType."</td>";
+                // if($data[$i]->clockingDate != $curDate){
+                //   echo "</tr>";
+                // }
+  
+               } 
+               else{
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td>".$data[$i]->clockingDate."</td>";
+                echo "<td>".$data[$i]->clockingTime."</td>";
+                echo "<td>".$data[$i]->clockingType."</td>";
+                $curDate = $data[$i]->clockingDate;
+               }
               
+
+              //print_r($data[$i]->clockingDate." ");
+                 //pintar datos correctamente en la tabla principal fichaje mes
+            //echo "<td>". "fecha".$data[$i]->clockingDate."</td><td>".$data[$i]->clockingTime.$data[$i]->clockingType."</td><td><br>";
+                for($j=0; $j< 3; $j++){
+                  //print_r($data[$i]->clockingDate);
+
+              }
              
             }?>
             
