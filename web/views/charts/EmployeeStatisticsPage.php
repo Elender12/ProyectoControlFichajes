@@ -150,7 +150,7 @@
                   <input class="date-own form-control" id="dateRange1" type="text" value="Select date">
                   <script type="text/javascript">
                   $('.date-own').datepicker({
-                    format: "yyyy MM dd",
+                    format: "yyyy-mm-dd",
                     viewMode: "months", 
                     minViewMode: "days"
                   });
@@ -163,7 +163,7 @@
                   <input class="date-own form-control" id="dateRange2" type="text" value=" Select date">
                   <script type="text/javascript">
                   $('.date-own').datepicker({
-                    format: "yyyy MM dd",
+                    format: "yyyy-mm-dd",
                     viewMode: "months", 
                     minViewMode: "days"
                   });
@@ -206,7 +206,7 @@
                   <input class="date-own form-control" id="monthFilter" type="text" value=" Select month">
                 <script type="text/javascript">
                   $('.date-own').datepicker({
-                    format: "MM yyyy",
+                    format: "yy-mm-dd",
                     viewMode: "years", 
                     minViewMode: "months"
                   });
@@ -238,7 +238,8 @@
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     minViewMode: 2,
-                    format: 'yyyy'
+                    //si no funciona con este formato, poner yyyy
+                    format: 'yy'
                   });
               </script>
               </div>

@@ -85,7 +85,7 @@ class UsersModel extends Model
 
             //prepares the query --REVISE
             $query = " SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters where dniUser like :worker
-            and clockingDate >= CAST(:fecha1 AS DATE) AND clockingDate <= CAST(:fecha2 AS DATE) order by clockingDate ";
+            and clockingDate >= :fecha1 AND clockingDate <= :fecha2 order by clockingDate ";
         
             //data is separated from the query*/
             $query2 = $db->prepare($query);
