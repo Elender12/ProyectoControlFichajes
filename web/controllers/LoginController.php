@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class LoginController extends Controller{
     function __construct()  {
         //llamo al contructor del Controller
@@ -17,30 +17,35 @@ class LoginController extends Controller{
         $conexion = new UsersModel();
         //calls the method that has the query prepared
         $result = $conexion->checkLogin($worker,$pass);
-        //$result = $conexion->showMonthRegister($worker);
+       // require "views/user/index.php";
         echo $result;
+       
+        //
     }
-    function showData(){
-        $worker=$_SESSION["worker"];
-        $conexion = new UsersModel();
-        $result = $conexion->showMonthRegister($worker);
-        echo $result;
-    }
+    // function showData(){
+    //     $worker=$_SESSION["worker"];
+    //     $conexion = new UsersModel();
+    //     $result = $conexion->showMonthRegister($worker);
+    //     echo $result;
+    // }
     
     function checkFilteredData(){
         //probando datos
+
         if(isset($_POST["startDate"])){
             $startDate =$_POST["startDate"];
         }
+        //controlar cuando no hay datos
         if(isset($_POST["endDate"])){
             $endDate=$_POST["endDate"];
         }
+       echo $_POST["startDate"];
        $worker = $_SESSION["worker"];
-       //$worker= "Y3423283H"; 
        $conexion = new UsersModel();
         $result = $conexion-> checkFilteredDataClockIn($worker,$startDate,$endDate);
         //prints the data
-        echo $result;
+        //echo $result;
+        var_dump($result);
     }
     function showIncompleteDays(){
         //TODO
@@ -69,9 +74,17 @@ class LoginController extends Controller{
 	}
 	
     function goIndex(){
-        $conexion = new UsersModel();
-        $result = $conexion->goHome();
-        echo $result;
+        // $conexion = new UsersModel();
+        // $result = $conexion->goHome();
+        // echo $result;
+        $worker= $_SESSION["worker"];
+        $pass = $_SESSION["pass"];
+       // $worker = "Y3423283H";
+        //$pass = "123";
+       $conexion = new UsersModel();
+       //calls the method that has the query prepared
+       $result = $conexion->checkLogin($worker,$pass);
+       echo $result;
     }
     function sendData(){
         	/* Database connection settings */

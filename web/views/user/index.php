@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php @session_start(); 
+//error_reporting(E_ERROR | E_PARSE);?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,14 @@
 </head>
 <body>
   <!-- php sessions START-->
-  <?php $_SESSION["worker"] = $_POST["worker"]; ?> 
+  <?php 
+  //evita que se guarde la sesion vacia si ya existia
+  if (!isset($_SESSION["worker"])){
+    $_SESSION["worker"] = $_POST["worker"];
+    $_SESSION["pass"] = $_POST["pass"];
+  }
+  
+  ?> 
   <!-- php sessions END -->
     <div class="wrapper">
         <!-- Sidebar Con todas sus partes  -->
@@ -110,7 +118,7 @@
                   <input class="date-own form-control" type="text" value="Select date" id="registersDateFilter1" name="startDate">
                   <script type="text/javascript">
                   $('.date-own').datepicker({
-                    format: "yyyy MM dd",
+                    format: "yyyy-mm-dd",
                     viewMode: "months", 
                     minViewMode: "days"
                   });
@@ -123,7 +131,7 @@
                   <input class="date-own form-control" type="text" value="Select date" id="registersDateFilter2" name="endDate">
                   <script type="text/javascript">
                   $('.date-own').datepicker({
-                    format: "yyyy MM dd",
+                    format: "yyyy-mm-dd",
                     viewMode: "months", 
                     minViewMode: "days"
                   });
