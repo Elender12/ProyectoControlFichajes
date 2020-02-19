@@ -39,19 +39,20 @@ class LoginController extends Controller{
         if(isset($_POST["endDate"])){
             $endDate=$_POST["endDate"];
         }
-       echo $_POST["startDate"];
+       //echo $_POST["startDate"];
        $worker = $_SESSION["worker"];
        $conexion = new UsersModel();
         $result = $conexion-> checkFilteredDataClockIn($worker,$startDate,$endDate);
         //prints the data
-        //echo $result;
-        var_dump($result);
+        echo $result;
+        //var_dump($result);
     }
     function showIncompleteDays(){
         //TODO
         $worker=$_SESSION["worker"];
         $conexion = new UsersModel();
         $result = $conexion->checkIncompleteDays($worker);
+        echo $result;
       
     }
     function showNoClockedInDays(){
