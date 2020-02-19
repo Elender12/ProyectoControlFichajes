@@ -98,9 +98,9 @@ class UsersModel extends Model
             //$data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
             $data = $query2->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
             //ignora el require 
-            //require "views/user/index.php";
+            require "views/user/index.php";
             //returns the results of the query
-            return $data;
+            //return $data;
         } catch (Exception $e) {
             echo "<p>There was en error with the query</p>";
         }
@@ -116,16 +116,18 @@ class UsersModel extends Model
      
             $queryHireDate= "SELECT contractStartDate FROM users WHERE employeeDni like :worker";
             $sql1= $db->prepare($queryHireDate);
-            $sql1->bindValue(1,$worker, PDO::PARAM_STR);
+            $sql1->bindParam(':worker', $worker);
             $hiredDate = $sql1->execute();
+    
             //stores the call to the procedure
-            $query = 'CALL find_incomplete_days(? , ?)';
+            $query = "CALL find_incomplete_days(? , ?)";
            //prepares the query
             $sql = $db->prepare($query);
             //call the stored procedure
             $sql->bindValue(1,$worker, PDO::PARAM_STR);
             $sql->bindValue(2,$hiredDate, PDO::PARAM_STR);
             $data = $sql->execute();
+            //$data1 = $data->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
             $data->setFetchMode(PDO::FETCH_ASSOC);
             return $data;
         } catch (PDOException $e) {
