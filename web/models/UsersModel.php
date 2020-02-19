@@ -43,9 +43,10 @@ class UsersModel extends Model
                     //executes  the query
                     $query->execute();
                     $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
-                   require "views/user/index.php";
+                    require "views/user/index.php";
                    //header("Location: views/user/index.php");
-                    
+                    //return $data;
+                    //return "views/user/index.php";
                 } else {
                     //it's an admin and calls the view
                     require "views/admin/index.php";
@@ -57,25 +58,25 @@ class UsersModel extends Model
         }
         //return $userType;
     }
-    //revise this method
-    public function showMonthRegister($worker)
-    {
-        try {
+    // //revise this method
+    // public function showMonthRegister($worker)
+    // {
+    //     try {
 
-            $db = DataBase::db();
-            //prepares the query
-            $query1 = "SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters 
-            WHERE dniUser like :worker AND clockingDate between  DATE_FORMAT(NOW() ,'%Y-%m-01') AND CURDATE())";
-            $query1 = $db->prepare($query1);
-            $query1->bindParam(':worker',$worker);
-            //executes  the query
-            $query1->execute();
-            $data = $query1->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
-            return $data;
-        } catch (Exception $e) {
-            echo "<p>There was en error with the query</p>";
-        }
-    }
+    //         $db = DataBase::db();
+    //         //prepares the query
+    //         $query1 = "SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters 
+    //         WHERE dniUser like :worker AND clockingDate between  DATE_FORMAT(NOW() ,'%Y-%m-01') AND CURDATE())";
+    //         $query1 = $db->prepare($query1);
+    //         $query1->bindParam(':worker',$worker);
+    //         //executes  the query
+    //         $query1->execute();
+    //         $data = $query1->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+    //         return $data;
+    //     } catch (Exception $e) {
+    //         echo "<p>There was en error with the query</p>";
+    //     }
+    // }
     public function checkFilteredDataClockIn($worker, $startDate, $endDate)
     {
         try {

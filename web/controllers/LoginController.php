@@ -17,15 +17,17 @@ class LoginController extends Controller{
         $conexion = new UsersModel();
         //calls the method that has the query prepared
         $result = $conexion->checkLogin($worker,$pass);
-        //$result = $conexion->showMonthRegister($worker);
+       // require "views/user/index.php";
         echo $result;
+       
+        //
     }
-    function showData(){
-        $worker=$_SESSION["worker"];
-        $conexion = new UsersModel();
-        $result = $conexion->showMonthRegister($worker);
-        echo $result;
-    }
+    // function showData(){
+    //     $worker=$_SESSION["worker"];
+    //     $conexion = new UsersModel();
+    //     $result = $conexion->showMonthRegister($worker);
+    //     echo $result;
+    // }
     
     function checkFilteredData(){
         //probando datos
