@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class LoginController extends Controller{
     function __construct()  {
         //llamo al contructor del Controller
@@ -71,9 +71,17 @@ class LoginController extends Controller{
 	}
 	
     function goIndex(){
-        $conexion = new UsersModel();
-        $result = $conexion->goHome();
-        echo $result;
+        // $conexion = new UsersModel();
+        // $result = $conexion->goHome();
+        // echo $result;
+        $worker= $_SESSION["worker"];
+        $pass = $_SESSION["pass"];
+       // $worker = "Y3423283H";
+        //$pass = "123";
+       $conexion = new UsersModel();
+       //calls the method that has the query prepared
+       $result = $conexion->checkLogin($worker,$pass);
+       echo $result;
     }
     function sendData(){
         	/* Database connection settings */

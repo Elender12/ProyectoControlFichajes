@@ -68,7 +68,8 @@
 <body>
 
 	<!-- php sessions START-->
-	<?php $_SESSION["worker"]; ?>
+  
+  
 	<!-- php sessions END -->
 	
 	
@@ -288,7 +289,7 @@
               </li>
 
               <li class="nav-item">
-                <!--Home-->
+                <!--Home que llama al método del controlador-->
                 <a class="nav-link" href="goIndex" ><i class="fas fa-home" id="homeid"></i> </a>
               </li>
 
