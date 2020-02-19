@@ -59,6 +59,8 @@
 
     <link rel="stylesheet" href="css/jquery.monthpicker.css">
     
+    <script src="https://www.google.com/jsapi"></script>
+
     <!--el script que crea el gráfico está aquí:-->
     <script type="text/javascript" src="../views/static/JavaScript/EmployeeChartScript.js"></script>
 
@@ -206,7 +208,7 @@
                   <input class="date-own form-control" id="monthFilter" type="text" value=" Select month">
                 <script type="text/javascript">
                   $('.date-own').datepicker({
-                    format: "yy-mm-dd",
+                    format: "yyyy-mm-dd",
                     viewMode: "years", 
                     minViewMode: "months"
                   });
@@ -239,7 +241,7 @@
                   $('.date-own').datepicker({
                     minViewMode: 2,
                     //si no funciona con este formato, poner yyyy
-                    format: 'yy'
+                    format: 'yyyy'
                   });
               </script>
               </div>
@@ -319,8 +321,10 @@
         </div>
       </nav>
       <!--AQUÍ ES DONDE SE LLAMA AL GRÁFICO-->
-      <div id="employeeChart_div"></div>
-     
+      <!-- Indicaciones sobre como hacerlo responsive, aunque no vaya bien todavía: https://codepen.io/flopreynat/pen/BfLkA -->
+      <div class= chartWrap>
+            <div class="chartE" id="employeeChart_div"></div>
+      </div>
 <!--Prueba V4--->
 
       <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
