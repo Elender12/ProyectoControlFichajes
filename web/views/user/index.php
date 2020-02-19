@@ -8,7 +8,7 @@
 
     <title>User</title>
     
-   
+	<link rel="shortcut icon" href="../views/static/img/favicon.ico" />
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- MI CSS -->
@@ -289,26 +289,106 @@
               
                 <thead>
                   <tr>
-                    <th scope="col"><i class="fas fa-user"></i> Fecha</th>
-                    <th scope="col"><i class="far fa-calendar-alt"></i> Hora </th>
-                    <th scope="col"><i class="fas fa-door-open"></i> Tipo</th>
-                    <!-- <th scope="col"><i class="fas fa-door-closed"></i> Salida</th> -->
-                 
-                  </tr>
-                </thead>
+				  <table class="egt">
 
-                <tbody>
-                  <tr>
-                      <!--BOTON MODAL -->
-                      <th scope="row">
-                      <button type="submit"  data-toggle="modal" data-target="#PanelModal" 
-                      id="btn-modal-user" class="btn btn-outline-dark">
-                      <i class ="far fa-address-card"></i> </i></button></th>
-                    </th>
+<thead>
 
-          
-                  
-             <?php  
+  <tr>
+
+	<th></th>
+
+	<th colspan="2">Anthony</th>
+
+	<th colspan="2">Lione</th>
+
+  </tr>
+
+  <tr>
+
+	<th scope="col">Fecha</th>
+
+	<th>Entrada</th>
+
+	<th>Salida</th>
+
+	<th>Entrada</th>
+
+	<th>Salida</th>
+
+  </tr>
+
+</thead>
+
+<tbody>
+
+  <tr>
+
+	<th>15/07</th>
+
+	<td>$200,00</td>
+
+	<td>$50,00</td>
+
+	<td>$0</td>
+
+	<td>$0</td>
+
+  </tr>
+
+  <tr>
+
+	<th>28/07</th>
+
+	<td>$0,00</td>
+
+	<td>$100,00</td>
+
+	<td>$100,00</td>
+
+	<td>$0,00</td>
+
+  </tr>
+
+  <tr>
+
+	<th>09/08</th>
+
+	<td>$0,00</td>
+
+	<td>$50,00</td>
+
+	<td>$0,00</td>
+
+	<td>$80,00</td>
+
+  </tr>
+
+  <tr>
+
+	<th>22/08</th>
+
+	<td>$40,00</td>
+
+	<td>$0,00</td>
+
+	<td>$0,00</td>
+
+	<td>$110,00</td>
+
+  </tr>
+
+
+
+
+
+</tfoot>
+
+</table>
+				</tr>
+				</thead>
+				<tbody>
+					               
+					<?php  
         //var_dump($data);
              //recorre el numero de entradas que hay
              $curDate= 0;
@@ -341,6 +421,23 @@
               }
              
             }?>
+
+		</tbody>
+		</table>
+		
+		</div>
+		
+                <tbody>
+                  <tr>
+                      <!--BOTON MODAL
+                      <th scope="row">
+                      <button type="submit"  data-toggle="modal" data-target="#PanelModal" 
+                      id="btn-modal-user" class="btn btn-outline-dark">
+                      <i class ="far fa-address-card"></i> </i></button></th>
+                    </th>
+ -->
+          
+   
             
 
                 </tbody>
