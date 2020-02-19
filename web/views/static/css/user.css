@@ -18,6 +18,8 @@ p {
     padding: 5px;
 }
 
+
+
 #headingOne{
 	background-color: #0f407a;
 	
@@ -133,7 +135,7 @@ color:#0f407a;
     border: none;
 }
 
-#example-date-input{ /*FILTRO 1 CON SU EDICION*/
+#registersDateFilter1{ /*FILTRO FECHAS FICHAJES EMPLEADO CON SU EDICION*/
     right:  25px;
     position: relative;
     top: 0.5em;
@@ -144,7 +146,7 @@ color:#0f407a;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #33FFAF;
 }
-#example-date-input1{/*FILTRO 2 CON SU EDICION*/
+#registersDateFilter2{/*FILTRO FECHAS FICHAJES EMPLEADO 2 CON SU EDICION*/
     right:  25px;
     position: relative;
     top: 0.5em;
@@ -155,6 +157,58 @@ color:#0f407a;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #33FFAF;
 }
+
+/* START: Filtros statistics empleado*/
+#dateRange1{ 
+    right:  25px;
+    position: relative;
+    top: 0.5em;
+    height: 40px;
+    font-size: 12px;
+    border:0;
+    padding-left: 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #33FFAF;
+}
+
+#dateRange2{ 
+    right:  25px;
+    position: relative;
+    top: 0.5em;
+    height: 40px;
+    font-size: 12px;
+    border:0;
+    padding-left: 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #33FFAF;
+}
+
+#monthFilter{ 
+    right:  25px;
+    position: relative;
+    top: 0.5em;
+    height: 40px;
+    font-size: 12px;
+    border:0;
+    padding-left: 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #33FFAF;
+}
+
+#yearFilter{ 
+    right:  25px;
+    position: relative;
+    top: 0.5em;
+    height: 40px;
+    font-size: 12px;
+    border:0;
+    padding-left: 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #33FFAF;
+}
+/* END: filtros statistics empleado */
+
+
 #btn-outline-light{ /*BOTON CON SU EDICION*/
     left:  40px;
     position:relative;

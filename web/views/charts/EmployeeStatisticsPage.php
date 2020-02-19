@@ -51,7 +51,7 @@
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <!--YEARPICKER: https://www.itsolutionstuff.com/post/bootstrap-year-picker-example-using-datepicker-jsexample.html -->
+    <!--YEARPICKER cogido de esta web: https://www.itsolutionstuff.com/post/bootstrap-year-picker-example-using-datepicker-jsexample.html -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
@@ -143,8 +143,10 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="card-body">
                     <!--START: fechas para elegir-->
-                    <div class="container text-center">
-                  <input class="date-own form-control" style="width: 200px;" type="text" value="            Select date">
+                    <div class="form-group row">
+                <label for="dateRange1" class="col-2 col-form-label"></label>
+                <div class="col-10">
+                  <input class="date-own form-control" id="dateRange1" type="text" value="Select date">
                   <script type="text/javascript">
                   $('.date-own').datepicker({
                     format: "yyyy MM dd",
@@ -153,8 +155,11 @@
                   });
               </script>
               </div>
-              <div class="container text-center">
-                  <input class="date-own form-control" style="width: 200px;" type="text" value="            Select date">
+              </div>
+              <div class="form-group row">
+                <label for="dateRange2" class="col-2 col-form-label"></label>
+                <div class="col-10">
+                  <input class="date-own form-control" id="dateRange2" type="text" value=" Select date">
                   <script type="text/javascript">
                   $('.date-own').datepicker({
                     format: "yyyy MM dd",
@@ -163,7 +168,7 @@
                   });
               </script>
               </div>
-                  
+              </div> 
               <!-- <div class="form-group row">
                 <label for="example-date-input" class="col-2 col-form-label"></label>
                 <div class="col-10">
@@ -194,8 +199,10 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                   <div class="card-body">
                   <!--START: meses para elegir-->
-                  <div class="container text-center">
-                  <input class="date-own form-control" style="width: 200px;" type="text" value="         Select month">
+                  <div class="form-group row">
+                <label for="monthFilter" class="col-2 col-form-label"></label>
+                <div class="col-10">
+                  <input class="date-own form-control" id="monthFilter" type="text" value=" Select month">
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     format: "MM yyyy",
@@ -203,6 +210,7 @@
                     minViewMode: "months"
                   });
               </script>
+              </div>
               </div>
                   <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
                     Filter</button>
@@ -222,14 +230,17 @@
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                   <div class="card-body">
                    <!--START: años para elegir-->
-                   <div class="container text-center">
-                  <input class="date-own form-control" style="width: 200px;" type="text" value="            Select year">
+                   <div class="form-group row">
+                <label for="yearFilter" class="col-2 col-form-label"></label>
+                <div class="col-10">
+                  <input class="date-own form-control" id="yearFilter" type="text" value=" Select year">
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     minViewMode: 2,
                     format: 'yyyy'
                   });
               </script>
+              </div>
               </div>
                   <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
                     Filter</button>
@@ -307,7 +318,7 @@
       </nav>
       <!--AQUÍ ES DONDE SE LLAMA AL GRÁFICO-->
       <div id="employeeChart_div"></div>
-
+     
 <!--Prueba V4--->
 
       <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
