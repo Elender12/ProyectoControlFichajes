@@ -4109,9 +4109,9 @@ CREATE TABLE IF NOT EXISTS `clokinginregisters` (
   KEY `FKdate` (`clockingDate`),
   CONSTRAINT `FKdate` FOREIGN KEY (`clockingDate`) REFERENCES `calendar_table` (`calendarDate`),
   CONSTRAINT `FKdniUser` FOREIGN KEY (`dniUser`) REFERENCES `users` (`employeeDni`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table fingerprintassistancecontrol.clokinginregisters: ~9 rows (approximately)
+-- Dumping data for table fingerprintassistancecontrol.clokinginregisters: ~13 rows (approximately)
 /*!40000 ALTER TABLE `clokinginregisters` DISABLE KEYS */;
 REPLACE INTO `clokinginregisters` (`orderN`, `dniUser`, `clockingDate`, `clockingTime`, `clockingType`) VALUES
 	(1, 'Y5277211J', '2020-01-21', '09:49:26', 'entrance'),
@@ -4125,50 +4125,52 @@ REPLACE INTO `clokinginregisters` (`orderN`, `dniUser`, `clockingDate`, `clockin
 	(9, 'Y3423283H', '2020-01-23', '13:25:54', 'exit'),
 	(10, 'Y3423283H', '2020-04-01', '09:30:52', 'entrance'),
 	(11, 'Y3423283H', '2020-04-01', '12:31:22', 'exit'),
-	(12, 'Y3423283H', '2020-04-01', '14:31:46', 'entrance');
+	(12, 'Y3423283H', '2020-04-01', '14:31:46', 'entrance'),
+	(13, 'Y3423283H', '2020-02-18', '09:15:34', 'entrance');
 /*!40000 ALTER TABLE `clokinginregisters` ENABLE KEYS */;
 
 -- Dumping structure for procedure fingerprintassistancecontrol.find_incomplete_days
 DELIMITER //
 CREATE PROCEDURE `find_incomplete_days`(
-	IN `dni` VARCHAR(50),
-	IN `hiring_date` DATE
+	IN `dni` VARCHAR(50)
 )
 BEGIN
-
+	
 	DECLARE en_num INT DEFAULT 0;
 	DECLARE ex_num INT DEFAULT 0;
 	
-	DECLARE check_date DATE DEFAULT hiring_date; #This date will the hiring date
+	DECLARE check_date DATE DEFAULT (SELECT contractStartDate FROM users WHERE employeeDni LIKE 'Y3423283H');
 	DECLARE today_date DATE DEFAULT CURDATE();
 	
 	
-	DROP TEMPORARY TABLE byUserAndDate;
-	CREATE TEMPORARY TABLE IF NOT EXISTS byUserAndDate (Type VARCHAR(50));
-			
-	
+	#DROP TEMPORARY TABLE byUserAndDate;
+	CREATE TEMPORARY TABLE IF NOT EXISTS byUserAndDate (type_c VARCHAR(50));
 	
 	WHILE check_date < today_date DO
-			
-		INSERT INTO byUserAndDate(type) (SELECT type FROM clokinginregisters WHERE dniUser = dni AND date_e = check_date);
+	
+		INSERT INTO byUserAndDate(type_c) (SELECT clockingType FROM clokinginregisters WHERE dniUser = dni AND clockingDate = check_date);
 		
-		SELECT COUNT(*) FROM byUserAndDate WHERE type LIKE 'entrance' INTO en_num;
-			
-		SELECT COUNT(*) FROM byUserAndDate WHERE type LIKE 'exit' INTO ex_num;
-			
-			IF en_num != ex_num THEN
-				SELECT check_date;
-			END IF;
-				
-
-			SET en_num = 0;
-			SET ex_num = 0;
-				
-				
-			Set check_date = DATE_ADD(check_date, INTERVAL 1 DAY);
-			
-	END WHILE;
-
+		
+      SELECT COUNT(*) FROM byUserAndDate WHERE type_c LIKE 'entrance' INTO en_num;
+            
+      SELECT COUNT(*) FROM byUserAndDate WHERE type_c LIKE 'exit' INTO ex_num;
+      
+		#SELECT COUNT(*) FROM (SELECT clockingType FROM clokinginregisters WHERE dniUser = dni AND clockingDate = check_date AND clockingType like 'entrance') INTO en_num;
+		#SELECT COUNT(*) FROM (SELECT clockingType FROM clokinginregisters WHERE dniUser = dni AND clockingDate = check_date AND clockingType like 'exit') INTO ex_num;
+        
+            
+      IF en_num != ex_num THEN
+			SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE clockingDate = check_date;
+      END IF;
+		
+		SET en_num = 0;
+		SET ex_num = 0;
+		
+		SET check_date = DATE_ADD(check_date, INTERVAL 1 DAY);
+		TRUNCATE TABLE byUserAndDate;
+            
+    END WHILE;
+    
 END//
 DELIMITER ;
 
@@ -4206,9 +4208,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 REPLACE INTO `users` (`employeeDni`, `employeeName`, `employeePsw`, `contractType`, `fingerprint`, `bossEmail`, `isAdmin`, `contractStartDate`, `contractEndDate`) VALUES
 	('K8463538L', 'Dani', '5678movi', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00'),
 	('X345678I', 'Elena', 'movi4321', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00'),
-	('Y3423283H', 'Mihai', '45798mov', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00'),
+	('Y3423283H', 'Mihai', '45798mov', 'partial', 0, 'boss@movicoders.com', 0, '2020-01-03', '0000-00-00'),
 	('Y4588344X', 'Boss', 'superboss', 'full-time', 0, 'boss@movicoders.com', 1, '0000-00-00', '0000-00-00'),
-	('Y5277211J', 'Anna', 'movi1234', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00');
+	('Y5277211J', 'Anna', 'movi1234', 'partial', 0, 'boss@movicoders.com', 0, '2020-02-10', '0000-00-00');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table fingerprintassistancecontrol.usersholidays
