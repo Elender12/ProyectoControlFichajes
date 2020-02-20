@@ -92,8 +92,9 @@ class UsersModel extends Model
             $query2->bindParam(':worker',$worker);
             $query2->bindParam(':fecha1',$startDate);
             $query2->bindParam(':fecha2',$endDate);
-            $query2->execute();
             //executes  the query
+            $query2->execute();
+           
             //$statement = $db->query($query);
             //$data = $statement->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
             $data = $query2->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
@@ -113,23 +114,13 @@ class UsersModel extends Model
         try {
         
             $db = DataBase::db();
-     
-            $queryHireDate= "SELECT contractStartDate FROM users WHERE employeeDni like :worker";
-            $sql1= $db->prepare($queryHireDate);
-            $sql1->bindParam(':worker', $worker);
-            $hiredDate = $sql1->execute();
-    
             //stores the call to the procedure
-            $query = "CALL find_incomplete_days(? , ?)";
-           //prepares the query
-            $sql = $db->prepare($query);
-            //call the stored procedure
-            $sql->bindValue(1,$worker, PDO::PARAM_STR);
-            $sql->bindValue(2,$hiredDate, PDO::PARAM_STR);
-            $data = $sql->execute();
-            //$data1 = $data->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
-            $data->setFetchMode(PDO::FETCH_ASSOC);
-            return $data;
+            $query = "CALL find_incomplete_days( ? )";
+            $sql = $db->prepare("CALL find_incomplete_days( :param )");
+            $sql->bindParam( 'param', $worker);
+            $sql->execute();
+            $data = $sql->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+            require "views/user/index.php";
         } catch (PDOException $e) {
             die("Error occurred with the incomlete days query:" . $e->getMessage());
         }
@@ -146,13 +137,17 @@ class UsersModel extends Model
             AND dayName NOT LIKE 'saturday' 
             AND dayName NOT LIKE 'sunday'
             AND calendarDate NOT IN (SELECT holidayDate FROM usersholidays WHERE userDni LIKE :worker )";
-            $sql = $db->prepare($query);
-            $sql->bindParam(':worker',$worker);
-            $data = $sql->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+            $query2 = $db->prepare($query);
+            $query2->bindParam(':worker',$worker);
+            $query2->bindParam(':worker',$worker);
+            $query2->execute();
+            $data = $query2->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+            //$data = $query2->fetchAll( PDO::FETCH_ASSOC);
             //returns the results of the query
-            return $data;
+            require "views/user/index.php";
+            //return $data;
         } catch (PDOException $e) {
-            die("Error occurred with the incomlete days query:" . $e->getMessage());
+            die("Error occurred with the incomplete days query:" . $e->getMessage());
         }
     }
     public function exitBack()
