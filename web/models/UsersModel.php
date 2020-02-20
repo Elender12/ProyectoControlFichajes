@@ -37,7 +37,7 @@ class UsersModel extends Model
                 if (strcmp($userType, "0") == 0) {  
                     //method showMonthRegister 
                     $db = DataBase::db();
-                    $query = "SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker AND clockingDate between  DATE_FORMAT(NOW(),'%Y-%m-01') AND CURDATE() ORDER BY clockingDate asc, clockingTime asc";
+                    $query = "SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker AND clockingDate between  DATE_FORMAT(NOW(),'%Y-%m-01') AND CURDATE() ORDER BY clockingDate desc, clockingTime asc";
                     $query = $db->prepare($query);
                     $query->bindParam(':worker',$worker);
                     //executes  the query
