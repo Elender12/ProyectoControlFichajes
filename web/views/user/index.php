@@ -307,15 +307,7 @@
       <p class="h1" id="nombre-centrados ">Entradas Semanales </p>
       <table class="table table-striped  " id="datos-centrados">
 
-        <thead>
-          <tr>
-            <th scope="col"><i class="fas fa-user"></i> Fecha</th>
-            <th scope="col"><i class="far fa-calendar-alt"></i> Hora </th>
-            <th scope="col"><i class="fas fa-door-open"></i> Tipo</th>
-            <!-- <th scope="col"><i class="fas fa-door-closed"></i> Salida</th> -->
-
-          </tr>
-        </thead>
+      
 
         <tbody>
           <tr>
