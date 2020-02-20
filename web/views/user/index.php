@@ -160,9 +160,11 @@
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
                   <form action="<?php echo constant('URL'); ?>/LoginController/showIncompleteDays" method="post" id="form2">
-                    <button type="submit" form="form2" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="fas fa-calendar-minus"></i>
+                  </form>  
+                  <button type="submit" form="form2" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="fas fa-calendar-minus"></i>
                       Incomplete
                     </button>
+                     
                   </h5>
                 </div>
 
@@ -171,7 +173,9 @@
               <div class="card3">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="colorBtn3"><i class="fas fa-calendar-times"></i>
+                  <form action="<?php echo constant('URL'); ?>/LoginController/showNoClockedInDays" method="post" id="form3">
+                  </form>
+                    <button type="submit" form="form3" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="colorBtn3"><i class="fas fa-calendar-times"></i>
                       Missed
                     </button>
                   </h5>
@@ -324,37 +328,43 @@
 
 
             <?php
-            //var_dump($data);
-            //recorre el numero de entradas que hay
+            //print_r($data[0]->calendarDate);
+            $calendarDateExist =property_exists($data[0], 'calendarDate');
+          
+            if($calendarDateExist == 1){
+
+              for ($i = 0; $i < count($data); $i++) {
+                echo "<tr>";
+                echo "<td>" . $data[$i]->calendarDate . "</td>";
+                echo "</tr>";
+              }
+            }else {
+              //recorre el num de entradas que hay
             $curDate = 0;
+            //verificar datos que le llega: si es del calendario o del clocking
             for ($i = 0; $i < count($data); $i++) {
               if ($data[$i]->clockingDate == $curDate) {
                 echo "<tr>";
                 echo "<td>" . $data[$i]->clockingTime . "</td>";
                 echo "<td>" . $data[$i]->clockingType . "</td>";
                 echo "</tr>";
-
               } else {
-                
-                
-
-                echo "<td>" . $data[$i]->clockingDate . "</td>";
+                echo "<th scope='col'><i class='far fa-calendar-alt'></i>" ."    Date:    "."  ".$data[$i]->clockingDate . "</th>";
+                echo "<tr>";
+                echo "<th scope='col'>"." Hora"."</th>";
+                echo "<th scope='col'>"." Tipo"."</th>";
                 echo "<tr>";
                 echo "<td>" . $data[$i]->clockingTime . "</td>";
                 echo "<td>" . $data[$i]->clockingType . "</td>";
                 echo "</tr>";
+                echo "</tr>";
                 $curDate = $data[$i]->clockingDate;
               }
+                 }
 
+            }
 
-              //print_r($data[$i]->clockingDate." ");
-              //pintar datos correctamente en la tabla principal fichaje mes
-              //echo "<td>". "fecha".$data[$i]->clockingDate."</td><td>".$data[$i]->clockingTime.$data[$i]->clockingType."</td><td><br>";
-              for ($j = 0; $j < 3; $j++) {
-                //print_r($data[$i]->clockingDate);
-
-              }
-            } ?>
+             ?>
 
 
         </tbody>
