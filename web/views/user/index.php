@@ -11,7 +11,9 @@
 
     <title>User</title>
     
+  <!-- Icono con la m de movicoders en la ventana -->
 	<link rel="shortcut icon" href="../views/static/img/favicon.ico" />
+
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- MI CSS -->

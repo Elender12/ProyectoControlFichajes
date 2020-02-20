@@ -158,56 +158,6 @@ color:#0f407a;
     box-shadow: 2px 2px 5px #33FFAF;
 }
 
-/* START: Filtros statistics empleado*/
-#dateRange1{ 
-    right:  25px;
-    position: relative;
-    top: 0.5em;
-    height: 40px;
-    font-size: 12px;
-    border:0;
-    padding-left: 40px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px #33FFAF;
-}
-
-#dateRange2{ 
-    right:  25px;
-    position: relative;
-    top: 0.5em;
-    height: 40px;
-    font-size: 12px;
-    border:0;
-    padding-left: 40px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px #33FFAF;
-}
-
-#monthFilter{ 
-    right:  25px;
-    position: relative;
-    top: 0.5em;
-    height: 40px;
-    font-size: 12px;
-    border:0;
-    padding-left: 40px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px #33FFAF;
-}
-
-#yearFilter{ 
-    right:  25px;
-    position: relative;
-    top: 0.5em;
-    height: 40px;
-    font-size: 12px;
-    border:0;
-    padding-left: 40px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px #33FFAF;
-}
-/* END: filtros statistics empleado */
-
 
 #btn-outline-light{ /*BOTON CON SU EDICION*/
     left:  40px;
@@ -227,7 +177,7 @@ color:#0f407a;
 }
 
 /* 
-   EL STILO DEL SIDEBAR
+   EL ESTILO DEL SIDEBAR
  */
 
 .wrapper {

@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<!-- <?php session_start(); ?> -->
 <!DOCTYPE html>
 <html>
 
@@ -8,6 +8,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <title>User statistics</title>
+
+  <!-- Icono con la m de movicoders en la ventana -->
+	<link rel="shortcut icon" href="../views/static/img/favicon.ico" />
 
   <!-- JavaScript funcion para el movimiento lateral   -->
   <script defer src="../views/static/JavaScript/user.js"></script>
@@ -29,11 +32,10 @@
     integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
     crossorigin="anonymous"></script>
     
-
-
   <!-- Los iconos tipo Solid de Fontawesome los importo y los utilizo mas adelante-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
   <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
   <!-- Iconos filtros gráficos -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 
@@ -44,24 +46,25 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
-    <link rel="stylesheet" href="../views/static/css/chartsStyle.css">
+    
     <link rel="stylesheet2" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="http://code.highcharts.com/highcharts.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+   <script src="http://code.highcharts.com/highcharts.js"></script>
+   
     <!--YEARPICKER cogido de esta web: https://www.itsolutionstuff.com/post/bootstrap-year-picker-example-using-datepicker-jsexample.html -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
     <link rel="stylesheet" href="css/jquery.monthpicker.css">
-    
-    <script src="https://www.google.com/jsapi"></script>
 
-    <!--el script que crea el gráfico está aquí:-->
+    <!-- CSS de la chart -->
+    <link rel="stylesheet" href="../views/static/css/chartsStyle.css">
+    <!--Loader de la chart de google  -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!--el script que crea la chart está aquí:-->
     <script type="text/javascript" src="../views/static/JavaScript/EmployeeChartScript.js"></script>
 
 
@@ -240,7 +243,6 @@
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     minViewMode: 2,
-                    //si no funciona con este formato, poner yyyy
                     format: 'yyyy'
                   });
               </script>
@@ -321,10 +323,8 @@
         </div>
       </nav>
       <!--AQUÍ ES DONDE SE LLAMA AL GRÁFICO-->
-      <!-- Indicaciones sobre como hacerlo responsive, aunque no vaya bien todavía: https://codepen.io/flopreynat/pen/BfLkA -->
-      <div class= chartWrap>
-            <div class="chartE" id="employeeChart_div"></div>
-      </div>
+      <div id="employeeChart_div"></div>
+
 <!--Prueba V4--->
 
       <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->

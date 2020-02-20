@@ -1,4 +1,4 @@
-google.load("visualization", "1", {packages:["corechart"]});
+google.charts.load('current', {packages: ['corechart']});
 google.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
@@ -40,7 +40,7 @@ function drawChart() {
   chart.draw(data, options);
 }
 
-$(window).resize(function(){
-  drawChart();
+// $(window).resize(function(){
+//   drawChart();
  
-});
+// });
