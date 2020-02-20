@@ -4122,7 +4122,6 @@ REPLACE INTO `clokinginregisters` (`orderN`, `dniUser`, `clockingDate`, `clockin
 	(6, 'X345678I', '2020-01-22', '12:24:34', 'exit'),
 	(7, 'Y3423283H', '2020-01-23', '10:24:59', 'exit'),
 	(8, 'Y3423283H', '2020-01-23', '11:25:17', 'entrance'),
-	(9, 'Y3423283H', '2020-01-23', '13:25:54', 'exit'),
 	(10, 'Y3423283H', '2020-04-01', '09:30:52', 'entrance'),
 	(11, 'Y3423283H', '2020-04-01', '12:31:22', 'exit'),
 	(12, 'Y3423283H', '2020-04-01', '14:31:46', 'entrance'),
@@ -4145,6 +4144,7 @@ BEGIN
 	
 	#DROP TEMPORARY TABLE byUserAndDate;
 	CREATE TEMPORARY TABLE IF NOT EXISTS byUserAndDate (type_c VARCHAR(50));
+	CREATE TEMPORARY TABLE IF NOT EXISTS results (clockingDate DATE, clockingTime TIME, clockingType VARCHAR(50));
 	
 	WHILE check_date < today_date DO
 	
@@ -4160,7 +4160,8 @@ BEGIN
         
             
       IF en_num != ex_num THEN
-			SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE clockingDate = check_date;
+      	INSERT INTO results (clockingDate, clockingTime, clockingType) (SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE clockingDate = check_date);
+			#SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE clockingDate = check_date;
       END IF;
 		
 		SET en_num = 0;
@@ -4170,6 +4171,9 @@ BEGIN
 		TRUNCATE TABLE byUserAndDate;
             
     END WHILE;
+    
+    SELECT * FROM results;
+    TRUNCATE TABLE results;
     
 END//
 DELIMITER ;
