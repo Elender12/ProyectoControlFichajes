@@ -87,25 +87,16 @@ class LoginController extends Controller{
        $result = $conexion->checkLogin($worker,$pass);
        echo $result;
     }
+
+
+
     function sendData(){
-        	/* Database connection settings */
-	$host = 'localhost';
-	$user = 'root';
-	$pass = 'root';
-	$db = 'fingerprintassistancecontrol';
-	$mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
-
-	//query to get data from the table
-	$sql = "SELECT * FROM `charts` ";
-    $result = mysqli_query($mysqli, $sql);
-
-	//loop through the returned data
-    while ($data = mysqli_fetch_assoc($result)) {
-        $userData[] = $data;
-	}
-    echo json_encode($userData);
-
-    }
+        $conexion = new UsersModel();
+        //calls the method that has the query prepared
+        $worker= $_SESSION["worker"];
+        $result = $conexion->statisticsData($worker);
+        echo $result;
+     }
 }
 
 
