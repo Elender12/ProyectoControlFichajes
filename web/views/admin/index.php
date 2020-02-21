@@ -158,8 +158,8 @@
               </thead>
 
               <tbody>
-                <tr>
-                  <th scope="row"><a href="www.google.com" class="stretched-link"></a>1</th>
+              <tr style="transform: rotate(0);">
+                  <th scope="row"><a href="www.google.com" target= "blank" class="stretched-link">1</a></th>
                   <td>Mark babababa gofgogogo</td>
                   <td>Y545gfgf65</td>
                 </tr>
