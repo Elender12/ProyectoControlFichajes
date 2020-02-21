@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<//?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +8,8 @@
 
     <title>Admin</title>
     
+      <!-- Icono con la m de movicoders en la ventana -->
+	<link rel="shortcut icon" href="../views/static/img/favicon.ico" />
    
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -80,80 +82,9 @@
                 </ul>
             </li>
           
-            <li class="active">
-          <a href="#homeSubmenu"  data-toggle="collapse" aria-expanded="false" class=" -toggle"><i
-              class="fas fa-filter"></i> Filter registers</a>
-          <ul class="collapse list-unstyled" id="homeSubmenu">
-            <div id="accordion">
-              <div class="card">
-                <div class="card-header" id="headingOne">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-                      aria-controls="collapseOne" id="colorBtn"><i class="fas fa-calendar-alt"></i>
-                       Select date range
-					</button>
-					
-                  </h5>
-                </div>
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                  <div class="card-body">
-                    <!--START: fechas para elegir-->
-              <div class="form-group row">
-                <label for="example-date-input" class="col-2 col-form-label"></label>
-                <div class="col-10">
-                    <!-- test form -->
-                    <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData"  method="post" id="form1">
-                  <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input" name="startDate">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="example-date-input1" class="col-2 col-form-label"></label>
-                <div class="col-10">
-                  <input class="form-control" type="date" value=" End" id="example-date-input1" name="endDate">
-                </div>
-              </div>
-              </form>
-              <!-- <input class="btn btn-light" id="btn-outline-light" type="button" name="filterBoton" value="CHECK" type="submit" form="form1"><i class="fas fa-share"></i>  -->
-                 <!-- boton provisional test formulario -->
-                 <button  type="submit" form="form1"></button>
-                <!-- </input> -->
-              <!--VIEJO BOTÓN DE FILTRAR<button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
-                Filter</button>-->
-          <!--END: fechas para elegir-->
-          </div>
-                </div>
-              </div>
-              <div class="card2">
-                <div class="card-header" id="headingTwo">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-					  aria-expanded="false" aria-controls="collapseTwo"
-					  id="colorBtn2"> <i class="fas fa-calendar-minus"></i>
-                        Incomplete 
-                    </button>
-                  </h5>
-                </div>
-                
-                 
-              </div>
-              <div class="card3">
-                <div class="card-header" id="headingThree">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                      aria-expanded="false" aria-controls="collapseThree"id="colorBtn3"><i class="fas fa-calendar-times"></i>
-                     Missed 
-                    </button>
-                  </h5>
-                </div>
-              </div>
-            </div>
-          </ul>
-          </li>
+            
           
-        <li>
-         <!-- AQUÍ LLAMA AL METODO chartsTest  -->
-				<a href="chartsTest"  target="_blank"><i class="fas fa-chart-pie"></i> Statistics</a>
-        </li>
+        
         <li>
 		<a href="https://movicoders.com/contact/" target="_blank"> <i class="fas fa-inbox"></i> Contact </a>
 
@@ -179,7 +110,7 @@
                     
                   <!--  <h5 class="modal-title" id="cnt-fichaje"> Control de Fichajes </h5>-->
                     
-                    <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantall -->
+                    <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantalla -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 						
                         <ul class="nav navbar-nav ml-auto  "> 
@@ -213,126 +144,76 @@
                     </div>
                 </div>
             </nav>
-            <div>
-                <div class=" bg-white modal fade bd-example-modal-lg" id="PanelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel"> Fichaje Personal </h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          
-                          <!--Tabla dentro de la modal -->
-                            <table class="table ">
-                              
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Dni</th>
-                                    <th scope="col">Entrada</th>
-                                    <th scope="col">Salida</th>
-                                    <th scope="col">ASDAD</th>
-                                    <th scope="col">ASDAD</th>
-                                    <th scope="col">ASDAD</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                               
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                 
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td >Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  
-                                </tbody>
-                              </table>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</
-                          <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-            </div>
+           
             
-            <p class="h1">Usuarios </p>
-            <table class="table table-striped  "id="datos-centrados">
-              
-                <thead>
-                  <tr>
-                    <th scope="col"><i class="fas fa-user"></i> User</th>
-                    <th scope="col"><i class="far fa-calendar-alt"></i> Fecha </th>
-                    <th scope="col"><i class="fas fa-door-open"></i> Entrada</th>
-                    <th scope="col"><i class="fas fa-door-closed"></i> Salida</th>
-                 
-                  </tr>
-                </thead>
+            <p class="h1">Employees List</p>
 
-                <tbody>
-                  <tr>
-                      <!--BOTON MODAL -->
-                      <th scope="row">
-                      <button type="submit"  data-toggle="modal" data-target="#PanelModal" 
-                      id="btn-modal-user" class="btn btn-outline-dark">
-                      <i class ="far fa-address-card"></i> </i></button></th>
-                    </th>
+            <table class="table table-striped table-hover table-sm table-bordered" id="adminTable">
+              <thead>
+              <tr>
+                  <th scope="col"></th>
+                  <th scope="col"><i class="fas fa-user"></i>      Employee name</th>
+                  <th scope="col"><i class="fas fa-id-card"></i>      Employee ID</th>
+                </tr>
+              </thead>
 
-                   
-                      <td>dato0</td>
-                      <td>dato1</td>
-                      <td>dato2</td>
-               
-                    </tr>
-               
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+              <tbody>
+                <tr>
+                  <th scope="row"><a href="www.google.com" class="stretched-link"></a>1</th>
+                  <td>Mark babababa gofgogogo</td>
+                  <td>Y545gfgf65</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Mark babababa gofgogogo</td>
+                  <td>Y545gfgf65</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Mark babababa gofgogogo</td>
+                  <td>Y545gfgf65</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Mark babababa gofgogogo</td>
+                  <td>Y545gfgf65</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Mark babababa gofgogogo</td>
+                  <td>Y545gfgf65</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">6</th>
+                  <td>Mark babababa gofgogogo</td>
+                  <td>Y545gfgf65</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">7</th>
+                  <td>Mark babababa gofgogogo</td>
+                  <td>Y545gfgf65</td>
+                </tr>
               
                   
              <?php  for ($i=0; $i< count($data); $i++) {
-                 //pintar datos correctamente en la tabla principal fichaje mes
+    //pintar datos correctamente en la tabla principal fichaje mes
            //     echo "<td>"."num orden".$data[$i]->orderN." fecha".$data[$i]->date."</td><td>".$data[$i]->time.$data[$i]->type."</td><td><br>";
-              
-             
-            }?>
+}?>
             
 
                 </tbody>
               </table>
-            <h2></h2>
-            <p> </p>
+            
 
             <div class="line"></div>
 
-            <h2></h2>
-           
-            <p> </p>
+            
 <!--EL TEMA DE CAMBIAR DE COLOR ES ALGO QUE SOLO ESTOY PROBANDO AUN NO ESTA LISTO Y
 CREO QUE NO SE LLEGARA A IMPLEMENTAR EN LA PARTE FINAL 
             <div class="line"></div>

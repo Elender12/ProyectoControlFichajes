@@ -18,7 +18,17 @@ p {
     padding: 5px;
 }
 
-
+/* En la pag index del admin */
+tbody tr:hover { 
+    color: #7386D5;
+    background: #fff;
+    transform: rotate(0);
+ }
+ td a { 
+    display: block; 
+    
+    padding: 16px; 
+ }
 
 #headingOne{
 	background-color: #0f407a;
@@ -157,6 +167,7 @@ color:#0f407a;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #33FFAF;
 }
+
 
 
 #btn-outline-light{ /*BOTON CON SU EDICION*/
