@@ -305,26 +305,17 @@
       </div>
 
       <p class="h1" id="nombre-centrados ">Entradas Semanales </p>
-      <table class="table table-striped  " id="datos-centrados">
-
-      
-
-        <tbody>
-          <tr>
+      <table class="table table-borderless " id="datos-centrados">
             <!--BOTON MODAL
             <th scope="row">
               <button type="submit" data-toggle="modal" data-target="#PanelModal" id="btn-modal-user" class="btn btn-outline-dark">
                 <i class="far fa-address-card"></i> </i></button></th>
             </th>
  -->
-
-
             <?php
             //print_r($data[0]->calendarDate);
             $calendarDateExist =property_exists($data[0], 'calendarDate');
-          
             if($calendarDateExist == 1){
-
               for ($i = 0; $i < count($data); $i++) {
                 echo "<tr>";
                 echo "<td>" . $data[$i]->calendarDate . "</td>";
@@ -341,10 +332,10 @@
                 echo "<td>" . $data[$i]->clockingType . "</td>";
                 echo "</tr>";
               } else {
-                echo "<th scope='col'><i class='far fa-calendar-alt'></i>" ."    Date:    "."  ".$data[$i]->clockingDate . "</th>";
+                echo '<th scope="col" id="myId"><i class="far fa-calendar-alt" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"></i>' .'    Date:    '.'  '.$data[$i]->clockingDate . "</th>";
                 echo "<tr>";
-                echo "<th scope='col'>"." Hora"."</th>";
-                echo "<th scope='col'>"." Tipo"."</th>";
+                echo '<th scope="col" id="myId3">'.' Hora: '."</th>";
+                echo '<th scope="col" id="myId2">'.' Tipo'.'</th>';
                 echo "<tr>";
                 echo "<td>" . $data[$i]->clockingTime . "</td>";
                 echo "<td>" . $data[$i]->clockingType . "</td>";
@@ -353,14 +344,41 @@
                 $curDate = $data[$i]->clockingDate;
               }
                  }
-
-            }
-
-             ?>
-
-
+			}
+			
+			 ?>
+			 
         </tbody>
-      </table>
+	  </table>
+	  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cambio de Fecha</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Hora:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+             <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Type:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       <h2></h2>
       <p> </p>
 
