@@ -36,7 +36,7 @@ BEGIN
 	#DROP TEMPORARY TABLE times;
 	CREATE TEMPORARY TABLE IF NOT EXISTS times (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, time_en TIME);
 	
-	INSERT INTO times(time_en) (SELECT clockingTime FROM clokinginregisters WHERE clockingDate = date_find AND dniUser = dni);
+	INSERT INTO times(time_en) (SELECT clockingTime FROM clokinginregisters WHERE clockingDate = date_find AND dniUser = dni ORDER BY clockingTime asc);
 	
 	
 	substract_loop:  LOOP
@@ -48,8 +48,8 @@ BEGIN
 	IF counter%2 = 0 AND counter != 0 THEN
 		SELECT time_en INTO time_2 FROM times WHERE id = counter;
 		SELECT time_en INTO time_1 FROM times WHERE id = counter-1;
-		SELECT time_1, time_2;
-		SELECT SUBTIME(time_2, time_1);
+		#SELECT time_1, time_2;
+		#SELECT SUBTIME(time_2, time_1);
 		SELECT ADDTIME(hours, SUBTIME(time_2, time_1)) INTO hours; #last Change
 		SET counter = counter + 1;
 	END IF;
@@ -59,6 +59,8 @@ BEGIN
 	END LOOP;
 	
 	SELECT hours;
+	
+	TRUNCATE TABLE times;
 
 	
 END//
@@ -4111,7 +4113,7 @@ CREATE TABLE IF NOT EXISTS `clokinginregisters` (
   CONSTRAINT `FKdniUser` FOREIGN KEY (`dniUser`) REFERENCES `users` (`employeeDni`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table fingerprintassistancecontrol.clokinginregisters: ~13 rows (approximately)
+-- Dumping data for table fingerprintassistancecontrol.clokinginregisters: ~12 rows (approximately)
 /*!40000 ALTER TABLE `clokinginregisters` DISABLE KEYS */;
 REPLACE INTO `clokinginregisters` (`orderN`, `dniUser`, `clockingDate`, `clockingTime`, `clockingType`) VALUES
 	(1, 'Y5277211J', '2020-01-21', '09:49:26', 'entrance'),
