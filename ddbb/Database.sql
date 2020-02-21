@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versión del servidor:         10.4.11-MariaDB - mariadb.org binary distribution
--- SO del servidor:              Win64
--- HeidiSQL Versión:             10.3.0.5771
+-- Server version:               10.4.10-MariaDB - mariadb.org binary distribution
+-- Server OS:                    Win64
+-- HeidiSQL Version:             10.3.0.5771
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -12,23 +12,73 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Volcando estructura de base de datos para fingerprintassistancecontrol
+-- Dumping database structure for fingerprintassistancecontrol
 CREATE DATABASE IF NOT EXISTS `fingerprintassistancecontrol` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `fingerprintassistancecontrol`;
 
--- Volcando estructura para tabla fingerprintassistancecontrol.calendar_table
+-- Dumping structure for procedure fingerprintassistancecontrol.calculate_hours_in_day
+DELIMITER //
+CREATE PROCEDURE `calculate_hours_in_day`(
+	IN `date_find` DATE,
+	IN `dni` VARCHAR(50)
+)
+BEGIN
+
+	DECLARE entries INT DEFAULT 0;
+	DECLARE counter INT DEFAULT 0;
+	DECLARE hours TIME DEFAULT 0;
+	DECLARE time_1 TIME;
+	DECLARE time_2 TIME;
+	
+	
+	SELECT COUNT(*) INTO entries FROM clokinginregisters WHERE clockingDate = date_find AND dniUser = dni;
+	
+	#DROP TEMPORARY TABLE times;
+	CREATE TEMPORARY TABLE IF NOT EXISTS times (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, time_en TIME);
+	
+	INSERT INTO times(time_en) (SELECT clockingTime FROM clokinginregisters WHERE clockingDate = date_find AND dniUser = dni ORDER BY clockingTime asc);
+	
+	
+	substract_loop:  LOOP
+	
+   IF  counter > entries THEN
+		LEAVE substract_loop;
+	END IF;
+	
+	IF counter%2 = 0 AND counter != 0 THEN
+		SELECT time_en INTO time_2 FROM times WHERE id = counter;
+		SELECT time_en INTO time_1 FROM times WHERE id = counter-1;
+		#SELECT time_1, time_2;
+		#SELECT SUBTIME(time_2, time_1);
+		SELECT ADDTIME(hours, SUBTIME(time_2, time_1)) INTO hours; #last Change
+		SET counter = counter + 1;
+	END IF;
+	
+	SET counter = counter + 1;	
+	
+	END LOOP;
+	
+	SELECT hours;
+	
+	TRUNCATE TABLE times;
+
+	
+END//
+DELIMITER ;
+
+-- Dumping structure for table fingerprintassistancecontrol.calendar_table
 CREATE TABLE IF NOT EXISTS `calendar_table` (
-  `dt` date NOT NULL,
-  `monthname` varchar(9) NOT NULL,
-  `dayname` varchar(9) NOT NULL,
+  `calendarDate` date NOT NULL,
+  `monthName` varchar(9) NOT NULL,
+  `dayName` varchar(9) NOT NULL,
   `isHoliday` int(1) NOT NULL,
   `holidayDescr` varchar(32) NOT NULL,
-  PRIMARY KEY (`dt`)
+  PRIMARY KEY (`calendarDate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla fingerprintassistancecontrol.calendar_table: ~4.018 rows (aproximadamente)
+-- Dumping data for table fingerprintassistancecontrol.calendar_table: ~4,018 rows (approximately)
 /*!40000 ALTER TABLE `calendar_table` DISABLE KEYS */;
-REPLACE INTO `calendar_table` (`dt`, `monthname`, `dayname`, `isHoliday`, `holidayDescr`) VALUES
+REPLACE INTO `calendar_table` (`calendarDate`, `monthName`, `dayName`, `isHoliday`, `holidayDescr`) VALUES
 	('2020-01-01', 'January', 'Wednesday', 1, 'New Year\'s Day'),
 	('2020-01-02', 'January', 'Thursday', 0, ''),
 	('2020-01-03', 'January', 'Friday', 0, ''),
@@ -4049,21 +4099,23 @@ REPLACE INTO `calendar_table` (`dt`, `monthname`, `dayname`, `isHoliday`, `holid
 	('2030-12-31', 'December', 'Tuesday', 0, '');
 /*!40000 ALTER TABLE `calendar_table` ENABLE KEYS */;
 
--- Volcando estructura para tabla fingerprintassistancecontrol.clokinginregisters
+-- Dumping structure for table fingerprintassistancecontrol.clokinginregisters
 CREATE TABLE IF NOT EXISTS `clokinginregisters` (
-  `auto-increment` int(11) NOT NULL AUTO_INCREMENT,
+  `orderN` int(11) NOT NULL AUTO_INCREMENT,
   `dniUser` varchar(50) NOT NULL,
-  `date` date NOT NULL DEFAULT curdate(),
-  `time` time NOT NULL DEFAULT curtime(),
-  `type` enum('entrance','exit') NOT NULL,
-  PRIMARY KEY (`auto-increment`),
+  `clockingDate` date NOT NULL DEFAULT curdate(),
+  `clockingTime` time NOT NULL DEFAULT curtime(),
+  `clockingType` enum('entrance','exit') NOT NULL,
+  PRIMARY KEY (`orderN`),
   KEY `dniUser` (`dniUser`),
-  CONSTRAINT `dniUser` FOREIGN KEY (`dniUser`) REFERENCES `users` (`dni`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+  KEY `FKdate` (`clockingDate`),
+  CONSTRAINT `FKdate` FOREIGN KEY (`clockingDate`) REFERENCES `calendar_table` (`calendarDate`),
+  CONSTRAINT `FKdniUser` FOREIGN KEY (`dniUser`) REFERENCES `users` (`employeeDni`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla fingerprintassistancecontrol.clokinginregisters: ~9 rows (aproximadamente)
+-- Dumping data for table fingerprintassistancecontrol.clokinginregisters: ~12 rows (approximately)
 /*!40000 ALTER TABLE `clokinginregisters` DISABLE KEYS */;
-REPLACE INTO `clokinginregisters` (`auto-increment`, `dniUser`, `date`, `time`, `type`) VALUES
+REPLACE INTO `clokinginregisters` (`orderN`, `dniUser`, `clockingDate`, `clockingTime`, `clockingType`) VALUES
 	(1, 'Y5277211J', '2020-01-21', '09:49:26', 'entrance'),
 	(2, 'K8463538L', '2020-01-21', '08:49:52', 'entrance'),
 	(3, 'X345678I', '2020-01-22', '09:35:14', 'entrance'),
@@ -4072,61 +4124,116 @@ REPLACE INTO `clokinginregisters` (`auto-increment`, `dniUser`, `date`, `time`, 
 	(6, 'X345678I', '2020-01-22', '12:24:34', 'exit'),
 	(7, 'Y3423283H', '2020-01-23', '10:24:59', 'exit'),
 	(8, 'Y3423283H', '2020-01-23', '11:25:17', 'entrance'),
-	(9, 'Y3423283H', '2020-01-23', '13:25:54', 'exit');
+	(10, 'Y3423283H', '2020-04-01', '09:30:52', 'entrance'),
+	(11, 'Y3423283H', '2020-04-01', '12:31:22', 'exit'),
+	(12, 'Y3423283H', '2020-04-01', '14:31:46', 'entrance'),
+	(13, 'Y3423283H', '2020-02-18', '09:15:34', 'entrance');
 /*!40000 ALTER TABLE `clokinginregisters` ENABLE KEYS */;
 
--- Volcando estructura para tabla fingerprintassistancecontrol.loginfo
+-- Dumping structure for procedure fingerprintassistancecontrol.find_incomplete_days
+DELIMITER //
+CREATE PROCEDURE `find_incomplete_days`(
+	IN `dni` VARCHAR(50)
+)
+BEGIN
+	
+	DECLARE en_num INT DEFAULT 0;
+	DECLARE ex_num INT DEFAULT 0;
+	
+	DECLARE check_date DATE DEFAULT (SELECT contractStartDate FROM users WHERE employeeDni LIKE 'Y3423283H');
+	DECLARE today_date DATE DEFAULT CURDATE();
+	
+	
+	#DROP TEMPORARY TABLE byUserAndDate;
+	CREATE TEMPORARY TABLE IF NOT EXISTS byUserAndDate (type_c VARCHAR(50));
+	CREATE TEMPORARY TABLE IF NOT EXISTS results (clockingDate DATE, clockingTime TIME, clockingType VARCHAR(50));
+	
+	WHILE check_date < today_date DO
+	
+		INSERT INTO byUserAndDate(type_c) (SELECT clockingType FROM clokinginregisters WHERE dniUser = dni AND clockingDate = check_date);
+		
+		
+      SELECT COUNT(*) FROM byUserAndDate WHERE type_c LIKE 'entrance' INTO en_num;
+            
+      SELECT COUNT(*) FROM byUserAndDate WHERE type_c LIKE 'exit' INTO ex_num;
+      
+		#SELECT COUNT(*) FROM (SELECT clockingType FROM clokinginregisters WHERE dniUser = dni AND clockingDate = check_date AND clockingType like 'entrance') INTO en_num;
+		#SELECT COUNT(*) FROM (SELECT clockingType FROM clokinginregisters WHERE dniUser = dni AND clockingDate = check_date AND clockingType like 'exit') INTO ex_num;
+        
+            
+      IF en_num != ex_num THEN
+      	INSERT INTO results (clockingDate, clockingTime, clockingType) (SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE clockingDate = check_date);
+			#SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE clockingDate = check_date;
+      END IF;
+		
+		SET en_num = 0;
+		SET ex_num = 0;
+		
+		SET check_date = DATE_ADD(check_date, INTERVAL 1 DAY);
+		TRUNCATE TABLE byUserAndDate;
+            
+    END WHILE;
+    
+    SELECT * FROM results;
+    TRUNCATE TABLE results;
+    
+END//
+DELIMITER ;
+
+-- Dumping structure for table fingerprintassistancecontrol.loginfo
 CREATE TABLE IF NOT EXISTS `loginfo` (
-  `auto-increment` int(11) NOT NULL AUTO_INCREMENT,
-  `datetime` datetime NOT NULL DEFAULT current_timestamp(),
-  `who` varchar(50) NOT NULL,
-  `action` varchar(50) NOT NULL,
-  PRIMARY KEY (`auto-increment`),
-  KEY `who` (`who`),
-  CONSTRAINT `who` FOREIGN KEY (`who`) REFERENCES `users` (`dni`)
+  `orderN` int(11) NOT NULL AUTO_INCREMENT,
+  `logWhen` datetime NOT NULL DEFAULT current_timestamp(),
+  `logWho` varchar(50) NOT NULL,
+  `logAction` text NOT NULL DEFAULT '',
+  PRIMARY KEY (`orderN`),
+  KEY `FKwho` (`logWho`),
+  CONSTRAINT `FKwho` FOREIGN KEY (`logWho`) REFERENCES `users` (`employeeDni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla fingerprintassistancecontrol.loginfo: ~0 rows (aproximadamente)
+-- Dumping data for table fingerprintassistancecontrol.loginfo: ~0 rows (approximately)
 /*!40000 ALTER TABLE `loginfo` DISABLE KEYS */;
 /*!40000 ALTER TABLE `loginfo` ENABLE KEYS */;
 
--- Volcando estructura para tabla fingerprintassistancecontrol.users
+-- Dumping structure for table fingerprintassistancecontrol.users
 CREATE TABLE IF NOT EXISTS `users` (
-  `dni` varchar(50) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `contract` enum('partial','full-time') NOT NULL,
+  `employeeDni` varchar(50) NOT NULL,
+  `employeeName` varchar(50) NOT NULL,
+  `employeePsw` varchar(50) NOT NULL,
+  `contractType` enum('partial','full-time') NOT NULL,
   `fingerprint` int(1) NOT NULL DEFAULT -1,
   `bossEmail` varchar(50) NOT NULL DEFAULT 'boss@movicoders.com',
-  `admin` int(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`dni`)
+  `isAdmin` int(1) NOT NULL DEFAULT 0,
+  `contractStartDate` date NOT NULL,
+  `contractEndDate` date DEFAULT NULL,
+  PRIMARY KEY (`employeeDni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla fingerprintassistancecontrol.users: ~5 rows (aproximadamente)
+-- Dumping data for table fingerprintassistancecontrol.users: ~5 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-REPLACE INTO `users` (`dni`, `name`, `password`, `contract`, `fingerprint`, `bossEmail`, `admin`) VALUES
-	('K8463538L', 'Dani', '5678movi', 'partial', 0, 'boss@movicoders.com', 0),
-	('X345678I', 'Elena', 'movi4321', 'partial', 0, 'boss@movicoders.com', 0),
-	('Y3423283H', 'Mihai', '45798mov', 'partial', 0, 'boss@movicoders.com', 0),
-	('Y4588344X', 'Boss', 'superboss', 'full-time', 0, 'boss@movicoders.com', 1),
-	('Y5277211J', 'Anna', 'movi1234', 'partial', 0, 'boss@movicoders.com', 0);
+REPLACE INTO `users` (`employeeDni`, `employeeName`, `employeePsw`, `contractType`, `fingerprint`, `bossEmail`, `isAdmin`, `contractStartDate`, `contractEndDate`) VALUES
+	('K8463538L', 'Dani', '5678movi', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00'),
+	('X345678I', 'Elena', 'movi4321', 'partial', 0, 'boss@movicoders.com', 0, '0000-00-00', '0000-00-00'),
+	('Y3423283H', 'Mihai', '45798mov', 'partial', 0, 'boss@movicoders.com', 0, '2020-01-03', '0000-00-00'),
+	('Y4588344X', 'Boss', 'superboss', 'full-time', 0, 'boss@movicoders.com', 1, '0000-00-00', '0000-00-00'),
+	('Y5277211J', 'Anna', 'movi1234', 'partial', 0, 'boss@movicoders.com', 0, '2020-02-10', '0000-00-00');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
--- Volcando estructura para tabla fingerprintassistancecontrol.usersholidays
+-- Dumping structure for table fingerprintassistancecontrol.usersholidays
 CREATE TABLE IF NOT EXISTS `usersholidays` (
-  `auto-increment` int(11) NOT NULL AUTO_INCREMENT,
+  `orderN` int(11) NOT NULL AUTO_INCREMENT,
   `userDni` varchar(50) NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`auto-increment`),
-  KEY `date` (`date`),
-  KEY `userDni` (`userDni`),
-  CONSTRAINT `date` FOREIGN KEY (`date`) REFERENCES `calendar_table` (`dt`),
-  CONSTRAINT `userDni` FOREIGN KEY (`userDni`) REFERENCES `users` (`dni`)
+  `holidayDate` date NOT NULL,
+  PRIMARY KEY (`orderN`),
+  KEY `FKuserDni` (`userDni`),
+  KEY `FKholidayDate` (`holidayDate`),
+  CONSTRAINT `FKholidayDate` FOREIGN KEY (`holidayDate`) REFERENCES `calendar_table` (`calendarDate`),
+  CONSTRAINT `FKuserDni` FOREIGN KEY (`userDni`) REFERENCES `users` (`employeeDni`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla fingerprintassistancecontrol.usersholidays: ~1 rows (aproximadamente)
+-- Dumping data for table fingerprintassistancecontrol.usersholidays: ~0 rows (approximately)
 /*!40000 ALTER TABLE `usersholidays` DISABLE KEYS */;
-REPLACE INTO `usersholidays` (`auto-increment`, `userDni`, `date`) VALUES
+REPLACE INTO `usersholidays` (`orderN`, `userDni`, `holidayDate`) VALUES
 	(3, 'Y5277211J', '2020-01-30');
 /*!40000 ALTER TABLE `usersholidays` ENABLE KEYS */;
 
