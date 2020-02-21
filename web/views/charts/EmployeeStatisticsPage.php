@@ -49,7 +49,9 @@
     
     <link rel="stylesheet2" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+   <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+   
+   
    <script src="http://code.highcharts.com/highcharts.js"></script>
    
     <!--YEARPICKER cogido de esta web: https://www.itsolutionstuff.com/post/bootstrap-year-picker-example-using-datepicker-jsexample.html -->
@@ -57,15 +59,21 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-
     <link rel="stylesheet" href="css/jquery.monthpicker.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- <script src="jquery-3.4.1.min.js"></script> -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+   
+    <!--el script que crea la chart está aquí:-->
+    <script type="text/javascript" src="../views/static/JavaScript/EmployeeChartScript.js"></script>
+  
 
     <!-- CSS de la chart -->
     <link rel="stylesheet" href="../views/static/css/chartsStyle.css">
     <!--Loader de la chart de google  -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <!--el script que crea la chart está aquí:-->
-    <script type="text/javascript" src="../views/static/JavaScript/EmployeeChartScript.js"></script>
+
 
 
 </head>
@@ -330,9 +338,9 @@
       <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
 
       <!-- jQuery CDN -  AJAX -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
       <!-- Popper.JS -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"

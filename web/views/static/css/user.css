@@ -311,6 +311,32 @@ a.article:hover {
     top: 0;
     right: 0;
 }
+#datos-centrados{
+	text-align: center;
+}
+
+#myId{
+	position: relative;
+	left: 25%;
+	width: 50%;
+	background-color: #ebf2ffbb;
+	padding: 2rem;
+	/* IMPORTANTE */
+	text-align: center;
+
+}
+
+#myId2{
+	background-color: #fafafa;
+	padding: 2rem;
+	text-align: center;
+}
+#myId3{
+	background-color: #fafafa;
+	padding: 2rem;
+	text-align: center;
+}
+
 
 
 #content.active {
@@ -410,3 +436,4 @@ a.article:hover {
 	background-color: #eee !important;
   }
   */
+  
