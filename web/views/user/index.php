@@ -131,6 +131,7 @@
                           <input class="date-own form-control" type="text" value="Select date" id="registersDateFilter1" name="startDate">
                           <script type="text/javascript">
                             $('.date-own').datepicker({
+                              autoclose: true,
                               format: "yyyy-mm-dd",
                               viewMode: "months",
                               minViewMode: "days"
@@ -144,6 +145,7 @@
                         <input class="date-own form-control" type="text" value="Select date" id="registersDateFilter2" name="endDate">
                         <script type="text/javascript">
                           $('.date-own').datepicker({
+                            autoclose: true,
                             format: "yyyy-mm-dd",
                             viewMode: "months",
                             minViewMode: "days"
