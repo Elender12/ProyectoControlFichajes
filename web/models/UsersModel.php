@@ -44,9 +44,7 @@ class UsersModel extends Model
                     $query->execute();
                     $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
                     require "views/user/index.php";
-                    //header("Location: views/user/index.php");
-                    //return $data;
-                    //return "views/user/index.php";
+                      //return $data;
                 } else {
                     //it's an admin and calls the view
                     require "views/admin/index.php";
