@@ -367,14 +367,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            
-        <div class="mbsc-grid mbsc-form-grid">
+<div mbsc-page class="demo-time-picker">
+    <div mbsc-form class="mbsc-form-box">
             <div class="mbsc-form-group">
                     <div class="mbsc-col-sm-12 mbsc-col-md-4">
                         <label >
-                            Select Time
+                           <h6> Select Time</h6>
                             <input mbsc-input data-input-style="box" data-label-style="stacked" id="demo-time-24h" />
                         </label>
           			  </div>
@@ -382,11 +380,9 @@
   				  </div>
           </div>
            <select id="country">
-		
-		<option value="ID001">Entrance</option>
-		<option value="ID002" selected>Exit</option>
-		
-	</select>
+			<option value="ID001">Entrance</option>
+			<option value="ID002" selected>Exit</option>
+		</select>
         </form>
       </div>
       <div class="modal-footer">
@@ -422,13 +418,7 @@
             instance.show();
         }, false);
 </script>
-      <div class="line"></div>
-
-   
-    </div>
-  </div>
-
-
+     
   <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
 
   <!-- jQuery CDN -  AJAX -->
