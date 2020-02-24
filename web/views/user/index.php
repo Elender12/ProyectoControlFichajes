@@ -14,7 +14,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>User</title>
-    
+	
+	<link rel="stylesheet" href="../views/static/css/mobiscroll.javascript.min.css">
+    <script src="../views/static/JavaScript/mobiscroll.javascript.min.js"></script>
+
   <!-- Icono con la m de movicoders en la ventana -->
 	<link rel="shortcut icon" href="../views/static/img/favicon.ico" />
 
@@ -366,8 +369,17 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Hora:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            
+        <div class="mbsc-grid mbsc-form-grid">
+            <div class="mbsc-form-group">
+                    <div class="mbsc-col-sm-12 mbsc-col-md-4">
+                        <label >
+                            Select Time
+                            <input mbsc-input data-input-style="box" data-label-style="stacked" id="demo-time-24h" />
+                        </label>
+          			  </div>
+        			</div>
+  				  </div>
           </div>
              <div class="form-group">
             <label for="recipient-name" class="col-form-label">Type:</label>
@@ -385,13 +397,32 @@
 
       <h2></h2>
       <p> </p>
+ 
+    
+</div>
+<script>
 
-      <div class="line"></div>
-
-      <h2></h2>
-
-      <p> </p>
-
+    mobiscroll.settings = {
+        lang: 'en',                      
+        theme: 'ios',                     
+        themeVariant: 'light',            
+        display: 'bubble'                 
+    };
+    
+    mobiscroll.time('#demo-time-24h', {
+        timeFormat: 'HH:ii',              
+        onInit: function (event, inst) {  
+            inst.setVal(now, true);
+        }
+    });
+    
+    
+    document
+        .getElementById('show-demo-time-external')
+        .addEventListener('click', function () {
+            instance.show();
+        }, false);
+</script>
       <div class="line"></div>
 
       <h3></h3>
