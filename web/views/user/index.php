@@ -377,10 +377,12 @@
         			</div>
   				  </div>
           </div>
-             <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Type:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
+           <select id="country">
+		<option value="None">-- Select Type --</option>
+		<option value="ID001">Entrance</option>
+		<option value="ID002" selected>Exit</option>
+		
+	</select>
         </form>
       </div>
       <div class="modal-footer">
@@ -391,10 +393,7 @@
   </div>
 </div>
 
-      <h2></h2>
-      <p> </p>
  
-    
 </div>
 <script>
 
@@ -421,9 +420,7 @@
 </script>
       <div class="line"></div>
 
-      <h3></h3>
-      <p></p>
-
+   
     </div>
   </div>
 
