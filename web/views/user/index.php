@@ -1,4 +1,8 @@
 <?php @session_start();
+
+// Redirect 301 Moved Permanently
+//header("Location: /ControlFichajes/web/LoginController/login");
+
 //error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
@@ -48,8 +52,8 @@
   <?php
   //evita que se guarde la sesion vacia si ya existia
   if (!isset($_SESSION["worker"])) {
-    $_SESSION["worker"] = $_POST["worker"];
-    $_SESSION["pass"] = $_POST["pass"];
+    $_SESSION["worker"] = $_GET["worker"];
+    $_SESSION["pass"] = $_GET["pass"];
   }
 
   ?>
@@ -120,7 +124,7 @@
                       <label for="registersDateFilter1" class="col-2 col-form-label"></label>
                       <div class="col-10">
                         <!-- FILTER DATA IN A RANGE-->
-                        <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData" method="post" id="form1">
+                        <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData" method="get" id="form1">
                           <input class="date-own form-control" type="text" value="Select date" id="registersDateFilter1" name="startDate">
                           <script type="text/javascript">
                             $('.date-own').datepicker({
@@ -159,7 +163,7 @@
               <div class="card2">
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
-                  <form action="<?php echo constant('URL'); ?>/LoginController/showIncompleteDays" method="post" id="form2">
+                  <form action="<?php echo constant('URL'); ?>/LoginController/showIncompleteDays" method="get" id="form2">
                   </form>  
                   <button type="submit" form="form2" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="fas fa-calendar-minus"></i>
                       Incomplete
@@ -173,7 +177,7 @@
               <div class="card3">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
-                  <form action="<?php echo constant('URL'); ?>/LoginController/showNoClockedInDays" method="post" id="form3">
+                  <form action="<?php echo constant('URL'); ?>/LoginController/showNoClockedInDays" method="get" id="form3">
                   </form>
                     <button type="submit" form="form3" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="colorBtn3"><i class="fas fa-calendar-times"></i>
                       Missed
