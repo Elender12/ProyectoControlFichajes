@@ -416,6 +416,7 @@ a.article:hover {
 	}
   }
 
+
   /* Pendiente de evaluar y ver si lo adapto al código final,
    posiblemente no se llegue a implementar en la parte final del desarollo
 
@@ -436,4 +437,34 @@ a.article:hover {
 	background-color: #eee !important;
   }
   */
-  
+
+button {
+	display: inline-block;
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+	background: #5185a8;
+	color: #fff;
+	text-decoration: none;
+	font-family: arial, verdana, sans-serif;
+	font-size: 14px;
+}
+.demo-non-form {
+	color: initial;
+	width: 100%;
+	padding: 10px;
+	margin: 6px 0 12px 0;
+	border: 1px solid #ccc;
+	border-radius: 0;
+	font-family: arial, verdana, sans-serif;
+	font-size: 14px;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+}
+
+.external-container button.external-button {
+	font-weight: 400;
+	padding: 10px;
+	margin: 6px 0 13px 0;
+	width: 100%;
+} 
