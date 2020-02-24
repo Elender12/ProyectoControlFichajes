@@ -384,7 +384,7 @@
   				  </div>
           </div>
            <select id="country">
-		<option value="None">-- Select Type --</option>
+		
 		<option value="ID001">Entrance</option>
 		<option value="ID002" selected>Exit</option>
 		
