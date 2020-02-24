@@ -147,69 +147,69 @@
            
             
             <p class="h1">Employees List</p>
-
-            <table class="table table-striped table-hover table-sm table-bordered" id="adminTable">
-              <thead>
-              <tr>
-                  <th scope="col"></th>
-                  <th scope="col"><i class="fas fa-user"></i>      Employee name</th>
-                  <th scope="col"><i class="fas fa-id-card"></i>      Employee ID</th>
-                </tr>
-              </thead>
-
-              <tbody>
-              <tr style="transform: rotate(0);">
-                  <th scope="row"><a href="www.google.com" target= "blank" class="stretched-link">1</a></th>
-                  <td>Mark babababa gofgogogo</td>
-                  <td>Y545gfgf65</td>
-                </tr>
-
+            <div id="table_div">
+              <table class="table table-striped table-hover table-sm table-bordered" id="adminTable">
+                <thead>
                 <tr>
-                  <th scope="row">2</th>
-                  <td>Mark babababa gofgogogo</td>
-                  <td>Y545gfgf65</td>
-                </tr>
+                    <th scope="col" id="col1"></th>
+                    <th scope="col" id="col2"><i class="fas fa-user"></i>      Employee name</th>
+                    <th scope="col" id="col3"><i class="fas fa-id-card"></i>      Employee ID</th>
+                  </tr>
+                </thead>
 
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Mark babababa gofgogogo</td>
-                  <td>Y545gfgf65</td>
-                </tr>
+                <tbody>
+                <tr style="transform: rotate(0);">
+                    <th scope="row"><a href="www.google.com" target= "blank" class="stretched-link">1</a></th>
+                    <td>Mark babababa gofgogogo</td>
+                    <td>Y545gfgf65</td>
+                  </tr>
 
-                <tr>
-                  <th scope="row">4</th>
-                  <td>Mark babababa gofgogogo</td>
-                  <td>Y545gfgf65</td>
-                </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Mark babababa gofgogogo</td>
+                    <td>Y545gfgf65</td>
+                  </tr>
 
-                <tr>
-                  <th scope="row">5</th>
-                  <td>Mark babababa gofgogogo</td>
-                  <td>Y545gfgf65</td>
-                </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Mark babababa gofgogogo</td>
+                    <td>Y545gfgf65</td>
+                  </tr>
 
-                <tr>
-                  <th scope="row">6</th>
-                  <td>Mark babababa gofgogogo</td>
-                  <td>Y545gfgf65</td>
-                </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Mark babababa gofgogogo</td>
+                    <td>Y545gfgf65</td>
+                  </tr>
 
-                <tr>
-                  <th scope="row">7</th>
-                  <td>Mark babababa gofgogogo</td>
-                  <td>Y545gfgf65</td>
-                </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Mark babababa gofgogogo</td>
+                    <td>Y545gfgf65</td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Mark babababa gofgogogo</td>
+                    <td>Y545gfgf65</td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Mark babababa gofgogogo</td>
+                    <td>Y545gfgf65</td>
+                  </tr>
+                
+                    
+              <?php  for ($i=0; $i< count($data); $i++) {
+      //pintar datos correctamente en la tabla principal fichaje mes
+            //     echo "<td>"."num orden".$data[$i]->orderN." fecha".$data[$i]->date."</td><td>".$data[$i]->time.$data[$i]->type."</td><td><br>";
+  }?>
               
-                  
-             <?php  for ($i=0; $i< count($data); $i++) {
-    //pintar datos correctamente en la tabla principal fichaje mes
-           //     echo "<td>"."num orden".$data[$i]->orderN." fecha".$data[$i]->date."</td><td>".$data[$i]->time.$data[$i]->type."</td><td><br>";
-}?>
-            
 
-                </tbody>
-              </table>
-            
+                  </tbody>
+                </table>
+              </div>
 
             <div class="line"></div>
 
