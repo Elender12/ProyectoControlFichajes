@@ -19,16 +19,38 @@ p {
 }
 
 /* En la pag index del admin */
+
+
 tbody tr:hover { 
     color: #7386D5;
     background: #fff;
     transform: rotate(0);
  }
- td a { 
-    display: block; 
-    
-    padding: 16px; 
+
+ #adminTable {
+    border-top-width: 10px;
+    border-left-width: 250px;
+    border-right-width: 150px;
+    border-color: #ffffff;
+    text-align: center;
  }
+
+ #col1 {
+     width: 1%;
+ }
+
+ #col2 {
+     width: 10%;
+ }
+
+ #col3 {
+     width: 8%;
+ }
+ 
+/* End - index admin */
+
+
+
 
 #headingOne{
 	background-color: #0f407a;
