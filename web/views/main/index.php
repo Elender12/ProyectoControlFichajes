@@ -1,5 +1,31 @@
-<?php session_start();
+
+
+<?php
+    session_start();
+
+    $echoedShout = "";
+
+    if(count($_POST) > 0) {
+		$_SESSION['worker'] = $_POST['worker'];
+		$_SESSION['pass'] = $_POST['pass'];
+
+        header("HTTP/1.1 303 See Other");
+		header("Location: /ControlFichajes/web/LoginController/login");
+        die();
+    }
+    else if (isset($_SESSION['worker'])){
+        $echoedShout = $_SESSION['worker'];
+
+        /*
+            Put database-affecting code here.
+        */
+
+        session_unset();
+        session_destroy();
+    }
 ?>
+
+
 <html>
     <head>
         <meta charset="utf-8">

@@ -11,14 +11,52 @@ class LoginController extends Controller{
     }
 
     function login(){
+        
         //gets the data from the index
-         $worker=$_POST["worker"];
-         $pass = $_POST["pass"];
-        $conexion = new UsersModel();
-        //calls the method that has the query prepared
-        $result = $conexion->checkLogin($worker,$pass);
-       // require "views/user/index.php";
-        echo $result;
+        if(count($_POST) > 0) {
+            $_SESSION['worker'] = $_POST['worker'];
+            $_SESSION['pass'] = $_POST['pass'];
+        
+           // require "views/user/index.php";
+          
+           //echo $result;
+    
+            header("HTTP/1.1 303 See Other");
+            header("Location: /ControlFichajes/web/LoginController/login");
+            die();
+        }
+        else if (isset($_SESSION['worker'])){
+    
+            /*
+                Put database-affecting code here.
+            */
+
+            $worker= $_SESSION["worker"];
+            $pass = $_SESSION["pass"];
+            $conexion = new UsersModel();
+            //calls the method that has the query prepared
+           // $result = $conexion->checkLogin($_SESSION['worker'] , $_SESSION['pass']);
+            $result = $conexion->checkLogin($worker, $pass);
+            echo $result;
+           // session_unset();
+           // session_destroy();
+        }
+
+        // if (!isset($_SESSION["worker"])) {
+        //     $_SESSION["worker"] = $_POST["worker"];
+        //     $_SESSION["pass"] = $_POST["pass"];
+        //     $worker= $_SESSION["worker"];
+        //     $pass = $_SESSION["pass"];
+        //   }else {
+        //    $worker= $_SESSION["worker"];
+        //    $pass = $_SESSION["pass"];
+        
+        //   }
+        //  $worker=  $_SESSION["worker"];
+         // $pass= $_SESSION["pass"];
+        // $worker=$_POST["worker"];
+         //$pass = $_POST["pass"];
+       
        
         //
     }
@@ -30,22 +68,21 @@ class LoginController extends Controller{
     // }
     
     function checkFilteredData(){
-        //probando datos
+        $worker = $_SESSION["worker"];
+        if(isset($_GET["startDate"]) && isset($_GET["endDate"]) ){
+            $startDate =$_GET["startDate"];
+            $endDate=$_GET["endDate"];
+            $conexion = new UsersModel();
+            $result = $conexion-> checkFilteredDataClockIn($worker,$startDate,$endDate);
+            //prints the data
+            echo $result;
 
-        if(isset($_POST["startDate"])){
-            $startDate =$_POST["startDate"];
+        }else {
+
+            return;
         }
-        //controlar cuando no hay datos
-        if(isset($_POST["endDate"])){
-            $endDate=$_POST["endDate"];
-        }
-       //echo $_POST["startDate"];
-       $worker = $_SESSION["worker"];
-       $conexion = new UsersModel();
-        $result = $conexion-> checkFilteredDataClockIn($worker,$startDate,$endDate);
-        //prints the data
-        echo $result;
-        //var_dump($result);
+      
+       
     }
     function showIncompleteDays(){
         //TODO

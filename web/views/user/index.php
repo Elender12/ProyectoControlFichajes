@@ -1,4 +1,8 @@
 <?php @session_start();
+
+// Redirect 301 Moved Permanently
+//header("Location: /ControlFichajes/web/LoginController/login");
+
 //error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
@@ -10,7 +14,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>User</title>
-    
+	
+	<link rel="stylesheet" href="../views/static/css/mobiscroll.javascript.min.css">
+    <script src="../views/static/JavaScript/mobiscroll.javascript.min.js"></script>
+
   <!-- Icono con la m de movicoders en la ventana -->
 	<link rel="shortcut icon" href="../views/static/img/favicon.ico" />
 
@@ -48,8 +55,8 @@
   <?php
   //evita que se guarde la sesion vacia si ya existia
   if (!isset($_SESSION["worker"])) {
-    $_SESSION["worker"] = $_POST["worker"];
-    $_SESSION["pass"] = $_POST["pass"];
+    $_SESSION["worker"] = $_GET["worker"];
+    $_SESSION["pass"] = $_GET["pass"];
   }
 
   ?>
@@ -120,7 +127,7 @@
                       <label for="registersDateFilter1" class="col-2 col-form-label"></label>
                       <div class="col-10">
                         <!-- FILTER DATA IN A RANGE-->
-                        <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData" method="post" id="form1">
+                        <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData" method="get" id="form1">
                           <input class="date-own form-control" type="text" value="Select date" id="registersDateFilter1" name="startDate">
                           <script type="text/javascript">
                             $('.date-own').datepicker({
@@ -159,7 +166,7 @@
               <div class="card2">
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
-                  <form action="<?php echo constant('URL'); ?>/LoginController/showIncompleteDays" method="post" id="form2">
+                  <form action="<?php echo constant('URL'); ?>/LoginController/showIncompleteDays" method="get" id="form2">
                   </form>  
                   <button type="submit" form="form2" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="fas fa-calendar-minus"></i>
                       Incomplete
@@ -173,7 +180,7 @@
               <div class="card3">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
-                  <form action="<?php echo constant('URL'); ?>/LoginController/showNoClockedInDays" method="post" id="form3">
+                  <form action="<?php echo constant('URL'); ?>/LoginController/showNoClockedInDays" method="get" id="form3">
                   </form>
                     <button type="submit" form="form3" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="colorBtn3"><i class="fas fa-calendar-times"></i>
                       Missed
@@ -362,8 +369,17 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Hora:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            
+        <div class="mbsc-grid mbsc-form-grid">
+            <div class="mbsc-form-group">
+                    <div class="mbsc-col-sm-12 mbsc-col-md-4">
+                        <label >
+                            Select Time
+                            <input mbsc-input data-input-style="box" data-label-style="stacked" id="demo-time-24h" />
+                        </label>
+          			  </div>
+        			</div>
+  				  </div>
           </div>
              <div class="form-group">
             <label for="recipient-name" class="col-form-label">Type:</label>
@@ -381,13 +397,32 @@
 
       <h2></h2>
       <p> </p>
+ 
+    
+</div>
+<script>
 
-      <div class="line"></div>
-
-      <h2></h2>
-
-      <p> </p>
-
+    mobiscroll.settings = {
+        lang: 'en',                      
+        theme: 'ios',                     
+        themeVariant: 'light',            
+        display: 'bubble'                 
+    };
+    
+    mobiscroll.time('#demo-time-24h', {
+        timeFormat: 'HH:ii',              
+        onInit: function (event, inst) {  
+            inst.setVal(now, true);
+        }
+    });
+    
+    
+    document
+        .getElementById('show-demo-time-external')
+        .addEventListener('click', function () {
+            instance.show();
+        }, false);
+</script>
       <div class="line"></div>
 
       <h3></h3>
