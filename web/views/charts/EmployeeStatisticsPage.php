@@ -305,7 +305,7 @@
         <div class="container-fluid">
           <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
             <i class="fas fa-bars"></i>
-            <span> Menu </span>
+            <span id="menucolor"> Menu </span>
           </button>
 
 		  <div class="topnav-centered d-none d-xl-block d-lg-block">

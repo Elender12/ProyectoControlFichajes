@@ -101,7 +101,7 @@
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
                       <i class="fas fa-bars"></i>
-                        <span id="menucolor">Menu</span>
+                        <span id="menucolorAdmin">Menu</span>
 					</button>   
 					<div class="topnav-centered2 d-none d-xl-block d-lg-block">
     				<a href="#" class="active ">Admin Panel</a>
