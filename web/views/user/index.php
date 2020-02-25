@@ -349,7 +349,7 @@
                 echo "<td>" . $data[$i]->clockingType . "</td>";
                 echo "</tr>";
               } else {
-                echo '<th scope="col" id="myId"><i class="far fa-calendar-alt" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"></i>' .'    Date:    '.'  '.$data[$i]->clockingDate . "</th>";
+				echo '<th scope="col" id="myId"><i class="far fa-calendar-alt" ></i>' .'    Date:    <span data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">'.'  '.$data[$i]->clockingDate . "</span></th>";
                 echo "<tr>";
                 echo '<th scope="col" id="myId3">'.' Hora: '."</th>";
                 echo '<th scope="col" id="myId2">'.' Tipo'.'</th>';
