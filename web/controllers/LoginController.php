@@ -134,6 +134,16 @@ class LoginController extends Controller{
         $result = $conexion->statisticsData($worker);
         echo $result;
      }
+     function insertMissedClocking(){
+         echo "update query";
+         $timeHours= $_POST["timeHours"];
+         $type= $_POST["type"];
+         $selecDate= $_POST["selectedDate"];
+         echo $timeHours;
+         echo $type;
+         echo $selecDate;
+     }
+
 }
 
 
