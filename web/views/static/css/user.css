@@ -19,16 +19,6 @@ p {
 }
 
 /* En la pag index del admin */
-<<<<<<< HEAD
-thead {
-    font-size: 1.2em;
-}
-=======
-
->>>>>>> 9994f8fc9512a4fed3862289000996f06d87e9c2
-
-
-
  td a { 
     display: block;
  }
@@ -36,7 +26,6 @@ thead {
 tbody tr:hover { 
     color: #7386D5;
     background: #fff;
-    transform: rotate(0);
  }
 
  #adminTable {
@@ -46,14 +35,17 @@ tbody tr:hover {
 
  #col1 {
      width: 0.5%;
+     padding: 12px;
  }
 
  #col2 {
      width: 10%;
+     padding: 12px;
  }
 
  #col3 {
      width: 8%;
+     padding: 12px;
  }
 /* End - index admin */
 
