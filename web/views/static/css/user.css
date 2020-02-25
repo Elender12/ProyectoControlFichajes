@@ -19,12 +19,13 @@ p {
 }
 
 /* En la pag index del admin */
-
+tbody tr{
+    transform: rotate(0);
+}
 
 tbody tr:hover { 
     color: #7386D5;
     background: #fff;
-    transform: rotate(0);
  }
 
  #adminTable {
