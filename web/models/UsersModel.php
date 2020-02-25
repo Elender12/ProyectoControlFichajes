@@ -236,7 +236,7 @@ class UsersModel extends Model
     }
     public function insertData(){
         $db = DataBase::db();
-        $worker = $_SESSION["worker"];
+        
         // $date = 
          
 

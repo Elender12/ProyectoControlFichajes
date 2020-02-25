@@ -135,13 +135,12 @@ class LoginController extends Controller{
         echo $result;
      }
      function insertMissedClocking(){
-         echo "update query";
+        $worker= $_SESSION["worker"];
          $timeHours= $_POST["timeHours"];
          $type= $_POST["type"];
-         $selecDate= $_POST["selectedDate"];
-         echo $timeHours;
-         echo $type;
-         echo $selecDate;
+         //$selecDate= $_POST["selectedDate"]; ???
+
+        
      }
 
 }
