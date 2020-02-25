@@ -464,22 +464,26 @@ a.article:hover {
 
 #country{
 	width: 100%;
-    border-radius: 10px;
-    margin-bottom: 40px;
-	box-shadow:1px 2px 2px #000000;
+    border-radius: 5px;
+    margin-bottom: 5px;
+	
 	
 
 }
+#modal-title{
+	text-align: center;
+}
+.mbsc-col-md-4{
+background: #fff;
+}
 #demo-time-24h{
 	text-align: center;
-	color: #000000;
+	background:	#fff;
 }
 #stacked{
 	text-align: center;
 }
-.demo-time-picker{
-	background:#fff;
-}
+
 .mbsc-form-box{
 	background: #fff;
 }
@@ -487,15 +491,19 @@ a.article:hover {
 	background: #fff;
 }
 .mbsc-col-sm-12{
-	background: #ffffff;
+	background:	#c9cbd0;
 }
 .mbsc-form-box{
-	background-color: #fff;
+	background-color: 	#c9cbd0;
 	text-align: center;
-	font-weight: 400;
+
 	padding: 10px;
-	margin: 6px 0 13px 0;
+
+
 	width: 100%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+	
 }
 
 button {
@@ -503,7 +511,7 @@ button {
 	outline: 0;
 	border: 0;
 	cursor: pointer;
-	background: #5185a8;
+
 	color: #fff;
 	text-decoration: none;
 	font-family: arial, verdana, sans-serif;
@@ -513,8 +521,8 @@ button {
 	color: initial;
 	width: 100%;
 	padding: 10px;
-	margin: 6px 0 12px 0;
-	border: 1px solid #ccc;
+	margin: 6px 0 2px 2px;
+	border: 1px solid #c9cbd0;
 	border-radius: 0;
 	font-family: arial, verdana, sans-serif;
 	font-size: 14px;

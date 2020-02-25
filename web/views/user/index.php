@@ -337,40 +337,42 @@
                 <i class="far fa-address-card"></i> </i></button></th>
             </th>
  -->
-        <?php
-        //print_r($data[0]->calendarDate);
-        $calendarDateExist = property_exists($data[0], 'calendarDate');
-        if ($calendarDateExist == 1) {
-          for ($i = 0; $i < count($data); $i++) {
-            echo "<tr>";
-            echo "<td>" . $data[$i]->calendarDate . "</td>";
-            echo "</tr>";
-          }
-        } else {
-          //recorre el num de entradas que hay
-          $curDate = 0;
-          //verificar datos que le llega: si es del calendario o del clocking
-          for ($i = 0; $i < count($data); $i++) {
-            if ($data[$i]->clockingDate == $curDate) {
-              echo "<tr>";
-              echo "<td>" . $data[$i]->clockingTime . "</td>";
-              echo "<td>" . $data[$i]->clockingType . "</td>";
-              echo "</tr>";
-            } else {
-              echo '<th scope="col" id="myId" ><i class="far fa-calendar-alt" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"></i>'. '  ' . $data[$i]->clockingDate . "</th>";
-              echo "<tr>";
-              echo '<th scope="col" id="myId3">' . ' Hora: ' . "</th>";
-              echo '<th scope="col" id="myId2">' . ' Tipo' . '</th>';
-              echo "<tr>";
-              echo "<td>" . $data[$i]->clockingTime . "</td>";
-              echo "<td>" . $data[$i]->clockingType . "</td>";
-              echo "</tr>";
-              echo "</tr>";
-              $curDate = $data[$i]->clockingDate;
-            }
-          }
-        }
-        ?>
+            <?php
+            //print_r($data[0]->calendarDate);
+            $calendarDateExist =property_exists($data[0], 'calendarDate');
+            if($calendarDateExist == 1){
+              for ($i = 0; $i < count($data); $i++) {
+                echo "<tr>";
+                echo "<td>" . $data[$i]->calendarDate . "</td>";
+                echo "</tr>";
+              }
+            }else {
+              //recorre el num de entradas que hay
+            $curDate = 0;
+            //verificar datos que le llega: si es del calendario o del clocking
+            for ($i = 0; $i < count($data); $i++) {
+              if ($data[$i]->clockingDate == $curDate) {
+                echo "<tr>";
+                echo "<td>" . $data[$i]->clockingTime . "</td>";
+                echo "<td>" . $data[$i]->clockingType . "</td>";
+                echo "</tr>";
+              } else {
+				echo '<th scope="col" id="myId"><i class="far fa-calendar-alt" ></i>' .'    Date:    <span data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">'.'  '.$data[$i]->clockingDate . "</span></th>";
+                echo "<tr>";
+                echo '<th scope="col" id="myId3">'.' Hora: '."</th>";
+                echo '<th scope="col" id="myId2">'.' Tipo'.'</th>';
+                echo "<tr>";
+                echo "<td>" . $data[$i]->clockingTime . "</td>";
+                echo "<td>" . $data[$i]->clockingType . "</td>";
+                echo "</tr>";
+                echo "</tr>";
+                $curDate = $data[$i]->clockingDate;
+              }
+                 }
+			}
+			
+			 ?>
+			 
         </tbody>
       </table>
 
