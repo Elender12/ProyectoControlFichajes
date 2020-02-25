@@ -19,13 +19,12 @@ p {
 }
 
 /* En la pag index del admin */
-tbody tr{
-    transform: rotate(0);
-}
+
 
 tbody tr:hover { 
     color: #7386D5;
     background: #fff;
+    transform: rotate(0);
  }
 
  #adminTable {
@@ -338,7 +337,7 @@ a.article:hover {
 	text-align: center;
 }
 
-#myId{
+.edit1{
 	position: relative;
 	left: 25%;
 	width: 50%;
@@ -349,12 +348,12 @@ a.article:hover {
 
 }
 
-#myId2{
+.edit2{
 	background-color: #fafafa;
 	padding: 2rem;
 	text-align: center;
 }
-#myId3{
+.edit3{
 	background-color: #fafafa;
 	padding: 2rem;
 	text-align: center;
@@ -491,7 +490,7 @@ background: #fff;
 	background: #fff;
 }
 .mbsc-col-sm-12{
-	background:	#c9cbd0;
+	background:	#afafaf;
 }
 .mbsc-form-box{
 	background-color: 	#c9cbd0;
