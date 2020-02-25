@@ -140,6 +140,10 @@
                           <script type="text/javascript">
                             $('.date-own').datepicker({
                               autoclose: true,
+                              weekStart:1,
+                              todayHighlight: true,
+                              clearBtn: true,
+                              disableTouchKeyboard: true,
                               format: "yyyy-mm-dd",
                               viewMode: "months",
                               minViewMode: "days"
@@ -154,6 +158,10 @@
                         <script type="text/javascript">
                           $('.date-own').datepicker({
                             autoclose: true,
+                            weekStart:1,
+                            todayHighlight: true,
+                            clearBtn: true,
+                            disableTouchKeyboard: true,
                             format: "yyyy-mm-dd",
                             viewMode: "months",
                             minViewMode: "days"
@@ -349,10 +357,10 @@
               echo "<td>" . $data[$i]->clockingType . "</td>";
               echo "</tr>";
             } else {
-              echo '<th scope="col" class="myId" ><i class="far fa-calendar-alt" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"></i>'. '  ' . $data[$i]->clockingDate . "</th>";
+              echo '<th scope="col" id="myId" ><i class="far fa-calendar-alt" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"></i>'. '  ' . $data[$i]->clockingDate . "</th>";
               echo "<tr>";
-              echo '<th scope="col" class="myId3">' . ' Hora: ' . "</th>";
-              echo '<th scope="col" class="myId2">' . ' Tipo' . '</th>';
+              echo '<th scope="col" id="myId3">' . ' Hora: ' . "</th>";
+              echo '<th scope="col" id="myId2">' . ' Tipo' . '</th>';
               echo "<tr>";
               echo "<td>" . $data[$i]->clockingTime . "</td>";
               echo "<td>" . $data[$i]->clockingType . "</td>";
@@ -362,9 +370,7 @@
             }
           }
         }
-
         ?>
-
         </tbody>
       </table>
 
@@ -380,10 +386,9 @@
               </button>
             </div>
             <div class="modal-body">
-         
+            <div mbsc-page class="demo-time-picker">
               <form action="<?php echo constant('URL'); ?>/LoginController/insertMissedClocking" method="post" id="formInsert">
                 <div class="form-group">
-
                   <div class="mbsc-grid mbsc-form-grid">
                     <div class="mbsc-form-group">
                       <div class="mbsc-col-sm-12 mbsc-col-md-4">
@@ -399,18 +404,9 @@
                   <!-- Combo box -->
                   <option value="entrance" >Entrance</option>
                   <option value="exit" selected>Exit</option>
-                </select>
-           
+                </select> 
                 <input type="hidden" id="selectedDate" name="selectedDate" value="">
-                
-
-                
-
-               
-
               </form>
-
-
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -419,8 +415,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
     <script>
       mobiscroll.settings = {
@@ -443,14 +437,8 @@
         .addEventListener('click', function() {
           instance.show();
         }, false);
-    </script>
-    <div class="line"></div>
-
-
-  </div>
-  </div>
-
-
+</script>
+     
   <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
 
   <!-- jQuery CDN -  AJAX -->

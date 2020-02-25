@@ -19,12 +19,13 @@ p {
 }
 
 /* En la pag index del admin */
-
+tbody tr{
+    transform: rotate(0);
+}
 
 tbody tr:hover { 
     color: #7386D5;
     background: #fff;
-    transform: rotate(0);
  }
 
  #adminTable {
@@ -459,6 +460,43 @@ a.article:hover {
 	background-color: #eee !important;
   }
   */
+
+
+#country{
+	width: 100%;
+    border-radius: 10px;
+    margin-bottom: 40px;
+	box-shadow:1px 2px 2px #000000;
+	
+
+}
+#demo-time-24h{
+	text-align: center;
+	color: #000000;
+}
+#stacked{
+	text-align: center;
+}
+.demo-time-picker{
+	background:#fff;
+}
+.mbsc-form-box{
+	background: #fff;
+}
+.mbsc-form-group{
+	background: #fff;
+}
+.mbsc-col-sm-12{
+	background: #ffffff;
+}
+.mbsc-form-box{
+	background-color: #fff;
+	text-align: center;
+	font-weight: 400;
+	padding: 10px;
+	margin: 6px 0 13px 0;
+	width: 100%;
+}
 
 button {
 	display: inline-block;

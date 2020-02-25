@@ -164,6 +164,10 @@
                   <script type="text/javascript">
                   $('.date-own').datepicker({
                     autoclose: true,
+                    weekStart:1,
+                    todayHighlight: true,
+                    clearBtn: true,
+                    disableTouchKeyboard: true,
                     format: "yyyy-mm-dd",
                     viewMode: "months", 
                     minViewMode: "days"
@@ -178,6 +182,10 @@
                   <script type="text/javascript">
                   $('.date-own').datepicker({
                     autoclose: true,
+                    weekStart:1,
+                    todayHighlight: true,
+                    clearBtn: true,
+                    disableTouchKeyboard: true,
                     format: "yyyy-mm-dd",
                     viewMode: "months", 
                     minViewMode: "days"
@@ -222,6 +230,10 @@
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     autoclose: true,
+                    weekStart:1,
+                    todayHighlight: true,
+                    clearBtn: true,
+                    disableTouchKeyboard: true,
                     format: "yyyy-mm-dd",
                     viewMode: "years", 
                     minViewMode: "months"
@@ -254,6 +266,10 @@
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     autoclose: true,
+                    weekStart:1,
+                    todayHighlight: true,
+                    clearBtn: true,
+                    disableTouchKeyboard: true,
                     minViewMode: 2,
                     format: 'yyyy'
                   });
