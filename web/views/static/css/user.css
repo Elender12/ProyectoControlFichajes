@@ -47,60 +47,26 @@ tbody tr:hover {
  #col3 {
      width: 8%;
  }
- 
 /* End - index admin */
 
-
-
-
-#headingOne{
+#headingOne, #headingTwo, #headingThree, #headingFour, .card, .card2, .card3{
 	background-color: #0f407a;
 	
 }
-#colorBtn{
-	color: #fafafa;
-	
-}
-.card{
-	background-color: #0f407a;
-}
-#headingTwo{
-	background-color: #0f407a;
+
+#colorBtn, #colorBtn2, #colorBtn3, #colorBtn4 {
+    color: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
 }
 
-#colorBtn2{
-	color: #fafafa;
-}
-.card2{
-	background-color: #0f407a;
+#dateRange1, #dateRange2, #monthFilter, #yearFilter {
+    color: black;
 }
 
-.card3{
-	background-color: #0f407a;
-}
-
-#headingThree{
-	background-color: #0f407a;
-}
-#colorBtn3{
-	color: #fafafa;
-}
-
-#headingFour{
-	background-color: #0f407a;
-}
-#colorBtn4{
-	color: #fafafa;
-}
-
-#cnt-fichaje{
+#cnt-fichaje, #charts{
     padding: 15px 10px;
 }
-
-#charts{
-    padding: 15px 10px;
-}
-
 
 a,
 a:hover,
@@ -126,7 +92,6 @@ a:focus {
     bottom: 35px;
     background: #fff;
 	border: none;
-	
     border-radius: 10px;
     margin-bottom: 40px;
     box-shadow:1px 2px 0px #000000;
@@ -141,9 +106,18 @@ a:focus {
     border-radius: 10px;
     box-shadow: 3px 3px 10px #0f407a ;
 }
+
+#menucolor, #menucolorAdmin {      /*botón menú navbar */
+    color: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em; 
+    color: black;
+}
+
 .h1{
    text-align: center;
 }
+
 #nombre-centrados {
 text-align: center;
 font-family: 'Poppins', sans-serif;
@@ -151,8 +125,8 @@ font-size: 2em;
 font-weight: 700;
 line-height: 1.7em;
 color:#0f407a;
-
 }
+
 .h1 {
 	text-align: center;
 	font-family: 'Poppins', sans-serif;
@@ -160,8 +134,8 @@ color:#0f407a;
 	font-weight: 700;
 	line-height: 1.7em;
 	color:#0f407a;
-	
-	}
+}
+
 .navbar-btn {
     box-shadow: none;
     outline: none !important;
@@ -178,7 +152,9 @@ color:#0f407a;
     padding-left: 40px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #33FFAF;
+    color: black;
 }
+
 #registersDateFilter2{/*FILTRO FECHAS FICHAJES EMPLEADO 2 CON SU EDICION*/
     right:  25px;
     position: relative;
@@ -189,18 +165,21 @@ color:#0f407a;
     padding-left: 40px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #33FFAF;
+    color: black;
 }
 
-
-
-#btn-outline-light{ /*BOTON CON SU EDICION*/
+#btn-outline-light{ /*botón filter selector fechas en index user-admin y statistics page*/
     left:  40px;
     position:relative;
     width: 60%;
     margin: 5px 0 25px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #33FFAF;
-
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: black;
 }
 
 .line {
@@ -241,20 +220,8 @@ color:#0f407a;
 	color: #fff;
     background: #0f407a;
 }
-#userid { /*color icono user */
-	color:black;
-}
-#homeid{
-	color: black;
-}
 
-#btn-config{
-	color: black;
-}
-#exitid{
-	color: black;
-}
-#menucolor{
+#userid, #homeid, #btn-config, #exitid{ /*color icono user */
 	color:black;
 }
 
