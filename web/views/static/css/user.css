@@ -19,9 +19,15 @@ p {
 }
 
 /* En la pag index del admin */
-tbody tr{
-    transform: rotate(0);
+thead {
+    font-size: 1.2em;
 }
+
+
+
+ td a { 
+    display: block;
+ }
 
 tbody tr:hover { 
     color: #7386D5;
@@ -29,15 +35,12 @@ tbody tr:hover {
  }
 
  #adminTable {
-    border-top-width: 10px;
-    border-left-width: 250px;
-    border-right-width: 150px;
-    border-color: #ffffff;
+    border-color: black;
     text-align: center;
  }
 
  #col1 {
-     width: 1%;
+     width: 0.5%;
  }
 
  #col2 {
@@ -48,6 +51,7 @@ tbody tr:hover {
      width: 8%;
  }
 /* End - index admin */
+
 
 #headingOne, #headingTwo, #headingThree, #headingFour, .card, .card2, .card3{
 	background-color: #0f407a;
