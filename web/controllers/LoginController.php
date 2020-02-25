@@ -135,13 +135,17 @@ class LoginController extends Controller{
         echo $result;
      }
      function insertMissedClocking(){
+        $conexion = new UsersModel();
         $worker= $_SESSION["worker"];
          $timeHours= $_POST["timeHours"];
          $type= $_POST["type"];
          $selecDate= $_POST["selectedDate"];
-        echo $timeHours;
-        echo $type;
-        echo $selecDate;
+       // echo $timeHours;
+        //echo $type;
+        //echo $selecDate;
+        $result = $conexion->insertData( $worker,$selecDate,$timeHours,$type);
+       // echo $result;
+       header("Location: /ControlFichajes/web/LoginController/login");
         
      }
 

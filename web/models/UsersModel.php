@@ -234,11 +234,20 @@ class UsersModel extends Model
             die("Error occurred with the incomplete days query:" . $e->getMessage());
         }
     }
-    public function insertData(){
+    public function insertData( $worker,$selecDate,$timeHours,$type){
         $db = DataBase::db();
-        
-        // $date = 
-         
+        $worker = $_SESSION["worker"];
+        //QUERY data contract
+        $insertQuery = "INSERT INTO clokinginregisters (dniUser, clockingDate, clockingTime, clockingType)
+        VALUES (:worker, :fecha, :horaS, :tipo)";
+        $queryInsert = $db->prepare($insertQuery);
+        $queryInsert->bindParam(':worker', $worker);
+        $queryInsert->bindParam(':fecha', $selecDate);
+        $queryInsert->bindParam(':horaS', $timeHours);
+        $queryInsert->bindParam(':tipo', $type);
+        $queryInsert->execute();
+       // echo "ya?";
+
 
 
     }
