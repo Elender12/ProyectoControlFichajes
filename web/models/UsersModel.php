@@ -234,4 +234,15 @@ class UsersModel extends Model
             die("Error occurred with the incomplete days query:" . $e->getMessage());
         }
     }
+    public function insertData(){
+        $db = DataBase::db();
+        
+        // $date = 
+         
+
+
+    }
+
+
+
 }

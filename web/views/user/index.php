@@ -9,45 +9,76 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>User</title>
-	
-	<link rel="stylesheet" href="../views/static/css/mobiscroll.javascript.min.css">
-    <script src="../views/static/JavaScript/mobiscroll.javascript.min.js"></script>
+  <title>User</title>
+
+  <link rel="stylesheet" href="../views/static/css/mobiscroll.javascript.min.css">
+  <script src="../views/static/JavaScript/mobiscroll.javascript.min.js"></script>
 
   <!-- Icono con la m de movicoders en la ventana -->
-	<link rel="shortcut icon" href="../views/static/img/favicon.ico" />
+  <link rel="shortcut icon" href="../views/static/img/favicon.ico" />
 
-    <!-- Bootstrap CSS  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- MI CSS -->
-    <link rel="stylesheet" href="../views/static/css/user.css">
-    <!-- La Scrollbar con CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+  <!-- Bootstrap CSS  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <!-- MI CSS -->
+  <link rel="stylesheet" href="../views/static/css/user.css">
+  <!-- La Scrollbar con CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
-    <!-- LA Fuente Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+  <!-- LA Fuente Awesome JS -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+
+  <!-- Los iconos tipo Solid de Fontawesome los importo y los utilizo mas adelante-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+
+  <!-- Filtros fechas -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+  <script>
+      function load() {
+        // test= document.getElementById("myId").innerText;
+        //document.getElementById("selectedDate").value = test
+      }
+      window.onload = load;
+    </script>
+<script>
+  $(document).on("click", ".edit1", function () {
+     //var myBookId = document.getElementById(this);
+     //var test = $(this).data('id');
+     var fecha = this.id;
+      //cambia el texto de la ventana modal
+      var etiqueta = document.getElementById("exampleModalLabel11");
+     etiqueta.innerText = fecha;
     
-    
-       <!-- Los iconos tipo Solid de Fontawesome los importo y los utilizo mas adelante-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+      document.getElementById("selectedDate").value = fecha;
+    // alert(fecha);
+    // var bookId = $(e.relatedTarget).data('book-id');
+    // $(".edit1").val( myBookId );
+   // alert(test);
+     // As pointed out in comments, 
+     // it is unnecessary to have to manually call the modal.
+  
+     //$('#exampleModal').
+});
 
-    <!-- Filtros fechas -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
+
+
+</script>
 </head>
 
 <body>
@@ -176,12 +207,12 @@
               <div class="card2">
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
-                  <form action="<?php echo constant('URL'); ?>/LoginController/showIncompleteDays" method="get" id="form2">
-                  </form>  
-                  <button type="submit" form="form2" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="fas fa-calendar-minus"></i>
+                    <form action="<?php echo constant('URL'); ?>/LoginController/showIncompleteDays" method="get" id="form2">
+                    </form>
+                    <button type="submit" form="form2" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="fas fa-calendar-minus"></i>
                       Incomplete
                     </button>
-                     
+
                   </h5>
                 </div>
 
@@ -190,8 +221,8 @@
               <div class="card3">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
-                  <form action="<?php echo constant('URL'); ?>/LoginController/showNoClockedInDays" method="get" id="form3">
-                  </form>
+                    <form action="<?php echo constant('URL'); ?>/LoginController/showNoClockedInDays" method="get" id="form3">
+                    </form>
                     <button type="submit" form="form3" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="colorBtn3"><i class="fas fa-calendar-times"></i>
                       Missed
                     </button>
@@ -323,7 +354,7 @@
 
       <p class="h1" id="nombre-centrados ">Entradas Semanales </p>
       <table class="table table-borderless " id="datos-centrados">
-            <!--BOTON MODAL
+        <!--BOTON MODAL
             <th scope="row">
               <button type="submit" data-toggle="modal" data-target="#PanelModal" id="btn-modal-user" class="btn btn-outline-dark">
                 <i class="far fa-address-card"></i> </i></button></th>
@@ -349,10 +380,10 @@
                 echo "<td>" . $data[$i]->clockingType . "</td>";
                 echo "</tr>";
               } else {
-				echo '<th scope="col" id="myId"><i class="far fa-calendar-alt" ></i>' .'    Date:    <span data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">'.'  '.$data[$i]->clockingDate . "</span></th>";
+				echo '<th scope="col" class="edit1" id="'.$data[$i]->clockingDate.'"><i class="far fa-calendar-alt" ></i>' .'    Date:    <span data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">'.'  '.$data[$i]->clockingDate . "</span></th>";
                 echo "<tr>";
-                echo '<th scope="col" id="myId3">'.' Hora: '."</th>";
-                echo '<th scope="col" id="myId2">'.' Tipo'.'</th>';
+                echo '<th scope="col" class="edit2">'.' Hora: '."</th>";
+                echo '<th scope="col" class="edit3">'.' Tipo'.'</th>';
                 echo "<tr>";
                 echo "<td>" . $data[$i]->clockingTime . "</td>";
                 echo "<td>" . $data[$i]->clockingType . "</td>";
@@ -366,66 +397,72 @@
 			 ?>
 			 
         </tbody>
-	  </table>
-	  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cambio de Fecha</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-<div mbsc-page class="demo-time-picker">
-    <div mbsc-form class="mbsc-form-box">
-            <div class="mbsc-form-group">
-                    <div class="mbsc-col-sm-12 mbsc-col-md-4">
-                        <label >
-                           <h6> Select Time</h6>
-                            <input mbsc-input data-input-style="box" data-label-style="stacked" id="demo-time-24h" />
+      </table>
+
+      <!-- ventana modal insertar fichajes -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel11">Cambio de Fecha</h5>
+              <!-- botón cerrar -->
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div mbsc-page class="demo-time-picker">
+              <form action="<?php echo constant('URL'); ?>/LoginController/insertMissedClocking" method="post" id="formInsert">
+                <div class="form-group">
+                  <div class="mbsc-grid mbsc-form-grid">
+                    <div class="mbsc-form-group">
+                      <div class="mbsc-col-sm-12 mbsc-col-md-4">
+                        <label>
+                          Select Time
+                          <input mbsc-input data-input-style="box" data-label-style="stacked" id="demo-time-24h" name="timeHours" />
                         </label>
-          			  </div>
-        			</div>
-  				  </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <select id="comboType" name="type" >
+                  <!-- Combo box -->
+                  <option value="entrance" >Entrance</option>
+                  <option value="exit" selected>Exit</option>
+                </select> 
+                <input type="hidden" id="selectedDate" name="selectedDate" value="">
+               
+
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" form="formInsert">Send message</button>
+            </div>
           </div>
-           <select id="country">
-			<option value="ID001">Entrance</option>
-			<option value="ID002" selected>Exit</option>
-		</select>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+    <script>
+      mobiscroll.settings = {
+        lang: 'en',
+        theme: 'ios',
+        themeVariant: 'light',
+        display: 'bubble'
+      };
 
- 
-</div>
-<script>
-
-    mobiscroll.settings = {
-        lang: 'en',                      
-        theme: 'ios',                     
-        themeVariant: 'light',            
-        display: 'bubble'                 
-    };
-    
-    mobiscroll.time('#demo-time-24h', {
-        timeFormat: 'HH:ii',              
-        onInit: function (event, inst) {  
-            inst.setVal(now, true);
+      mobiscroll.time('#demo-time-24h', {
+        timeFormat: 'HH:ii',
+        onInit: function(event, inst) {
+          inst.setVal(now, true);
         }
-    });
-    
-    
-    document
+      });
+
+
+      document
         .getElementById('show-demo-time-external')
-        .addEventListener('click', function () {
-            instance.show();
+        .addEventListener('click', function() {
+          instance.show();
         }, false);
 </script>
      
