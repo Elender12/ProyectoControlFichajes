@@ -138,8 +138,10 @@ class LoginController extends Controller{
         $worker= $_SESSION["worker"];
          $timeHours= $_POST["timeHours"];
          $type= $_POST["type"];
-         //$selecDate= $_POST["selectedDate"]; ???
-
+         $selecDate= $_POST["selectedDate"];
+        echo $timeHours;
+        echo $type;
+        echo $selecDate;
         
      }
 

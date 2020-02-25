@@ -50,12 +50,35 @@
 
   <script>
       function load() {
-        var test= document.getElementById("myId").innerText;
-        document.getElementById("selectedDate").value = test
+        // test= document.getElementById("myId").innerText;
+        //document.getElementById("selectedDate").value = test
       }
       window.onload = load;
     </script>
+<script>
+  $(document).on("click", ".edit1", function () {
+     //var myBookId = document.getElementById(this);
+     //var test = $(this).data('id');
+     var fecha = this.id;
+      //cambia el texto de la ventana modal
+      var etiqueta = document.getElementById("exampleModalLabel11");
+     etiqueta.innerText = fecha;
+    
+      document.getElementById("selectedDate").value = fecha;
+    // alert(fecha);
+    // var bookId = $(e.relatedTarget).data('book-id');
+    // $(".edit1").val( myBookId );
+   // alert(test);
+     // As pointed out in comments, 
+     // it is unnecessary to have to manually call the modal.
+  
+     //$('#exampleModal').
+});
 
+
+
+
+</script>
 </head>
 
 <body>
@@ -357,7 +380,7 @@
                 echo "<td>" . $data[$i]->clockingType . "</td>";
                 echo "</tr>";
               } else {
-				echo '<th scope="col" class="edit1"><i class="far fa-calendar-alt" ></i>' .'    Date:    <span data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">'.'  '.$data[$i]->clockingDate . "</span></th>";
+				echo '<th scope="col" class="edit1" id="'.$data[$i]->clockingDate.'"><i class="far fa-calendar-alt" ></i>' .'    Date:    <span data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">'.'  '.$data[$i]->clockingDate . "</span></th>";
                 echo "<tr>";
                 echo '<th scope="col" class="edit2">'.' Hora: '."</th>";
                 echo '<th scope="col" class="edit3">'.' Tipo'.'</th>';
@@ -381,7 +404,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Cambio de Fecha</h5>
+              <h5 class="modal-title" id="exampleModalLabel11">Cambio de Fecha</h5>
               <!-- botón cerrar -->
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -408,6 +431,8 @@
                   <option value="exit" selected>Exit</option>
                 </select> 
                 <input type="hidden" id="selectedDate" name="selectedDate" value="">
+               
+
               </form>
             </div>
             <div class="modal-footer">
