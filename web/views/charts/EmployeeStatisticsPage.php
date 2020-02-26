@@ -293,9 +293,16 @@
                 </div>
               </div>
             </div>
-
+            
+<!--END FILTROS GRAFICOS-->
+        <li>
+          <a href="https://movicoders.com/contact/" target="_blank"> <i class="fas fa-inbox"></i> Contact </a>
+          
+        </li>
+        </li>
+        
     </nav>
-            <!--END FILTROS GRAFICOS-->
+           <!--end sidebar-->
 
 
 
