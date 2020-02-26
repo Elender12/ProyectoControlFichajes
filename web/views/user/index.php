@@ -74,13 +74,8 @@
   
      //$('#exampleModal').
 });
-
-
-
-
 </script>
 </head>
-
 <body>
   <!-- php sessions START-->
   <?php
@@ -89,18 +84,14 @@
     $_SESSION["worker"] = $_GET["worker"];
     $_SESSION["pass"] = $_GET["pass"];
   }
-
   ?>
   <!-- php sessions END -->
   <div class="wrapper">
     <!-- Sidebar Con todas sus partes  -->
     <nav id="sidebar">
       <div class="sidebar-header">
-
         <h3>Movicoders</h3>
-
       </div>
-
       <ul class="list-unstyled components">
         <!-- <p><i class="fas fa-chevron-circle-down"></i>  Menu</p>-->
         <li>
@@ -112,33 +103,10 @@
               <!--User-->
               <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="#"><i class="fas fa-user"></i> User</a>
             </li>
-
-            <li class="nav-item">
-              <!--Home-
-              <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="https://movicoders.com/" target="_blank"><i class="fas fa-home"></i> Home</a>
-            </li>
-            <li class="nav-item">
-              CONFIG 
-              <a class="nav-link  d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" data-toggle="modal" data-target=".bd-example-modal-lg">
-                <i class="fas fa-user-cog "></i> Config</a>
-
-              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    ..............
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item">
-				-->
-              <!--Salida-->
               <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="exit"><i class="fas fa-sign-out-alt"></i> Exit</a>
             </li>
-
           </ul>
         </li>
-
         <li class="active">
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i class="fas fa-filter"></i> Filter registers</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -149,7 +117,6 @@
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" id="colorBtn"><i class="fas fa-calendar-alt"></i>
                       Select date range
                     </button>
-
                   </h5>
                 </div>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
@@ -194,14 +161,8 @@
                       </div>
                     </div>
                     </form>
-                    <!-- <input class="btn btn-light" id="btn-outline-light" type="button" name="filterBoton" value="CHECK" type="submit" form="form1"><i class="fas fa-share"></i>  -->
-                    <!-- boton provisional test formulario -->
                     <button type="submit" form="form1" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
                       Filter</button>
-                    <!-- </input> -->
-                    <!--VIEJO BOTÓN DE FILTRAR<button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
-                Filter</button>-->
-                    <!--END: fechas para elegir-->
                   </div>
                 </div>
               </div>
@@ -213,11 +174,8 @@
                     <button type="submit" form="form2" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="fas fa-calendar-minus"></i>
                       Incomplete
                     </button>
-
                   </h5>
                 </div>
-
-
               </div>
               <div class="card3">
                 <div class="card-header" id="headingThree">
@@ -233,20 +191,15 @@
             </div>
           </ul>
         </li>
-
         <li>
           <!-- AQUÍ LLAMA AL METODO chartsTest  -->
           <a href="chartsTest"><i class="fas fa-chart-pie"></i> Statistics</a>
         </li>
         <li>
           <a href="https://movicoders.com/contact/" target="_blank"> <i class="fas fa-inbox"></i> Contact </a>
-
         </li>
       </ul>
-
-
     </nav>
-
     </nav>
     <!-- El coment de la pagina  -->
     <div id="content">
@@ -259,57 +212,25 @@
           <div class="topnav-centered d-none d-xl-block d-lg-block">
             <a href="#" class="active ">Control de fichajes</a>
           </div>
-
-
-          <!--  <h5 class="modal-title" id="cnt-fichaje"> Control de Fichajes </h5>-->
-
-          <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantall -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto  ">
 
               <li class="nav-item active">
                 <!--User-->
-
               <li class="nav-item active">
                 <!--User-->
                 <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
               </li>
-
-              <li class="nav-item">
-                <!--Home
-                <a class="nav-link" href="https://movicoders.com/" target="_blank"><i class="fas fa-home" id="homeid"></i> </a>
-              </li>
-
-              <li class="nav-item">
-                CONFIG 
-                <a class="nav-link" data-toggle="modal" id="btn-config" data-target=".bd-example-modal-lg"><i class="fas fa-user-cog "></i> </a>
-                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      hola
-                    </div>
-                  </div>
-                </div>
-              </li>
--->
               <li class="nav-item">
                 <!--Salida-->
                 <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt" id="exitid"></i> </a>
-
               </li>
             </ul>
           </div>
         </div>
       </nav>
-     
       <p class="h1" id="nombre-centrados ">Entradas Semanales </p>
       <table class="table table-borderless " id="datos-centrados">
-        <!--BOTON MODAL
-            <th scope="row">
-              <button type="submit" data-toggle="modal" data-target="#PanelModal" id="btn-modal-user" class="btn btn-outline-dark">
-                <i class="far fa-address-card"></i> </i></button></th>
-            </th>
- -->
             <?php
             error_reporting(E_ERROR | E_PARSE);
             if($data[0]== null){
@@ -335,10 +256,10 @@
                 echo "<td>" . $data[$i]->clockingType . "</td>";
                 echo "</tr>";
               } else {
-				echo '<th scope="col" class="edit1" id="'.$data[$i]->clockingDate.'"><i class="far fa-calendar-alt" ></i>' .'    Date:    <span data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">'.'  '.$data[$i]->clockingDate . "</span></th>";
+				echo '<th scope="col" class="edit1" id="'.$data[$i]->clockingDate.'"><i class="far fa-lg fa-calendar-alt" ></i> ' .'        <span data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">'.'  '.$data[$i]->clockingDate . "</span></th>";
                 echo "<tr>";
-                echo '<th scope="col" class="edit2">'.' Hora: '."</th>";
-                echo '<th scope="col" class="edit3">'.' Tipo'.'</th>';
+                echo '<th scope="col" class="edit2">'.' <i class="far  fa-lg fa-clock"></i>'."</th>";
+                echo '<th scope="col" class="edit3">'.'  <i class="fas fa-lg fa-door-open"></i>'.'</th>';
                 echo "<tr>";
                 echo "<td>" . $data[$i]->clockingTime . "</td>";
                 echo "<td>" . $data[$i]->clockingType . "</td>";
@@ -388,8 +309,6 @@
                   <option value="exit" selected>Exit</option>
                 </select> 
                 <input type="hidden" id="selectedDate" name="selectedDate" value="">
-               
-
               </form>
             </div>
             <div class="modal-footer">
@@ -404,29 +323,21 @@
       mobiscroll.settings = {
         lang: 'en',
         theme: 'ios',
-		
         themeVariant: 'light',
         display: 'bubble'
       };
-
       mobiscroll.time('#demo-time-24h', {
         timeFormat: 'HH:ii',
         onInit: function(event, inst) {
           inst.setVal(now, true);
         }
       });
-
-
       document
         .getElementById('show-demo-time-external')
         .addEventListener('click', function() {
           instance.show();
-		  
         }, false);
 </script>
-     
-  <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
-
   <!-- jQuery CDN -  AJAX -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <!-- Popper.JS -->
