@@ -361,6 +361,11 @@
             </th>
  -->
             <?php
+            error_reporting(E_ERROR | E_PARSE);
+            if($data[0]== null){
+              echo "<h3>There is no data.</h3>";
+
+            }else {
             //print_r($data[0]->calendarDate);
             $calendarDateExist =property_exists($data[0], 'calendarDate');
             if($calendarDateExist == 1){
@@ -392,7 +397,8 @@
                 $curDate = $data[$i]->clockingDate;
               }
                  }
-			}
+      }
+    }
 			
 			 ?>
 			 
