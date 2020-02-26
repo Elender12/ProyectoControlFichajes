@@ -150,63 +150,26 @@
             <div id="table_div">
               <table class="table table-striped table-hover table-sm table-bordered" id="adminTable">
                 <thead>
-                <tr>
+                 <tr>
                     <th scope="col" id="col1"></th>
                     <th scope="col" id="col2"><i class="fas fa-user"></i>      Employee name</th>
                     <th scope="col" id="col3"><i class="fas fa-id-card"></i>      Employee ID</th>
                   </tr>
                 </thead>
-
                 <tbody>
-                <tr>
-                    <th scope="row"><a href="#">1</a></th>
-                    <td><a href="#">Mihai Aurar</a></td>
-                    <td><a href="#">W743291L</a></td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row"><a href="#">2</a></th>
-                    <td><a href="#">Anna Cilona</a></td>
-                    <td><a href="#">Y5277230K</a></td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row"><a href="#">3</a></th>
-                    <td><a href="#">Mr Potato</a></td>
-                    <td><a href="#">Y6439824L</a></td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row"><a href="#">4</a></th>
-                    <td><a href="#">Blah Blah</a></td>
-                    <td><a href="#">Blah Blah</a></td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row"><a href="#">5</a></th>
-                    <td><a href="#">Blah Blah</a></td>
-                    <td><a href="#">Blah Blah</a></td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row"><a href="#">6</a></th>
-                    <td><a href="#">Blah Blah</a></td>
-                    <td><a href="#">Blah Blah</a></td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row"><a href="#">7</a></th>
-                    <td><a href="#">Blah Blah</a></td>
-                    <td><a href="#">Blah Blah</a></td>
-                  </tr>
-                
-                    
-              <?php  for ($i=0; $i< count($data); $i++) {
-      //pintar datos correctamente en la tabla principal fichaje mes
-            //     echo "<td>"."num orden".$data[$i]->orderN." fecha".$data[$i]->date."</td><td>".$data[$i]->time.$data[$i]->type."</td><td><br>";
-  }?>
-              
-
+            <?php error_reporting(E_ERROR | E_PARSE);
+            if ($data[0]== null) {
+                echo '<h3>Employees list is empty.</h3>';
+            } else {
+                for ($i = 1; $i <= count($data); $i++) {
+                    echo '<tr>';
+                    echo '<th scope="row"><a href="#">'.$i.'</a></th>';
+                    echo '<td><a href="#">' . $data[$i]->employeeName . '</a></td>';
+                    echo '<td><a href="#">' . $data[$i]->employeeDni . '</a></td>';
+                    echo '</tr>';
+                }
+            }
+          ?>
                   </tbody>
                 </table>
               </div>
