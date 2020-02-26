@@ -1,4 +1,6 @@
-<?php @session_start();
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Redirect 301 Moved Permanently
 //header("Location: /ControlFichajes/web/LoginController/login");
@@ -218,6 +220,15 @@
               <li class="nav-item active">
                 <!--User-->
               <li class="nav-item active">
+                <!-- nombre usuario-->
+                <?php 
+                  if(isset($_SESSION["workerName"])){
+                    echo $_SESSION["workerName"];
+                  }else if(isset($_SESSION["adminName"])){
+                      echo $_SESSION["adminName"];
+                  }
+                
+                 ?>
                 <!--User-->
                 <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
               </li>
@@ -229,6 +240,12 @@
           </div>
         </div>
       </nav>
+      <?php 
+       if(isset($_SESSION["workerNAME"])){
+        echo $_SESSION["workerNAME"];
+      }else {
+        echo "??";
+      } ?>
       <p class="h1" id="nombre-centrados ">Entradas Semanales </p>
       <table class="table table-borderless " id="datos-centrados">
             <?php

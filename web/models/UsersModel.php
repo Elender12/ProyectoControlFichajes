@@ -1,5 +1,7 @@
 <?php
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 /* manages CRUD operations */
 class UsersModel extends Model
 {
@@ -16,7 +18,7 @@ class UsersModel extends Model
         try {
             $db = DataBase::db();
             //declare the query            
-            $query = "SELECT employeeDni, employeePsw, isAdmin, contractStartDate FROM users WHERE employeeDni like :worker and employeePsw like :pass ";
+            $query = "SELECT employeeDni, employeeName, employeePsw, isAdmin, contractStartDate FROM users WHERE employeeDni like :worker and employeePsw like :pass ";
             //prepares the query
             $query = $db->prepare($query);
             //introduces data in order to avoid injections
@@ -33,8 +35,11 @@ class UsersModel extends Model
             } else {
                 //stores the type of user
                 $userType = $data[0]->isAdmin;
+                
                 //checks if it's an admin or worker
                 if (strcmp($userType, "0") == 0) {
+                    $userName = $data[0]->employeeName;
+                    $_SESSION["workerName"]= $userName;
                     //method showMonthRegister 
                     $db = DataBase::db();
                     $query = "SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker AND clockingDate between  DATE_FORMAT(NOW(),'%Y-%m-01') AND CURDATE() ORDER BY clockingDate desc, clockingTime asc";
@@ -47,6 +52,8 @@ class UsersModel extends Model
                       //return $data;
                 } else {
                     //it's an admin and calls the view
+                    $userName = $data[0]->employeeName;
+                    $_SESSION["adminName"]= $userName;
                     $db = DataBase::db();
                     $queryWorkers= "SELECT employeeName, employeeDni FROM users";
                     $queryWorkers = $db->prepare($queryWorkers);
@@ -268,6 +275,12 @@ class UsersModel extends Model
         //executes  the query
         $query->execute();
         $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+        $queryWorkerName= "SELECT employeeName FROM users WHERE employeeDni like :worker";
+        $queryWorkerName= $db->prepare($queryWorkerName);
+        $queryWorkerName->bindParam(':worker',$worker);
+         $queryWorkerName->execute();
+        $data = $queryWorkerName->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+        $_SESSION["workerNAME"]= $data[0]->employeeName;
         require "views/user/index.php";
     }
 
