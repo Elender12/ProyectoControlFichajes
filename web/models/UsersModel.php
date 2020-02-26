@@ -259,7 +259,16 @@ class UsersModel extends Model
         $queryLog->bindParam(':logAction',$logAction);
         $queryLog->execute();
     }
-    
 
+    public function showUserInfoFromAdminPage($worker){
+        $db = DataBase::db();
+        $query = "SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker AND clockingDate between  DATE_FORMAT(NOW(),'%Y-%m-01') AND CURDATE() ORDER BY clockingDate desc, clockingTime asc";
+        $query = $db->prepare($query);
+        $query->bindParam(':worker', $worker);
+        //executes  the query
+        $query->execute();
+        $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+        require "views/user/index.php";
+    }
 
 }

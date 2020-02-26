@@ -148,6 +148,15 @@ class LoginController extends Controller{
        header("Location: /ControlFichajes/web/LoginController/login");
         
      }
+     function showUserInfoFromAdmin(){
+         $_SESSION["worker"]= $_GET["worker"];
+         $conexion = new UsersModel();
+         $result = $conexion->showUserInfoFromAdminPage($_SESSION["worker"]);
+         echo $result;
+
+         
+
+     }
 
 }
 

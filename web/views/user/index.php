@@ -200,7 +200,7 @@
         </li>
       </ul>
     </nav>
-    </nav>
+    
     <!-- El coment de la pagina  -->
     <div id="content">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -210,7 +210,7 @@
             <span id="menucolor"></span>
           </button>
           <div class="topnav-centered d-none d-xl-block d-lg-block">
-            <a href="#" class="active ">Control de fichajes</a>
+            <a href="#" class="active ">Assistance control</a>
           </div>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto  ">
@@ -234,7 +234,7 @@
           </div>
         </div>
       </nav>
-      <p class="h1" id="nombre-centrados ">Entradas Semanales </p>
+      <p class="h1" id="nombre-centrados ">Weekly clocking-in registers</p>
       <table class="table table-borderless " id="datos-centrados">
             <?php
             error_reporting(E_ERROR | E_PARSE);
