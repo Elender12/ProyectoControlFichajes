@@ -252,12 +252,14 @@ class UsersModel extends Model
         $queryInsert->bindParam(':horaS', $timeHours);
         $queryInsert->bindParam(':tipo', $type);
         $queryInsert->execute();
-       // echo "ya?";
-
-
-
+        $queryLog = "INSERT INTO loginfo (logWho, logAction) VALUES ( :worker, :logAction)";
+        $logAction ="New clocking on ".date("Y/m/d")." and ".date("h:i")."  with date  ".$selecDate. " time  ".$timeHours."  and type ".$type;
+        $queryLog = $db->prepare($queryLog);
+        $queryLog->bindParam(':worker', $worker);
+        $queryLog->bindParam(':logAction',$logAction);
+        $queryLog->execute();
     }
-
+    
 
 
 }
