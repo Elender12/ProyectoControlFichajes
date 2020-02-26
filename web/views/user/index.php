@@ -220,7 +220,12 @@
               <li class="nav-item active">
                 <!--User-->
                 <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
+			  </li>
+			  <li class="nav-item">
+                <!--Home que llama al método del controlador-->
+                <a class="nav-link" href="goIndex" ><i class="fas fa-home" id="homeid"></i> </a>
               </li>
+
               <li class="nav-item">
                 <!--Salida-->
                 <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt" id="exitid"></i> </a>
