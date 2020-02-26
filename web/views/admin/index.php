@@ -33,11 +33,28 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+  $(document).on("click", "td"  , function () {
+     //var myBookId = document.getElementById(this);
+     //var test = $(this).data('id');
+    var worker = this.id;
+    //var newLocation = "/ControlFichajes/web/LoginControlle/login"+worker;
+      //window.location = newLocation;
+    $.post("/ControlFichajes/web/LoginController/checkIncompleteDays", {worker:worker});
+  
+});
+</script>
+
+
+
+
+
 
 </head>
 <body>
   <!-- php sessions START -->
-  <?php $_SESSION["admin"] = $_POST["worker"]; ?> 
+  <?php $_SESSION["admin"] = $_SESSION["worker"]; ?> 
   <!-- php sessions END -->
     <div class="wrapper">
         <!-- Sidebar Con todas sus partes  -->
@@ -157,17 +174,22 @@
                   </tr>
                 </thead>
                 <tbody>
-            <?php error_reporting(E_ERROR | E_PARSE);
+            <?php 
+            error_reporting(E_ERROR | E_PARSE);
             if ($data[0]== null) {
+
                 echo '<h3>Employees list is empty.</h3>';
             } else {
-                for ($i = 1; $i <= count($data); $i++) {
+              //echo  $_SESSION["admin"];
+                for ($i = 0; $i < count($data); $i++) {
                     echo '<tr>';
-                    echo '<th scope="row"><a href="#">'.$i.'</a></th>';
-                    echo '<td><a href="#">' . $data[$i]->employeeName . '</a></td>';
-                    echo '<td><a href="#">' . $data[$i]->employeeDni . '</a></td>';
+                    //echo "<a href=\"nextpage.php?table=" . urlencode($table_list[$i]) . "\">" . $table_list[$i] . "</a>";
+                    echo '<th scope="row"><a href="showUserInfoFromAdmin?worker='.$data[$i]->employeeDni.'"\ target="_blank" >'.($i+1).'</a></th>';
+                    echo '<td id="'.$data[$i]->employeeDni.'"><a href="showUserInfoFromAdmin?worker='.$data[$i]->employeeDni.'"\ target="_blank" >' . $data[$i]->employeeName . '</a></td>';
+                    echo '<td id="'.$data[$i]->employeeDni.'"><a href="showUserInfoFromAdmin?worker='.$data[$i]->employeeDni.'"\ target="_blank" >' . $data[$i]->employeeDni . '</a></td>';
                     echo '</tr>';
                 }
+
             }
           ?>
                   </tbody>
@@ -203,7 +225,8 @@ CREO QUE NO SE LLEGARA A IMPLEMENTAR EN LA PARTE FINAL
   <!--<p>Date: <input type="text" id="fromDate"> TO <input type="text" id="toDate"></p>-->
 
     <!-- jQuery CDN -  AJAX -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- esto igual da problemas -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->

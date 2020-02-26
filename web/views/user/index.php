@@ -74,10 +74,6 @@
   
      //$('#exampleModal').
 });
-
-
-
-
 </script>
 </head>
 
@@ -236,7 +232,7 @@
 
         <li>
           <!-- AQUÍ LLAMA AL METODO chartsTest  -->
-          <a href="chartsTest" target="_blank"><i class="fas fa-chart-pie"></i> Statistics</a>
+          <a href="chartsTest"><i class="fas fa-chart-pie"></i> Statistics</a>
         </li>
         <li>
           <a href="https://movicoders.com/contact/" target="_blank"> <i class="fas fa-inbox"></i> Contact </a>
