@@ -256,10 +256,10 @@
                 echo "<td>" . $data[$i]->clockingType . "</td>";
                 echo "</tr>";
               } else {
-				echo '<th scope="col" class="edit1" id="'.$data[$i]->clockingDate.'"><i class="far fa-calendar-alt" ></i>' .'    Date:    <span data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">'.'  '.$data[$i]->clockingDate . "</span></th>";
+				echo '<th scope="col" class="edit1" id="'.$data[$i]->clockingDate.'"><i class="far fa-lg fa-calendar-alt" ></i> ' .'        <span data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">'.'  '.$data[$i]->clockingDate . "</span></th>";
                 echo "<tr>";
-                echo '<th scope="col" class="edit2">'.' Hora: '."</th>";
-                echo '<th scope="col" class="edit3">'.' Tipo'.'</th>';
+                echo '<th scope="col" class="edit2">'.' <i class="far  fa-lg fa-clock"></i>'."</th>";
+                echo '<th scope="col" class="edit3">'.'  <i class="fas fa-lg fa-door-open"></i>'.'</th>';
                 echo "<tr>";
                 echo "<td>" . $data[$i]->clockingTime . "</td>";
                 echo "<td>" . $data[$i]->clockingType . "</td>";
