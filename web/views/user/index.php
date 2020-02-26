@@ -114,11 +114,11 @@
             </li>
 
             <li class="nav-item">
-              <!--Home-->
+              <!--Home-
               <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="https://movicoders.com/" target="_blank"><i class="fas fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-              <!--CONFIG -->
+              CONFIG 
               <a class="nav-link  d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" data-toggle="modal" data-target=".bd-example-modal-lg">
                 <i class="fas fa-user-cog "></i> Config</a>
 
@@ -131,8 +131,9 @@
               </div>
             </li>
             <li class="nav-item">
+				-->
               <!--Salida-->
-              <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="../Html/index."><i class="fas fa-sign-out-alt"></i> Exit</a>
+              <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="exit"><i class="fas fa-sign-out-alt"></i> Exit</a>
             </li>
 
           </ul>
@@ -253,7 +254,7 @@
         <div class="container-fluid">
           <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
             <i class="fas fa-bars"></i>
-            <span id="menucolor">Menu</span>
+            <span id="menucolor"></span>
           </button>
           <div class="topnav-centered d-none d-xl-block d-lg-block">
             <a href="#" class="active ">Control de fichajes</a>
@@ -275,12 +276,12 @@
               </li>
 
               <li class="nav-item">
-                <!--Home-->
+                <!--Home
                 <a class="nav-link" href="https://movicoders.com/" target="_blank"><i class="fas fa-home" id="homeid"></i> </a>
               </li>
 
               <li class="nav-item">
-                <!--CONFIG -->
+                CONFIG 
                 <a class="nav-link" data-toggle="modal" id="btn-config" data-target=".bd-example-modal-lg"><i class="fas fa-user-cog "></i> </a>
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg">
@@ -290,7 +291,7 @@
                   </div>
                 </div>
               </li>
-
+-->
               <li class="nav-item">
                 <!--Salida-->
                 <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt" id="exitid"></i> </a>
@@ -300,58 +301,7 @@
           </div>
         </div>
       </nav>
-      <div>
-        <div class="modal fade bd-example-modal-lg" id="PanelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> Fichaje Personal </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-
-                <!--Tabla dentro de la modal -->
-                <table class="table ">
-
-                  <thead>
-                    <tr>
-                      <th scope="col">Dni</th>
-                      <th scope="col">Entrada</th>
-                      <th scope="col">Salida</th>
-                      <th scope="col">ASDAD</th>
-                      <th scope="col">ASDAD</th>
-                      <th scope="col">ASDAD</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-
-                  </tbody>
-                </table>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</ <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+     
       <p class="h1" id="nombre-centrados ">Entradas Semanales </p>
       <table class="table table-borderless " id="datos-centrados">
         <!--BOTON MODAL
@@ -417,8 +367,9 @@
               </button>
             </div>
             <div class="modal-body">
+			<form action="<?php echo constant('URL'); ?>/LoginController/insertMissedClocking" method="post" id="formInsert">
             <div mbsc-page class="demo-time-picker">
-              <form action="<?php echo constant('URL'); ?>/LoginController/insertMissedClocking" method="post" id="formInsert">
+            
                 <div class="form-group">
                   <div class="mbsc-grid mbsc-form-grid">
                     <div class="mbsc-form-group">
@@ -453,6 +404,7 @@
       mobiscroll.settings = {
         lang: 'en',
         theme: 'ios',
+		
         themeVariant: 'light',
         display: 'bubble'
       };
@@ -469,6 +421,7 @@
         .getElementById('show-demo-time-external')
         .addEventListener('click', function() {
           instance.show();
+		  
         }, false);
 </script>
      
