@@ -202,7 +202,7 @@
         </li>
       </ul>
     </nav>
-    </nav>
+    
     <!-- El coment de la pagina  -->
     <div id="content">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -212,7 +212,7 @@
             <span id="menucolor"></span>
           </button>
           <div class="topnav-centered d-none d-xl-block d-lg-block">
-            <a href="#" class="active ">Control de fichajes</a>
+            <a href="#" class="active ">Assistance control</a>
           </div>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto  ">
@@ -231,7 +231,12 @@
                  ?>
                 <!--User-->
                 <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
+			  </li>
+			  <li class="nav-item">
+                <!--Home que llama al método del controlador-->
+                <a class="nav-link" href="goIndex" ><i class="fas fa-home" id="homeid"></i> </a>
               </li>
+
               <li class="nav-item">
                 <!--Salida-->
                 <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt" id="exitid"></i> </a>
@@ -247,6 +252,7 @@
         echo "??";
       } ?>
       <p class="h1" id="nombre-centrados ">Entradas Semanales </p>
+      <p class="h1" id="nombre-centrados ">Weekly clocking-in registers</p>
       <table class="table table-borderless " id="datos-centrados">
             <?php
             error_reporting(E_ERROR | E_PARSE);
