@@ -1,11 +1,8 @@
-
-
 @import "https://fonts.googleapis.com/css?family=Poppins:700";  /*Pongo la fuente 700 de poppins me gusta mas como se ve las palabras etc*/
 body {
     font-family: 'Poppins', sans-serif;
     background: #ffffff;
 }
-
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
@@ -13,46 +10,36 @@ p {
     line-height: 1.7em;
     color: #999;
 }
-
 .container{
     padding: 5px;
 }
-
 /* En la pag index del admin */
  td a { 
     display: block;
  }
-
 tbody tr:hover { 
     color: red;
     background: #fff;
  }
-
  #adminTable {
     border-color: black;
     text-align: center;
  }
-
  #col1 {
      width: 0.5%;
      padding: 12px;
  }
-
  #col2 {
      width: 10%;
      padding: 12px;
  }
-
  #col3 {
      width: 8%;
      padding: 12px;
  }
 /* End - index admin */
-
-
 #headingOne, #headingTwo, #headingThree, #headingFour, .card, .card2, .card3{
 	background-color: #0f407a;
-	
 }
 
 #colorBtn, #colorBtn2, #colorBtn3, #colorBtn4 {
@@ -60,7 +47,6 @@ tbody tr:hover {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;
 }
-
 #dateRange1, #dateRange2, #monthFilter, #yearFilter {
     color: black;
 }
@@ -76,12 +62,10 @@ a:focus {
     text-decoration: none;
     transition: all 0.3s;
 }
-
 #btn-modal-user{
  /*PENDIENTE DE EDIT */
  color: #fafafa;
 }
-
 #PanelModal{
     width: 100%;
     margin: 1px 0 25px;
@@ -98,7 +82,6 @@ a:focus {
     box-shadow:0px 1px 0px #000000;
 
 }
-
 #sidebarCollapse{ /*BOTON MENU CON DISEÑO*/
     padding: 12px 12px;
     background: #ffffff;
@@ -107,18 +90,15 @@ a:focus {
     border-radius: 10px;
     box-shadow: 1px 1px 3px #0f407a ;
 }
-
 #menucolor, #menucolorAdmin {      /*botón menú navbar */
     color: #fafafa;
     font-family: 'Poppins', sans-serif;
     font-size: 1em; 
     color: black;
 }
-
 .h1{
    text-align: center;
 }
-
 #nombre-centrados {
 text-align: center;
 font-family: 'Poppins', sans-serif;
@@ -127,7 +107,6 @@ font-weight: 700;
 line-height: 1.7em;
 color:#0f407a;
 }
-
 .h1 {
 	text-align: center;
 	font-family: 'Poppins', sans-serif;
@@ -136,13 +115,11 @@ color:#0f407a;
 	line-height: 1.7em;
 	color:#0f407a;
 }
-
 .navbar-btn {
     box-shadow: none;
     outline: none !important;
     border: none;
 }
-
 #registersDateFilter1{ /*FILTRO FECHAS FICHAJES EMPLEADO CON SU EDICION*/
     right:  25px;
     position: relative;
@@ -155,7 +132,6 @@ color:#0f407a;
     box-shadow: 2px 2px 5px #33FFAF;
     color: black;
 }
-
 #registersDateFilter2{/*FILTRO FECHAS FICHAJES EMPLEADO 2 CON SU EDICION*/
     right:  25px;
     position: relative;
@@ -168,7 +144,6 @@ color:#0f407a;
     box-shadow: 2px 2px 5px #33FFAF;
     color: black;
 }
-
 #btn-outline-light{ /*botón filter selector fechas en index user-admin y statistics page*/
     left:  40px;
     position:relative;
@@ -182,23 +157,19 @@ color:#0f407a;
     line-height: 1.7em;
     color: black;
 }
-
 .line {
     width: 100%;
     height: 1px;
     border-bottom: 1px dashed #ddd;
     margin: 40px 0;
 }
-
 /* 
    EL ESTILO DEL SIDEBAR
  */
-
 .wrapper {
     display: flex;
     width: 100%;
 }
-
 #sidebar {
     width: 250px;
     position: fixed;
@@ -210,55 +181,44 @@ color:#0f407a;
     color: floralwhite;
     transition: all 0.3s;
 }
-
-
 #sidebar.active {
     margin-left: -250px;
 }
-
 #sidebar .sidebar-header {
 	padding: 20px;
 	color: #fff;
     background: #0f407a;
 }
-
 #userid, #homeid, #btn-config, #exitid{ /*color icono user */
 	color:black;
 }
-
 #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid rgb(113, 129, 194);;
 }
-
 #sidebar ul p {
     color: #fff;
     padding: 10px;
 }
-
 #sidebar ul li a { /* SEPARACION ENTRE LAS PARTES*/
     padding: 10px;
     font-size: 1.1em;
     display: block;
 }
-
 #sidebar ul li a:hover { /*COLOR CUANDO PONEMOS EL RATON ENCIMA*/
     color: #7386D5;
     background: #fff;
 }
-
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
     background: #0f407a;
 }
-
 a[data-toggle="collapse"] {
     position: -webkit-sticky;
     position: sticky;
     top: 20px;
 }
-
 .dropdown-toggle::after {
     display: block;
     position: absolute;
@@ -266,7 +226,6 @@ a[data-toggle="collapse"] {
     right: 20px;
     transform: translateY(-50%);
 }
-
 ul ul a { /* BOTONES DESPEGABLES COMO SE MUESTRAN Y EL COLOR */
     font-size: 0.9em !important;
     padding-left: 30px !important;
@@ -284,15 +243,11 @@ ul.CTAs a {
     border-radius: 5px;
     margin-bottom: 5px;
 }
-
-
-
 a.article,
 a.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
 }
-
 #content {
     width: calc(100% - 250px);
     padding: 40px;
@@ -305,7 +260,6 @@ a.article:hover {
 #datos-centrados{
 	text-align: center;
 }
-
 .edit1{
 	position: relative;
 	left: 25%;
@@ -314,9 +268,7 @@ a.article:hover {
 	padding: 2rem;
 	/* IMPORTANTE */
 	text-align: center;
-
 }
-
 .edit2{
 	background-color: #fafafa;
 	padding: 2rem;
@@ -327,13 +279,9 @@ a.article:hover {
 	padding: 2rem;
 	text-align: center;
 }
-
-
-
 #content.active {
     width: 100%;
 }
-
 .pane--table2 {
     width: 400px;
     overflow-x: scroll;
@@ -371,8 +319,6 @@ a.article:hover {
         
     }
 }
-
-
   /* Centered section inside the top navigation */
   .topnav-centered a {
 	float: none;
@@ -391,14 +337,12 @@ a.article:hover {
 	color: #0f407a;
 	font-size: xx-large;
 	transform: translate(-50%, -50%);
-
 }
   @media screen and (max-width: 600px) {
 	.topnav a, .topnav-right {
 	  float: none;
 	  display: block;
 	}
-  
 	.topnav-centered a {
 	  position: relative;
 	  top: 0;
@@ -406,30 +350,6 @@ a.article:hover {
 	  transform: none;
 	}
   }
-
-
-  /* Pendiente de evaluar y ver si lo adapto al código final,
-   posiblemente no se llegue a implementar en la parte final del desarollo
-
-   [data-theme="dark"] {
-	background-color: #111 !important;
-	color: #eee;
-  }
-  
-  [data-theme="dark"] .bg-light {
-	background-color: #333 !important;
-  }
-  
-  [data-theme="dark"] .bg-white {
-	background-color: #000 !important;
-  }
-  
-  [data-theme="dark"] .bg-black {
-	background-color: #eee !important;
-  }
-  */
-
-
 #comboType{
 	width: 100%;
     border-radius: 5px;
@@ -448,7 +368,6 @@ margin-bottom: 5px;
 #demo-time-24h{
 background:	#fff;	
 }
-
 #formInsert{
 	
 	background: #fff;
@@ -458,14 +377,9 @@ background:	#fff;
 left: 30%;
 width: 150px; height: 60px;
 }
-
 .mbsc-form-box{
 	background: #fff;
 }
-
-
-
-
 button {
 	display: inline-block;
 	outline: 0;
@@ -489,7 +403,6 @@ button {
 	box-sizing: border-box;
 	-webkit-appearance: none;
 }
-
 .external-container button.external-button {
 	font-weight: 400;
 	padding: 10px;
