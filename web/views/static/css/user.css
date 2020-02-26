@@ -24,7 +24,7 @@ p {
  }
 
 tbody tr:hover { 
-    color: #7386D5;
+    color: red;
     background: #fff;
  }
 
@@ -95,17 +95,17 @@ a:focus {
 	border: none;
     border-radius: 10px;
     margin-bottom: 40px;
-    box-shadow:1px 2px 0px #000000;
+    box-shadow:0px 1px 0px #000000;
 
 }
 
 #sidebarCollapse{ /*BOTON MENU CON DISEÑO*/
-    padding: 8px 8px;
+    padding: 12px 12px;
     background: #ffffff;
 	border: none;
 	color:black;
     border-radius: 10px;
-    box-shadow: 3px 3px 10px #0f407a ;
+    box-shadow: 1px 1px 3px #0f407a ;
 }
 
 #menucolor, #menucolorAdmin {      /*botón menú navbar */
@@ -430,49 +430,41 @@ a.article:hover {
   */
 
 
-#country{
+#comboType{
 	width: 100%;
     border-radius: 5px;
-    margin-bottom: 5px;
-	
-	
-
+    margin-bottom: 5px;	
 }
 #modal-title{
 	text-align: center;
 }
 .mbsc-col-md-4{
 background: #fff;
+width: 100%;
+border-radius: 5px;
+margin-bottom: 5px;
+
 }
 #demo-time-24h{
-	text-align: center;
-	background:	#fff;
-}
-#stacked{
-	text-align: center;
+background:	#fff;	
 }
 
-.mbsc-form-box{
-	background: #fff;
-}
-.mbsc-form-group{
-	background: #fff;
-}
-.mbsc-col-sm-12{
-	background:	#afafaf;
-}
-.mbsc-form-box{
-	background-color: 	#c9cbd0;
-	text-align: center;
-
-	padding: 10px;
-
-
-	width: 100%;
-    border-radius: 5px;
-    margin-bottom: 5px;
+#formInsert{
 	
+	background: #fff;
 }
+.mbsc-col-sm-12.mbsc-col-md-4{
+
+left: 30%;
+width: 150px; height: 60px;
+}
+
+.mbsc-form-box{
+	background: #fff;
+}
+
+
+
 
 button {
 	display: inline-block;
