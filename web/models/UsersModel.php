@@ -47,6 +47,12 @@ class UsersModel extends Model
                       //return $data;
                 } else {
                     //it's an admin and calls the view
+                    $db = DataBase::db();
+                    $queryWorkers= "SELECT employeeName, employeeDni FROM users";
+                    $queryWorkers = $db->prepare($queryWorkers);
+                    $queryWorkers->execute();
+                    $data = $queryWorkers->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+                    //var_dump($data);
                     require "views/admin/index.php";
                 }
             }
