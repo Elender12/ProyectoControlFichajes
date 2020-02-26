@@ -114,11 +114,11 @@
             </li>
 
             <li class="nav-item">
-              <!--Home-->
+              <!--Home-
               <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="https://movicoders.com/" target="_blank"><i class="fas fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-              <!--CONFIG 
+              CONFIG 
               <a class="nav-link  d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" data-toggle="modal" data-target=".bd-example-modal-lg">
                 <i class="fas fa-user-cog "></i> Config</a>
 
@@ -276,12 +276,12 @@
               </li>
 
               <li class="nav-item">
-                <!--Home-->
+                <!--Home
                 <a class="nav-link" href="https://movicoders.com/" target="_blank"><i class="fas fa-home" id="homeid"></i> </a>
               </li>
 
               <li class="nav-item">
-                <!--CONFIG 
+                CONFIG 
                 <a class="nav-link" data-toggle="modal" id="btn-config" data-target=".bd-example-modal-lg"><i class="fas fa-user-cog "></i> </a>
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg">
