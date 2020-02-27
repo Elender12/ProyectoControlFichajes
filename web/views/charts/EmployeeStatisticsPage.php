@@ -95,6 +95,17 @@
     <nav id="sidebar">
       <div class="sidebar-header">
         <h3>Movicoders</h3>
+
+        <br><h6> <i class="fas fa-lg fa-user" ></i>   <?php 
+                  if(isset($_SESSION["workerName"])){
+					echo '<th class="idworker">' . $_SESSION["workerName"] . '</th>';
+				
+                  }else if(isset($_SESSION["adminName"])){
+                      echo '<th class="idadmin">' . $_SESSION["adminName"]. '</th>';
+                  }
+                
+                 ?></br></h6>
+
       </div>
       <ul class="list-unstyled components">
         <!-- <p><i class="fas fa-chevron-circle-down"></i>  Menu</p>-->
@@ -282,22 +293,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto  ">
 
-            <li class="nav-item active">
-                <!--User-->
-              <li class="nav-item active">
-                <!-- nombre usuario-->
-                <a class="nav-link" href="#">
-                <?php 
-                  if(isset($_SESSION["workerName"])){
-                    echo $_SESSION["workerName"];
-                  }else if(isset($_SESSION["adminName"])){
-                      echo $_SESSION["adminName"];
-                  }
-                
-                 ?>
-                <!--User-->
-                <i class="fas fa-user " id="userid"></i></a>
-			  </li>
+            
 			  <li class="nav-item">
                 <!--Home que llama al método del controlador-->
                 <a class="nav-link" href="goIndex" ><i class="fas fa-home" id="homeid"></i> </a>
@@ -311,7 +307,11 @@
           </div>
         </div>
       </nav>
-
+      <?php 
+       if(isset($_SESSION["workerNAME"])){
+        echo $_SESSION['workerNAME'];
+    
+      } ?>
               
       <!--AQUÍ ES DONDE SE LLAMA AL GRÁFICO-->
       <div id="employeeChart_div"></div>
