@@ -44,7 +44,16 @@ if (session_status() == PHP_SESSION_NONE) {
         <!-- Sidebar Con todas sus partes  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Movicoders</h3>
+			<h3>Movicoders</h3>
+		<br><h6> <i class="fas fa-lg fa-user" ></i>   <?php 
+                  if(isset($_SESSION["workerName"])){
+					echo '<th class="idworker">' . $_SESSION["workerName"] . '</th>';
+				
+                  }else if(isset($_SESSION["adminName"])){
+                      echo '<th class="idadmin">' . $_SESSION["adminName"]. '</th>';
+                  }
+                
+                 ?></br></h6>
             </div>
             <ul class="list-unstyled components">
                <!-- <p><i class="fas fa-chevron-circle-down"></i>  Menu</p>-->
@@ -52,12 +61,13 @@ if (session_status() == PHP_SESSION_NONE) {
                 <a class="d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" >
                 <i class="fas fa-mobile-alt"></i> Phone</i></a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                  <li class="nav-item active"> <!--User-->
-                    <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="#"><i class="fas fa-user"></i> User</a>
-                </li>
-                <li class="nav-item"><!--Salida-->
-                  <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="../Html/index."><i class="fas fa-sign-out-alt"></i> Exit</a>
-              </li>  
+				<li class="nav-item active">
+              <!--User-->
+              <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="goIndex" ><i class="fas fa-home"></i> Home</a>
+			</li>
+			
+              <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="exit"><i class="fas fa-sign-out-alt"></i> Exit</a>
+			</li>
                 </ul>
             </li>
         <li>
@@ -66,33 +76,40 @@ if (session_status() == PHP_SESSION_NONE) {
         </ul>    
     </nav>       
         </nav>
-        <!-- El coment de la pagina  -->
+        <!-- El content de la pagina  -->
         <div id="content">
             <nav class=" bg-white navbar navbar-expand-lg navbar-light bg-light" >
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
                       <i class="fas fa-bars"></i>
-                        <span id="menucolorAdmin">Menu</span>
+                        <span id="menucolorAdmin"></span>
 					</button>   
 					<div class="topnav-centered2 d-none d-xl-block d-lg-block">
     				<a href="#" class="active ">Admin Panel</a>
   							</div>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-						
-                        <ul class="nav navbar-nav ml-auto  "> 
-							
-						<li class="nav-item active"> <!--User-->
-                       
-                            <li class=" nav-item active"> <!--User-->
-                                <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
-                            </li>
-                            <li class="nav-item"><!--Salida-->
-                                <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt" id="exitid"></i> </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+
+
+                    <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantalla -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto  ">
+
+            <li class="nav-item active">
+                <!--User-->
+              <li class="nav-item active">
+                <!-- nombre usuario-->
+         
+		<!--Home que llama al método del controlador-->
+			<a class="nav-link" href="goIndex" ><i class="fas fa-home" id="homeid"></i> </a>
+              </li>
+
+              <li class="nav-item">
+                <!--Salida-->
+                <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt" id="exitid"></i> </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
            
             
             <p class="h1">Employees List</p>
