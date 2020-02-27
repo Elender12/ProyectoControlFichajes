@@ -214,6 +214,7 @@
           <div class="topnav-centered d-none d-xl-block d-lg-block">
             <a href="#" class="active ">Assistance control</a>
           </div>
+          
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto  ">
 
@@ -221,6 +222,7 @@
                 <!--User-->
               <li class="nav-item active">
                 <!-- nombre usuario-->
+                <a class="nav-link" href="#">
                 <?php 
                   if(isset($_SESSION["workerName"])){
                     echo $_SESSION["workerName"];
@@ -229,8 +231,7 @@
                   }
                 
                  ?>
-                <!--User-->
-                <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
+                <i class="fas fa-user " id="userid"></i></a>
 			  </li>
 			  <li class="nav-item">
                 <!--Home que llama al método del controlador-->

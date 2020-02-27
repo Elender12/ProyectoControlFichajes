@@ -66,7 +66,7 @@ if (session_status() == PHP_SESSION_NONE) {
         </ul>    
     </nav>       
         </nav>
-        <!-- El coment de la pagina  -->
+        <!-- El content de la pagina  -->
         <div id="content">
             <nav class=" bg-white navbar navbar-expand-lg navbar-light bg-light" >
                 <div class="container-fluid">
@@ -77,22 +77,37 @@ if (session_status() == PHP_SESSION_NONE) {
 					<div class="topnav-centered2 d-none d-xl-block d-lg-block">
     				<a href="#" class="active ">Admin Panel</a>
   							</div>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-						
-                        <ul class="nav navbar-nav ml-auto  "> 
-							
-						<li class="nav-item active"> <!--User-->
-                       
-                            <li class=" nav-item active"> <!--User-->
-                                <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
-                            </li>
-                            <li class="nav-item"><!--Salida-->
-                                <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt" id="exitid"></i> </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+
+
+                    <!--La Barra donde aparecen los diferentes iconos que podemos ver en pantalla -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto  ">
+
+            <li class="nav-item active">
+                <!--User-->
+              <li class="nav-item active">
+                <!-- nombre usuario-->
+                <a class="nav-link" href="#">
+                <?php 
+                  if(isset($_SESSION["workerName"])){
+                    echo $_SESSION["workerName"];
+                  }else if(isset($_SESSION["adminName"])){
+                      echo $_SESSION["adminName"];
+                  }
+                
+                 ?>
+                <!--User-->
+                <i class="fas fa-user " id="userid"></i></a>
+			  </li>
+
+              <li class="nav-item">
+                <!--Salida-->
+                <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt" id="exitid"></i> </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
            
             
             <p class="h1">Employees List</p>

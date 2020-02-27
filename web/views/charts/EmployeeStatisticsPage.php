@@ -85,71 +85,35 @@
   
 	<!-- php sessions END -->
 	
-	
   <div class="wrapper">
     <!-- Sidebar Con todas sus partes  -->
     <nav id="sidebar">
       <div class="sidebar-header">
-
         <h3>Movicoders</h3>
       </div>
-
       <ul class="list-unstyled components">
         <!-- <p><i class="fas fa-chevron-circle-down"></i>  Menu</p>-->
         <li>
-          <a class="d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" a href="#pageSubmenu"
-            data-toggle="collapse" aria-expanded="false">
+          <a class="d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
             <i class="fas fa-mobile-alt"></i> Phone</i></a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
 
             <li class="nav-item active">
               <!--User-->
-              <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="#"><i
-                  class="fas fa-user"id="userid"></i> User</a>
+              <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="#"><i class="fas fa-user"></i> User</a>
             </li>
-
-            <li class="nav-item">
-              <!--Home-->
-              <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"
-                href="https://movicoders.com/"  target="_blank"><i class="fas fa-home" ></i> Home</a>
-            </li>
-            <li class="nav-item">
-              <!--CONFIG -->
-              <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" data-toggle="modal"
-                id="btn-config" data-target=".bd-example-modal-lg">
-                <i class="fas fa-user-cog "></i> Config</a>
-
-              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    ..............
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item">
-              <!--Salida-->
-              <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none"
-                href="exit"><i class="fas fa-sign-out-alt" ></i> Exit</a>
+              <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="exit"><i class="fas fa-sign-out-alt"></i> Exit</a>
             </li>
           </ul>
         </li>
-
-
-
-
-        <!--START FILTROS GRAFICOS-->
         <li class="active">
-          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i
-              class="fas fa-filter"></i> Filter statistics</a>
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class=" -toggle"><i class="fas fa-filter"></i> Filter statistics</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
             <div id="accordion">
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
-                      aria-expanded="false" aria-controls="collapseOne" id="colorBtn"> <i class="material-icons">event</i>
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" id="colorBtn"><i class="fas fa-calendar-alt"></i>
                       Select date range
                     </button>
                   </h5>
@@ -158,60 +122,51 @@
                   <div class="card-body">
                     <!--START: fechas para elegir-->
                     <div class="form-group row">
-                <label for="dateRange1" class="col-2 col-form-label"></label>
-                <div class="col-10">
-                  <input class="date-own form-control" id="dateRange1" type="text" value="Select date">
-                  <script type="text/javascript">
-                  $('.date-own').datepicker({
-                    autoclose: true,
-                    weekStart:1,
-                    todayHighlight: true,
-                    clearBtn: true,
-                    disableTouchKeyboard: true,
-                    format: "yyyy-mm-dd",
-                    viewMode: "months", 
-                    minViewMode: "days"
-                  });
-              </script>
-              </div>
-              </div>
-              <div class="form-group row">
-                <label for="dateRange2" class="col-2 col-form-label"></label>
-                <div class="col-10">
-                  <input class="date-own form-control" id="dateRange2" type="text" value=" Select date">
-                  <script type="text/javascript">
-                  $('.date-own').datepicker({
-                    autoclose: true,
-                    weekStart:1,
-                    todayHighlight: true,
-                    clearBtn: true,
-                    disableTouchKeyboard: true,
-                    format: "yyyy-mm-dd",
-                    viewMode: "months", 
-                    minViewMode: "days"
-                  });
-              </script>
-              </div>
-              </div> 
-              <!-- <div class="form-group row">
-                <label for="example-date-input" class="col-2 col-form-label"></label>
-                <div class="col-10">
-                  <input class="form-control" type="date" value=" 2-2-2020" id="example-date-input">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="example-date-input1" class="col-2 col-form-label"></label>
-                <div class="col-10">
-                  <input class="form-control" type="date" value=" End" id="example-date-input1">
-                </div>
-              </div> -->
-              <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
-                Filter</button>
-          <!--END: fechas para elegir-->
+                      <label for="registersDateFilter1" class="col-2 col-form-label"></label>
+                      <div class="col-10">
+                        <!-- FILTER DATA IN A RANGE-->
+                        <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData" method="get" id="form1">
+                          <input class="date-own form-control" type="text" value="Select date" id="registersDateFilter1" name="startDate">
+                          <script type="text/javascript">
+                            $('.date-own').datepicker({
+                              autoclose: true,
+                              weekStart:1,
+                              todayHighlight: true,
+                              clearBtn: true,
+                              disableTouchKeyboard: true,
+                              format: "yyyy-mm-dd",
+                              viewMode: "months",
+                              minViewMode: "days"
+                            });
+                          </script>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="registersDateFilter2" class="col-2 col-form-label"></label>
+                      <div class="col-10">
+                        <input class="date-own form-control" type="text" value="Select date" id="registersDateFilter2" name="endDate">
+                        <script type="text/javascript">
+                          $('.date-own').datepicker({
+                            autoclose: true,
+                            weekStart:1,
+                            todayHighlight: true,
+                            clearBtn: true,
+                            disableTouchKeyboard: true,
+                            format: "yyyy-mm-dd",
+                            viewMode: "months",
+                            minViewMode: "days"
+                          });
+                        </script>
+                      </div>
+                    </div>
+                    </form>
+                    <button type="submit" form="form1" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
+                      Filter</button>
                   </div>
                 </div>
               </div>
-              <div class="card">
+
+              <div class="card2">
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
@@ -221,7 +176,7 @@
                   </h5>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                  <div class="card-body">
+                <div class="card-body">
                   <!--START: meses para elegir-->
                   <div class="form-group row">
                 <label for="monthFilter" class="col-2 col-form-label"></label>
@@ -247,7 +202,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card">
+              <div class="card3">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
@@ -282,7 +237,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card">
+              <div class="card4">
                 <div class="card-header" id="headingFour">
                   <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
@@ -292,17 +247,16 @@
                   </h5>
                 </div>
               </div>
-            </div>
-            
-<!--END FILTROS GRAFICOS-->
+           </div>   <!-- cierra el accordion -->
+          </ul>
+        </li>
         <li>
           <a href="https://movicoders.com/contact/" target="_blank"> <i class="fas fa-inbox"></i> Contact </a>
-          
         </li>
-        </li>
-        
+      </ul>
     </nav>
-           <!--end sidebar-->
+	
+  
 
 
 
@@ -323,40 +277,37 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto  ">
 
-              <li class="nav-item active">
+            <li class="nav-item active">
                 <!--User-->
-                <a class="nav-link" href="#"><i class="fas fa-user"></i></i></a>
-              </li>
-
-              <li class="nav-item">
+              <li class="nav-item active">
+                <!-- nombre usuario-->
+                <a class="nav-link" href="#">
+                <?php 
+                  if(isset($_SESSION["workerName"])){
+                    echo $_SESSION["workerName"];
+                  }else if(isset($_SESSION["adminName"])){
+                      echo $_SESSION["adminName"];
+                  }
+                
+                 ?>
+                <!--User-->
+                <i class="fas fa-user " id="userid"></i></a>
+			  </li>
+			  <li class="nav-item">
                 <!--Home que llama al método del controlador-->
                 <a class="nav-link" href="goIndex" ><i class="fas fa-home" id="homeid"></i> </a>
               </li>
 
               <li class="nav-item">
-                <!--CONFIG -->
-                <a class="nav-link" data-toggle="modal" id="btn-config" data-target=".bd-example-modal-lg">
-                  <i class="fas fa-user-cog "></i> </a>
-
-                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                  aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      ..............
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li class="nav-item">
                 <!--Salida-->
                 <a class="nav-link" href="exit"><i class="fas fa-sign-out-alt" id="exitid"></i> </a>
-
               </li>
             </ul>
           </div>
         </div>
       </nav>
+
+              
       <!--AQUÍ ES DONDE SE LLAMA AL GRÁFICO-->
       <div id="employeeChart_div"></div>
 
