@@ -85,11 +85,11 @@ a:focus {
 
 }
 #sidebarCollapse{ /*BOTON MENU CON DISEÑO*/
-    padding: 12px 12px;
+    padding: 6px 6px;
     background: #ffffff;
 	border: none;
 	color:black;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 1px 1px 3px #0f407a ;
 }
 #menucolor, #menucolorAdmin {      /*botón menú navbar */
