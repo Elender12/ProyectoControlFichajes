@@ -63,8 +63,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <ul class="collapse list-unstyled" id="pageSubmenu">
 				<li class="nav-item active">
               <!--User-->
-              <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="goIndex" ><i class="fas fa-home"></i> Home</a>
-			</li>
+          
 			
               <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="exit"><i class="fas fa-sign-out-alt"></i> Exit</a>
 			</li>
@@ -99,8 +98,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <!-- nombre usuario-->
          
 		<!--Home que llama al método del controlador-->
-			<a class="nav-link" href="goIndex" ><i class="fas fa-home" id="homeid"></i> </a>
-              </li>
+			
 
               <li class="nav-item">
                 <!--Salida-->
