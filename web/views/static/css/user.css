@@ -8,7 +8,8 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+	color: #999;
+	
 }
 .container{
     padding: 5px;
@@ -25,6 +26,7 @@ tbody tr:hover {
     border-color: black;
     text-align: center;
  }
+ 
  #col1 {
      width: 0.5%;
      padding: 12px;
@@ -191,6 +193,13 @@ color:#0f407a;
 }
 #userid, #homeid, #btn-config, #exitid{ /*color icono user */
 	color:black;
+}
+
+
+.idworker{
+
+color: red;
+
 }
 #sidebar ul.components {
     padding: 20px 0;
