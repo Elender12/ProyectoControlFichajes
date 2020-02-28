@@ -141,7 +141,7 @@
                       <label for="registersDateFilter1" class="col-2 col-form-label"></label>
                       <div class="col-10">
                         <!-- FILTER DATA IN A RANGE-->
-                        <form action="<?php echo constant('URL'); ?>/LoginController/checkFilteredData" method="get" id="form1">
+                        <form action="<?php echo constant('URL'); ?>/LoginController/displayStatsRangeFilterResult" method="get" id="form1">
                           <input class="date-own form-control" type="text" value="Select date" id="registersDateFilter1" name="startDate">
                           <script type="text/javascript">
                             $('.date-own').datepicker({
@@ -176,6 +176,7 @@
                       </div>
                     </div>
                     </form>
+                    
                     <button type="submit" form="form1" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
                       Filter</button>
                   </div>

@@ -2,32 +2,33 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-class LoginController extends Controller{
-    function __construct()  {
+class LoginController extends Controller
+{
+    public function __construct()
+    {
         //llamo al contructor del Controller
         parent::__construct();
         //call the object and the method
         //$this->view->render("login/index");
         //$this->view->render("main/index");
-       
     }
 
-    function login(){
+    public function login()
+    {
         
         //gets the data from the index
-        if(count($_POST) > 0) {
+        if (count($_POST) > 0) {
             $_SESSION['worker'] = $_POST['worker'];
             $_SESSION['pass'] = $_POST['pass'];
         
-           // require "views/user/index.php";
+            // require "views/user/index.php";
           
-           //echo $result;
+            //echo $result;
     
             header("HTTP/1.1 303 See Other");
             header("Location: /ControlFichajes/web/LoginController/login");
             die();
-        }
-        else if (isset($_SESSION['worker'])){
+        } elseif (isset($_SESSION['worker'])) {
     
             /*
                 Put database-affecting code here.
@@ -37,10 +38,10 @@ class LoginController extends Controller{
             $pass = $_SESSION["pass"];
             $conexion = new UsersModel();
             //calls the method that has the query prepared
-           // $result = $conexion->checkLogin($_SESSION['worker'] , $_SESSION['pass']);
+            // $result = $conexion->checkLogin($_SESSION['worker'] , $_SESSION['pass']);
             $result = $conexion->checkLogin($worker, $pass);
             echo $result;
-           // session_unset();
+            // session_unset();
            // session_destroy();
         }
 
@@ -69,98 +70,111 @@ class LoginController extends Controller{
     //     echo $result;
     // }
     
-    function checkFilteredData(){
+    public function checkFilteredData()
+    {
         $worker = $_SESSION["worker"];
-        if(isset($_GET["startDate"]) && isset($_GET["endDate"]) ){
+        if (isset($_GET["startDate"]) && isset($_GET["endDate"])) {
             $startDate =$_GET["startDate"];
             $endDate=$_GET["endDate"];
             $conexion = new UsersModel();
-            $result = $conexion-> checkFilteredDataClockIn($worker,$startDate,$endDate);
+            $result = $conexion-> checkFilteredDataClockIn($worker, $startDate, $endDate);
             //prints the data
             echo $result;
-
-        }else {
-
+        } else {
             return;
         }
-      
-       
     }
-    function showIncompleteDays(){
+    public function displayStatsRangeFilterResult()
+    {
+        if (isset($_GET["startDate"]) && isset($_GET["endDate"])) {
+            $startDate =$_GET["startDate"];
+            $endDate=$_GET["endDate"];
+            $conexion = new UsersModel();
+            $result = $conexion-> statisticsFilteredData($startDate, $endDate);
+            //prints the data
+            echo $result;
+        } else {
+            return;
+        }
+    }
+    public function showIncompleteDays()
+    {
         //TODO
         $worker=$_SESSION["worker"];
         $conexion = new UsersModel();
         $result = $conexion->checkIncompleteDays($worker);
         echo $result;
-      
     }
-    function showNoClockedInDays(){
+    
+    public function showNoClockedInDays()
+    {
         //TODO
         $worker=$_SESSION["worker"];
         $conexion = new UsersModel();
         $result= $conexion->checkNoClockedInDays($worker);
         echo $result;
     }
-    public function exit(){
+
+    public function exit()
+    {
         $conexion = new UsersModel();
         $result = $conexion->exitBack();
         echo $result;
-        
     }
-    function chartsTest(){
+
+    public function chartsTest()
+    {
         $conexion = new UsersModel();
         $result = $conexion->testCharts();
         echo $result;
-	}
-	
-    function goIndex(){
+    }
+    
+    public function goIndex()
+    {
         // $conexion = new UsersModel();
         // $result = $conexion->goHome();
         // echo $result;
         $worker= $_SESSION["worker"];
         $pass = $_SESSION["pass"];
-       // $worker = "Y3423283H";
+        // $worker = "Y3423283H";
         //$pass = "123";
-       $conexion = new UsersModel();
-       //calls the method that has the query prepared
-       $result = $conexion->checkLogin($worker,$pass);
-       echo $result;
+        $conexion = new UsersModel();
+        //calls the method that has the query prepared
+        $result = $conexion->checkLogin($worker, $pass);
+        echo $result;
     }
 
 
 
-    function sendData(){
+    public function sendData()
+    {
         $conexion = new UsersModel();
         //calls the method that has the query prepared
         $worker= $_SESSION["worker"];
         $result = $conexion->statisticsData($worker);
         echo $result;
-     }
-     function insertMissedClocking(){
+    }
+    public function insertMissedClocking()
+    {
         $conexion = new UsersModel();
         $worker= $_SESSION["worker"];
-         $timeHours= $_POST["timeHours"];
-         $type= $_POST["type"];
-         $selecDate= $_POST["selectedDate"];
-       // echo $timeHours;
+        $timeHours= $_POST["timeHours"];
+        $type= $_POST["type"];
+        $selecDate= $_POST["selectedDate"];
+        // echo $timeHours;
         //echo $type;
         //echo $selecDate;
-        $result = $conexion->insertData( $worker,$selecDate,$timeHours,$type);
-       // echo $result;
-       header("Location: /ControlFichajes/web/LoginController/login");
-        
-     }
-     function showUserInfoFromAdmin(){
-         $_SESSION["worker"]= $_GET["worker"];
-         $conexion = new UsersModel();
-         $result = $conexion->showUserInfoFromAdminPage($_SESSION["worker"]);
-         echo $result;
-
-         
-
-     }
-
+        $result = $conexion->insertData($worker, $selecDate, $timeHours, $type);
+        // echo $result;
+        header("Location: /ControlFichajes/web/LoginController/login");
+    }
+    public function showUserInfoFromAdmin()
+    {
+        $_SESSION["worker"]= $_GET["worker"];
+        $conexion = new UsersModel();
+        $result = $conexion->showUserInfoFromAdminPage($_SESSION["worker"]);
+        echo $result;
+    }
 }
-
 
 ?>

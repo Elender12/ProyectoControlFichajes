@@ -49,7 +49,7 @@ tbody tr:hover {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;
 }
-#dateRange1, #dateRange2, #monthFilter, #yearFilter {
+#registersDateFilter1, #registersDateFilter2, #monthFilter, #yearFilter {
     color: black;
 }
 
@@ -191,7 +191,7 @@ color:#0f407a;
 	color: #fff;
     background: #0f407a;
 }
-#userid, #homeid, #btn-config, #exitid{ /*color icono user */
+#userid, #homeid, #exitid{ /*color icono user */
 	color:black;
 }
 

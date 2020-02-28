@@ -247,6 +247,90 @@ class UsersModel extends Model
             die("Error occurred with the incomplete days query:" . $e->getMessage());
         }
     }
+
+    public function statisticsFilteredData($startDate, $endDate)
+    {
+        try {
+            $db = DataBase::db();
+            $worker = $_SESSION["worker"];
+            //QUERY data contract
+            $contractTypeQUERY = "SELECT contractType FROM users WHERE employeeDni like :worker ";
+            $querycONTRACT = $db->prepare($contractTypeQUERY);
+            $querycONTRACT->bindParam(':worker', $worker);
+            $querycONTRACT->execute();
+            $dataCONTRACT = $querycONTRACT->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+            $horasContratadas = 0;
+            if ($dataCONTRACT[0]->contractType == "partial") {
+
+                $horasContratadas = 4;    //VAR A USAR
+            } else {
+                $horasContratadas = 8;
+            }
+            //******************************************** */
+            //fechas que ha trabajado --> 
+            
+            $queryWD = " SELECT clockingDate FROM clokinginregisters where dniUser like :worker
+            and clockingDate >= :fecha1 AND clockingDate <= :fecha2 order by clockingDate ";
+            //$queryWD = "SELECT clockingDate FROM clokinginregisters WHERE dniUser like :worker AND clockingDate between  DATE_FORMAT(NOW(),'%Y-%m-01') AND CURDATE() ORDER BY clockingDate asc, clockingTime asc";
+            
+        
+            $queryWorkedDays = $db->prepare($queryWD);
+            $queryWorkedDays->bindParam(':worker', $worker);
+            $queryWorkedDays->bindParam(':fecha1', $startDate);
+            $queryWorkedDays->bindParam(':fecha2', $endDate);
+            $queryWorkedDays->execute();
+            $dataWorkedDays = $queryWorkedDays->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+
+            $arrayFechas = array(); //VAR A USAR
+            $curDate = 0;
+            //array solo con las fechas
+            for ($i = 0; $i < count($dataWorkedDays); $i++) {
+                if ($dataWorkedDays[$i]->clockingDate != $curDate) {
+                    array_push($arrayFechas,  $dataWorkedDays[$i]->clockingDate);
+                    $curDate = $dataWorkedDays[$i]->clockingDate;
+                }
+            }
+            //array de horas trabajadas CADA DÍA
+            $dailyWorkedHours = array();
+            for ($i = 0; $i < count($arrayFechas); $i++) {
+                $queryHour_Day = $db->prepare("CALL calculate_hours_in_day( :param1 , :param2 )");
+                $queryHour_Day->bindParam('param1', $arrayFechas[$i]);
+                $queryHour_Day->bindParam('param2', $worker);
+                $queryHour_Day->execute();
+                $data = $queryHour_Day->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+                array_push($dailyWorkedHours, $data[0]->hours);
+            }
+            $tabla = array();
+            $tabla['cols'] = array(
+
+                array('label' => 'Date', 'type' => 'string'),
+                array('label' => 'Contract Hours', 'type' => 'number'),
+                array('label' => 'Worked Hours', 'type' => 'number')
+            );
+            $rows = array();
+            for ($i=0; $i < count($arrayFechas) ; $i++) { 
+                $temp = array();
+                // each column needs to have data inserted via the $temp array
+                $temp[] = array('v' => $arrayFechas[$i]);
+                $temp[] = array('v' => $horasContratadas);
+                $valor = explode(':', $dailyWorkedHours[$i]);
+                $temp[] = array('v' => $valor[0]+floor(($valor[1]/60)*100) / 100);
+
+                // insert the temp array into $rows
+                $rows[] = array('c' => $temp);
+            }
+        
+            // populate the table with rows of data
+            $tabla['rows'] = $rows;
+
+            // encode the table as JSON
+            $jsonTable = json_encode($tabla);
+            //echo $jsonTable;
+        } catch (PDOException $e) {
+            die("Error occurred with the incomplete days query:" . $e->getMessage());
+        }
+    }
+
     public function insertData( $worker,$selecDate,$timeHours,$type){
         $db = DataBase::db();
         $worker = $_SESSION["worker"];
