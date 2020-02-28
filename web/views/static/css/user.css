@@ -19,7 +19,7 @@ p {
     display: block;
  }
 tbody tr:hover { 
-    color: red;
+    color: #6f81d1 ;
     background: #fff;
  }
  #adminTable {
@@ -196,11 +196,7 @@ color:#0f407a;
 }
 
 
-.idworker{
 
-color: red;
-
-}
 #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid rgb(113, 129, 194);;
