@@ -115,26 +115,40 @@
 
   //}
   ?>
+  
   <!-- php sessions END -->
   <div class="wrapper">
     <!-- Sidebar Con todas sus partes  -->
     <nav id="sidebar">
       <div class="sidebar-header">
-        <h3>Movicoders</h3>
+		<h3>Movicoders</h3>
+
+		<br><h6> <i class="fas fa-lg fa-user" ></i>   <?php 
+                  if(isset($_SESSION["workerName"])){
+					echo '<th class="idworker">' . $_SESSION["workerName"] . '</th>';
+				
+                  }else if(isset($_SESSION["adminName"])){
+                      echo '<th class="idadmin">' . $_SESSION["adminName"]. '</th>';
+                  }
+                
+                 ?></br></h6>
       </div>
       <ul class="list-unstyled components">
         <!-- <p><i class="fas fa-chevron-circle-down"></i>  Menu</p>-->
         <li>
+			
           <a class="d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
             <i class="fas fa-mobile-alt"></i> Phone</i></a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
 
             <li class="nav-item active">
               <!--User-->
-              <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="#"><i class="fas fa-user"></i> User</a>
-            </li>
+              <a class="nav-link d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="goIndex" ><i class="fas fa-home"></i> Home</a>
+			</li>
+			
               <a class="nav-link   d-block d-sm-none d-sm-block d-md-none d-md-block d-lg-none" href="exit"><i class="fas fa-sign-out-alt"></i> Exit</a>
-            </li>
+			</li>
+			
           </ul>
         </li>
         <li class="active">
@@ -262,8 +276,8 @@
                 
                  ?>
                 <!--User-->
-                <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
-			  </li>
+              <!--  <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
+			  </li>-->
 			  <li class="nav-item">
                 <!--Home que llama al método del controlador-->
                 <a class="nav-link" href="goIndex" ><i class="fas fa-home" id="homeid"></i> </a>

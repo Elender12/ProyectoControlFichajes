@@ -2,6 +2,7 @@ google.charts.load('current', {packages: ['corechart']});
 google.setOnLoadCallback(drawChart);
 
 function drawChart() {
+  console.log("entra aqui");
   var jsonData = $.ajax({
     url: "sendData",
     dataType: "json",
@@ -21,6 +22,8 @@ function drawChart() {
     vAxis: {title: 'Worked hours', minValue: 0},
     legend: { position: 'bottom'}
   };
+
+ // console.log(jsonData);
    var data = new google.visualization.DataTable(jsonData);
    //var chart = new google.visualization.AreaChart(document.getElementById('employeeChart_div'));
     var chart = new google.visualization.ColumnChart(document.getElementById('employeeChart_div'));

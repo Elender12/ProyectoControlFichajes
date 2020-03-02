@@ -8,7 +8,8 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+	color: #999;
+	
 }
 .container{
     padding: 5px;
@@ -18,13 +19,14 @@ p {
     display: block;
  }
 tbody tr:hover { 
-    color: red;
+    color: #6f81d1 ;
     background: #fff;
  }
  #adminTable {
     border-color: black;
     text-align: center;
  }
+ 
  #col1 {
      width: 0.5%;
      padding: 12px;
@@ -47,7 +49,7 @@ tbody tr:hover {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;
 }
-#dateRange1, #dateRange2, #monthFilter, #yearFilter {
+#registersDateFilter1, #registersDateFilter2, #monthFilter, #yearFilter {
     color: black;
 }
 
@@ -83,11 +85,11 @@ a:focus {
 
 }
 #sidebarCollapse{ /*BOTON MENU CON DISEÑO*/
-    padding: 12px 12px;
+    padding: 6px 6px;
     background: #ffffff;
 	border: none;
 	color:black;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 1px 1px 3px #0f407a ;
 }
 #menucolor, #menucolorAdmin {      /*botón menú navbar */
@@ -189,9 +191,12 @@ color:#0f407a;
 	color: #fff;
     background: #0f407a;
 }
-#userid, #homeid, #btn-config, #exitid{ /*color icono user */
+#userid, #homeid, #exitid{ /*color icono user */
 	color:black;
 }
+
+
+
 #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid rgb(113, 129, 194);;

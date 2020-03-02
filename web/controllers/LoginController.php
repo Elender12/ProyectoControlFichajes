@@ -2,20 +2,22 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-class LoginController extends Controller{
-    function __construct()  {
+class LoginController extends Controller
+{
+    public function __construct()
+    {
         //llamo al contructor del Controller
         parent::__construct();
         //call the object and the method
         //$this->view->render("login/index");
         //$this->view->render("main/index");
-       
     }
 
-    function login(){
+    public function login()
+    {
         
         //gets the data from the index
-        if(count($_POST) > 0) {
+        if (count($_POST) > 0) {
             $_SESSION['worker'] = $_POST['worker'];
             $_SESSION['workerInicial'] = $_POST['worker'];
             $_SESSION['pass'] = $_POST['pass'];
@@ -37,33 +39,49 @@ class LoginController extends Controller{
     function checkFilteredData(){
        
         $worker=$_GET["worker"];
+        echo $worker;
+
        if($worker == null){
-        $worker = $_SESSION["worker"];
+           //cambiar aqui
+        
+            $worker = $_SESSION["worker"];
        }
         if(isset($_GET["startDate"]) && isset($_GET["endDate"]) ){
             $startDate =$_GET["startDate"];
             $endDate=$_GET["endDate"];
             $conexion = new UsersModel();
-            $result = $conexion-> checkFilteredDataClockIn($worker,$startDate,$endDate);
+            $result = $conexion-> checkFilteredDataClockIn($worker, $startDate, $endDate);
             //prints the data
             echo $result;
-
-        }else {
-
+        } else {
             return;
         }
-      
     }
-    function showIncompleteDays(){
+    public function displayStatsRangeFilterResult()
+    {
+        if (isset($_GET["startDate"]) && isset($_GET["endDate"])) {
+            $startDate =$_GET["startDate"];
+            $endDate=$_GET["endDate"];
+            $conexion = new UsersModel();
+            $result = $conexion-> statisticsFilteredData($startDate, $endDate);
+            //prints the data
+            echo $result;
+        } else {
+            return;
+        }
+    }
+    public function showIncompleteDays()
+    {
         //TODO
        // $worker=$_SESSION["worker"];
         $worker=$_GET["worker"];
         $conexion = new UsersModel();
         $result = $conexion->checkIncompleteDays($worker);
         echo $result;
-      
     }
-    function showNoClockedInDays(){
+    
+    public function showNoClockedInDays()
+    {
         //TODO
        // $worker=$_SESSION["worker"];
        $worker=$_GET["worker"]; 
@@ -71,39 +89,56 @@ class LoginController extends Controller{
         $result= $conexion->checkNoClockedInDays($worker);
         echo $result;
     }
- 
 
+    public function getInputFromFiltersRange() {
+        $_SESSION["filterStartDate"] = $_GET["startDate"];
+        $_SESSION["filterEndDate"] = $_GET["endDate"];
+        //echo $_SESSION["filterStartDate"];
+        $result = $this->chartsTest();
+        echo $result;
 
-    public function exit(){
+    }
+
+    public function exit()
+    {
         $conexion = new UsersModel();
         $result = $conexion->exitBack();
         echo $result;
-        
     }
-    function chartsTest(){
+
+    public function chartsTest()
+    {
         $conexion = new UsersModel();
         $result = $conexion->testCharts();
         echo $result;
-	}
-	
-    function goIndex(){
-
+    }
+    
+    public function goIndex()
+    {
+        // $conexion = new UsersModel();
+        // $result = $conexion->goHome();
+        // echo $result;
         $worker= $_SESSION["worker"];
         $pass = $_SESSION["pass"];
-       $conexion = new UsersModel();
-       //calls the method that has the query prepared
-       $result = $conexion->checkLogin($worker,$pass);
-       echo $result;
-    }
-
-    function sendData(){
+        // $worker = "Y3423283H";
+        //$pass = "123";
         $conexion = new UsersModel();
         //calls the method that has the query prepared
-        $worker= $_SESSION["worker"];
-        $result = $conexion->statisticsData($worker);
+        $result = $conexion->checkLogin($worker, $pass);
         echo $result;
-     }
-     function insertMissedClocking(){
+    }
+
+
+
+    public function sendData()
+    {
+        $conexion = new UsersModel();
+        //calls the method that has the query prepared
+        $result = $conexion->statisticsData();
+        echo $result;
+    }
+    public function insertMissedClocking()
+    {
         $conexion = new UsersModel();
         $timeHours= $_POST["timeHours"];
         $type= $_POST["type"];
@@ -160,6 +195,5 @@ class LoginController extends Controller{
      }
 
 }
-
 
 ?>

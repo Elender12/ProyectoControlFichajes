@@ -35,7 +35,9 @@
     <!--Hay que usar JQUERY para usar bien BOOTSTRAP  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
-    
+      <!-- Icono con la m de movicoders en la ventana -->
+	  <link rel="shortcut icon" href="../views/static/img/favicon.ico" />
+	  
     <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina tambien es importado-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
