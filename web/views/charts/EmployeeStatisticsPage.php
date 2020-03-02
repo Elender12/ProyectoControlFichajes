@@ -96,11 +96,10 @@
       <div class="sidebar-header">
         <h3>Movicoders</h3>
 
-        <br><h6> <i class="fas fa-lg fa-user" ></i>   <?php 
-                  if(isset($_SESSION["workerName"])){
-					echo '<th class="idworker">' . $_SESSION["workerName"] . '</th>';
-				
-                  }else if(isset($_SESSION["adminName"])){
+        <br><h6> <i class="fas fa-lg fa-user" ></i>   <?php
+                  if (isset($_SESSION["workerName"])) {
+                      echo '<th class="idworker">' . $_SESSION["workerName"] . '</th>';
+                  } elseif (isset($_SESSION["adminName"])) {
                       echo '<th class="idadmin">' . $_SESSION["adminName"]. '</th>';
                   }
                 
@@ -129,7 +128,8 @@
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" id="colorBtn"><i class="fas fa-calendar-alt"></i>
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" id="colorBtn">
+                    <i class="fas fa-calendar-alt"></i>
                       Select date range
                     </button>
                   </h5>
@@ -198,7 +198,9 @@
                   <div class="form-group row">
                 <label for="monthFilter" class="col-2 col-form-label"></label>
                 <div class="col-10">
-                  <input class="date-own form-control" id="monthFilter" type="text" value=" Select month">
+                <form action="<?php echo constant('URL'); ?>/LoginController/getInputFromFiltersRange" method ="get" id="form2">
+                  <input class="date-own form-control" type="text" value=" Select month" id="monthFilter" name="startDate">
+                  <input type="hidden"  name="endDate" value="0000-00-00">
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     autoclose: true,
@@ -213,7 +215,9 @@
               </script>
               </div>
               </div>
-                  <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
+              </form>
+
+                  <button type="submit" form="form2" class="btn btn-light" id="btn-outline-light2"><i class="fas fa-share"></i>
                     Filter</button>
                   <!--END: meses para elegir-->
                   </div>
@@ -234,7 +238,9 @@
                    <div class="form-group row">
                 <label for="yearFilter" class="col-2 col-form-label"></label>
                 <div class="col-10">
-                  <input class="date-own form-control" id="yearFilter" type="text" value=" Select year">
+                <form action="<?php echo constant('URL'); ?>/LoginController/getInputFromFiltersRange" method ="get" id="form3">
+                  <input class="date-own form-control"  type="text" value=" Select year" id="yearFilter" name="startDate">
+                  <input type="hidden"  name="endDate" value="1111-00-00">
                 <script type="text/javascript">
                   $('.date-own').datepicker({
                     autoclose: true,
@@ -248,20 +254,11 @@
               </script>
               </div>
               </div>
-                  <button type="button" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
+              </form>
+              <button type="submit" form="form3" class="btn btn-light" id="btn-outline-light3"><i class="fas fa-share"></i>
                     Filter</button>
                   <!--END: años para elegir-->
                   </div>
-                </div>
-              </div>
-              <div class="card4">
-                <div class="card-header" id="headingFour">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
-                      aria-expanded="false" aria-controls="collapseFour" id="colorBtn4"><i class="material-icons">assignment_return</i>
-                      All time
-                    </button>
-                  </h5>
                 </div>
               </div>
            </div>   <!-- cierra el accordion -->
@@ -308,11 +305,10 @@
           </div>
         </div>
       </nav>
-      <?php 
-       if(isset($_SESSION["workerNAME"])){
-        echo $_SESSION['workerNAME'];
-    
-      } ?>
+      <?php
+       if (isset($_SESSION["workerNAME"])) {
+           echo $_SESSION['workerNAME'];
+       } ?>
               
       <!--AQUÍ ES DONDE SE LLAMA AL GRÁFICO-->
       <div id="employeeChart_div"></div>

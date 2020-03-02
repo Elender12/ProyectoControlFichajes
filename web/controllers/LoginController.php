@@ -115,13 +115,24 @@ class LoginController extends Controller
         echo $result;
     }
 
-    public function getInputFromFiltersRange() {
+    public function getInputFromFiltersRange()
+    {
         $_SESSION["filterStartDate"] = $_GET["startDate"];
-        $_SESSION["filterEndDate"] = $_GET["endDate"];
-        //echo $_SESSION["filterStartDate"];
+        
+        if (($_GET["endDate"])== "0000-00-00") {
+            $date= explode('-', $_SESSION["filterStartDate"]);
+            $year  = $date[0];
+            $month = $date[1];
+            $day   = "31";
+            $_SESSION["filterEndDate"]=$year."-".$month."-".$day;
+        }else if (($_GET["endDate"])== "1111-00-00"){
+            $_SESSION["filterEndDate"]=$_SESSION["filterStartDate"]."-"."12"."-"."31";
+        } else  {
+           $_SESSION["filterEndDate"] = $_GET["endDate"];
+        }
+       
         $result = $this->chartsTest();
         echo $result;
-
     }
 
     public function exit()
@@ -184,5 +195,3 @@ class LoginController extends Controller
         echo $result;
     }
 }
-
-?>

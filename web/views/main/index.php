@@ -77,11 +77,6 @@
 					</div>		
 					</form>
 				</form>
-				<div class="text-center p-t-115" >
-						
-						<a class="txt2" href="#">
-							Forgot password?
-			</div>
 		</div>
 	</div>
     </body>
