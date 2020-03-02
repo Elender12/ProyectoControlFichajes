@@ -98,9 +98,7 @@ a:focus {
     font-size: 1em; 
     color: black;
 }
-.h1{
-   text-align: center;
-}
+
 #nombre-centrados {
 text-align: center;
 font-family: 'Poppins', sans-serif;
@@ -186,6 +184,15 @@ color:#0f407a;
     font-weight: 300;
     line-height: 1.7em;
     color: black;
+}
+
+#error {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1.7em;  
+    color: #ff0000;
 }
 
 .line {
