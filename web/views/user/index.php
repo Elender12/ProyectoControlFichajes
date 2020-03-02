@@ -134,14 +134,14 @@
                 
                  ?></br></h6>
 				 <br>
-				 	  <i class="fas fa-lg fa-user" ></i> <?php 
+				 <i class="fas fa-user-tie"></i> <?php 
       //  if(isset($_SESSION["workerNAME"])){
       //   echo $_SESSION["workerNAME"];
       //   echo $_SESSION["NOMBRE"];
       // }
       if(isset($_SESSION["NOMBRE"])){
        // nombre del trabajador 
-        echo " User:".' '. $_SESSION["NOMBRE"] ;
+        echo " User :".' '. $_SESSION["NOMBRE"] ;
       }
 
 
