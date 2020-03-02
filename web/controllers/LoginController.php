@@ -115,6 +115,15 @@ class LoginController extends Controller
         echo $result;
     }
 
+    public function getInputFromFiltersRange() {
+        $_SESSION["filterStartDate"] = $_GET["startDate"];
+        $_SESSION["filterEndDate"] = $_GET["endDate"];
+        //echo $_SESSION["filterStartDate"];
+        $result = $this->chartsTest();
+        echo $result;
+
+    }
+
     public function exit()
     {
         $conexion = new UsersModel();
@@ -150,8 +159,7 @@ class LoginController extends Controller
     {
         $conexion = new UsersModel();
         //calls the method that has the query prepared
-        $worker= $_SESSION["worker"];
-        $result = $conexion->statisticsData($worker);
+        $result = $conexion->statisticsData();
         echo $result;
     }
     public function insertMissedClocking()
