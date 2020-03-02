@@ -104,6 +104,18 @@
                   }
                 
                  ?></br></h6>
+        <?php 
+      //  if(isset($_SESSION["workerNAME"])){
+      //   echo $_SESSION["workerNAME"];
+      //   echo $_SESSION["NOMBRE"];
+      // }
+      if(isset($_SESSION["NOMBRE"])){
+       // nombre del trabajador 
+        echo " User :".' '. $_SESSION["NOMBRE"] ;
+      }
+
+
+       ?>
 
       </div>
       <ul class="list-unstyled components">
