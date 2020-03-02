@@ -31,7 +31,11 @@
 <html>
     <head>
         <meta charset="utf-8">
-    <title>Login</title>
+	<title>Login</title>
+	
+	  <!-- Icono con la m de movicoders en la ventana -->
+	  <link rel="shortcut icon" href="./views/static/img/favicon.ico" />
+
     <!--Hay que usar JQUERY para usar bien BOOTSTRAP  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
