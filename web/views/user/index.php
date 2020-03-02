@@ -134,8 +134,7 @@
                 
                  ?></br></h6>
 				 
-					   <?php 
-					
+         <br><h6> <?php 
       //  if(isset($_SESSION["workerNAME"])){
       //   echo $_SESSION["workerNAME"];
       //   echo $_SESSION["NOMBRE"];
@@ -145,7 +144,9 @@
        // nombre del trabajador 
         echo " User :".' '. $_SESSION["NOMBRE"] ;
       }
-       ?>
+
+
+       ?></br></h6>
 	  
       </div>
       <ul class="list-unstyled components">
