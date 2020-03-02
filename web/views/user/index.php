@@ -128,10 +128,25 @@
 					echo '<th class="idworker">' . $_SESSION["workerName"] . '</th>';
 				
                   }else if(isset($_SESSION["adminName"])){
+					  
                       echo '<th class="idadmin">' . $_SESSION["adminName"]. '</th>';
                   }
                 
                  ?></br></h6>
+				 <br>
+				 	  <i class="fas fa-lg fa-user" ></i> <?php 
+      //  if(isset($_SESSION["workerNAME"])){
+      //   echo $_SESSION["workerNAME"];
+      //   echo $_SESSION["NOMBRE"];
+      // }
+      if(isset($_SESSION["NOMBRE"])){
+       // nombre del trabajador 
+        echo " User:".' '. $_SESSION["NOMBRE"] ;
+      }
+
+
+       ?>
+	   </br>
       </div>
       <ul class="list-unstyled components">
         <!-- <p><i class="fas fa-chevron-circle-down"></i>  Menu</p>-->
@@ -291,18 +306,7 @@
           </div>
         </div>
       </nav>
-      <?php 
-      //  if(isset($_SESSION["workerNAME"])){
-      //   echo $_SESSION["workerNAME"];
-      //   echo $_SESSION["NOMBRE"];
-      // }
-      if(isset($_SESSION["NOMBRE"])){
-       // nombre del trabajador 
-        echo $_SESSION["NOMBRE"];
-      }
 
-
-       ?>
       <!-- <p class="h1" id="nombre-centrados ">Entradas Semanales </p> -->
       <p class="h1" id="nombre-centrados ">Weekly clocking-in registers</p>
       <table class="table table-borderless " id="datos-centrados">
