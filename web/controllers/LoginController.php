@@ -39,7 +39,7 @@ class LoginController extends Controller
     function checkFilteredData(){
        
         $worker=$_GET["worker"];
-        echo $worker;
+        //echo $worker;
 
        if($worker == null){
            //cambiar aqui
