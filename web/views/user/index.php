@@ -134,7 +134,8 @@
                 
                  ?></br></h6>
 				 
-				 	  <?php 
+					   <?php 
+					
       //  if(isset($_SESSION["workerNAME"])){
       //   echo $_SESSION["workerNAME"];
       //   echo $_SESSION["NOMBRE"];
