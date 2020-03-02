@@ -2,7 +2,6 @@ google.charts.load('current', {packages: ['corechart']});
 google.setOnLoadCallback(drawChart);
 
 function drawChart() {
-  console.log("entra aqui");
   var jsonData = $.ajax({
     url: "sendData",
     dataType: "json",

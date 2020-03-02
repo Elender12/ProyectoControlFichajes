@@ -133,8 +133,8 @@
                   }
                 
                  ?></br></h6>
-				 <br>
-				 	  <i class="fas fa-lg fa-user" ></i> <?php 
+				 
+				 	  <?php 
       //  if(isset($_SESSION["workerNAME"])){
       //   echo $_SESSION["workerNAME"];
       //   echo $_SESSION["NOMBRE"];
@@ -146,7 +146,7 @@
 
 
        ?>
-	   </br>
+	  
       </div>
       <ul class="list-unstyled components">
         <!-- <p><i class="fas fa-chevron-circle-down"></i>  Menu</p>-->
