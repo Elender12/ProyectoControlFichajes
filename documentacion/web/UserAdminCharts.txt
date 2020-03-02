@@ -1,0 +1,18 @@
+Types of charts the employee can visualize:
+
+1-current month
+2-date range they select
+3-by month
+4-by year
+5-since contract start date
+
+
+Types of charts the admin can visualize:
+
+1-filtering by type of contract
+2-selecting one or more or all employees with that same contract
+3-current month
+4-date range they select
+5-by month
+6-by year
+7-since contract start date

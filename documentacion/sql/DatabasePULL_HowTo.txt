@@ -1,0 +1,11 @@
+1-In sourcetree checkout the branch "ddbb"
+2-Do a "pull" of the branch
+3-Open heidi and if you have a previous version of the database, 
+  right click on the name of it "fingerprintassistancecontrol"
+  and click on "drop"(suprimir")
+4-From the top menu click on "File", "Load SQL file"
+5-Choose the database file from the folder where you have it in your pc
+  (remember NOT to change branch in sourcetree, you must be in the "ddbb" branch)
+6-The database is loaded in the query tab in Heidi, so click on the blue triangle "run"
+7-Click on the green round button from the top menu to refresh
+  and the updated database will appear in the databse list on the  left.

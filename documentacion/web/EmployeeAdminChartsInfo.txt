@@ -1,0 +1,16 @@
+Types of charts the user can visualize:
+
+1-current month
+2-date range they select
+3-by month
+4-by year
+5-since contract start date
+
+
+Types of charts the admin can visualize:
+
+1-current month
+2-date range they select
+3-by month
+4-by year
+5-since contract start date
