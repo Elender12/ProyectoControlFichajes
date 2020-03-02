@@ -34,7 +34,8 @@ class FPModuleDelete():
 
             if ( f.deleteTemplate(positionNumber) == True ):
                 self.controller.create_info_frame('Fingerprint Deleted')
-                self.controller.remove_from_DB(positionNumber)
+                self.controller.remove_from_DB()
+                self.controller.restore_initial_frame_from_delete()
                 print('Template deleted!')
 
         except Exception as e:

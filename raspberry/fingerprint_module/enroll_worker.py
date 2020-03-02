@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-WaitingForFinger Team
-
-"""
 
 import time
 from pyfingerprint.pyfingerprint import PyFingerprint
@@ -88,11 +84,11 @@ class FPModule():
             ## Saves template at new position number
             positionNumber = f.storeTemplate()
 
-            self.controller.view.msgText1.set('Finger enrolled successfully!')
+            self.controller.view.msgText1.set('Finger enrolled successfully! Pos: ' + str(positionNumber))
             self.controller.view.statusText.set('Status: Finish')
             print('Finger enrolled successfully!')
             print('New template position #' + str(positionNumber))
-            self.controller.finger_position = positionNumber
+            self.controller.template_number = positionNumber
             self.controller.employee_to_DB()
 
         except Exception as e:
