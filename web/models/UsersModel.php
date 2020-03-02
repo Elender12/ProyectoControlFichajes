@@ -31,7 +31,7 @@ class UsersModel extends Model
             // checks if the query returns valid data
             if ($data == null) {
                 //calls the error view
-                $result = new Errors("Login error:data is null from the database");
+                $result = new Errors("Login error: user or password incorrect");
                 return;
             } else {
                 //stores the type of user
