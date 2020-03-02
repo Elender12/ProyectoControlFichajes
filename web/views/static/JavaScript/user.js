@@ -11,12 +11,21 @@
             $('a[aria-expanded=true]').attr('aria-expanded', 'false');
         });
     });
-    
-    $(document).ready(function () {
-        $('#dtVerticalScrollExample').DataTable({
-        "scrollY": "200px",
-        "scrollCollapse": true,
-        });
-        $('.dataTables_length').addClass('bs-select');
-        });
+	
+	
+	function GetSelectedValue(){
+		var e = document.getElementById("country");
+		var result = e.options[e.selectedIndex].value;
+		
+		document.getElementById("result").innerHTML = result;
+		
+	}
 
+	function GetSelectedText(){
+		var e = document.getElementById("country");
+		var result = e.options[e.selectedIndex].text;
+		
+		document.getElementById("result").innerHTML = result;
+		
+	}
+	

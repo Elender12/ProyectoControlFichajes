@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 To embed a chart in a webpage I followed some parts of this tutorial: https://www.youtube.com/watch?v=-DQP4fpmJpc
+=======
+To create a chart in a webpage I followed some parts of this tutorial: https://www.youtube.com/watch?v=-DQP4fpmJpc
+>>>>>>> web
 
 I went to https://developers.google.com/chart and clicked on "guides" from the top menu,
  the selected "line chart" from the left-side menu.

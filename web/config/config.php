@@ -4,7 +4,7 @@ namespace Config;
 
 // **********************SHOULD BE CHANGED ACCORDING TO THE HOST***********************************
 define ('URL','http://localhost/ControlFichajes/web');
-const DSN = 'mysql:dbname=fingerprintassistancecontrol;host=127.0.0.1';
-const USER = 'root';
-const PASSWORD = 'root';
+const DSN = 'mysql:dbname=fingerprintassistancecontrol;host=192.168.2.75';
+const USER = 'root2';
+const PASSWORD = 'root2';
 ?>

@@ -1,25 +1,60 @@
-
-
 @import "https://fonts.googleapis.com/css?family=Poppins:700";  /*Pongo la fuente 700 de poppins me gusta mas como se ve las palabras etc*/
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: #ffffff;
 }
-
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+	color: #999;
+	
 }
-#navbarSupportedContent{
-    /*PENDIENTE DE EDIT*/
+.container{
+    padding: 5px;
 }
-
-
-#cnt-fichaje{
+/* En la pag index del admin */
+ td a { 
+    display: block;
+ }
+tbody tr:hover { 
+    color: #6f81d1 ;
+    background: #fff;
+ }
+ #adminTable {
+    border-color: black;
+    text-align: center;
+ }
  
+ #col1 {
+     width: 0.5%;
+     padding: 12px;
+ }
+ #col2 {
+     width: 10%;
+     padding: 12px;
+ }
+ #col3 {
+     width: 8%;
+     padding: 12px;
+ }
+/* End - index admin */
+#headingOne, #headingTwo, #headingThree, #headingFour, .card, .card2, .card3{
+	background-color: #0f407a;
+}
+
+#colorBtn, #colorBtn2, #colorBtn3, #colorBtn4 {
+    color: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
+}
+#registersDateFilter1, #registersDateFilter2, #monthFilter, #yearFilter {
+    color: black;
+}
+
+#cnt-fichaje, #charts{
+    padding: 15px 10px;
 }
 
 a,
@@ -29,37 +64,41 @@ a:focus {
     text-decoration: none;
     transition: all 0.3s;
 }
-
 #btn-modal-user{
  /*PENDIENTE DE EDIT */
+ color: #fafafa;
 }
-
 #PanelModal{
     width: 100%;
     margin: 1px 0 25px;
-}
+} 
+/*S*/
 
 .navbar { /*Estilo de la Barra Superior donde se encuentra el menu y los emoticonos*/
     padding: 15px 10px;
     bottom: 35px;
     background: #fff;
-    border: none;
+	border: none;
     border-radius: 10px;
     margin-bottom: 40px;
-    box-shadow: 1px 1px 3px #0f407a;
-
+    box-shadow:0px 1px 0px #000000;
 
 }
 #sidebarCollapse{ /*BOTON MENU CON DISEÑO*/
-    padding: 10px 10px;
-    background: #fff;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 1px 1px 3px #0f407a;
+    padding: 6px 6px;
+    background: #ffffff;
+	border: none;
+	color:black;
+    border-radius: 8px;
+    box-shadow: 1px 1px 3px #0f407a ;
 }
-#datos-centrados{
-   text-align: center;
+#menucolor, #menucolorAdmin {      /*botón menú navbar */
+    color: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em; 
+    color: black;
 }
+
 #nombre-centrados {
 text-align: center;
 font-family: 'Poppins', sans-serif;
@@ -67,16 +106,21 @@ font-size: 2em;
 font-weight: 700;
 line-height: 1.7em;
 color:#0f407a;
-
 }
-
+.h1 {
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	font-size: 2em;
+	font-weight: 700;
+	line-height: 1.7em;
+	color:#0f407a;
+}
 .navbar-btn {
     box-shadow: none;
     outline: none !important;
     border: none;
 }
-
-#example-date-input{ /*FILTRO 1 CON SU EDICION*/
+#registersDateFilter1{ /*FILTRO FECHAS FICHAJES EMPLEADO CON SU EDICION*/
     right:  25px;
     position: relative;
     top: 0.5em;
@@ -86,8 +130,9 @@ color:#0f407a;
     padding-left: 40px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #33FFAF;
+    color: black;
 }
-#example-date-input1{/*FILTRO 2 CON SU EDICION*/
+#registersDateFilter2{/*FILTRO FECHAS FICHAJES EMPLEADO 2 CON SU EDICION*/
     right:  25px;
     position: relative;
     top: 0.5em;
@@ -97,15 +142,57 @@ color:#0f407a;
     padding-left: 40px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #33FFAF;
+    color: black;
 }
-#btn-outline-light{ /*BOTON CON SU EDICION*/
+#btn-outline-light{ /*botón filter selector fechas en index user-admin y statistics page*/
     left:  40px;
     position:relative;
     width: 60%;
     margin: 5px 0 25px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #33FFAF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: black;
+}
 
+#btn-outline-light2{ /*botón filter selector fechas en index user-admin y statistics page*/
+    left:  40px;
+    position:relative;
+    width: 60%;
+    margin: 5px 0 25px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #33FFAF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: black;
+}
+
+#btn-outline-light3{ /*botón filter selector fechas en index user-admin y statistics page*/
+    left:  40px;
+    position:relative;
+    width: 60%;
+    margin: 5px 0 25px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #33FFAF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: black;
+}
+
+#error {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1.7em;  
+    color: #ff0000;
 }
 
 .line {
@@ -114,16 +201,13 @@ color:#0f407a;
     border-bottom: 1px dashed #ddd;
     margin: 40px 0;
 }
-
 /* 
-   EL STILO DEL SIDEBAR
+   EL ESTILO DEL SIDEBAR
  */
-
 .wrapper {
     display: flex;
     width: 100%;
 }
-
 #sidebar {
     width: 250px;
     position: fixed;
@@ -132,52 +216,50 @@ color:#0f407a;
     height: 100vh;
     z-index: 999;
     background: #0f407a;
-    color: #fff;
+    color: floralwhite;
     transition: all 0.3s;
 }
-
 #sidebar.active {
     margin-left: -250px;
 }
-
 #sidebar .sidebar-header {
-    padding: 20px;
+	padding: 20px;
+	color: #fff;
     background: #0f407a;
 }
+#userid, #homeid, #exitid{ /*color icono user */
+	color:black;
+}
+
+
 
 #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid rgb(113, 129, 194);;
 }
-
 #sidebar ul p {
     color: #fff;
     padding: 10px;
 }
-
 #sidebar ul li a { /* SEPARACION ENTRE LAS PARTES*/
     padding: 10px;
     font-size: 1.1em;
     display: block;
 }
-
 #sidebar ul li a:hover { /*COLOR CUANDO PONEMOS EL RATON ENCIMA*/
     color: #7386D5;
     background: #fff;
 }
-
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
     background: #0f407a;
 }
-
 a[data-toggle="collapse"] {
     position: -webkit-sticky;
     position: sticky;
     top: 20px;
 }
-
 .dropdown-toggle::after {
     display: block;
     position: absolute;
@@ -185,7 +267,6 @@ a[data-toggle="collapse"] {
     right: 20px;
     transform: translateY(-50%);
 }
-
 ul ul a { /* BOTONES DESPEGABLES COMO SE MUESTRAN Y EL COLOR */
     font-size: 0.9em !important;
     padding-left: 30px !important;
@@ -203,15 +284,11 @@ ul.CTAs a {
     border-radius: 5px;
     margin-bottom: 5px;
 }
-
-
-
 a.article,
 a.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
 }
-
 #content {
     width: calc(100% - 250px);
     padding: 40px;
@@ -221,12 +298,31 @@ a.article:hover {
     top: 0;
     right: 0;
 }
-
-
+#datos-centrados{
+	text-align: center;
+}
+.edit1{
+	position: relative;
+	left: 25%;
+	width: 50%;
+	background-color: #ebf2ffbb;
+	padding: 2rem;
+	/* IMPORTANTE */
+	text-align: center;
+}
+.edit2{
+	background-color: #fafafa;
+	padding: 2rem;
+	text-align: center;
+}
+.edit3{
+	background-color: #fafafa;
+	padding: 2rem;
+	text-align: center;
+}
 #content.active {
     width: 100%;
 }
-
 .pane--table2 {
     width: 400px;
     overflow-x: scroll;
@@ -264,3 +360,93 @@ a.article:hover {
         
     }
 }
+  /* Centered section inside the top navigation */
+  .topnav-centered a {
+	float: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: #0f407a;
+	font-size: xx-large;
+	transform: translate(-50%, -50%);
+  }
+.topnav-centered2{
+	float: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: #0f407a;
+	font-size: xx-large;
+	transform: translate(-50%, -50%);
+}
+  @media screen and (max-width: 600px) {
+	.topnav a, .topnav-right {
+	  float: none;
+	  display: block;
+	}
+	.topnav-centered a {
+	  position: relative;
+	  top: 0;
+	  left: 0;
+	  transform: none;
+	}
+  }
+#comboType{
+	width: 100%;
+    border-radius: 5px;
+    margin-bottom: 5px;	
+}
+#modal-title{
+	text-align: center;
+}
+.mbsc-col-md-4{
+background: #fff;
+width: 100%;
+border-radius: 5px;
+margin-bottom: 5px;
+
+}
+#demo-time-24h{
+background:	#fff;	
+}
+#formInsert{
+	
+	background: #fff;
+}
+.mbsc-col-sm-12.mbsc-col-md-4{
+
+left: 30%;
+width: 150px; height: 60px;
+}
+.mbsc-form-box{
+	background: #fff;
+}
+button {
+	display: inline-block;
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+
+	color: #fff;
+	text-decoration: none;
+	font-family: arial, verdana, sans-serif;
+	font-size: 14px;
+}
+.demo-non-form {
+	color: initial;
+	width: 100%;
+	padding: 10px;
+	margin: 6px 0 2px 2px;
+	border: 1px solid #c9cbd0;
+	border-radius: 0;
+	font-family: arial, verdana, sans-serif;
+	font-size: 14px;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+}
+.external-container button.external-button {
+	font-weight: 400;
+	padding: 10px;
+	margin: 6px 0 13px 0;
+	width: 100%;
+} 

@@ -1,0 +1,131 @@
+/* START: Filtros statistics empleado*/
+#dateRange1{ 
+  right:  25px;
+  position: relative;
+  top: 0.5em;
+  height: 40px;
+  font-size: 12px;
+  border:0;
+  padding-left: 40px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px #33FFAF;
+}
+
+#dateRange2{ 
+  right:  25px;
+  position: relative;
+  top: 0.5em;
+  height: 40px;
+  font-size: 12px;
+  border:0;
+  padding-left: 40px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px #33FFAF;
+}
+
+#monthFilter{ 
+  right:  25px;
+  position: relative;
+  top: 0.5em;
+  height: 40px;
+  font-size: 12px;
+  border:0;
+  padding-left: 40px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px #33FFAF;
+}
+
+#yearFilter{ 
+  right:  25px;
+  position: relative;
+  top: 0.5em;
+  height: 40px;
+  font-size: 12px;
+  border:0;
+  padding-left: 40px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px #33FFAF;
+}
+
+.material-icons
+{
+  font-size: large;
+}
+/* END: filtros statistics empleado */
+
+
+ #employeeChart_div  /*espacio donde se crea la chart*/
+{
+  min-width: 310px; 
+  height: 400px;
+  margin: 0 auto;
+  /*width: 1700px;
+  height: 900px;*/
+}
+
+#adminChart_div
+{
+  width: 1200px;
+  height: 700px;
+} */
+
+/* @media (orientation:portrait) {
+  #employeeChart_div {
+    min-height: 80vh;
+  }
+ }
+ 
+ @media (max-width: 320px) and (orientation:landscape) {
+  #employeeChart_div {
+    min-height: 180vh;
+    width: 100%;
+  }
+ } */
+/* 
+@media (max-width: 320px) {
+	#employeeChart_div {
+	  width: 1700px;
+    height: 900px;
+	}
+  }
+
+  @media (max-width: 375px) {
+    #employeeChart_div {
+      width: 100%;
+      height: 100%;
+  }
+  }
+
+  @media (max-width: 425px) {
+    #employeeChart_div {
+      width: 100%;
+      height: 100%;
+  }
+  }
+
+  @media (max-width: 768px) {
+    #employeeChart_div {
+      width: 100%;
+      height: 100%;
+  }
+  }
+
+  @media (max-width: 1024px) {
+    #employeeChart_div {
+      width: 100%;
+      height: 100%;
+  }
+  } */
+
+
+
+
+/*------------------------------------------------------------------
+  [ Responsive ]
+  
+  @media (max-width: 576px) {
+	.wrap-login100 {
+	  padding: 77px 15px 33px 15px;
+	}
+  }
+  */
