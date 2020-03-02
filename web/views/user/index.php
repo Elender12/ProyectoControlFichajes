@@ -143,8 +143,6 @@
        // nombre del trabajador 
         echo " User :".' '. $_SESSION["NOMBRE"] ;
       }
-
-
        ?>
 	  
       </div>
