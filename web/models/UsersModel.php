@@ -22,6 +22,7 @@ class UsersModel extends Model
             //prepares the query
             $query = $db->prepare($query);
             //introduces data in order to avoid injections
+
             $query->bindParam(':worker', $worker);
             $query->bindParam(':pass', $pass);
             //executes the query
@@ -40,6 +41,7 @@ class UsersModel extends Model
                 if (strcmp($userType, "0") == 0) {
                     $userName = $data[0]->employeeName;
                     $_SESSION["workerName"]= $userName;
+                    $_SESSION["DNI"]= $data[0]->employeeDni;
                     //method showMonthRegister 
                     $db = DataBase::db();
                     $query = "SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker AND clockingDate between  DATE_FORMAT(NOW(),'%Y-%m-01') AND CURDATE() ORDER BY clockingDate desc, clockingTime asc";
@@ -53,7 +55,9 @@ class UsersModel extends Model
                 } else {
                     //it's an admin and calls the view
                     $userName = $data[0]->employeeName;
+                    $dniBoss= $data[0]->employeeDni;
                     $_SESSION["adminName"]= $userName;
+                    $_SESSION["adminDNI"]= $dniBoss;
                     $db = DataBase::db();
                     $queryWorkers= "SELECT employeeName, employeeDni FROM users";
                     $queryWorkers = $db->prepare($queryWorkers);
@@ -92,6 +96,8 @@ class UsersModel extends Model
     {
         try {
 
+            $_SESSION["NOMBRE"] = $this->getWorkerName($worker);
+            //echo $_SESSION["NOMBRE"];
             $db = DataBase::db();
 
             //prepares the query --REVISE
@@ -100,7 +106,14 @@ class UsersModel extends Model
 
             //data is separated from the query*/
             $query2 = $db->prepare($query);
-            $query2->bindParam(':worker', $worker);
+            //entra desde user normal
+            if($_SESSION["DNI"]== null){
+                $query2->bindParam(':worker', $worker);
+            }else if ($worker == null ){
+                $query2->bindParam(':worker', $_SESSION["DNI"]);
+            }
+
+            
             $query2->bindParam(':fecha1', $startDate);
             $query2->bindParam(':fecha2', $endDate);
             //executes  the query
@@ -108,6 +121,8 @@ class UsersModel extends Model
             $data = $query2->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
             //ignora el require 
             require "views/user/index.php";
+            //echo $_SESSION["DNI"]."es el dni de session";
+            //echo $worker." valor de worker"; //
             //returns the results of the query
             //return $data;
         } catch (Exception $e) {
@@ -120,14 +135,26 @@ class UsersModel extends Model
     {
         //TODO --lleva procedimiento --
         try {
-
+            if(isset( $_SESSION["NOMBRE"])){
+            $_SESSION["NOMBRE"] = $this->getWorkerName($worker);
+            echo $_SESSION["NOMBRE"];
+        }
             $db = DataBase::db();
             //stores the call to the procedure
             $query = "CALL find_incomplete_days( ? )";
             $sql = $db->prepare("CALL find_incomplete_days( :param )");
-            $sql->bindParam('param', $worker);
-            $sql->execute();
+           // $sql->bindParam('param', $worker);
+             //entra desde user normal
+             if($_SESSION["DNI"]== null){
+                $sql->bindParam(':param', $worker);
+            }else if ($worker == null ){
+                $sql->bindParam(':param', $_SESSION["DNI"]);
+            }
+
+           //$sql->bindParam('param', $_SESSION["DNI"]);
+           $sql->execute();
             $data = $sql->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+            echo  $_SESSION["workerName"];
             require "views/user/index.php";
         } catch (PDOException $e) {
             die("Error occurred with the incomlete days query:" . $e->getMessage());
@@ -137,6 +164,8 @@ class UsersModel extends Model
     {
         //TODO -- simple query
         try {
+            $_SESSION["NOMBRE"] = $this->getWorkerName($worker);
+            echo $_SESSION["NOMBRE"];
             $db = DataBase::db();
             $query = "SELECT calendarDate FROM calendar_table WHERE calendarDate NOT IN
             (SELECT clockingDate FROM clokinginregisters WHERE dniUser LIKE :worker)
@@ -249,7 +278,11 @@ class UsersModel extends Model
     }
     public function insertData( $worker,$selecDate,$timeHours,$type){
         $db = DataBase::db();
-        $worker = $_SESSION["worker"];
+        //dni del admin
+       // echo " datos de la session DNI desde model users:".$_SESSION["adminDNI"]."</br>";
+       //dni del trabajador
+        //echo " worker desde users model tiene el valor ".$worker;
+        //$worker = $_SESSION["worker"];
         //QUERY data contract
         $insertQuery = "INSERT INTO clokinginregisters (dniUser, clockingDate, clockingTime, clockingType)
         VALUES (:worker, :fecha, :horaS, :tipo)";
@@ -260,28 +293,65 @@ class UsersModel extends Model
         $queryInsert->bindParam(':tipo', $type);
         $queryInsert->execute();
         $queryLog = "INSERT INTO loginfo (logWho, logAction) VALUES ( :worker, :logAction)";
+       //$workerAEditar=$_GET["targetWorker"];
+        //echo $workerAEditar;
+       if($_SESSION["adminDNI"] !=null){
+        $logAction ="New clocking on ".date("Y/m/d")." and ".date("h:i")."  with date  ".$selecDate. " time  ".$timeHours."  and type ".$type."for ".$worker;
+        $queryLog = $db->prepare($queryLog);
+        $queryLog->bindParam(':worker', $_SESSION["adminDNI"]);
+        $queryLog->bindParam(':logAction',$logAction);
+        $queryLog->execute();
+    
+    
+    }else {
         $logAction ="New clocking on ".date("Y/m/d")." and ".date("h:i")."  with date  ".$selecDate. " time  ".$timeHours."  and type ".$type;
         $queryLog = $db->prepare($queryLog);
         $queryLog->bindParam(':worker', $worker);
         $queryLog->bindParam(':logAction',$logAction);
         $queryLog->execute();
+       }
+       
+        // $queryLog = $db->prepare($queryLog);
+        // $queryLog->bindParam(':worker', $worker);
+        // $queryLog->bindParam(':logAction',$logAction);
+        // $queryLog->execute();
     }
 
     public function showUserInfoFromAdminPage($worker){
-        $db = DataBase::db();
+        // $db = DataBase::db();
+        // $queryWorkerName= "SELECT employeeName FROM users WHERE employeeDni like :worker";
+        // $queryWorkerName= $db->prepare($queryWorkerName);
+        // $queryWorkerName->bindParam(':worker',$worker);
+        // $queryWorkerName->execute();
+        // $data = $queryWorkerName->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+        // $_SESSION["workerNAME"]= $data[0]->employeeName;
+        //$_SESSION["NOMBRE"]= $data[0]->employeeName;
+        $db1 = DataBase::db();
         $query = "SELECT clockingDate, clockingTime, clockingType FROM clokinginregisters WHERE dniUser like :worker AND clockingDate between  DATE_FORMAT(NOW(),'%Y-%m-01') AND CURDATE() ORDER BY clockingDate desc, clockingTime asc";
-        $query = $db->prepare($query);
+        $query = $db1->prepare($query);
         $query->bindParam(':worker', $worker);
         //executes  the query
         $query->execute();
         $data = $query->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
+        $_SESSION["NOMBRE"] = $this->getWorkerName($worker);
+        echo $_SESSION["NOMBRE"];
+        require "views/user/index.php";
+    }
+    public function getWorkerName($worker){
+        if($worker != null){
+            $db = DataBase::db();
         $queryWorkerName= "SELECT employeeName FROM users WHERE employeeDni like :worker";
         $queryWorkerName= $db->prepare($queryWorkerName);
         $queryWorkerName->bindParam(':worker',$worker);
-         $queryWorkerName->execute();
+        $queryWorkerName->execute();
         $data = $queryWorkerName->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
-        $_SESSION["workerNAME"]= $data[0]->employeeName;
-        require "views/user/index.php";
+        //
+        $nombre= $data[0]->employeeName;
+        return $nombre;
+        }
+        
+
+
     }
 
 }

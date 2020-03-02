@@ -17,60 +17,29 @@ class LoginController extends Controller{
         //gets the data from the index
         if(count($_POST) > 0) {
             $_SESSION['worker'] = $_POST['worker'];
+            $_SESSION['workerInicial'] = $_POST['worker'];
             $_SESSION['pass'] = $_POST['pass'];
-        
-           // require "views/user/index.php";
-          
-           //echo $result;
-    
             header("HTTP/1.1 303 See Other");
             header("Location: /ControlFichajes/web/LoginController/login");
             die();
         }
         else if (isset($_SESSION['worker'])){
-    
-            /*
-                Put database-affecting code here.
-            */
-
             $worker= $_SESSION["worker"];
+            $worker1 =  $_SESSION['workerInicial'];
+
             $pass = $_SESSION["pass"];
             $conexion = new UsersModel();
-            //calls the method that has the query prepared
-           // $result = $conexion->checkLogin($_SESSION['worker'] , $_SESSION['pass']);
-            $result = $conexion->checkLogin($worker, $pass);
+            $result = $conexion->checkLogin($worker1, $pass);
             echo $result;
-           // session_unset();
-           // session_destroy();
         }
 
-        // if (!isset($_SESSION["worker"])) {
-        //     $_SESSION["worker"] = $_POST["worker"];
-        //     $_SESSION["pass"] = $_POST["pass"];
-        //     $worker= $_SESSION["worker"];
-        //     $pass = $_SESSION["pass"];
-        //   }else {
-        //    $worker= $_SESSION["worker"];
-        //    $pass = $_SESSION["pass"];
-        
-        //   }
-        //  $worker=  $_SESSION["worker"];
-         // $pass= $_SESSION["pass"];
-        // $worker=$_POST["worker"];
-         //$pass = $_POST["pass"];
-       
-       
-        //
     }
-    // function showData(){
-    //     $worker=$_SESSION["worker"];
-    //     $conexion = new UsersModel();
-    //     $result = $conexion->showMonthRegister($worker);
-    //     echo $result;
-    // }
-    
     function checkFilteredData(){
+       
+        $worker=$_GET["worker"];
+       if($worker == null){
         $worker = $_SESSION["worker"];
+       }
         if(isset($_GET["startDate"]) && isset($_GET["endDate"]) ){
             $startDate =$_GET["startDate"];
             $endDate=$_GET["endDate"];
@@ -84,11 +53,11 @@ class LoginController extends Controller{
             return;
         }
       
-       
     }
     function showIncompleteDays(){
         //TODO
-        $worker=$_SESSION["worker"];
+       // $worker=$_SESSION["worker"];
+        $worker=$_GET["worker"];
         $conexion = new UsersModel();
         $result = $conexion->checkIncompleteDays($worker);
         echo $result;
@@ -96,11 +65,15 @@ class LoginController extends Controller{
     }
     function showNoClockedInDays(){
         //TODO
-        $worker=$_SESSION["worker"];
-        $conexion = new UsersModel();
+       // $worker=$_SESSION["worker"];
+       $worker=$_GET["worker"]; 
+       $conexion = new UsersModel();
         $result= $conexion->checkNoClockedInDays($worker);
         echo $result;
     }
+ 
+
+
     public function exit(){
         $conexion = new UsersModel();
         $result = $conexion->exitBack();
@@ -114,20 +87,14 @@ class LoginController extends Controller{
 	}
 	
     function goIndex(){
-        // $conexion = new UsersModel();
-        // $result = $conexion->goHome();
-        // echo $result;
+
         $worker= $_SESSION["worker"];
         $pass = $_SESSION["pass"];
-       // $worker = "Y3423283H";
-        //$pass = "123";
        $conexion = new UsersModel();
        //calls the method that has the query prepared
        $result = $conexion->checkLogin($worker,$pass);
        echo $result;
     }
-
-
 
     function sendData(){
         $conexion = new UsersModel();
@@ -138,26 +105,58 @@ class LoginController extends Controller{
      }
      function insertMissedClocking(){
         $conexion = new UsersModel();
+        $timeHours= $_POST["timeHours"];
+        $type= $_POST["type"];
+        $selecDate= $_POST["selectedDate"];
+      
+       echo $_SESSION["adminDNI"]." valor de adminName";
+       //$worker=$_GET["worker"];
+       if($_GET["targetWorker"] == null){
+       //desde el user normal
         $worker= $_SESSION["worker"];
-         $timeHours= $_POST["timeHours"];
-         $type= $_POST["type"];
-         $selecDate= $_POST["selectedDate"];
-       // echo $timeHours;
-        //echo $type;
-        //echo $selecDate;
         $result = $conexion->insertData( $worker,$selecDate,$timeHours,$type);
-       // echo $result;
-       header("Location: /ControlFichajes/web/LoginController/login");
+        header("Location: /ControlFichajes/web/LoginController/login");
+       }else {
+        $worker = $_GET["targetWorker"]; //datos del trabajador
+        
+        
+        if($_SESSION["adminDNI"] != null){
+
+            $result = $conexion->insertData( $_SESSION["adminDNI"] ,$selecDate,$timeHours,$type);
+           header("Location: /ControlFichajes/web/LoginController/login");
+
+        }
+       }
+     
+        
+        // echo $worker." valor de session worker";
+         //echo $_SESSION["adminDNI"]." valor de admin dni" ;
+  //************** */
+        // if($_SESSION["worker"] != null){
+        //     $result = $conexion->insertData( $worker,$selecDate,$timeHours,$type);
+        //     //header("Location: /ControlFichajes/web/LoginController/login");
+
+        // }
+    
+       
         
      }
      function showUserInfoFromAdmin(){
          $_SESSION["worker"]= $_GET["worker"];
-         $conexion = new UsersModel();
-         $result = $conexion->showUserInfoFromAdminPage($_SESSION["worker"]);
+         $worker = $_SESSION["worker"];
+         //require "views/user/index.php";
+         //$worker= $_GET["dni"];
+        //echo "$worker";
+        
+        $conexion = new UsersModel();
+        $result = $conexion->showUserInfoFromAdminPage($worker);
          echo $result;
-
-         
-
+     }
+     function getWorkerName($worker){
+        $worker = $_GET["worker"];
+        $conexion = new UsersModel();
+        $name = $conexion->getWorkerName($worker);
+        echo $name;
      }
 
 }
