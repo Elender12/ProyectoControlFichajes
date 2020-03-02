@@ -134,12 +134,7 @@
                 
                  ?></br></h6>
 				 
-<<<<<<< HEAD
          <br><h6> <?php 
-=======
-					   <?php 
-					
->>>>>>> d18a4999f092bb931ac59dbaa808eefb16a7a0f7
       //  if(isset($_SESSION["workerNAME"])){
       //   echo $_SESSION["workerNAME"];
       //   echo $_SESSION["NOMBRE"];
@@ -149,13 +144,9 @@
        // nombre del trabajador 
         echo " User :".' '. $_SESSION["NOMBRE"] ;
       }
-<<<<<<< HEAD
 
 
        ?></br></h6>
-=======
-       ?>
->>>>>>> d18a4999f092bb931ac59dbaa808eefb16a7a0f7
 	  
       </div>
       <ul class="list-unstyled components">
