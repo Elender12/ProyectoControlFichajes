@@ -269,9 +269,9 @@
                 <?php 
                 //quien está realmente en la sesion -- debe salir en el log
                   if(isset($_SESSION["workerName"])){
-                    echo $_SESSION["workerName"];
+                   // echo $_SESSION["workerName"];
                   }else if(isset($_SESSION["adminName"])){
-                      echo $_SESSION["adminName"];
+                     // echo $_SESSION["adminName"];
                   }
                 
                  ?>
@@ -297,7 +297,7 @@
       //   echo $_SESSION["NOMBRE"];
       // }
       if(isset($_SESSION["NOMBRE"])){
-       // echo $_SESSION["workerNAME"];
+       // nombre del trabajador 
         echo $_SESSION["NOMBRE"];
       }
 

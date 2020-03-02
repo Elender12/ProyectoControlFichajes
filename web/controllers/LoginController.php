@@ -57,19 +57,7 @@ class LoginController extends Controller
             return;
         }
     }
-    public function displayStatsRangeFilterResult()
-    {
-        if (isset($_GET["startDate"]) && isset($_GET["endDate"])) {
-            $startDate =$_GET["startDate"];
-            $endDate=$_GET["endDate"];
-            $conexion = new UsersModel();
-            $result = $conexion-> statisticsFilteredData($startDate, $endDate);
-            //prints the data
-            echo $result;
-        } else {
-            return;
-        }
-    }
+
     public function showIncompleteDays()
     {
         //TODO
