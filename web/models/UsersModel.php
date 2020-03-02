@@ -1,6 +1,7 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+    error_reporting(E_ERROR | E_PARSE);
 }
 /* manages CRUD operations */
 class UsersModel extends Model
@@ -120,6 +121,7 @@ class UsersModel extends Model
     {
         //TODO --lleva procedimiento --
         try {
+
             if(isset( $_SESSION["NOMBRE"])){
             $_SESSION["NOMBRE"] = $this->getWorkerName($worker);
             echo $_SESSION["NOMBRE"];
@@ -139,7 +141,7 @@ class UsersModel extends Model
            //$sql->bindParam('param', $_SESSION["DNI"]);
            $sql->execute();
             $data = $sql->fetchAll(PDO::FETCH_CLASS, UsersModel::class);
-            echo  $_SESSION["workerName"];
+            //echo  $_SESSION["workerName"];
             require "views/user/index.php";
         } catch (PDOException $e) {
             die("Error occurred with the incomlete days query:" . $e->getMessage());
