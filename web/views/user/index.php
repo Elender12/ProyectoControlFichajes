@@ -1,5 +1,14 @@
 <?php if (session_status() == PHP_SESSION_NONE) {
     session_start();
+  
+  //evita que se guarde la sesion vacia si ya existia
+  if (!isset($_SESSION["worker"])) {
+    $_SESSION["worker"] = $_GET["worker"];
+   
+    $_SESSION["pass"] = $_GET["pass"];
+    
+
+  }
 }
 
 // Redirect 301 Moved Permanently
@@ -52,11 +61,25 @@
 
   <script>
       function load() {
+      //  var idWorker= document.getElementById("idWorker").innerText;
+      //console.log("entra aqui");
+      
+      //console.log(idWorker);
         // test= document.getElementById("myId").innerText;
-        //document.getElementById("selectedDate").value = test
+        var url_string = window.location.href;
+        console.log(url_string);
+        var url = new URL(url_string);
+        var c = url.searchParams.get("worker");
+        console.log(c);
+        document.getElementById("targetWorker").value = c;
+        document.getElementById("incomButon1").value = c;
+        document.getElementById("incomButon2").value = c;
+        document.getElementById("incomButon3").value = c;
       }
+    
       window.onload = load;
     </script>
+
 <script>
   $(document).on("click", ".edit1", function () {
      //var myBookId = document.getElementById(this);
@@ -77,15 +100,20 @@
      //$('#exampleModal').
 });
 </script>
+
 </head>
 <body>
   <!-- php sessions START-->
   <?php
-  //evita que se guarde la sesion vacia si ya existia
-  if (!isset($_SESSION["worker"])) {
-    $_SESSION["worker"] = $_GET["worker"];
-    $_SESSION["pass"] = $_GET["pass"];
-  }
+   echo '<p hidden id="idWorker">'.$_SESSION["worker"].'</p>';
+  // //evita que se guarde la sesion vacia si ya existia
+  // if (!isset($_SESSION["worker"])) {
+  //   $_SESSION["worker"] = $_GET["worker"];
+   
+  //   $_SESSION["pass"] = $_GET["pass"];
+    
+
+  //}
   ?>
   
   <!-- php sessions END -->
@@ -176,6 +204,7 @@
                         </script>
                       </div>
                     </div>
+                    <input type="hidden" id="incomButon1" name="worker" value="">
                     </form>
                     <button type="submit" form="form1" class="btn btn-light" id="btn-outline-light"><i class="fas fa-share"></i>
                       Filter</button>
@@ -186,7 +215,8 @@
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
                     <form action="<?php echo constant('URL'); ?>/LoginController/showIncompleteDays" method="get" id="form2">
-                    </form>
+                    <input type="hidden" id="incomButon2" name="worker" value="">
+                  </form>
                     <button type="submit" form="form2" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="colorBtn2"> <i class="fas fa-calendar-minus"></i>
                       Incomplete
                     </button>
@@ -197,7 +227,8 @@
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
                     <form action="<?php echo constant('URL'); ?>/LoginController/showNoClockedInDays" method="get" id="form3">
-                    </form>
+                    <input type="hidden" id="incomButon3" name="worker" value=""> 
+                  </form>
                     <button type="submit" form="form3" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="colorBtn3"><i class="fas fa-calendar-times"></i>
                       Missed
                     </button>
@@ -235,7 +266,15 @@
                 <!--User-->
               <li class="nav-item active">
                 <!-- nombre usuario-->
-             
+                <?php 
+                //quien está realmente en la sesion -- debe salir en el log
+                  if(isset($_SESSION["workerName"])){
+                   // echo $_SESSION["workerName"];
+                  }else if(isset($_SESSION["adminName"])){
+                     // echo $_SESSION["adminName"];
+                  }
+                
+                 ?>
                 <!--User-->
               <!--  <a class="nav-link" href="#"><i class="fas fa-user " id="userid"></i></i></a>
 			  </li>-->
@@ -253,11 +292,18 @@
         </div>
       </nav>
       <?php 
-       if(isset($_SESSION["workerNAME"])){
-        echo $_SESSION['workerNAME'];
-    
-      } ?>
-   
+      //  if(isset($_SESSION["workerNAME"])){
+      //   echo $_SESSION["workerNAME"];
+      //   echo $_SESSION["NOMBRE"];
+      // }
+      if(isset($_SESSION["NOMBRE"])){
+       // nombre del trabajador 
+        echo $_SESSION["NOMBRE"];
+      }
+
+
+       ?>
+      <!-- <p class="h1" id="nombre-centrados ">Entradas Semanales </p> -->
       <p class="h1" id="nombre-centrados ">Weekly clocking-in registers</p>
       <table class="table table-borderless " id="datos-centrados">
             <?php
@@ -337,7 +383,9 @@
                   <option value="entrance" >Entrance</option>
                   <option value="exit" selected>Exit</option>
                 </select> 
+                <input type="hidden" id="targetWorker" name="targetWorker" value="">
                 <input type="hidden" id="selectedDate" name="selectedDate" value="">
+
               </form>
             </div>
             <div class="modal-footer">
