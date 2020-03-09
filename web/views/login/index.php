@@ -33,15 +33,15 @@
                   
                     <form class="col-12" action="<?php echo constant('URL'); ?>LoginController/login" method="POST">
                         <div class="form-group" id="user-group">
-                            <input type="text" class="from-control" placeholder="Usuario" name = "username"  autofocus required />
+                            <input type="text" class="from-control" placeholder="User ID" name = "username"  autofocus required />
                         </div>
 
                         <div class="form-group" id="contrasena-group">
-                          <input type="password" class="from-control" placeholder="Contraseña" name = "password"  autofocus required/>
+                          <input type="password" class="from-control" placeholder="Password" name = "password"  autofocus required/>
                       </div>
 
 
-                        <button type="submit" class="btn btn-dark"><i class ="fas fa-sign-in-alt "></i>  Entrar </button>
+                        <button type="submit" class="btn btn-dark"><i class ="fas fa-sign-in-alt "></i>  Log in </button>
                     </form>  
                 </div>
             </div>

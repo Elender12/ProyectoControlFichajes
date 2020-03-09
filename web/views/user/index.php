@@ -142,7 +142,7 @@
       
       if(isset($_SESSION["NOMBRE"])){
        // nombre del trabajador 
-        echo " User :".' '. $_SESSION["NOMBRE"] ;
+        echo " Employee :".' '. $_SESSION["NOMBRE"] ;
       }
 
 

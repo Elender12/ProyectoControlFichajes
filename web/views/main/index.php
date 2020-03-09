@@ -65,7 +65,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "User:">
-						<input class="input100" type="text" placeholder="Usuario" name = "worker"  autofocus required />
+						<input class="input100" type="text" placeholder="User ID" name = "worker"  autofocus required />
 						<span class="focus-input100"></span>
 					</div>
 
@@ -73,11 +73,11 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" placeholder="Contraseña" name = "pass"  autofocus required/>
+						<input class="input100" type="password" placeholder="Password" name = "pass"  autofocus required/>
 						<span class="focus-input100"></span>
 					</div>
 					<div class="col text-center">
-					<button type="submit" class="btn btn-outline-primary"><i class ="fas fa-sign-in-alt "></i> Entrar </button>
+					<button type="submit" class="btn btn-outline-primary"><i class ="fas fa-sign-in-alt "></i> Log in </button>
 					</div>		
 					</form>
 				</form>
